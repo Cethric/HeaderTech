@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.17)
+project(HeaderTech_Sandbox)
+
+
+set(CMAKE_CXX_STANDARD 20)
+
+add_executable(HeaderTech_Sandbox src/main.cpp)
+target_link_libraries(HeaderTech_Sandbox PUBLIC HeaderTech_Core)
+target_compile_definitions(HeaderTech_Sandbox PUBLIC -DHEADERTECH_CORE_IMPL=1)
+target_compile_definitions(HeaderTech_Sandbox PUBLIC -DHEADERTECH_EVENTS_IMPL=1)
+target_compile_definitions(HeaderTech_Sandbox PUBLIC -DHEADERTECH_LOGGING_IMPL=1)
+target_compile_definitions(HeaderTech_Sandbox PUBLIC -DHEADERTECH_PROFILER_IMPL=1)

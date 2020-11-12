@@ -1,0 +1,13 @@
+[submodule "ext/glfw"]
+	path = ext/glfw
+	url = https://github.com/glfw/glfw.git
+	branch = master
+[submodule "ext/fmt"]
+	path = ext/fmt
+	url = https://github.com/fmtlib/fmt.git
+[submodule "ext/ctti"]
+	path = ext/ctti
+	url = https://github.com/Manu343726/ctti.git
+[submodule "ext/httplib"]
+	path = ext/httplib
+	url = https://github.com/yhirose/cpp-httplib.git
