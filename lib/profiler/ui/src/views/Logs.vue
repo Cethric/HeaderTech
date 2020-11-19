@@ -13,7 +13,7 @@
     </b-row>
     <b-row>
       <b-col>
-        <b-table-simple hover small striped dark>
+        <b-table-simple dark hover small striped>
           <b-thead>
             <b-tr>
               <b-th>Time</b-th>
@@ -25,8 +25,8 @@
           </b-thead>
           <b-tbody>
             <b-tr
-              v-for="[id, msg] in messages.slice(messages.length - visibleRows)"
-              :key="id"
+                v-for="[id, msg] in messages.slice(messages.length - visibleRows)"
+                :key="id"
             >
               <b-td>{{ formatTime(msg.time) }}</b-td>
               <b-td>{{ msg.thread }}</b-td>
@@ -59,7 +59,7 @@ interface LogMessage {
 @Component({})
 export default class Logs extends Vue {
   private readonly logSource: EventSource = new EventSource(
-    "http://localhost:8080/profiler/logs"
+      "http://localhost:8080/profiler/logs"
   );
   private messages: [string, LogMessage][] = [];
   private readonly logNames: string[] = [
@@ -89,8 +89,8 @@ export default class Logs extends Vue {
 
   private pushMessage(id: string, message: LogMessage) {
     setTimeout(
-      () => this.$nextTick(() => this.messages.push([id, message])),
-      10
+        () => this.$nextTick(() => this.messages.push([id, message])),
+        10
     );
     const MAX_LENGTH = 256;
     if (this.messages.length > MAX_LENGTH) {

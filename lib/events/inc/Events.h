@@ -10,9 +10,11 @@
 #include <EventSubscription.h>
 
 #if defined(HEADERTECH_EVENTS_IMPL) && DEFINE_IMPLEMENTATION == 1
+
 #include <Event.inl>
 #include <EventDispatcher.inl>
 #include <EventSubscription.inl>
+
 #endif
 
 #endif //HEADERTECH_EVENTS_H

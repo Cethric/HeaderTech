@@ -16,9 +16,7 @@ set(
         inc/Runtime.inl
         inc/events/LaunchEvent.h
         inc/Core.h
-        inc/Window.h
-        inc/Window.inl
-        inc/configuration/Configuration.h
+        inc/scoped/ScopedGLFW.h
 )
 
 add_library(HeaderTech_Core STATIC ${HeaderTech_Core_SRC} ${HeaderTech_Core_INC})
@@ -26,4 +24,4 @@ target_include_directories(HeaderTech_Core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/in
 target_include_directories(HeaderTech_Core PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/inc/)
 target_include_directories(HeaderTech_Core PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
 target_link_libraries(HeaderTech_Core PUBLIC glfw)
-target_link_libraries(HeaderTech_Core PUBLIC HeaderTech_Logging HeaderTech_Events HeaderTech_Profiler)
+target_link_libraries(HeaderTech_Core PUBLIC HeaderTech_Logging HeaderTech_Events HeaderTech_Profiler HeaderTech_Config HeaderTech_Scene HeaderTech_Window)

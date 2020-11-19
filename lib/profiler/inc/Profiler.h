@@ -8,6 +8,7 @@
 #include <ProfileDisplayThread.h>
 #include <ProfilerManager.h>
 #include <ScopedProfileMark.h>
+#include <scoped/ScopedProfiler.h>
 
 #if defined(HEADERTECH_PROFILER_IMPL) && DEFINE_IMPLEMENTATION == 1
 

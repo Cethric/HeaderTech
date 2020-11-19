@@ -15,6 +15,7 @@
 namespace HeaderTech::Events {
     using EventId = std::uint64_t;
     using EventPriority = std::uint8_t;
+    const EventPriority MAX_PRIORITY = 0xff;
 
     class Event;
 

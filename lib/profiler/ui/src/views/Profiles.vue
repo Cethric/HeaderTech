@@ -6,7 +6,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-table-simple hover small striped dark>
+      <b-table-simple dark hover small striped>
         <b-thead>
           <b-tr>
             <b-th>Name</b-th>
@@ -40,10 +40,18 @@ interface ProfileMark {
 })
 export default class Profiles extends Vue {
   private readonly profileSource: EventSource = new EventSource(
-    "http://localhost:8080/profiler/marks"
+      "http://localhost:8080/profiler/marks"
   );
 
   private marks: { [name: string]: number } = {};
+
+  private get allMarks(): { name: string; delta: string; index: number }[] {
+    return Object.entries(this.marks).map(([name, delta], index) => ({
+      name,
+      delta: (delta * 1000).toFixed(5),
+      index
+    }));
+  }
 
   public mounted() {
     this.profileSource.onmessage = ev => {
@@ -55,14 +63,6 @@ export default class Profiles extends Vue {
     this.$nextTick(() => {
       this.marks = { ...this.marks, [mark.name]: mark.delta };
     });
-  }
-
-  private get allMarks(): { name: string; delta: string; index: number }[] {
-    return Object.entries(this.marks).map(([name, delta], index) => ({
-      name,
-      delta: (delta * 1000).toFixed(5),
-      index
-    }));
   }
 }
 </script>

@@ -11,11 +11,11 @@
 
 namespace HeaderTech::Profiler {
     inline ProfilerManager::ProfilerManager()
-            : m_serverThread(&ProfilerManager::ProfilerServerThread, this),
-              m_server(),
-              m_log(HeaderTech::Logging::make_logger<ProfilerManager>()),
+            : m_server(),
               m_logDispatcher(),
-              m_profileDispatcher()
+              m_profileDispatcher(),
+              m_log(HeaderTech::Logging::make_logger<ProfilerManager>()),
+              m_serverThread(&ProfilerManager::ProfilerServerThread, this)
     {
         m_log->info("Construct Profiler");
     }
@@ -39,6 +39,7 @@ namespace HeaderTech::Profiler {
 
     inline void ProfilerManager::ProfilerServerThread()
     {
+        m_log->info("Initialising profiler server thread");
 
         m_server.Get("/profiler/logs", [this](const httplib::Request &req, httplib::Response &res) {
             res.set_chunked_content_provider("text/event-stream", [&](size_t offset, httplib::DataSink &sink) {
@@ -65,7 +66,9 @@ namespace HeaderTech::Profiler {
             log->info("Request: {} {}", req.path, res.status);
         });
 
-        m_server.listen("127.0.0.1", 8080, 0);
+        m_log->info("Launching profiler server thread");
+        m_server.listen("localhost", 8080, 0);
+        m_log->info("Stopped profiler server thread");
     }
 }
 

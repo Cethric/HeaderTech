@@ -6,7 +6,6 @@
 #define HEADERTECH_RUNTIME_INL
 
 #include <Runtime.h>
-#include <events/LaunchEvent.h>
 #include <ScopedProfileMark.h>
 
 #include <GLFW/glfw3.h>
@@ -15,40 +14,31 @@
 
 namespace HeaderTech::Core {
 
-    Runtime::Runtime(int argc, const char **argv, const Configuration::RuntimeConfig &config)
-            : m_log(HeaderTech::Logging::make_logger_async<Runtime>()), m_running(false)
+    Runtime::Runtime(const HeaderTech::Config::RuntimeConfig &config)
+            : m_log(HeaderTech::Logging::make_logger_async<Runtime>()),
+              m_running(false),
+              m_window(config.window, this)
     {
         m_log->info("Constructor");
-        Subscribe<HeaderTech::Core::Events::LaunchEvent>(this);
-        Subscribe<HeaderTech::Core::Events::LaunchEvent>([](auto event) {
-            auto log = HeaderTech::Logging::make_logger_async("Runtime2");
-            log->info("Launch Event 2 Called");
-        });
-        if (glfwInit() == GLFW_FALSE) {
-            throw std::exception("Could not initialise GLFW");
-        }
     }
 
     Runtime::~Runtime()
     {
         m_log->info("Destructor");
-        glfwTerminate();
     }
 
-    int Runtime::Launch()
+    int Runtime::Launch(HeaderTech::Scene::SceneManager& sceneManager)
     {
         m_log->info("Launch");
         m_running = true;
-        Dispatch<HeaderTech::Core::Events::LaunchEvent, HeaderTech::Events::EventPriority>(0);
 
         double previous = glfwGetTime();
         double lag = 0.0;
 
         static const double MS_PER_UPDATE = 60. / 1000;
 
-        std::uint16_t counter = 0;
-        while (m_running && (counter++) < 0xffff) {
-            HeaderTech::Profiler::ScopedProfileMark mark("main_loop");
+        while (m_running && m_window.IsOpen()) {
+            HeaderTech::Profiler::ScopedProfileMark loop("main_loop");
             double current = glfwGetTime();
             double elapsed = current - previous;
             previous = current;
@@ -57,26 +47,22 @@ namespace HeaderTech::Core {
             glfwPollEvents();
             ProcessNextEvent();
             while (lag >= MS_PER_UPDATE) {
-                ProcessNextTick();
+                HeaderTech::Profiler::ScopedProfileMark tick("process_tick");
+                sceneManager.ProcessNextTick(MS_PER_UPDATE, lag);
                 lag -= MS_PER_UPDATE;
             }
-            RenderNextFrame(lag / MS_PER_UPDATE);
+            {
+                HeaderTech::Profiler::ScopedProfileMark frame("process_frame");
+                sceneManager.ProcessNextFrame(lag / MS_PER_UPDATE);
+            }
+            m_window.Swap();
         }
         return 0;
     }
 
-    void Runtime::ProcessNextTick()
+    void Runtime::Stop()
     {
-        HeaderTech::Profiler::ScopedProfileMark mark("process_tick");
-        m_log->debug("Process Tick: {}", 60. / 1000);
-        std::this_thread::sleep_for(std::chrono::milliseconds(6));
-    }
-
-    void Runtime::RenderNextFrame(double offset)
-    {
-        HeaderTech::Profiler::ScopedProfileMark mark("process_frame");
-        m_log->debug("Render with offset: {}", offset);
-        std::this_thread::sleep_for(std::chrono::milliseconds(8));
+        m_running = false;
     }
 }
 

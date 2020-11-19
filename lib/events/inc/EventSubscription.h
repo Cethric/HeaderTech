@@ -9,7 +9,7 @@
 
 #include <concepts>
 #include <memory>
-#include <forward_list>
+#include <vector>
 #include <unordered_map>
 
 namespace HeaderTech::Events {
@@ -37,7 +37,7 @@ namespace HeaderTech::Events {
     };
 
     using EventSubscriptionPtr = std::shared_ptr<EventSubscription>;
-    using EventSubscriptionList = std::forward_list<EventSubscriptionPtr>;
+    using EventSubscriptionList = std::vector<EventSubscriptionPtr>;
     using EventSubscriptionMap = std::unordered_map<EventId, EventSubscriptionList>;
 }
 

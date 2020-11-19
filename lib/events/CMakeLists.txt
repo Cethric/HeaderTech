@@ -14,7 +14,11 @@ set(
         inc/Event.h
         inc/EventDispatcher.h
         inc/EventDispatcher.inl
-        inc/Event.inl inc/EventSubscription.h inc/EventSubscription.inl inc/Events.h)
+        inc/Event.inl
+        inc/EventSubscription.h
+        inc/EventSubscription.inl
+        inc/Events.h
+)
 
 add_library(HeaderTech_Events STATIC ${HeaderTech_Events_SRC} ${HeaderTech_Events_INC})
 target_include_directories(HeaderTech_Events PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc/)

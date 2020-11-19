@@ -7,6 +7,7 @@
 
 #include <Logger.h>
 #include <ProfilerSink.h>
+#include <FileSink.h>
 #include <vector>
 
 #ifdef WIN32
@@ -24,7 +25,6 @@
 #endif
 
 #include <spdlog/sinks/basic_file_sink.h>
-#include <spdlog/cfg/env.h>
 #include <spdlog/sinks/dist_sink.h>
 
 #include <ctti/detailed_nameof.hpp>
@@ -33,45 +33,81 @@ namespace HeaderTech::Logging {
     namespace detail {
         using SinkArray = std::vector<spdlog::sink_ptr>;
 
+        struct SinkStruct {
+            SinkArray sinksA;
+            SinkArray sinksB;
+        };
+
+        static SinkStruct *activeSinks = nullptr;
+
+        static inline void create_sinks() noexcept
+        {
+            activeSinks = new SinkStruct{
+                    .sinksA = {
+#ifdef USE_WIN_COLOR
+                            std::make_shared<spdlog::sinks::wincolor_stdout_sink_mt>(),
+#else
+                            std::make_shared<spdlog::sinks::stdout_color_sink_mt>(),
+#endif
+                            std::make_shared<FileSinkMt>("HeaderTechA.log"),
+                            std::make_shared<ProfilerSinkMt>(),
+                    },
+                    .sinksB = {
+#ifdef USE_WIN_COLOR
+                            std::make_shared<spdlog::sinks::wincolor_stdout_sink_mt>(),
+#else
+                            std::make_shared<spdlog::sinks::stdout_color_sink_mt>(),
+#endif
+                            std::make_shared<FileSinkMt>("HeaderTech.log"),
+                    },
+            };
+        }
+
+        static inline void clear_sinks() noexcept
+        {
+            delete activeSinks;
+            activeSinks = nullptr;
+        }
+
+        [[nodiscard]] inline static SinkStruct *get_sinks() noexcept
+        {
+            return activeSinks;
+        }
+
         [[nodiscard]] inline static SinkArray sinks()
         {
-            static SinkArray result{
-#ifdef USE_WIN_COLOR
-                    std::make_shared<spdlog::sinks::wincolor_stdout_sink_mt>(),
-#else
-                    std::make_shared<spdlog::sinks::stdout_color_sink_mt>(),
-#endif
-                    std::make_shared<spdlog::sinks::basic_file_sink_mt>("HeaderTechA.log", true),
-                    std::make_shared<ProfilerSinkMt>(),
-            };
-            return result;
+            return get_sinks()->sinksA;
         }
 
         [[nodiscard]] inline static SinkArray sinks2()
         {
-            static SinkArray result{
-#ifdef USE_WIN_COLOR
-                    std::make_shared<spdlog::sinks::wincolor_stdout_sink_mt>(),
-#else
-                    std::make_shared<spdlog::sinks::stdout_color_sink_mt>(),
-#endif
-                    std::make_shared<spdlog::sinks::basic_file_sink_mt>("HeaderTech.log", true),
-            };
-            return result;
+            return get_sinks()->sinksB;
         }
     }
 
-    void init_logger()
+    static inline void create_sinks() noexcept
     {
-        spdlog::init_thread_pool(8192, 1);
-        spdlog::cfg::load_env_levels();
-        spdlog::set_default_logger(make_logger_async("console"));
+        detail::create_sinks();
+    }
+
+    static inline void clear_sinks() noexcept
+    {
+        detail::clear_sinks();
     }
 
     [[nodiscard]] inline Logger make_logger_async(const std::string &name)
     {
         auto sinks = detail::sinks();
         return spdlog::create_async<spdlog::sinks::dist_sink_mt>(name, sinks);
+    }
+
+    Logger get_or_make_logger_async(const std::string &name)
+    {
+        auto logger = spdlog::get(name);
+        if (logger == nullptr) {
+            return make_logger_async(name);
+        }
+        return logger;
     }
 
     template<typename Name>
@@ -90,8 +126,7 @@ namespace HeaderTech::Logging {
     {
         auto logger = spdlog::get(name);
         if (logger == nullptr) {
-            auto sinks = detail::sinks2();
-            return spdlog::create<spdlog::sinks::dist_sink_mt>(name, sinks);
+            return make_logger(name);
         }
         return logger;
     }

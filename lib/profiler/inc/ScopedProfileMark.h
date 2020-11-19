@@ -5,7 +5,7 @@
 #ifndef HEADERTECH_SCOPEDPROFILEMARK_H
 #define HEADERTECH_SCOPEDPROFILEMARK_H
 
-#include <ProfilerManager.h>
+#include <scoped/ScopedProfiler.h>
 #include <GLFW/glfw3.h>
 #include <string>
 #include <utility>
@@ -23,7 +23,7 @@ namespace HeaderTech::Profiler {
 
         inline void Stop()
         {
-            ProfilerManager::Get().ProfileMark(m_name, glfwGetTime() - m_start);
+            Scoped::ScopedProfiler::GetProfiler()->ProfileMark(m_name, glfwGetTime() - m_start);
         }
 
     private:

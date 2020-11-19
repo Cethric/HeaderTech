@@ -10,30 +10,25 @@
 #include <EventDispatcher.h>
 #include <events/LaunchEvent.h>
 #include <Window.h>
-#include <configuration/Configuration.h>
+#include <Config.h>
+#include <SceneGraph.h>
 
 namespace HeaderTech::Core {
     class Runtime : public HeaderTech::Events::EventDispatcher {
     public:
-        Runtime(int argc, const char **argv, const Configuration::RuntimeConfig &config);
+        Runtime(const HeaderTech::Config::RuntimeConfig &config);
 
         ~Runtime();
 
-        int Launch();
+        int Launch(HeaderTech::Scene::SceneManager& sceneManager);
 
-        void OnEvent(HeaderTech::Core::Events::LaunchEvent *event)
-        { m_log->info("Launch Event Called"); }
-
-    protected:
-        void ProcessNextTick();
-
-        void RenderNextFrame(double offset);
+        void Stop();
 
     protected:
         bool m_running;
         HeaderTech::Logging::Logger m_log;
 
-        Window m_window;
+        HeaderTech::Window::Window m_window;
     };
 }
 

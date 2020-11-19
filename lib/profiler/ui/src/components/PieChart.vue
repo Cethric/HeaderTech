@@ -39,16 +39,16 @@ export default class HelloWorld extends Vue {
     pieSeries.dataFields.category = "name";
   }
 
+  beforeDestroy() {
+    if (this.amChart) {
+      this.amChart.dispose();
+    }
+  }
+
   @Watch("data")
   private watchData(data: Marks[]) {
     if (this.amChart) {
       this.amChart.data = data;
-    }
-  }
-
-  beforeDestroy() {
-    if (this.amChart) {
-      this.amChart.dispose();
     }
   }
 }

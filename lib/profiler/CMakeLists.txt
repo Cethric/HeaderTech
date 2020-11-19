@@ -16,7 +16,14 @@ set(
         inc/ProfileDisplayThread.h
         inc/ProfilerManager.h
         inc/ProfilerManager.inl
-        inc/LogDispatcher.h inc/LogDispatcher.inl inc/Types.h inc/ScopedProfileMark.h inc/ProfileDispatcher.h inc/ProfileDispatcher.inl)
+        inc/LogDispatcher.h
+        inc/LogDispatcher.inl
+        inc/Types.h
+        inc/ScopedProfileMark.h
+        inc/ProfileDispatcher.h
+        inc/ProfileDispatcher.inl
+        inc/scoped/ScopedProfiler.h
+)
 
 add_library(HeaderTech_Profiler STATIC ${HeaderTech_Profiler_SRC} ${HeaderTech_Profiler_INC})
 target_include_directories(HeaderTech_Profiler PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc/)

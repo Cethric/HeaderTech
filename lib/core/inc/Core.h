@@ -8,13 +8,14 @@
 #include <Engine.h>
 #include <Runtime.h>
 
+#include <scoped/ScopedGLFW.h>
+
 #include <events/LaunchEvent.h>
 
 
 #if defined(HEADERTECH_CORE_IMPL) && DEFINE_IMPLEMENTATION == 1
 
 #include <Runtime.inl>
-#include <Window.inl>
 
 #endif
 

@@ -7,10 +7,11 @@
 
 
 namespace HeaderTech::Profiler {
-    ProfilerManager ProfilerManager::c_instance{};
+//    ProfilerManager ProfilerManager::c_instance{};
 
-    ProfilerManager &ProfilerManager::Get()
-    {
-        return ProfilerManager::c_instance;
-    }
+//    ProfilerManager &ProfilerManager::Get()
+//    {
+//        static ProfilerManager instance{};
+//        return instance;
+//    }
 }

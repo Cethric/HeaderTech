@@ -6,8 +6,6 @@
 #define HEADERTECH_PROFILERSINK_H
 
 #include <spdlog/sinks/base_sink.h>
-#include <spdlog/details/console_globals.h>
-#include <ProfilerManager.h>
 #include <mutex>
 
 
@@ -23,9 +21,6 @@ namespace HeaderTech::Logging {
         void sink_it_(const spdlog::details::log_msg &msg) final;
 
         void flush_() final;
-
-    private:
-        HeaderTech::Profiler::ProfilerManager &m_profiler;
     };
 
     using ProfilerSinkMt = ProfilerSink<std::mutex>;

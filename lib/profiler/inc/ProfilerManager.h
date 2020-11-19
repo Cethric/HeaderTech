@@ -16,16 +16,20 @@
 #include <Logging.h>
 
 namespace HeaderTech::Profiler {
+    namespace Scoped {
+        class ScopedProfiler;
+    }
+
     class ProfilerManager {
-    public:
-        static ProfilerManager &Get();
+//    public:
+//        static ProfilerManager &Get();
 
     public:
         inline ~ProfilerManager();
 
-        inline void LogMessage(const Message& message);
+        inline void LogMessage(const Message &message);
 
-        inline void ProfileMark(const std::string& name, const double& delta);
+        inline void ProfileMark(const std::string &name, const double &delta);
 
     private:
         inline void ProfilerServerThread();
@@ -43,7 +47,9 @@ namespace HeaderTech::Profiler {
     private:
         inline ProfilerManager();
 
-        static ProfilerManager c_instance;
+        friend class HeaderTech::Profiler::Scoped::ScopedProfiler;
+
+//        static ProfilerManager c_instance;
     };
 }
 

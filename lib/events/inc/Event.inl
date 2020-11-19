@@ -64,8 +64,8 @@ namespace HeaderTech::Events {
         auto base = new EventClass(std::forward<EventArgs>(args)...);
         m_event = base;
         m_destructor = detail::event_destructor<EventClass>;
-        m_id = EventIdChecker < EventClass > {}(*base);
-        m_priority = EventPriorityChecker < EventClass > {}(*base);
+        m_id = EventIdChecker<EventClass>{}(*base);
+        m_priority = EventPriorityChecker<EventClass>{}(*base);
     }
 }
 

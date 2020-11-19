@@ -1,4 +1,8 @@
+add_subdirectory(config/)
+add_subdirectory(filesystem/)
 add_subdirectory(logging/)
 add_subdirectory(profiler/)
 add_subdirectory(events/)
+add_subdirectory(window/)
 add_subdirectory(core/)
+add_subdirectory(scene/)

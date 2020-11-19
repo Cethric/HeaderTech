@@ -13,9 +13,13 @@
 namespace HeaderTech::Logging {
     using Logger = std::shared_ptr<spdlog::logger>;
 
-    inline void init_logger();
+    static inline void create_sinks() noexcept;
+
+    static inline void clear_sinks() noexcept;
 
     [[nodiscard]] inline Logger make_logger_async(const std::string &name);
+
+    [[nodiscard]] inline Logger get_or_make_logger_async(const std::string &name);
 
     template<typename Name>
     [[nodiscard]] inline Logger make_logger_async();
@@ -23,7 +27,7 @@ namespace HeaderTech::Logging {
 
     [[nodiscard]] inline Logger make_logger(const std::string &name);
 
-    [[nodiscard]] inline Logger get_or_make_logger(const std::string& name);
+    [[nodiscard]] inline Logger get_or_make_logger(const std::string &name);
 
     template<typename Name>
     [[nodiscard]] inline Logger make_logger();
