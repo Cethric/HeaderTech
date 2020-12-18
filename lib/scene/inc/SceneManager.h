@@ -5,46 +5,45 @@
 #ifndef HEADERTECH_SCENEMANAGER_H
 #define HEADERTECH_SCENEMANAGER_H
 
-
 #include <Logging.h>
 #include <thread>
 #include <vector>
-#include <Scene.h>
+#include <SceneGraph.h>
+
+namespace HeaderTech::Core {
+    class Runtime;
+}
 
 namespace HeaderTech::Scene {
-
     class SceneManager {
     public:
-        SceneManager() : m_log(HeaderTech::Logging::make_logger_async<SceneManager>()), m_scenes()
-        {}
+        inline explicit SceneManager(HeaderTech::Core::Runtime *runtime) noexcept;
 
-        inline void PushScene(const ScenePtr &scene) noexcept
-        {
-            m_scenes.push_back(scene);
-        }
+        inline ~SceneManager() noexcept;
 
-        inline void PopScene() noexcept
-        {
-            m_scenes.pop_back();
-        }
+        template<typename RootScene, typename...Args>
+        inline void SetRootScene(Args...args) noexcept;
 
-        void ProcessNextTick(double delta, double lag)
-        {
-            m_log->info("Process Tick: {} ({})", delta, lag);
-            std::this_thread::sleep_for(std::chrono::milliseconds(6));
-            for (auto &scene : m_scenes) scene->Tick(delta);
-        }
+        inline void PushScene();
 
-        void ProcessNextFrame(double offset)
-        {
-            m_log->info("Render with offset: {}", offset);
-            std::this_thread::sleep_for(std::chrono::milliseconds(8));
-            for (auto &scene : m_scenes) scene->Render(offset);
-        }
+        inline void PushScene(SceneGraph *scene);
+
+        inline void PopScene();
+
+        inline void RenderScene(double offset);
+
+        inline void TickScene(double delta, double lag);
+
+    protected:
+        inline void PushNextScene(SceneGraph *scene);
+
+        inline void PopLastScene(SceneGraph *scene);
 
     private:
+        SceneGraph *m_root;
+        SceneGraph *m_active;
         HeaderTech::Logging::Logger m_log;
-        std::vector<ScenePtr> m_scenes;
+        HeaderTech::Core::Runtime *m_runtime;
     };
 }
 

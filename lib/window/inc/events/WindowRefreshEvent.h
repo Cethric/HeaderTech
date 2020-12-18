@@ -11,7 +11,7 @@ namespace HeaderTech::Window::Events {
     struct WindowRefreshEvent {
         [[nodiscard]] inline HeaderTech::Events::EventPriority
         GetPriority() const noexcept// NOLINT(readability-convert-member-functions-to-static)
-        { return HeaderTech::Events::MAX_PRIORITY; }
+        { return HeaderTech::Events::MAX_EVENT_PRIORITY; }
     };
 }
 

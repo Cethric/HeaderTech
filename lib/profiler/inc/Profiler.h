@@ -5,7 +5,6 @@
 #ifndef HEADERTECH_PROFILER_H
 #define HEADERTECH_PROFILER_H
 
-#include <ProfileDisplayThread.h>
 #include <ProfilerManager.h>
 #include <ScopedProfileMark.h>
 #include <scoped/ScopedProfiler.h>

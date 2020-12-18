@@ -5,7 +5,6 @@
 #ifndef HEADERTECH_CORE_H
 #define HEADERTECH_CORE_H
 
-#include <Engine.h>
 #include <Runtime.h>
 
 #include <scoped/ScopedGLFW.h>

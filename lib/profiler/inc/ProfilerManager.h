@@ -21,15 +21,16 @@ namespace HeaderTech::Profiler {
     }
 
     class ProfilerManager {
-//    public:
-//        static ProfilerManager &Get();
-
     public:
         inline ~ProfilerManager();
 
         inline void LogMessage(const Message &message);
 
-        inline void ProfileMark(const std::string &name, const double &delta);
+        inline details::ProfileTimingMark *BeginProfileMark(const std::string &name);
+
+        inline void EndProfileMark(const details::ProfileTimingMark& mark);
+
+        inline void Flush();
 
     private:
         inline void ProfilerServerThread();
@@ -48,8 +49,6 @@ namespace HeaderTech::Profiler {
         inline ProfilerManager();
 
         friend class HeaderTech::Profiler::Scoped::ScopedProfiler;
-
-//        static ProfilerManager c_instance;
     };
 }
 

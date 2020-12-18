@@ -7,13 +7,11 @@ set(CMAKE_CXX_STANDARD 20)
 set(
         HeaderTech_Profiler_SRC
         src/ProfileDisplayThread.cpp
-        src/ProfilerManager.cpp
 )
 
 set(
         HeaderTech_Profiler_INC
         inc/Profiler.h
-        inc/ProfileDisplayThread.h
         inc/ProfilerManager.h
         inc/ProfilerManager.inl
         inc/LogDispatcher.h

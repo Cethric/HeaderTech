@@ -2,24 +2,11 @@
   <b-container class="profiles">
     <b-row>
       <b-col cols="12">
-        <PieChart :data="allMarks" />
+        <MultilevelTreeMap :data="history" />
       </b-col>
     </b-row>
     <b-row>
-      <b-table-simple dark hover small striped>
-        <b-thead>
-          <b-tr>
-            <b-th>Name</b-th>
-            <b-th>Delta (ms)</b-th>
-          </b-tr>
-        </b-thead>
-        <b-tbody>
-          <b-tr v-for="mark in allMarks" :key="mark.index">
-            <b-td>{{ mark.name }}</b-td>
-            <b-td>{{ mark.delta }}</b-td>
-          </b-tr>
-        </b-tbody>
-      </b-table-simple>
+      <!--      <TimingMarksTable :marks="history" />-->
     </b-row>
   </b-container>
 </template>
@@ -28,40 +15,72 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import PieChart from "@/components/PieChart.vue";
-
-interface ProfileMark {
-  name: string;
-  delta: number;
-}
+import TimingMarksTable from "@/components/profiles/TimingMarksTable.vue";
+import { ProfileMark } from "@/components/profiles/types";
+import MultilevelTreeMap from "@/components/profiles/MultilevelTreeMap.vue";
 
 @Component({
-  components: { PieChart }
+  components: { MultilevelTreeMap, TimingMarksTable }
 })
 export default class Profiles extends Vue {
-  private readonly profileSource: EventSource = new EventSource(
-      "http://localhost:8080/profiler/marks"
-  );
+  private readonly profileSource: EventSource = new EventSource("http://localhost:8080/profiler/marks");
 
-  private marks: { [name: string]: number } = {};
+  private marks: ProfileMark[] = [];
+  private history: ProfileMark = {
+    name: "example",
+    delta: 1.0,
+    children: [
+      {
+        name: "example 1",
+        delta: 0.25,
+        children: [],
+      },
+      {
+        name: "example 2",
+        delta: 0.25,
+        children: [],
+      },
+      {
+        name: "example 3",
+        delta: 0.25,
+        children: [],
+      },
+      {
+        name: "example 4",
+        delta: 0.25,
+        children: [],
+      },
+    ],
+  };
 
-  private get allMarks(): { name: string; delta: string; index: number }[] {
-    return Object.entries(this.marks).map(([name, delta], index) => ({
-      name,
-      delta: (delta * 1000).toFixed(5),
-      index
-    }));
+  // private get allMarks(): ProfileMarkDelta[] {
+  //   return Object.entries(this.marks).map(([name, delta], index) => ({
+  //     name,
+  //     delta: (delta * 1000).toFixed(5),
+  //     index,
+  //   }));
+  // }
+  private interval: number;
+
+  public mounted(): void {
+    this.profileSource.onmessage = (ev) => this.pushMessage(ev.lastEventId, JSON.parse(ev.data));
+    this.interval = setInterval(this.pushHistory, 10000);
   }
 
-  public mounted() {
-    this.profileSource.onmessage = ev => {
-      this.pushMessage(ev.lastEventId, JSON.parse(ev.data));
-    };
+  public beforeDestroy(): void {
+    clearInterval(this.interval);
   }
 
-  private pushMessage(_: string, mark: ProfileMark) {
+  private pushMessage(_: string, mark: ProfileMark): void {
+    this.marks.push(mark);
+  }
+
+  private pushHistory(): void {
     this.$nextTick(() => {
-      this.marks = { ...this.marks, [mark.name]: mark.delta };
+      const result = this.marks.pop();
+      if (result) {
+        this.history = result;
+      }
     });
   }
 }

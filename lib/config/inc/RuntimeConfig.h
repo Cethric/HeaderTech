@@ -6,10 +6,22 @@
 #define HEADERTECH_RUNTIMECONFIG_H
 
 namespace HeaderTech::Config {
+    enum RenderConfigApi {
+        RenderConfigApi_OpenGL,
+        RenderConfigApi_Vulkan,
+        RenderConfigApi_Metal,
+        RenderConfigApi_Direct3D,
+    };
+
+    struct RenderConfig {
+        RenderConfigApi api;
+    };
+
     struct WindowConfig {
         int width;
         int height;
         const char *title;
+        RenderConfig render;
     };
 
     struct RuntimeConfig {
@@ -22,7 +34,10 @@ namespace HeaderTech::Config {
                 .window = {
                         .width = 800,
                         .height = 600,
-                        .title = "Sandbox"
+                        .title = "Sandbox",
+                        .render = {
+                                .api = RenderConfigApi_OpenGL,
+                        }
                 }
         };
     }

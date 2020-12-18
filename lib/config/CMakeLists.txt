@@ -12,7 +12,8 @@ set(
 set(
         HeaderTech_Config_INC
         inc/Config.h
-        inc/RuntimeConfig.h)
+        inc/RuntimeConfig.h
+)
 
 add_library(HeaderTech_Config STATIC ${HeaderTech_Config_SRC} ${HeaderTech_Config_INC})
 target_include_directories(HeaderTech_Config PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc/)

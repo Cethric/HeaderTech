@@ -13,7 +13,7 @@
     </b-row>
     <b-row>
       <b-col>
-        <b-table-simple dark hover small striped>
+        <b-table-simple hover small striped>
           <b-thead>
             <b-tr>
               <b-th>Time</b-th>
@@ -24,10 +24,7 @@
             </b-tr>
           </b-thead>
           <b-tbody>
-            <b-tr
-                v-for="[id, msg] in messages.slice(messages.length - visibleRows)"
-                :key="id"
-            >
+            <b-tr v-for="[id, msg] in messages.slice(messages.length - visibleRows)" :key="id">
               <b-td>{{ formatTime(msg.time) }}</b-td>
               <b-td>{{ msg.thread }}</b-td>
               <b-td>{{ logName(msg.level) }}</b-td>
@@ -41,9 +38,7 @@
   </b-container>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
@@ -58,22 +53,13 @@ interface LogMessage {
 
 @Component({})
 export default class Logs extends Vue {
-  private readonly logSource: EventSource = new EventSource(
-      "http://localhost:8080/profiler/logs"
-  );
+  private readonly logSource: EventSource = new EventSource("http://localhost:8080/profiler/logs");
   private messages: [string, LogMessage][] = [];
-  private readonly logNames: string[] = [
-    "Trace",
-    "Debug",
-    "Information",
-    "Warning",
-    "Error",
-    "Critical"
-  ];
+  private readonly logNames: string[] = ["Trace", "Debug", "Information", "Warning", "Error", "Critical"];
   private visibleRows = 10;
 
   public mounted() {
-    this.logSource.onmessage = ev => {
+    this.logSource.onmessage = (ev) => {
       this.pushMessage(ev.lastEventId, JSON.parse(ev.data));
     };
   }
@@ -88,10 +74,7 @@ export default class Logs extends Vue {
   }
 
   private pushMessage(id: string, message: LogMessage) {
-    setTimeout(
-        () => this.$nextTick(() => this.messages.push([id, message])),
-        10
-    );
+    setTimeout(() => this.$nextTick(() => this.messages.push([id, message])), 10);
     const MAX_LENGTH = 256;
     if (this.messages.length > MAX_LENGTH) {
       this.messages = this.messages.slice(this.messages.length - MAX_LENGTH);

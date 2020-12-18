@@ -18,7 +18,7 @@ namespace HeaderTech::Window::Events {
 
         [[nodiscard]] inline HeaderTech::Events::EventPriority
         GetPriority() const noexcept// NOLINT(readability-convert-member-functions-to-static)
-        { return HeaderTech::Events::MAX_PRIORITY; }
+        { return HeaderTech::Events::MAX_EVENT_PRIORITY; }
 
         double posX;
         double posY;

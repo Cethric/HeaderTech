@@ -5,35 +5,38 @@
 #ifndef HEADERTECH_WINDOW_H
 #define HEADERTECH_WINDOW_H
 
-#define GLFW_INCLUDE_NONE 1
-
-#include <GLFW/glfw3.h>
-#include <EventDispatcher.h>
 #include <Config.h>
-#include <Logging.h>
+#include <Render.h>
+#include <Events.h>
+#include <api/WindowApi.h>
 
 namespace HeaderTech::Window {
     class Window {
     public:
-        explicit Window(
+        inline explicit Window(
                 const HeaderTech::Config::WindowConfig &config,
                 HeaderTech::Events::EventDispatcher *dispatcher
         ) noexcept;
 
-        ~Window() noexcept;
+        inline ~Window() noexcept;
 
-        bool IsOpen() noexcept;
+        inline bool IsOpen() noexcept;
 
-        void Swap() noexcept;
+        inline void Swap() noexcept;
+
+        [[nodiscard]] inline HeaderTech::Render::RenderContext *GetRenderContext() const noexcept;
 
     protected:
-        void LinkEvents() noexcept;
-
-    protected:
-        HeaderTech::Logging::Logger m_log;
-        GLFWwindow *m_window;
-        HeaderTech::Events::EventDispatcher *m_dispatcher;
+        HeaderTech::Window::Api::WindowApi *m_api;
+        HeaderTech::Render::RenderContext *m_context;
     };
 }
+
+
+#if defined(HEADERTECH_WINDOW_IMPL) && DEFINE_IMPLEMENTATION == 1
+
+#include <Window.inl>
+
+#endif
 
 #endif //HEADERTECH_WINDOW_H

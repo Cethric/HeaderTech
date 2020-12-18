@@ -11,25 +11,58 @@
 #include <utility>
 
 namespace HeaderTech::Profiler {
-    class ScopedProfileMark final {
+//    class ScopedProfileMark final {
+//    public:
+//        inline explicit ScopedProfileMark(const std::string &name)
+//                : m_start(glfwGetTime()),
+//                  m_profiler(Scoped::ScopedProfiler::GetProfiler()),
+//                  m_mark(Scoped::ScopedProfiler::GetProfiler()->BeginProfileMark(name))
+//        {}
+//
+//        inline ~ScopedProfileMark()
+//        { Stop(); }
+//
+//        inline void Stop()
+//        {
+//            m_mark->Finish(glfwGetTime() - m_start);
+//            m_profiler->EndProfileMark(*m_mark);
+//        }
+//
+//    private:
+//        double m_start;
+//        ProfilerManager *m_profiler;
+//        details::ProfileTimingMark *m_mark;
+//    };
+    enum ScopedProfilerFlags : std::uint8_t {
+        ScopedProfilerFlags_None = 0,
+    };
+
+    class ScopedCpuProfiler final {
     public:
-        inline explicit ScopedProfileMark(std::string name) : m_name(std::move(name)), m_start(glfwGetTime())
-        {}
-
-        inline ~ScopedProfileMark()
+        ScopedCpuProfiler(
+                const char *name,
+                const char *function,
+                const char *line,
+                const char *file,
+                std::uint8_t flags = ScopedProfilerFlags_None
+        )
         {
-            Stop();
+            HeaderTech::Profiler::Scoped::ScopedProfiler::GetProfiler()->BeginCpuProfile(
+                    name,
+                    function,
+                    line,
+                    file,
+                    flags
+            );
         }
 
-        inline void Stop()
+        ~ScopedCpuProfiler()
         {
-            Scoped::ScopedProfiler::GetProfiler()->ProfileMark(m_name, glfwGetTime() - m_start);
+            HeaderTech::Profiler::Scoped::ScopedProfiler::GetProfiler()->EndCpuProfile();
         }
-
-    private:
-        std::string m_name;
-        double m_start;
     };
 }
+
+#define ProfileCpuScoped(name, flags) HeaderTech::Profiler::ScopedCpuProfiler(name, __FUNCTION__, __LINE__, __FILE__, flags)
 
 #endif //HEADERTECH_SCOPEDPROFILEMARK_H

@@ -1,0 +1,41 @@
+//
+// Created by rogan2 on 20/11/2020.
+//
+
+#ifndef HEADERTECH_OPENGLWINDOWAPI_H
+#define HEADERTECH_OPENGLWINDOWAPI_H
+
+#define GLFW_INCLUDE_NONE 1
+
+#include <GLFW/glfw3.h>
+
+#include <api/WindowApi.h>
+#include <api/opengl/OpenGLWindowApi.h>
+
+namespace HeaderTech::Window::Api::OpenGL {
+    class OpenGLWindowApi final : public HeaderTech::Window::Api::WindowApi {
+    public:
+        inline OpenGLWindowApi(
+                const HeaderTech::Config::WindowConfig &config, HeaderTech::Events::EventDispatcher *dispatcher,
+                GLFWwindow *shared = nullptr
+        ) noexcept;
+
+        inline ~OpenGLWindowApi() noexcept final;
+
+        inline bool IsOpen() noexcept final;
+
+        inline void SwapBuffers() noexcept final;
+
+        inline void MakeCurrent() noexcept final;
+
+        inline GLFWwindow *GetOwnedWindow() const noexcept;
+
+    protected:
+        inline void LinkEvents();
+
+    protected:
+        GLFWwindow *m_window;
+    };
+}
+
+#endif //HEADERTECH_OPENGLWINDOWAPI_H

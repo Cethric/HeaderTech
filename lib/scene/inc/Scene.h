@@ -5,19 +5,15 @@
 #ifndef HEADERTECH_SCENE_H
 #define HEADERTECH_SCENE_H
 
-#include <memory>
+#include <SceneManager.h>
+#include <SceneGraph.h>
 
-namespace HeaderTech::Scene {
-    class Scene {
-    public:
-        virtual void Tick(double delta)
-        {}
+#include <ecs/ECS.h>
 
-        virtual void Render(double offset)
-        {}
-    };
+#if defined(HEADERTECH_SCENE_IMPL) && DEFINE_IMPLEMENTATION == 1
 
-    using ScenePtr = std::shared_ptr<Scene>;
-}
+#include <SceneGraph.inl>
+#include <SceneManager.inl>
 
+#endif
 #endif //HEADERTECH_SCENE_H

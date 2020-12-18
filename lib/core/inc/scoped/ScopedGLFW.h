@@ -13,7 +13,7 @@ namespace HeaderTech::Core::Scoped {
     static inline void glfw_error_callback(int code, const char *description)
     {
         auto log = HeaderTech::Logging::get_or_make_logger_async("GLFW");
-        log->error("({}) {}", code, description);
+        SPDLOG_LOGGER_ERROR(log, "({}) {}", code, description);
     }
 
 
@@ -23,17 +23,16 @@ namespace HeaderTech::Core::Scoped {
         {
             glfwSetErrorCallback(&glfw_error_callback);
             if (glfwInit() == GLFW_FALSE) {
-                m_log->error("GLFW Failed to Initialised");
+                SPDLOG_LOGGER_ERROR(m_log, "GLFW Failed to Initialised");
                 throw std::exception("Failed to Initialise GLFW");
             }
-            m_log->info("GLFW Initialised");
+            SPDLOG_LOGGER_INFO(m_log, "GLFW Initialised");
         }
 
         inline ~ScopedGlfw() noexcept
         {
             glfwTerminate();
-
-            m_log->info("GLFW Terminated");
+            SPDLOG_LOGGER_INFO(m_log, "GLFW Terminated");
         }
 
     private:

@@ -45,11 +45,10 @@ namespace HeaderTech::Events {
         constexpr auto id = EventIdChecker<EventClass>{}();
         const auto search = m_subscriptions.find(id);
         if (search == m_subscriptions.cend()) {
-            EventSubscriptionList list;
-            list.emplace_front(subscription);
+            EventSubscriptionList list{subscription};
             m_subscriptions[id] = list;
         } else {
-            search->second.push_front(subscription);
+            search->second.push_back(subscription);
         }
         return subscription;
     }

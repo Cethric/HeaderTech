@@ -11,18 +11,21 @@
 #include <events/LaunchEvent.h>
 #include <Window.h>
 #include <Config.h>
-#include <SceneGraph.h>
+#include <Scene.h>
 
 namespace HeaderTech::Core {
     class Runtime : public HeaderTech::Events::EventDispatcher {
     public:
-        Runtime(const HeaderTech::Config::RuntimeConfig &config);
+        explicit Runtime(const HeaderTech::Config::RuntimeConfig &config);
 
         ~Runtime();
 
-        int Launch(HeaderTech::Scene::SceneManager& sceneManager);
+        int Launch(HeaderTech::Scene::SceneManager &sceneManager);
 
         void Stop();
+
+        [[nodiscard]] inline HeaderTech::Window::Window &GetWindow()
+        { return m_window; }
 
     protected:
         bool m_running;

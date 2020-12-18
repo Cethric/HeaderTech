@@ -19,23 +19,25 @@ namespace HeaderTech::Core {
               m_running(false),
               m_window(config.window, this)
     {
-        m_log->info("Constructor");
+        SPDLOG_LOGGER_DEBUG(m_log, "Constructor");
     }
 
     Runtime::~Runtime()
     {
-        m_log->info("Destructor");
+        SPDLOG_LOGGER_DEBUG(m_log, "Destructor");
     }
 
-    int Runtime::Launch(HeaderTech::Scene::SceneManager& sceneManager)
+    int Runtime::Launch(HeaderTech::Scene::SceneManager &sceneManager)
     {
-        m_log->info("Launch");
+        SPDLOG_LOGGER_INFO(m_log, "Launch");
         m_running = true;
 
         double previous = glfwGetTime();
         double lag = 0.0;
 
         static const double MS_PER_UPDATE = 60. / 1000;
+
+        auto profiler = HeaderTech::Profiler::Scoped::ScopedProfiler::GetProfiler();
 
         while (m_running && m_window.IsOpen()) {
             HeaderTech::Profiler::ScopedProfileMark loop("main_loop");
@@ -46,16 +48,20 @@ namespace HeaderTech::Core {
 
             glfwPollEvents();
             ProcessNextEvent();
-            while (lag >= MS_PER_UPDATE) {
-                HeaderTech::Profiler::ScopedProfileMark tick("process_tick");
-                sceneManager.ProcessNextTick(MS_PER_UPDATE, lag);
-                lag -= MS_PER_UPDATE;
+            {
+                HeaderTech::Profiler::ScopedProfileMark update("update_frame");
+                while (lag >= MS_PER_UPDATE) {
+                    HeaderTech::Profiler::ScopedProfileMark tick("process_tick");
+                    sceneManager.TickScene(MS_PER_UPDATE, lag);
+                    lag -= MS_PER_UPDATE;
+                }
             }
             {
                 HeaderTech::Profiler::ScopedProfileMark frame("process_frame");
-                sceneManager.ProcessNextFrame(lag / MS_PER_UPDATE);
+                sceneManager.RenderScene(lag / MS_PER_UPDATE);
             }
             m_window.Swap();
+            profiler->Flush();
         }
         return 0;
     }

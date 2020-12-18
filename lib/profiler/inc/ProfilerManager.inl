@@ -7,6 +7,7 @@
 
 #include <ProfilerManager.h>
 #include <Logger.inl>
+#include <ProfileDispatcher.inl>
 
 
 namespace HeaderTech::Profiler {
@@ -17,14 +18,14 @@ namespace HeaderTech::Profiler {
               m_log(HeaderTech::Logging::make_logger<ProfilerManager>()),
               m_serverThread(&ProfilerManager::ProfilerServerThread, this)
     {
-        m_log->info("Construct Profiler");
+        SPDLOG_LOGGER_DEBUG(m_log, "Construct Profiler");
     }
 
     inline ProfilerManager::~ProfilerManager()
     {
         m_server.stop();
         m_serverThread.join();
-        m_log->info("Destruct Profiler");
+        SPDLOG_LOGGER_DEBUG(m_log, "Destruct Profiler");
     }
 
     inline void ProfilerManager::LogMessage(const Message &message)
@@ -32,14 +33,20 @@ namespace HeaderTech::Profiler {
         m_logDispatcher.PushMessage(message);
     }
 
-    void ProfilerManager::ProfileMark(const std::string &name, const double &delta)
+    inline details::ProfileTimingMark *ProfilerManager::BeginProfileMark(const std::string &name)
+    { return m_profileDispatcher.BeginProfileMark(name); }
+
+    void ProfilerManager::EndProfileMark(const details::ProfileTimingMark &mark)
+    { m_profileDispatcher.EndProfileMark(mark); }
+
+    inline void ProfilerManager::Flush()
     {
-        m_profileDispatcher.PushProfile(name, delta);
+
     }
 
     inline void ProfilerManager::ProfilerServerThread()
     {
-        m_log->info("Initialising profiler server thread");
+        SPDLOG_LOGGER_INFO(m_log, "Initialising profiler server thread");
 
         m_server.Get("/profiler/logs", [this](const httplib::Request &req, httplib::Response &res) {
             res.set_chunked_content_provider("text/event-stream", [&](size_t offset, httplib::DataSink &sink) {
@@ -63,12 +70,12 @@ namespace HeaderTech::Profiler {
         });
         m_server.set_logger([](const httplib::Request &req, const httplib::Response &res) {
             auto log = HeaderTech::Logging::get_or_make_logger("ProfilerServer");
-            log->info("Request: {} {}", req.path, res.status);
+            SPDLOG_LOGGER_INFO(log, "Request: {} {}", req.path, res.status);
         });
 
-        m_log->info("Launching profiler server thread");
+        SPDLOG_LOGGER_INFO(m_log, "Launching profiler server thread");
         m_server.listen("localhost", 8080, 0);
-        m_log->info("Stopped profiler server thread");
+        SPDLOG_LOGGER_INFO(m_log, "Stopped profiler server thread");
     }
 }
 

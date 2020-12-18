@@ -11,3 +11,14 @@
 [submodule "ext/httplib"]
 	path = ext/httplib
 	url = https://github.com/yhirose/cpp-httplib.git
+[submodule "ext/glad"]
+	path = ext/glad
+	url = https://github.com/Dav1dde/glad.git
+	branch = glad2
+[submodule "ext/imgui"]
+	path = ext/imgui
+	url = https://github.com/ocornut/imgui.git
+	branch = docking
+[submodule "ext/hashmap"]
+	path = ext/hashmap
+	url = https://github.com/greg7mdp/parallel-hashmap.git

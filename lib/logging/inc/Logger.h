@@ -24,6 +24,8 @@ namespace HeaderTech::Logging {
     template<typename Name>
     [[nodiscard]] inline Logger make_logger_async();
 
+    template<typename Name>
+    [[nodiscard]] inline Logger get_or_make_logger_async();
 
     [[nodiscard]] inline Logger make_logger(const std::string &name);
 
@@ -31,6 +33,9 @@ namespace HeaderTech::Logging {
 
     template<typename Name>
     [[nodiscard]] inline Logger make_logger();
+
+    template<typename Name>
+    [[nodiscard]] inline Logger get_or_make_logger();
 }
 
 #endif //HEADERTECH_LOGGER_H

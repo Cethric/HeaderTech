@@ -111,6 +111,12 @@ namespace HeaderTech::Logging {
     }
 
     template<typename Name>
+    [[nodiscard]] inline Logger Logging::get_or_make_logger_async()
+    {
+        return get_or_make_logger_async(ctti::detailed_nameof<Name>().name().str());
+    }
+
+    template<typename Name>
     [[nodiscard]] inline Logger Logging::make_logger_async()
     {
         return make_logger_async(ctti::detailed_nameof<Name>().name().str());
@@ -129,6 +135,12 @@ namespace HeaderTech::Logging {
             return make_logger(name);
         }
         return logger;
+    }
+
+    template<typename Name>
+    Logger get_or_make_logger()
+    {
+        return get_or_make_logger(ctti::detailed_nameof<Name>().name().str());
     }
 
     template<typename Name>
