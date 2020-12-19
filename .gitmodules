@@ -22,3 +22,6 @@
 [submodule "ext/hashmap"]
 	path = ext/hashmap
 	url = https://github.com/greg7mdp/parallel-hashmap.git
+[submodule "ext/json"]
+	path = ext/json
+	url = https://github.com/nlohmann/json.git

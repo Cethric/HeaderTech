@@ -21,14 +21,16 @@ set(
         inc/ProfileDispatcher.h
         inc/ProfileDispatcher.inl
         inc/scoped/ScopedProfiler.h
+        inc/ProfilerTypes.h
 )
 
 add_library(HeaderTech_Profiler STATIC ${HeaderTech_Profiler_SRC} ${HeaderTech_Profiler_INC})
 target_include_directories(HeaderTech_Profiler PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc/)
 target_include_directories(HeaderTech_Profiler PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/inc/)
 target_include_directories(HeaderTech_Profiler PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
-target_link_libraries(HeaderTech_Profiler PUBLIC httplib::httplib glfw)
+target_link_libraries(HeaderTech_Profiler PUBLIC httplib::httplib glfw json::json)
 target_link_libraries(HeaderTech_Profiler PUBLIC HeaderTech_Logging)
+target_include_directories(HeaderTech_Profiler PUBLIC ${CMAKE_SOURCE_DIR}/ext/hashmap/parallel_hashmap)
 
 
 add_custom_target(

@@ -9,40 +9,18 @@
 #include <atomic>
 #include <mutex>
 #include <condition_variable>
-#include <deque>
+#include <ProfilerTypes.h>
 
 namespace HeaderTech::Profiler {
-    namespace details {
-        class ProfileTimingMark {
-        public:
-            inline ProfileTimingMark(std::string name) noexcept;
-
-            inline void RegisterChild(ProfileTimingMark *mark) noexcept;
-
-            inline void Finish(double delta) noexcept;
-
-            inline std::string Write() const noexcept;
-
-            inline bool operator==(const ProfileTimingMark &other) noexcept;
-
-        private:
-            std::string m_name;
-            double m_delta;
-            std::vector<ProfileTimingMark *> m_children;
-        };
-    }
-
     class ProfileDispatcher {
     public:
         ProfileDispatcher();
 
-        ~ProfileDispatcher();
+        ~ProfileDispatcher() = default;
 
         void WaitForEvent(httplib::DataSink *sink);
 
-        inline details::ProfileTimingMark *BeginProfileMark(const std::string &name);
-
-        inline void EndProfileMark(const details::ProfileTimingMark &mark);
+        inline void ProcessCpuProfiles(const Types::CpuProfileMap &profiles) noexcept;
 
     private:
         std::mutex m_mutex;
@@ -51,9 +29,6 @@ namespace HeaderTech::Profiler {
         std::atomic_int m_nextId;
         std::atomic_int m_currentId;
         std::string m_message;
-
-        std::deque<details::ProfileTimingMark *> m_timingMarks;
     };
 }
-
 #endif //HEADERTECH_PROFILEDISPATCHER_H

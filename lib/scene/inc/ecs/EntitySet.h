@@ -97,6 +97,10 @@ namespace HeaderTech::Scene::ECS {
 
         [[nodiscard]] inline std::vector<ComponentType *> &All() noexcept;
 
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable : 4068)
+#endif
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "HidingNonVirtualFunction"
 
@@ -113,6 +117,9 @@ namespace HeaderTech::Scene::ECS {
         [[nodiscard]] inline details::EntitySetIterator<ComponentType> end() noexcept;
 
 #pragma clang diagnostic pop
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 
     private:
         HeaderTech::Logging::Logger m_log;

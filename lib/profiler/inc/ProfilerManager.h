@@ -14,6 +14,7 @@
 #include <ProfileDispatcher.h>
 
 #include <Logging.h>
+#include <ProfilerTypes.h>
 
 namespace HeaderTech::Profiler {
     namespace Scoped {
@@ -25,10 +26,6 @@ namespace HeaderTech::Profiler {
         inline ~ProfilerManager();
 
         inline void LogMessage(const Message &message);
-
-        inline details::ProfileTimingMark *BeginProfileMark(const std::string &name);
-
-        inline void EndProfileMark(const details::ProfileTimingMark& mark);
 
         inline void Flush();
 
@@ -49,6 +46,23 @@ namespace HeaderTech::Profiler {
         inline ProfilerManager();
 
         friend class HeaderTech::Profiler::Scoped::ScopedProfiler;
+
+    private:
+        friend class ScopedCpuProfiler;
+
+        inline void BeginCpuProfile(
+                const char *name,
+                std::uint64_t hash,
+                const char *function,
+                const char *file,
+                int line,
+                Types::ScopedProfilerFlags flags
+        ) noexcept;
+
+        inline void EndCpuProfile() noexcept;
+
+        Types::CpuProfileMap m_cpuProfiles;
+        Types::CpuProfileHashQueue m_currentCpuProfile;
     };
 }
 

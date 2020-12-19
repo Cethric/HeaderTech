@@ -18,7 +18,7 @@ namespace HeaderTech::Events {
     template<EventType EventClass, typename... Args>
     inline void EventDispatcher::Dispatch(Args... args) noexcept
     {
-        HeaderTech::Profiler::ScopedProfileMark mark("event_dispatcher");
+        ProfileCpuScoped(event_dispatcher);
         std::lock_guard<std::mutex> lock(m_eventMutex);
 
         auto event = Event::MakeEvent<EventClass, Args...>(std::forward<Args>(args)...);
@@ -27,7 +27,7 @@ namespace HeaderTech::Events {
 
     inline void EventDispatcher::ProcessNextEvent() noexcept
     {
-        HeaderTech::Profiler::ScopedProfileMark mark("next_event_processor");
+        ProfileCpuScoped(next_event_processor);
         if (!m_eventQueue.empty() && m_eventMutex.try_lock()) {
             const EventPtr event = m_eventQueue.top();
             m_eventQueue.pop();
@@ -78,7 +78,7 @@ namespace HeaderTech::Events {
 
     inline void EventDispatcher::ProcessEvent(const EventPtr &event) noexcept
     {
-        HeaderTech::Profiler::ScopedProfileMark mark("event_processor");
+        ProfileCpuScoped(event_processor);
         std::lock_guard<std::mutex> lock(m_subscriptionMutex);
 
         const auto subscriptions = m_subscriptions.find(event->GetId());

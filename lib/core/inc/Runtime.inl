@@ -40,27 +40,29 @@ namespace HeaderTech::Core {
         auto profiler = HeaderTech::Profiler::Scoped::ScopedProfiler::GetProfiler();
 
         while (m_running && m_window.IsOpen()) {
-            HeaderTech::Profiler::ScopedProfileMark loop("main_loop");
-            double current = glfwGetTime();
-            double elapsed = current - previous;
-            previous = current;
-            lag += elapsed;
+            {
+                ProfileCpuScoped(main_loop);
+                double current = glfwGetTime();
+                double elapsed = current - previous;
+                previous = current;
+                lag += elapsed;
 
-            glfwPollEvents();
-            ProcessNextEvent();
-            {
-                HeaderTech::Profiler::ScopedProfileMark update("update_frame");
-                while (lag >= MS_PER_UPDATE) {
-                    HeaderTech::Profiler::ScopedProfileMark tick("process_tick");
-                    sceneManager.TickScene(MS_PER_UPDATE, lag);
-                    lag -= MS_PER_UPDATE;
+                glfwPollEvents();
+                ProcessNextEvent();
+                {
+                    ProfileCpuScoped(update_frame);
+                    while (lag >= MS_PER_UPDATE) {
+                        ProfileCpuScopedFlags(process_tick, HeaderTech::Profiler::Types::ScopedProfilerFlags_Recursive);
+                        sceneManager.TickScene(MS_PER_UPDATE, lag);
+                        lag -= MS_PER_UPDATE;
+                    }
                 }
+                {
+                    ProfileCpuScoped(process_frame);
+                    sceneManager.RenderScene(lag / MS_PER_UPDATE);
+                }
+                m_window.Swap();
             }
-            {
-                HeaderTech::Profiler::ScopedProfileMark frame("process_frame");
-                sceneManager.RenderScene(lag / MS_PER_UPDATE);
-            }
-            m_window.Swap();
             profiler->Flush();
         }
         return 0;

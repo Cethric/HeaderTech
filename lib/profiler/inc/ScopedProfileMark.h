@@ -6,63 +6,40 @@
 #define HEADERTECH_SCOPEDPROFILEMARK_H
 
 #include <scoped/ScopedProfiler.h>
+#include <ProfilerTypes.h>
 #include <GLFW/glfw3.h>
 #include <string>
 #include <utility>
+#include <ctti/type_id.hpp>
 
 namespace HeaderTech::Profiler {
-//    class ScopedProfileMark final {
-//    public:
-//        inline explicit ScopedProfileMark(const std::string &name)
-//                : m_start(glfwGetTime()),
-//                  m_profiler(Scoped::ScopedProfiler::GetProfiler()),
-//                  m_mark(Scoped::ScopedProfiler::GetProfiler()->BeginProfileMark(name))
-//        {}
-//
-//        inline ~ScopedProfileMark()
-//        { Stop(); }
-//
-//        inline void Stop()
-//        {
-//            m_mark->Finish(glfwGetTime() - m_start);
-//            m_profiler->EndProfileMark(*m_mark);
-//        }
-//
-//    private:
-//        double m_start;
-//        ProfilerManager *m_profiler;
-//        details::ProfileTimingMark *m_mark;
-//    };
-    enum ScopedProfilerFlags : std::uint8_t {
-        ScopedProfilerFlags_None = 0,
-    };
-
     class ScopedCpuProfiler final {
     public:
-        ScopedCpuProfiler(
+        inline ScopedCpuProfiler(
                 const char *name,
+                std::uint64_t hash,
                 const char *function,
-                const char *line,
                 const char *file,
-                std::uint8_t flags = ScopedProfilerFlags_None
-        )
-        {
-            HeaderTech::Profiler::Scoped::ScopedProfiler::GetProfiler()->BeginCpuProfile(
-                    name,
-                    function,
-                    line,
-                    file,
-                    flags
-            );
-        }
+                int line,
+                Types::ScopedProfilerFlags flags
+        ) noexcept
+        { Scoped::ScopedProfiler::GetProfiler()->BeginCpuProfile(name, hash, function, file, line, flags); }
 
-        ~ScopedCpuProfiler()
-        {
-            HeaderTech::Profiler::Scoped::ScopedProfiler::GetProfiler()->EndCpuProfile();
-        }
+        inline ~ScopedCpuProfiler() noexcept
+        { Scoped::ScopedProfiler::GetProfiler()->EndCpuProfile(); }
     };
 }
 
-#define ProfileCpuScoped(name, flags) HeaderTech::Profiler::ScopedCpuProfiler(name, __FUNCTION__, __LINE__, __FILE__, flags)
+#if defined(__FUNCSIG__)
+#define FUNCTION_NAME __FUNCSIG__
+#elif defined(__PRETTY_FUNCTION__)
+#define FUNCTION_NAME __PRETTY_FUNCTION__
+#else
+#define FUNCTION_NAME __FUNCTION_NAME__
+#endif
+
+#define ProfileCpuScopedFlags(name, flags) HeaderTech::Profiler::ScopedCpuProfiler scoped_cpu_profile_##name(#name,ctti::id_from_name(#name).hash(), __FUNCTION__, __FILE__, __LINE__, flags)
+
+#define ProfileCpuScoped(name) ProfileCpuScopedFlags(name, HeaderTech::Profiler::Types::ScopedProfilerFlags_None)
 
 #endif //HEADERTECH_SCOPEDPROFILEMARK_H

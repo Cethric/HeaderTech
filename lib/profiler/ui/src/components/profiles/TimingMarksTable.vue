@@ -23,12 +23,12 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import { ProfileMark } from "@/components/profiles/types";
+import { CpuProfileResult } from "@/components/profiles/types";
 
 @Component({})
 export default class TimingMarksTable extends Vue {
   @Prop()
-  private marks!: ProfileMark[];
+  private marks!: CpuProfileResult[];
 }
 </script>
 

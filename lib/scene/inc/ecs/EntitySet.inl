@@ -182,6 +182,10 @@ namespace HeaderTech::Scene::ECS {
     inline std::vector<ComponentType *> &EntityComponentDataSet<ComponentType>::All() noexcept
     { return m_components; }
 
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable : 4068)
+#endif
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "HidingNonVirtualFunction"
 
@@ -210,6 +214,9 @@ namespace HeaderTech::Scene::ECS {
     { return details::EntitySetIterator<ComponentType>(m_components, {}); }
 
 #pragma clang diagnostic pop
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 
 }
 

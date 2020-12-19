@@ -227,7 +227,7 @@ public:
 
     void TickScene(double delta, double lag) final
     {
-        HeaderTech::Profiler::ScopedProfileMark frame("TickScene");
+        ProfileCpuScoped(TickScene);
         SceneGraph::TickScene(delta, lag);
 //        Owner()->PushScene();
 
@@ -247,7 +247,7 @@ public:
 
     void RenderScene(double offset) final
     {
-        HeaderTech::Profiler::ScopedProfileMark frame("RenderScene");
+        ProfileCpuScoped(RenderScene);
         SceneGraph::RenderScene(offset);
         Render(offset);
 
