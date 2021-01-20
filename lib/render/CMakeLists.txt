@@ -16,6 +16,7 @@ set(
         inc/RenderContext.inl
         inc/RenderObject.h
         inc/RenderSurface.h
+        inc/scene/SceneGraphRenderManagement.h
 
         # Rendering APIs
         inc/api/RenderContextApi.h
@@ -24,6 +25,12 @@ set(
 
         inc/api/opengl/OpenGLRenderContextApi.h
         inc/api/opengl/OpenGLRenderContextApi.inl
+        inc/scene/SceneGraphRenderManagement.inl
+        inc/api/RenderFramebuffer.h
+        inc/api/RenderFramebuffer.inl
+        inc/api/opengl/OpenGLRenderFramebuffer.h
+        inc/api/opengl/OpenGLRenderFramebuffer.inl
+        inc/api/opengl/OpenGLDebugGui.inl
 )
 
 add_library(HeaderTech_Render STATIC ${HeaderTech_Render_SRC} ${HeaderTech_Render_INC})

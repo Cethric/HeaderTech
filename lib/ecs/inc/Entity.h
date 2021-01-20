@@ -5,20 +5,20 @@
 #ifndef HEADERTECH_ENTITY_H
 #define HEADERTECH_ENTITY_H
 
-#include <ecs/Component.h>
+#include <Component.h>
 
-namespace HeaderTech::Scene::ECS {
+namespace HeaderTech::EntityComponentSystem {
     class EntityCollection;
 
     using EntityId = std::uint64_t;
 
     class Entity {
     private:
-        friend class HeaderTech::Scene::ECS::EntityCollection;
+        friend class HeaderTech::EntityComponentSystem::EntityCollection;
 
         inline explicit Entity(
                 EntityId id,
-                EntityCollection *entityCollection
+                const EntityCollection *entityCollection
         ) noexcept;
 
     public:

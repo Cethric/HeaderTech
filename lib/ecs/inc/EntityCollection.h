@@ -6,16 +6,19 @@
 #define HEADERTECH_ENTITYCOLLECTION_H
 
 #include <memory>
+#include <queue>
 
-#include <ecs/Entity.h>
-#include <ecs/EntityBuilder.h>
-#include <ecs/EntitySet.h>
-#include <ecs/EntityComponentView.h>
+#include <Entity.h>
+#include <EntityBuilder.h>
+#include <EntitySet.h>
+#include <EntityComponentView.h>
 
 #include <Logging.h>
 
+#include <ctti/detailed_nameof.hpp>
 
-namespace HeaderTech::Scene::ECS {
+
+namespace HeaderTech::EntityComponentSystem {
     namespace details {
         struct EntityIdStruct;
 
@@ -23,18 +26,18 @@ namespace HeaderTech::Scene::ECS {
     }
 
     class EntityCollection {
-        friend class EntityBuilder;
-
         friend class Entity;
+
+        friend class EntityBuilder;
 
     public:
         inline EntityCollection() noexcept;
 
         EntityCollection(EntityCollection &) = delete;
 
-        inline EntityBuilder NextEntity() noexcept;
+        inline EntityBuilder AddEntity() noexcept;
 
-        inline Entity GetEntity(EntityId id) noexcept;
+        [[nodiscard]] inline Entity GetEntity(EntityId id) const noexcept;
 
         inline void ReleaseEntity(EntityId id) noexcept;
 
@@ -45,13 +48,28 @@ namespace HeaderTech::Scene::ECS {
         [[nodiscard]] inline std::vector<ComponentType> *All() const noexcept;
 
         template<Component ComponentType>
-        [[nodiscard]] inline details::EntitySet AllSet() const noexcept;
+        [[nodiscard]] inline EntityComponentDataSet<ComponentType> *AllSet() const noexcept;
 
         template<Component ComponentType>
         [[nodiscard]] inline ComponentType *AtUnsafe(EntityId id) const noexcept;
 
-        template<Component...ComponentTypes>
-        [[nodiscard]]  inline EntityComponentViewPtr<ComponentTypes...> View() const noexcept;
+        template<Component...Includes, Component...Excludes>
+        [[nodiscard]] inline std::shared_ptr<EntityComponentView<EntityComponentViewExcludes<Excludes...>, Includes...>>
+        CreateView(EntityComponentViewExcludes<Excludes...> = {}) noexcept
+        {
+            using View = EntityComponentView<EntityComponentViewExcludes<Excludes...>, Includes...>;
+            SPDLOG_LOGGER_INFO(m_log, "Creating entity view: {}", ctti::detailed_nameof<View>().full_name().str());
+            return std::make_shared<View>(
+                    AssureComponentData<Includes>()...,
+                    AssureComponentData<Excludes>()...
+            );
+        }
+
+//        template<Component Include>
+//        [[nodiscard]] inline std::shared_ptr<EntityComponentView<Include>> CreateView() noexcept
+//        {
+//            return std::make_shared<EntityComponentView<Include>>(AssureComponentData<Include>());
+//        }
 
     protected:
         inline details::EntityIdStruct GetNextId() noexcept;

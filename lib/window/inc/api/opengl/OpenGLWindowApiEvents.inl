@@ -33,71 +33,71 @@ namespace HeaderTech::Window::Api::OpenGL {
     static inline void window_position_callback(GLFWwindow *window, int x, int y)
     {
         ProfileCpuScoped(glfw_event);
-        auto dispatcher = static_cast<Dispatcher *>(glfwGetWindowUserPointer(window));
-        dispatcher->Dispatch<HeaderTech::Window::Events::WindowPositionEvent>(x, y);
+        auto dispatcher = *static_cast<Dispatcher **>(glfwGetWindowUserPointer(window));
+        dispatcher->DispatchNow<HeaderTech::Window::Events::WindowPositionEvent>(x, y);
     }
 
     static inline void window_size_callback(GLFWwindow *window, int width, int height)
     {
         ProfileCpuScoped(glfw_event);
-        auto dispatcher = static_cast<Dispatcher *>(glfwGetWindowUserPointer(window));
-        dispatcher->Dispatch<HeaderTech::Window::Events::WindowSizeEvent>(width, height);
+        auto dispatcher = *static_cast<Dispatcher **>(glfwGetWindowUserPointer(window));
+        dispatcher->DispatchNow<HeaderTech::Window::Events::WindowSizeEvent>(width, height);
     }
 
     static inline void window_close_callback(GLFWwindow *window)
     {
         ProfileCpuScoped(glfw_event);
-        auto dispatcher = static_cast<Dispatcher *>(glfwGetWindowUserPointer(window));
-        dispatcher->Dispatch<HeaderTech::Window::Events::WindowCloseEvent>();
+        auto dispatcher = *static_cast<Dispatcher **>(glfwGetWindowUserPointer(window));
+        dispatcher->DispatchNow<HeaderTech::Window::Events::WindowCloseEvent>();
     }
 
     static inline void window_refresh_callback(GLFWwindow *window)
     {
         ProfileCpuScoped(glfw_event);
-        auto dispatcher = static_cast<Dispatcher *>(glfwGetWindowUserPointer(window));
-        dispatcher->Dispatch<HeaderTech::Window::Events::WindowRefreshEvent>();
+        auto dispatcher = *static_cast<Dispatcher **>(glfwGetWindowUserPointer(window));
+        dispatcher->DispatchNow<HeaderTech::Window::Events::WindowRefreshEvent>();
     }
 
     static inline void window_focus_callback(GLFWwindow *window, int focused)
     {
         ProfileCpuScoped(glfw_event);
-        auto dispatcher = static_cast<Dispatcher *>(glfwGetWindowUserPointer(window));
-        dispatcher->Dispatch<HeaderTech::Window::Events::WindowFocusEvent>(focused == GLFW_TRUE);
+        auto dispatcher = *static_cast<Dispatcher **>(glfwGetWindowUserPointer(window));
+        dispatcher->DispatchNow<HeaderTech::Window::Events::WindowFocusEvent>(focused == GLFW_TRUE);
     }
 
     static inline void window_iconify_callback(GLFWwindow *window, int iconified)
     {
         ProfileCpuScoped(glfw_event);
-        auto dispatcher = static_cast<Dispatcher *>(glfwGetWindowUserPointer(window));
-        dispatcher->Dispatch<HeaderTech::Window::Events::WindowIconifyEvent>(iconified == GLFW_TRUE);
+        auto dispatcher = *static_cast<Dispatcher **>(glfwGetWindowUserPointer(window));
+        dispatcher->DispatchNow<HeaderTech::Window::Events::WindowIconifyEvent>(iconified == GLFW_TRUE);
     }
 
     static inline void window_maximize_callback(GLFWwindow *window, int maximized)
     {
         ProfileCpuScoped(glfw_event);
-        auto dispatcher = static_cast<Dispatcher *>(glfwGetWindowUserPointer(window));
-        dispatcher->Dispatch<HeaderTech::Window::Events::WindowMaximizeEvent>(maximized == GLFW_TRUE);
+        auto dispatcher = *static_cast<Dispatcher **>(glfwGetWindowUserPointer(window));
+        dispatcher->DispatchNow<HeaderTech::Window::Events::WindowMaximizeEvent>(maximized == GLFW_TRUE);
     }
 
     static inline void framebuffer_size_callback(GLFWwindow *window, int width, int height)
     {
         ProfileCpuScoped(glfw_event);
-        auto dispatcher = static_cast<Dispatcher *>(glfwGetWindowUserPointer(window));
-        dispatcher->Dispatch<HeaderTech::Window::Events::FramebufferSizeEvent>(width, height);
+        auto dispatcher = *static_cast<Dispatcher **>(glfwGetWindowUserPointer(window));
+        dispatcher->DispatchNow<HeaderTech::Window::Events::FramebufferSizeEvent>(width, height);
     }
 
     static inline void window_content_scale_callback(GLFWwindow *window, float x, float y)
     {
         ProfileCpuScoped(glfw_event);
-        auto dispatcher = static_cast<Dispatcher *>(glfwGetWindowUserPointer(window));
-        dispatcher->Dispatch<HeaderTech::Window::Events::WindowContentScaleEvent>(x, y);
+        auto dispatcher = *static_cast<Dispatcher **>(glfwGetWindowUserPointer(window));
+        dispatcher->DispatchNow<HeaderTech::Window::Events::WindowContentScaleEvent>(x, y);
     }
 
     static inline void mouse_button_callback(GLFWwindow *window, int button, int action, int mods)
     {
         ProfileCpuScoped(glfw_event);
-        auto dispatcher = static_cast<Dispatcher *>(glfwGetWindowUserPointer(window));
-        dispatcher->Dispatch<HeaderTech::Window::Events::MouseButtonEvent>(
+        auto dispatcher = *static_cast<Dispatcher **>(glfwGetWindowUserPointer(window));
+        dispatcher->DispatchNow<HeaderTech::Window::Events::MouseButtonEvent>(
                 button,
                 static_cast<HeaderTech::Window::Events::MouseButtonAction>(action),
                 mods
@@ -109,33 +109,33 @@ namespace HeaderTech::Window::Api::OpenGL {
         static double mX = 0;
         static double mY = 0;
         ProfileCpuScoped(glfw_event);
-        auto dispatcher = static_cast<Dispatcher *>(glfwGetWindowUserPointer(window));
+        auto dispatcher = *static_cast<Dispatcher **>(glfwGetWindowUserPointer(window));
         double dX = x - mX;
         mX = x;
         double dY = y - mY;
         mY = y;
-        dispatcher->Dispatch<HeaderTech::Window::Events::CursorPositionEvent>(x, y, dX, dY);
+        dispatcher->DispatchNow<HeaderTech::Window::Events::CursorPositionEvent>(x, y, dX, dY);
     }
 
     static inline void cursor_enter_callback(GLFWwindow *window, int entered)
     {
         ProfileCpuScoped(glfw_event);
-        auto dispatcher = static_cast<Dispatcher *>(glfwGetWindowUserPointer(window));
-        dispatcher->Dispatch<HeaderTech::Window::Events::CursorEnterEvent>(entered == GLFW_TRUE);
+        auto dispatcher = *static_cast<Dispatcher **>(glfwGetWindowUserPointer(window));
+        dispatcher->DispatchNow<HeaderTech::Window::Events::CursorEnterEvent>(entered == GLFW_TRUE);
     }
 
     static inline void scroll_callback(GLFWwindow *window, double x, double y)
     {
         ProfileCpuScoped(glfw_event);
-        auto dispatcher = static_cast<Dispatcher *>(glfwGetWindowUserPointer(window));
-        dispatcher->Dispatch<HeaderTech::Window::Events::ScrollEvent>(x, y);
+        auto dispatcher = *static_cast<Dispatcher **>(glfwGetWindowUserPointer(window));
+        dispatcher->DispatchNow<HeaderTech::Window::Events::ScrollEvent>(x, y);
     }
 
     static inline void key_callback(GLFWwindow *window, int key, int scan, int action, int mods)
     {
         ProfileCpuScoped(glfw_event);
-        auto dispatcher = static_cast<Dispatcher *>(glfwGetWindowUserPointer(window));
-        dispatcher->Dispatch<HeaderTech::Window::Events::KeyEvent>(
+        auto dispatcher = *static_cast<Dispatcher **>(glfwGetWindowUserPointer(window));
+        dispatcher->DispatchNow<HeaderTech::Window::Events::KeyEvent>(
                 key,
                 scan,
                 static_cast<HeaderTech::Window::Events::KeyAction>(action),
@@ -146,23 +146,23 @@ namespace HeaderTech::Window::Api::OpenGL {
     static inline void char_callback(GLFWwindow *window, unsigned int code)
     {
         ProfileCpuScoped(glfw_event);
-        auto dispatcher = static_cast<Dispatcher *>(glfwGetWindowUserPointer(window));
-        dispatcher->Dispatch<HeaderTech::Window::Events::CharEvent>(code);
+        auto dispatcher = *static_cast<Dispatcher **>(glfwGetWindowUserPointer(window));
+        dispatcher->DispatchNow<HeaderTech::Window::Events::CharEvent>(code);
     }
 
     static inline void char_mods_callback(GLFWwindow *window, unsigned int code, int mods)
     {
         ProfileCpuScoped(glfw_event);
-        auto dispatcher = static_cast<Dispatcher *>(glfwGetWindowUserPointer(window));
-        dispatcher->Dispatch<HeaderTech::Window::Events::CharModsEvent>(code, mods);
+        auto dispatcher = *static_cast<Dispatcher **>(glfwGetWindowUserPointer(window));
+        dispatcher->DispatchNow<HeaderTech::Window::Events::CharModsEvent>(code, mods);
     }
 
     static inline void file_drop_callback(GLFWwindow *window, int count, const char **files)
     {
         ProfileCpuScoped(glfw_event);
-        auto dispatcher = static_cast<Dispatcher *>(glfwGetWindowUserPointer(window));
+        auto dispatcher = *static_cast<Dispatcher **>(glfwGetWindowUserPointer(window));
         auto result = HeaderTech::Window::Events::FileDropVector{files, files + count};
-        dispatcher->Dispatch<HeaderTech::Window::Events::FileDropEvent>(result);
+        dispatcher->DispatchNow<HeaderTech::Window::Events::FileDropEvent>(result);
     }
 
 

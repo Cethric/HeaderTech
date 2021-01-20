@@ -6,8 +6,6 @@
 #define HEADERTECH_SCENEMANAGER_INL
 
 #include <SceneManager.h>
-//#include <Runtime.inl>
-
 
 namespace HeaderTech::Scene {
     inline SceneManager::SceneManager(HeaderTech::Core::Runtime *runtime) noexcept
@@ -25,6 +23,8 @@ namespace HeaderTech::Scene {
         m_active = nullptr;
         m_root->PopSceneCount();
         delete m_root;
+        m_root = nullptr;
+        SPDLOG_LOGGER_DEBUG(m_log, "Scene Manager Destroyed");
     }
 
     template<typename RootScene, typename... Args>
@@ -84,6 +84,9 @@ namespace HeaderTech::Scene {
 
     inline void SceneManager::TickScene(double delta, double lag)
     { m_active->TickScene(delta, lag); }
+
+    void SceneManager::RenderDebugUI()
+    { m_active->RenderDebugGUI(); }
 
     inline void SceneManager::PushNextScene(SceneGraph *scene)
     {

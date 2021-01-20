@@ -8,11 +8,10 @@
 #include <SceneManager.h>
 #include <SceneGraph.h>
 
-#include <ecs/ECS.h>
-
 #if defined(HEADERTECH_SCENE_IMPL) && DEFINE_IMPLEMENTATION == 1
 
 #include <SceneGraph.inl>
+#include <SceneGraphManagement.inl>
 #include <SceneManager.inl>
 
 #endif

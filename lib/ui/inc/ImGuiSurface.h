@@ -23,11 +23,13 @@ namespace HeaderTech::UI {
             io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
             io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
             ImGui::StyleColorsDark();
-
         }
 
         inline ~ImGuiSurface() noexcept
         { ImGui::DestroyContext(m_context); }
+
+        virtual void RenderDebugUI()
+        {}
 
     private:
         ImGuiContext *m_context;

@@ -6,30 +6,31 @@
 #define HEADERTECH_ENTITYSET_INL
 
 
-#include <ecs/EntitySet.h>
+#include <EntitySet.h>
 
-namespace HeaderTech::Scene::ECS {
+namespace HeaderTech::EntityComponentSystem {
     namespace details {
-        std::uint64_t EntitySet::Add(EntityId id) noexcept
+        inline std::uint64_t EntitySet::Add(EntityId id) noexcept
         {
             auto index = size();
-            insert(id);
+            insert({id, index});
             return index;
         }
 
         inline void EntitySet::Remove(EntityId id) noexcept
-        { erase(id); }
+        { erase(Find(id)); }
 
         inline std::uint64_t EntitySet::EntityIndex(EntityId id) const noexcept
-        { return std::distance(find(id), cend()) - 1; }
+        { return (*Find(id)).index; }
 
-        bool EntitySet::Contains(EntityId id) const noexcept
-        {
-            return contains(id);
-        }
+        inline bool EntitySet::Contains(EntityId id) const noexcept
+        { return Find(id) != end(); }
+
+        inline BaseSet::const_iterator EntitySet::Find(EntityId id) const noexcept
+        { return find({id, 0}); }
 
         template<Component ComponentType>
-        EntitySetIterator<ComponentType>::EntitySetIterator(
+        inline EntitySetIterator<ComponentType>::EntitySetIterator(
                 std::vector<ComponentType *> &components,
                 BaseSet &entities,
                 const BaseSet::size_type &idx
@@ -37,34 +38,20 @@ namespace HeaderTech::Scene::ECS {
         {}
 
         template<Component ComponentType>
-        EntitySetIterator <ComponentType> &EntitySetIterator<ComponentType>::operator++() noexcept
+        inline EntitySetIterator <ComponentType> &EntitySetIterator<ComponentType>::operator++() noexcept
         { return --m_index, *this; }
 
         template<Component ComponentType>
-        EntitySetIterator <ComponentType> EntitySetIterator<ComponentType>::operator++(int) noexcept
-        {
-            auto orig = *this;
-            return ++(*this), orig;
-        }
-
-        template<Component ComponentType>
-        EntitySetIterator <ComponentType> &EntitySetIterator<ComponentType>::operator--() noexcept
+        inline EntitySetIterator <ComponentType> &EntitySetIterator<ComponentType>::operator--() noexcept
         { return ++m_index, *this; }
 
         template<Component ComponentType>
-        EntitySetIterator <ComponentType> EntitySetIterator<ComponentType>::operator--(int) noexcept
-        {
-            auto orig = *this;
-            return --(*this), orig;
-        }
-
-        template<Component ComponentType>
-        EntitySetIterator <ComponentType> &
+        inline EntitySetIterator <ComponentType> &
         EntitySetIterator<ComponentType>::operator+=(const BaseSet::size_type &value) noexcept
         { return m_index -= value, *this; }
 
         template<Component ComponentType>
-        EntitySetIterator <ComponentType> &
+        inline EntitySetIterator <ComponentType> &
         EntitySetIterator<ComponentType>::operator+(const BaseSet::size_type &value) noexcept
         {
             auto copy = *this;
@@ -72,12 +59,12 @@ namespace HeaderTech::Scene::ECS {
         }
 
         template<Component ComponentType>
-        EntitySetIterator <ComponentType> &
+        inline EntitySetIterator <ComponentType> &
         EntitySetIterator<ComponentType>::operator-=(const BaseSet::size_type &value) noexcept
         { return m_index += value, *this; }
 
         template<Component ComponentType>
-        EntitySetIterator <ComponentType> &
+        inline EntitySetIterator <ComponentType> &
         EntitySetIterator<ComponentType>::operator-(const BaseSet::size_type &value) noexcept
         {
             auto copy = *this;
@@ -85,45 +72,45 @@ namespace HeaderTech::Scene::ECS {
         }
 
         template<Component ComponentType>
-        ComponentType &EntitySetIterator<ComponentType>::operator[](const BaseSet::size_type &value) noexcept
+        inline ComponentType &EntitySetIterator<ComponentType>::operator[](const BaseSet::size_type &value) noexcept
         {
             const auto pos = m_index - value - 1;
             return *m_components->operator[](pos);
         }
 
         template<Component ComponentType>
-        bool EntitySetIterator<ComponentType>::operator==(const EntitySetIterator &other) noexcept
+        inline bool EntitySetIterator<ComponentType>::operator==(const EntitySetIterator &other) noexcept
         { return other.m_index == m_index; }
 
         template<Component ComponentType>
-        bool EntitySetIterator<ComponentType>::operator!=(const EntitySetIterator &other) noexcept
+        inline bool EntitySetIterator<ComponentType>::operator!=(const EntitySetIterator &other) noexcept
         { return other.m_index != m_index; }
 
         template<Component ComponentType>
-        bool EntitySetIterator<ComponentType>::operator<(const EntitySetIterator &other) noexcept
+        inline bool EntitySetIterator<ComponentType>::operator<(const EntitySetIterator &other) noexcept
         { return other.m_index < m_index; }
 
         template<Component ComponentType>
-        bool EntitySetIterator<ComponentType>::operator>(const EntitySetIterator &other) noexcept
+        inline bool EntitySetIterator<ComponentType>::operator>(const EntitySetIterator &other) noexcept
         { return other.m_index > m_index; }
 
         template<Component ComponentType>
-        bool EntitySetIterator<ComponentType>::operator<=(const EntitySetIterator &other) noexcept
+        inline bool EntitySetIterator<ComponentType>::operator<=(const EntitySetIterator &other) noexcept
         { return other.m_index <= m_index; }
 
         template<Component ComponentType>
-        bool EntitySetIterator<ComponentType>::operator>=(const EntitySetIterator &other) noexcept
+        inline bool EntitySetIterator<ComponentType>::operator>=(const EntitySetIterator &other) noexcept
         { return other.m_index >= m_index; }
 
         template<Component ComponentType>
-        ComponentType *EntitySetIterator<ComponentType>::operator->() noexcept
+        inline ComponentType *EntitySetIterator<ComponentType>::operator->() noexcept
         {
             auto pos = m_index - 1u;
             return m_components->operator[](pos);
         }
 
         template<Component ComponentType>
-        ComponentType &EntitySetIterator<ComponentType>::operator*() noexcept
+        inline ComponentType &EntitySetIterator<ComponentType>::operator*() noexcept
         {
             auto pos = m_index - 1u;
             return *m_components->operator[](pos);
@@ -137,7 +124,7 @@ namespace HeaderTech::Scene::ECS {
     {}
 
     template<Component ComponentType>
-    EntityComponentDataSet<ComponentType>::~EntityComponentDataSet() noexcept
+    inline EntityComponentDataSet<ComponentType>::~EntityComponentDataSet() noexcept
     { for (auto comp : m_components) { delete comp; }}
 
     template<Component ComponentType>
@@ -153,7 +140,6 @@ namespace HeaderTech::Scene::ECS {
         auto comp = new ComponentType(std::forward<Args>(args)...);
         auto index = Add(id);
         m_components.emplace(m_components.cbegin() + index, comp);
-        SPDLOG_LOGGER_INFO(m_log, "New Component Size: {}", m_components.size());
     }
 
     template<Component ComponentType>
@@ -170,6 +156,13 @@ namespace HeaderTech::Scene::ECS {
         m_components.erase(std::cbegin(m_components) + index);
         details::EntitySet::Remove(id);
     }
+
+//    template<Component ComponentType>
+//    bool EntityComponentDataSet<ComponentType>::Contains(EntityId id) noexcept
+//    {
+//        const auto index = EntityIndex(id);
+//        return index;
+//    }
 
     template<Component ComponentType>
     inline ComponentType *EntityComponentDataSet<ComponentType>::Get(EntityId id) noexcept
@@ -189,29 +182,29 @@ namespace HeaderTech::Scene::ECS {
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "HidingNonVirtualFunction"
 
-    template<Component ComponentType>
-    details::EntitySetIterator<ComponentType> EntityComponentDataSet<ComponentType>::cbegin() const noexcept
-    { return details::EntitySetIterator<ComponentType>(m_components, details::BaseSet::size()); }
+//    template<Component ComponentType>
+//    inline details::EntitySetIterator<ComponentType> EntityComponentDataSet<ComponentType>::cbegin() const noexcept
+//    { return details::EntitySetIterator<ComponentType>(m_components, details::BaseSet::size()); }
 
-    template<Component ComponentType>
-    details::EntitySetIterator<ComponentType> EntityComponentDataSet<ComponentType>::begin() const noexcept
-    { return cbegin(); }
+//    template<Component ComponentType>
+//    inline details::EntitySetIterator<ComponentType> EntityComponentDataSet<ComponentType>::begin() const noexcept
+//    { return cbegin(); }
 
-    template<Component ComponentType>
-    details::EntitySetIterator<ComponentType> EntityComponentDataSet<ComponentType>::begin() noexcept
-    { return details::EntitySetIterator<ComponentType>(m_components, details::BaseSet::size()); }
+//    template<Component ComponentType>
+//    inline details::EntitySetIterator<ComponentType> EntityComponentDataSet<ComponentType>::begin() noexcept
+//    { return details::EntitySetIterator<ComponentType>(m_components, details::BaseSet::size()); }
 
-    template<Component ComponentType>
-    details::EntitySetIterator<ComponentType> EntityComponentDataSet<ComponentType>::cend() const noexcept
-    { return details::EntitySetIterator<ComponentType>(m_components, {}); }
+//    template<Component ComponentType>
+//    inline details::EntitySetIterator<ComponentType> EntityComponentDataSet<ComponentType>::cend() const noexcept
+//    { return details::EntitySetIterator<ComponentType>(m_components, {}); }
 
-    template<Component ComponentType>
-    details::EntitySetIterator<ComponentType> EntityComponentDataSet<ComponentType>::end() const noexcept
-    { return cend(); }
+//    template<Component ComponentType>
+//    inline details::EntitySetIterator<ComponentType> EntityComponentDataSet<ComponentType>::end() const noexcept
+//    { return cend(); }
 
-    template<Component ComponentType>
-    details::EntitySetIterator<ComponentType> EntityComponentDataSet<ComponentType>::end() noexcept
-    { return details::EntitySetIterator<ComponentType>(m_components, {}); }
+//    template<Component ComponentType>
+//    inline details::EntitySetIterator<ComponentType> EntityComponentDataSet<ComponentType>::end() noexcept
+//    { return details::EntitySetIterator<ComponentType>(m_components, {}); }
 
 #pragma clang diagnostic pop
 #ifdef _MSC_VER

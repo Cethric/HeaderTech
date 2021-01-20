@@ -9,11 +9,15 @@
 #include <RenderObject.h>
 #include <RenderSurface.h>
 
+#include <scene/SceneGraphRenderManagement.h>
+
 #include <api/RenderContextApi.h>
 
 #if defined(HEADERTECH_RENDER_IMPL) && DEFINE_IMPLEMENTATION == 1
 
 #include <RenderContext.inl>
+
+#include <scene/SceneGraphRenderManagement.inl>
 
 #include <api/RenderContextApi.inl>
 

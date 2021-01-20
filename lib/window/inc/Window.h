@@ -6,9 +6,18 @@
 #define HEADERTECH_WINDOW_H
 
 #include <Config.h>
-#include <Render.h>
-#include <Events.h>
-#include <api/WindowApi.h>
+
+namespace HeaderTech {
+    namespace Render {
+        class RenderContext;
+    }
+    namespace Window::Api {
+        class WindowApi;
+    }
+    namespace Events {
+        class EventDispatcher;
+    }
+}
 
 namespace HeaderTech::Window {
     class Window {
@@ -23,6 +32,12 @@ namespace HeaderTech::Window {
         inline bool IsOpen() noexcept;
 
         inline void Swap() noexcept;
+
+        inline void ToggleFullscreen() noexcept;
+
+        [[nodiscard]] inline int GetWidth() const noexcept;
+
+        [[nodiscard]] inline int GetHeight() const noexcept;
 
         [[nodiscard]] inline HeaderTech::Render::RenderContext *GetRenderContext() const noexcept;
 

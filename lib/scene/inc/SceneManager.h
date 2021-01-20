@@ -34,6 +34,8 @@ namespace HeaderTech::Scene {
 
         inline void TickScene(double delta, double lag);
 
+        inline void RenderDebugUI();
+
     protected:
         inline void PushNextScene(SceneGraph *scene);
 

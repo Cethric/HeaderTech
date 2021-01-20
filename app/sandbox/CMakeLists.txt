@@ -16,6 +16,7 @@ target_compile_definitions(HeaderTech_Sandbox PUBLIC -DHEADERTECH_FILESYSTEM_IMP
 target_compile_definitions(HeaderTech_Sandbox PUBLIC -DHEADERTECH_SCENE_IMPL=1)
 target_compile_definitions(HeaderTech_Sandbox PUBLIC -DHEADERTECH_RENDER_IMPL=1)
 target_compile_definitions(HeaderTech_Sandbox PUBLIC -DHEADERTECH_UI_IMPL=1)
+target_compile_definitions(HeaderTech_Sandbox PUBLIC -DHEADERTECH_ECS_IMPL=1)
 target_include_directories(HeaderTech_Sandbox PUBLIC inc)
 target_include_directories(HeaderTech_Sandbox PRIVATE src)
 

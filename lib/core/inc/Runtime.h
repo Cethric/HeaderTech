@@ -9,29 +9,35 @@
 #include <Logging.h>
 #include <EventDispatcher.h>
 #include <events/LaunchEvent.h>
-#include <Window.h>
 #include <Config.h>
-#include <Scene.h>
+
+namespace HeaderTech::Scene {
+    class SceneManager;
+}
+
+namespace HeaderTech::Window {
+    class Window;
+}
 
 namespace HeaderTech::Core {
-    class Runtime : public HeaderTech::Events::EventDispatcher {
+    class Runtime final : public HeaderTech::Events::EventDispatcher {
     public:
-        explicit Runtime(const HeaderTech::Config::RuntimeConfig &config);
+        inline explicit Runtime(const HeaderTech::Config::RuntimeConfig &config);
 
-        ~Runtime();
+        inline ~Runtime() final;
 
-        int Launch(HeaderTech::Scene::SceneManager &sceneManager);
+        inline int Launch(HeaderTech::Scene::SceneManager *sceneManager);
 
-        void Stop();
+        inline void Stop();
 
         [[nodiscard]] inline HeaderTech::Window::Window &GetWindow()
-        { return m_window; }
+        { return *m_window; }
 
     protected:
         bool m_running;
         HeaderTech::Logging::Logger m_log;
 
-        HeaderTech::Window::Window m_window;
+        HeaderTech::Window::Window *m_window;
     };
 }
 

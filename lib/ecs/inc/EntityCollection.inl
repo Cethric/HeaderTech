@@ -8,9 +8,9 @@
 #include <algorithm>
 #include <unordered_set>
 
-#include <ecs/EntityCollection.h>
+#include <EntityCollection.h>
 
-namespace HeaderTech::Scene::ECS {
+namespace HeaderTech::EntityComponentSystem {
     namespace details {
         struct EntityIdStruct final {
             std::uint32_t m_generation;
@@ -67,7 +67,7 @@ namespace HeaderTech::Scene::ECS {
               m_log(HeaderTech::Logging::get_or_make_logger_async<EntityCollection>())
     {}
 
-    inline EntityBuilder EntityCollection::NextEntity() noexcept
+    inline EntityBuilder EntityCollection::AddEntity() noexcept
     {
         auto id = GetNextId();
         SPDLOG_LOGGER_DEBUG(
@@ -80,7 +80,7 @@ namespace HeaderTech::Scene::ECS {
         return EntityBuilder(m_activeEntities.emplace_back(id.ToEntityId()), this);
     }
 
-    inline Entity EntityCollection::GetEntity(EntityId id) noexcept
+    inline Entity EntityCollection::GetEntity(EntityId id) const noexcept
     {
         return Entity(id, this);
     }
@@ -120,14 +120,14 @@ namespace HeaderTech::Scene::ECS {
     }
 
     template<Component ComponentType>
-    inline details::EntitySet EntityCollection::AllSet() const noexcept
+    inline EntityComponentDataSet <ComponentType> *EntityCollection::AllSet() const noexcept
     {
         const auto index = ComponentIdSeq<ComponentType>::value();
         if (index < m_activeEntityData.size() && m_activeEntityData[index].components) {
             auto set = m_activeEntityData[index].components.get();
-            return *set;
+            return static_cast<EntityComponentDataSetPtr<ComponentType>>(set);
         }
-        return {};
+        return nullptr;
     }
 
     template<Component ComponentType>
@@ -138,10 +138,6 @@ namespace HeaderTech::Scene::ECS {
                 m_activeEntityData[index].components.get()
         )->Get(id);
     }
-
-    template<Component... ComponentTypes>
-    [[nodiscard]] inline EntityComponentViewPtr<ComponentTypes...> EntityCollection::View() const noexcept
-    { return std::make_shared<EntityComponentView<ComponentTypes...>>(this); }
 
     inline details::EntityIdStruct EntityCollection::GetNextId() noexcept
     {
@@ -176,7 +172,9 @@ namespace HeaderTech::Scene::ECS {
 
         if (auto &&data = m_activeEntityData[index]; !data.components) {
             SPDLOG_LOGGER_DEBUG(m_log, "Reset for component: {}", index);
-            data.components.reset(new EntityComponentDataSet<ComponentType>());
+            auto result = new EntityComponentDataSet<ComponentType>();
+            data.components.reset(result);
+            return result;
         }
 
         return static_cast<EntityComponentDataSetPtr<ComponentType>>(m_activeEntityData[index].components.get());

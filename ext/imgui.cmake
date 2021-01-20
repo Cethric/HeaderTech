@@ -9,6 +9,7 @@ set(
         imgui/imgui_demo.cpp
         imgui/imgui_draw.cpp
         imgui/imgui_widgets.cpp
+        imgui/imgui_tables.cpp
 )
 
 set(
@@ -31,7 +32,9 @@ set(
 add_library(ImGui STATIC ${ImGui_SRC} ${ImGui_Inc} ${ImGui_Misc_Code})
 target_include_directories(ImGui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/imgui/)
 target_include_directories(ImGui PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/imgui/)
-
+target_include_directories(ImGui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/imgui/misc/cpp/)
+target_include_directories(ImGui PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/imgui/misc/cpp/)
+target_link_libraries(ImGui PUBLIC glad)
 
 add_executable(ImGuiFontCompressor WIN32 imgui/misc/fonts/binary_to_compressed_c.cpp)
 

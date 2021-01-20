@@ -7,9 +7,9 @@
 
 #include <concepts>
 #include <type_traits>
-#include <ctti/nameof.hpp>
+#include <ctti/type_id.hpp>
 
-namespace HeaderTech::Scene::ECS {
+namespace HeaderTech::EntityComponentSystem {
     namespace details {
         struct ComponentIdSeq final {
             [[nodiscard]] static std::uint64_t next() noexcept {

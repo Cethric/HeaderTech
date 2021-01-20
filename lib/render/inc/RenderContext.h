@@ -5,20 +5,26 @@
 #ifndef HEADERTECH_RENDERCONTEXT_H
 #define HEADERTECH_RENDERCONTEXT_H
 
-#include <api/RenderContextApi.h>
-
 namespace HeaderTech::Render {
+    namespace Api {
+        class RenderContextApi;
+
+        class RenderFramebuffer;
+    }
 
     class RenderContext {
     public:
-        inline RenderContext(HeaderTech::Render::Api::RenderContextApi *api) : m_api(api)
-        {}
+        inline explicit RenderContext(HeaderTech::Render::Api::RenderContextApi *api);
 
-        inline ~RenderContext()
-        { delete m_api; }
+        inline ~RenderContext();
 
-        inline void MakeCurrent()
-        { m_api->MakeCurrent(); }
+        inline void MakeCurrent();
+
+        inline void WillRenderDebugGUI() noexcept;
+
+        inline void DidRenderDebugGUI() noexcept;
+
+        inline Api::RenderFramebuffer *CreateFramebuffer(int width, int height);
 
     private:
         HeaderTech::Render::Api::RenderContextApi *m_api;

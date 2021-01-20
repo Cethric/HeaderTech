@@ -25,6 +25,14 @@ namespace HeaderTech::Events {
         m_eventQueue.push(std::move(event));
     }
 
+    template<EventType EventClass, typename... Args>
+    inline void EventDispatcher::DispatchNow(Args... args) noexcept
+    {
+        ProfileCpuScoped(event_dispatcher_now);
+        auto event = Event::MakeEvent<EventClass, Args...>(std::forward<Args>(args)...);
+        ProcessEvent(event);
+    }
+
     inline void EventDispatcher::ProcessNextEvent() noexcept
     {
         ProfileCpuScoped(next_event_processor);
@@ -33,6 +41,19 @@ namespace HeaderTech::Events {
             m_eventQueue.pop();
             m_eventMutex.unlock();
             ProcessEvent(event);
+        }
+    }
+
+    void EventDispatcher::DrainEvents() noexcept
+    {
+        ProfileCpuScoped(drain_events);
+        if (m_eventMutex.try_lock()) {
+            while (!m_eventQueue.empty()) {
+                const EventPtr event = m_eventQueue.top();
+                m_eventQueue.pop();
+                ProcessEvent(event);
+            }
+            m_eventMutex.unlock();
         }
     }
 

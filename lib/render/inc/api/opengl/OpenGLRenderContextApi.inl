@@ -8,6 +8,7 @@
 #include <string_view>
 
 #include <api/opengl/OpenGLRenderContextApi.h>
+#include <api/opengl/OpenGLRenderFramebuffer.h>
 #include <Logging.h>
 
 #include <GLFW/glfw3.h>
@@ -100,11 +101,34 @@ namespace HeaderTech::Render::Api::OpenGL {
     ) noexcept
             : HeaderTech::Render::Api::RenderContextApi(api),
               m_gl{},
-              m_window(api)
+              m_window(api),
+              m_debugGuiContext(ImGui::CreateContext(nullptr)),
+              m_debugData{
+                      .gl=nullptr,
+                      .program=0,
+                      .vboHandle=0,
+                      .elementsHandle=0,
+                      .attribLocationTex=0,
+                      .attribLocationProjMtx=0,
+                      .attribLocationVtxPos=0,
+                      .attribLocationVtxUV=0,
+                      .attribLocationVtxColor=0,
+                      .fontTexture=0,
+                      .mouseCursors={nullptr},
+                      .buttonPressed={false},
+                      .mainWindow=api->GetOwnedWindow(),
+                      .parentUserPointer=nullptr,
+                      .parentMouseButtonCallback=nullptr,
+                      .parentScrollCallback=nullptr,
+                      .parentKeyCallback=nullptr,
+                      .parentCharCallback=nullptr,
+              }
     {
         api->MakeCurrent();
         gladLoadGLContext(&m_gl, glfwGetProcAddress);
         m_gl.DebugMessageCallback(&detail::opengl_debug_callback, nullptr);
+
+        PrepareRenderDebugGUI();
 
         m_gl.ClearColor(0, 1, 0, 1);
         m_gl.Clear(GL_COLOR_BUFFER_BIT);
@@ -113,12 +137,19 @@ namespace HeaderTech::Render::Api::OpenGL {
         m_gl.Clear(GL_COLOR_BUFFER_BIT);
     }
 
-    inline OpenGLRenderContextApi::~OpenGLRenderContextApi() noexcept = default;
+    inline OpenGLRenderContextApi::~OpenGLRenderContextApi() noexcept
+    {
+        auto data = (void **) glfwGetWindowUserPointer(m_window->GetOwnedWindow());
+        delete[] data;
+        glfwSetWindowUserPointer(m_window->GetOwnedWindow(), m_debugData.parentUserPointer);
+    };
 
     inline const GladGLContext &OpenGLRenderContextApi::Gl() const noexcept
-    {
-        return m_gl;
-    }
+    { return m_gl; }
+
+    HeaderTech::Render::Api::RenderFramebuffer *
+    OpenGLRenderContextApi::CreateFramebuffer(int width, int height) noexcept
+    { return new OpenGLRenderFramebuffer(&m_gl, width, height); }
 
 }
 

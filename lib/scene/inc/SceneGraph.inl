@@ -7,19 +7,28 @@
 
 #include <SceneGraph.h>
 
+#include <Runtime.h>
+#include <Runtime.inl>
 
 namespace HeaderTech::Scene {
-    SceneGraph::SceneGraph(HeaderTech::Core::Runtime *runtime, SceneManager *owner, SceneGraph *parent) noexcept
+    inline SceneGraph::SceneGraph(
+            HeaderTech::Core::Runtime *runtime,
+            SceneManager *owner,
+            SceneGraph *parent,
+            HeaderTech::Logging::Logger logger,
+            const HeaderTech::Render::SceneGraph::RenderSurfaceOptions &options
+    ) noexcept
             : m_refCount(0),
               m_runtime(runtime),
               m_owner(owner),
               m_parent(parent),
               m_children(),
               m_entities(),
-              m_log(HeaderTech::Logging::get_or_make_logger_async<SceneGraph>())
-    {}
+              m_log(std::move(logger)),
+              m_management(runtime, options)
+    { m_runtime->Subscribe<HeaderTech::Window::Events::FramebufferSizeEvent>(this); }
 
-    SceneGraph::~SceneGraph() noexcept
+    inline SceneGraph::~SceneGraph() noexcept
     {
         while (!m_children.empty()) {
             auto child = m_children.back();
@@ -34,34 +43,25 @@ namespace HeaderTech::Scene {
         }
     }
 
+    inline void SceneGraph::OnEvent(HeaderTech::Window::Events::FramebufferSizeEvent *event) noexcept
+    { ResizeFramebuffer(event->width, event->height); }
+
     template<typename ChildScene, typename... Args>
-    ChildScene *SceneGraph::AddChildScene(Args... args) noexcept
+    inline ChildScene *SceneGraph::AddChildScene(Args... args) noexcept
     {
         auto scene = new ChildScene(m_runtime, m_owner, this, std::forward<Args>(args)...);
         m_children.push_back(scene);
         return scene;
     }
 
-    ECS::EntityBuilder SceneGraph::AddEntity() noexcept
-    { return m_entities.NextEntity(); }
-
-    ECS::Entity SceneGraph::GetEntity(ECS::EntityId entityId) noexcept
-    { return m_entities.GetEntity(entityId); }
-
-    void SceneGraph::RegisterTickingSystem(const ECS::SystemTickingCallback &system) noexcept
-    {}
-
-    void SceneGraph::RegisterRenderingSystem(const ECS::SystemRenderingCallback &system) noexcept
-    {}
-
-    void SceneGraph::PushSceneCount() noexcept
+    inline void SceneGraph::PushSceneCount() noexcept
     {
         if ((m_refCount++) == 0) {
             Activate();
         }
     }
 
-    void SceneGraph::PopSceneCount() noexcept
+    inline void SceneGraph::PopSceneCount() noexcept
     {
         --m_refCount;
         if (m_refCount == 0) {

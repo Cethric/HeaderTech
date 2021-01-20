@@ -20,6 +20,9 @@ namespace HeaderTech::Render {
 
         virtual void OnTeardown() = 0;
 
+        inline RenderContext *RenderCtx() const noexcept
+        { return m_ctx; }
+
     protected:
         RenderContext *m_ctx;
     };

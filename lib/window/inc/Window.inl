@@ -3,13 +3,16 @@
 //
 
 #include <Window.h>
+#include <Render.h>
+#include <Events.h>
+#include <api/WindowApi.h>
 
 #include <api/WindowApi.inl>
 
 namespace HeaderTech::Window {
     using Dispatcher = HeaderTech::Events::EventDispatcher;
 
-    Window::Window(
+    inline Window::Window(
             const HeaderTech::Config::WindowConfig &config,
             Dispatcher *dispatcher
     ) noexcept
@@ -32,19 +35,28 @@ namespace HeaderTech::Window {
         }
     }
 
-    Window::~Window() noexcept
+    inline Window::~Window() noexcept
     {
         delete m_context;
         delete m_api;
     }
 
-    bool Window::IsOpen() noexcept
+    inline bool Window::IsOpen() noexcept
     { return m_api->IsOpen(); }
 
-    void Window::Swap() noexcept
+    inline void Window::Swap() noexcept
     { m_api->SwapBuffers(); }
 
-    HeaderTech::Render::RenderContext *Window::GetRenderContext() const noexcept
+    void Window::ToggleFullscreen() noexcept
+    { m_api->ToggleFullscreen(); }
+
+    inline int Window::GetWidth() const noexcept
+    { return m_api->GetWidth(); }
+
+    inline int Window::GetHeight() const noexcept
+    { return m_api->GetHeight(); }
+
+    inline HeaderTech::Render::RenderContext *Window::GetRenderContext() const noexcept
     { return m_context; }
 
 }

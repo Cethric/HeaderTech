@@ -6,15 +6,15 @@
 #define HEADERTECH_ENTITYBUILDER_H
 
 #include <Logging.h>
-#include <ecs/Entity.h>
-#include <ecs/Component.h>
+#include <Entity.h>
+#include <Component.h>
 
-namespace HeaderTech::Scene::ECS {
+namespace HeaderTech::EntityComponentSystem {
     class EntityCollection;
 
     class EntityBuilder {
     private:
-        friend class HeaderTech::Scene::ECS::EntityCollection;
+        friend class HeaderTech::EntityComponentSystem::EntityCollection;
 
         inline explicit EntityBuilder(
                 EntityId id,

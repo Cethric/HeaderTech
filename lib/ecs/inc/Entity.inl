@@ -5,13 +5,13 @@
 #ifndef HEADERTECH_ENTITY_INL
 #define HEADERTECH_ENTITY_INL
 
-#include <ecs/Entity.h>
-#include <ecs/EntityCollection.h>
+#include <Entity.h>
+#include <EntityCollection.h>
 
-namespace HeaderTech::Scene::ECS {
-    Entity::Entity(EntityId id, EntityCollection *entityCollection) noexcept
+namespace HeaderTech::EntityComponentSystem {
+    Entity::Entity(EntityId id, const EntityCollection *entityCollection) noexcept
             : m_id(id),
-              m_collection(entityCollection)
+              m_collection(const_cast<EntityCollection *>(entityCollection))
     {}
 
     template<Component ComponentType, typename... Args>

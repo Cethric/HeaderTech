@@ -8,7 +8,13 @@
 #define DEFINE_IMPLEMENTATION 1
 #define GLFW_INCLUDE_NONE 1
 
+#ifdef _CPPRTTI
+#error runtime type information has been enabled
+#endif
+
 #include <iostream>
+
+#include <imgui.h>
 
 #include <Logging.h>
 #include <Profiler.h>
@@ -19,6 +25,7 @@
 #include <Scene.h>
 #include <UserInterface.h>
 #include <Render.h>
+#include <EntityComponentSystem.h>
 
 using SceneGraph = HeaderTech::Scene::SceneGraph;
 using SceneManager = HeaderTech::Scene::SceneManager;
@@ -29,6 +36,6 @@ using ScopedLogging = HeaderTech::Logging::Scoped::ScopedLogging;
 using ScopedFileSystem = HeaderTech::FileSystem::Scoped::ScopedFileSystem;
 using HeaderTech::Config::BuildConfiguration;
 using RenderSurface = HeaderTech::Render::RenderSurface;
-using EntityId = HeaderTech::Scene::ECS::EntityId;
+using EntityId = HeaderTech::EntityComponentSystem::EntityId;
 
 #endif //HEADERTECH_SANDBOX_H

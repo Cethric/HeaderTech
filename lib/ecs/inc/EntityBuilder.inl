@@ -5,10 +5,10 @@
 #ifndef HEADERTECH_ENTITYBUILDER_INL
 #define HEADERTECH_ENTITYBUILDER_INL
 
-#include <ecs/EntityBuilder.h>
-#include <ecs/EntityCollection.h>
+#include <EntityBuilder.h>
+#include <EntityCollection.h>
 
-namespace HeaderTech::Scene::ECS {
+namespace HeaderTech::EntityComponentSystem {
     inline EntityBuilder::EntityBuilder(EntityId id, EntityCollection *entityCollection) noexcept
             : m_id(id),
               m_collection(entityCollection)

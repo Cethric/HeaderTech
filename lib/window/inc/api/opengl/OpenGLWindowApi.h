@@ -16,7 +16,8 @@ namespace HeaderTech::Window::Api::OpenGL {
     class OpenGLWindowApi final : public HeaderTech::Window::Api::WindowApi {
     public:
         inline OpenGLWindowApi(
-                const HeaderTech::Config::WindowConfig &config, HeaderTech::Events::EventDispatcher *dispatcher,
+                const HeaderTech::Config::WindowConfig &config,
+                HeaderTech::Events::EventDispatcher *dispatcher,
                 GLFWwindow *shared = nullptr
         ) noexcept;
 
@@ -26,9 +27,15 @@ namespace HeaderTech::Window::Api::OpenGL {
 
         inline void SwapBuffers() noexcept final;
 
+        inline void ToggleFullscreen() noexcept final;
+
         inline void MakeCurrent() noexcept final;
 
         inline GLFWwindow *GetOwnedWindow() const noexcept;
+
+        [[nodiscard]] inline int GetWidth() const noexcept final;
+
+        [[nodiscard]] inline int GetHeight() const noexcept final;
 
     protected:
         inline void LinkEvents();

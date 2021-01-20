@@ -7,6 +7,9 @@
 
 #include <Runtime.h>
 #include <ScopedProfileMark.h>
+#include <SceneManager.h>
+#include <SceneManager.inl>
+#include <Window.h>
 
 #include <GLFW/glfw3.h>
 #include <thread>
@@ -14,20 +17,21 @@
 
 namespace HeaderTech::Core {
 
-    Runtime::Runtime(const HeaderTech::Config::RuntimeConfig &config)
+    inline Runtime::Runtime(const HeaderTech::Config::RuntimeConfig &config)
             : m_log(HeaderTech::Logging::make_logger_async<Runtime>()),
               m_running(false),
-              m_window(config.window, this)
+              m_window(new HeaderTech::Window::Window(config.window, this))
     {
         SPDLOG_LOGGER_DEBUG(m_log, "Constructor");
     }
 
-    Runtime::~Runtime()
+    inline Runtime::~Runtime()
     {
         SPDLOG_LOGGER_DEBUG(m_log, "Destructor");
+        delete m_window;
     }
 
-    int Runtime::Launch(HeaderTech::Scene::SceneManager &sceneManager)
+    inline int Runtime::Launch(HeaderTech::Scene::SceneManager *sceneManager)
     {
         SPDLOG_LOGGER_INFO(m_log, "Launch");
         m_running = true;
@@ -39,7 +43,10 @@ namespace HeaderTech::Core {
 
         auto profiler = HeaderTech::Profiler::Scoped::ScopedProfiler::GetProfiler();
 
-        while (m_running && m_window.IsOpen()) {
+        auto &manager = *sceneManager;
+        auto &window = *m_window;
+
+        while (m_running && window.IsOpen()) {
             {
                 ProfileCpuScoped(main_loop);
                 double current = glfwGetTime();
@@ -48,27 +55,32 @@ namespace HeaderTech::Core {
                 lag += elapsed;
 
                 glfwPollEvents();
-                ProcessNextEvent();
+                DrainEvents();
                 {
                     ProfileCpuScoped(update_frame);
                     while (lag >= MS_PER_UPDATE) {
                         ProfileCpuScopedFlags(process_tick, HeaderTech::Profiler::Types::ScopedProfilerFlags_Recursive);
-                        sceneManager.TickScene(MS_PER_UPDATE, lag);
+                        manager.TickScene(MS_PER_UPDATE, lag);
                         lag -= MS_PER_UPDATE;
                     }
                 }
                 {
                     ProfileCpuScoped(process_frame);
-                    sceneManager.RenderScene(lag / MS_PER_UPDATE);
+                    manager.RenderScene(lag / MS_PER_UPDATE);
                 }
-                m_window.Swap();
+
+                {
+                    ProfileCpuScoped(render_imgui);
+                    manager.RenderDebugUI();
+                }
+                window.Swap();
             }
             profiler->Flush();
         }
         return 0;
     }
 
-    void Runtime::Stop()
+    inline void Runtime::Stop()
     {
         m_running = false;
     }

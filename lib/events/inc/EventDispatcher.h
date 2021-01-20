@@ -17,12 +17,17 @@ namespace HeaderTech::Events {
     public:
         inline EventDispatcher() noexcept;
 
-        inline ~EventDispatcher() noexcept = default;
+        virtual inline ~EventDispatcher() noexcept = default;
 
         template<EventType EventClass, typename...Args>
         inline void Dispatch(Args...args) noexcept;
 
+        template<EventType EventClass, typename...Args>
+        inline void DispatchNow(Args...args) noexcept;
+
         inline void ProcessNextEvent() noexcept;
+
+        inline void DrainEvents() noexcept;
 
         template<EventType EventClass, typename EventFunction>
         inline EventSubscriptionPtr Subscribe(const EventFunction &function) noexcept;

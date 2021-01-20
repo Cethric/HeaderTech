@@ -14,9 +14,7 @@ namespace HeaderTech::Render {
         {}
 
         void Render(double offset)
-        {
-            OnRender(offset);
-        }
+        {OnRender(offset);}
 
     protected:
         virtual void OnRender(double offset) = 0;

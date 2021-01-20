@@ -20,7 +20,13 @@ namespace HeaderTech::Window::Api {
 
         inline virtual void SwapBuffers() noexcept = 0;
 
+        inline virtual void ToggleFullscreen() noexcept = 0;
+
         inline virtual void MakeCurrent() noexcept = 0;
+
+        [[nodiscard]] inline virtual int GetWidth() const noexcept = 0;
+
+        [[nodiscard]] inline virtual int GetHeight() const noexcept = 0;
 
     protected:
         HeaderTech::Events::EventDispatcher *m_dispatcher;

@@ -7,79 +7,103 @@
 
 
 #include <memory>
+#include <concepts>
+#include <type_traits>
+#include <ctti/type_id.hpp>
 #include <ctti/detailed_nameof.hpp>
 
-#include <ecs/System.h>
-#include <ecs/EntityCollection.h>
+#include <EntityCollection.h>
+#include <events/FramebufferSizeEvent.h>
+#include <scene/SceneGraphRenderManagement.h>
 
 namespace HeaderTech::Core {
     class Runtime;
 }
 
 namespace HeaderTech::Scene {
+
     class SceneGraph {
     private:
         friend class SceneManager;
 
     public:
-        SceneGraph(HeaderTech::Core::Runtime *runtime, SceneManager *owner, SceneGraph *parent) noexcept;
+        inline SceneGraph(
+                HeaderTech::Core::Runtime *runtime,
+                SceneManager *owner,
+                SceneGraph *parent,
+                HeaderTech::Logging::Logger logger,
+                const HeaderTech::Render::SceneGraph::RenderSurfaceOptions &options
+        ) noexcept;
 
-        virtual ~SceneGraph() noexcept;
+        inline virtual ~SceneGraph() noexcept;
 
-        template<typename ChildScene, typename...Args>
-        ChildScene *AddChildScene(Args...args) noexcept;
+        inline void ResizeFramebuffer(int width, int height) noexcept;
 
-        ECS::EntityBuilder AddEntity() noexcept;
-
-        ECS::Entity GetEntity(ECS::EntityId entityId) noexcept;
-
-        void RegisterTickingSystem(const ECS::SystemTickingCallback &) noexcept;
-
-        void RegisterRenderingSystem(const ECS::SystemRenderingCallback &) noexcept;
+        inline void OnEvent(HeaderTech::Window::Events::FramebufferSizeEvent *event) noexcept;
 
     protected:
-        virtual void Activate()
-        {}
 
-        virtual void Deactivate()
-        {}
+        template<typename ChildScene, typename...Args>
+        inline ChildScene *AddChildScene(Args...args) noexcept;
 
-        virtual void WillPushScene()
-        {}
+    private:
+        inline void Activate() noexcept;
 
-        virtual void WillPopScene()
-        {}
+        inline void Deactivate() noexcept;
 
-        virtual void DidPushScene()
-        {}
+        inline void WillPushScene() noexcept;
 
-        virtual void DidPopScene()
-        {}
+        inline void WillPopScene() noexcept;
 
-        virtual void TickScene(double delta, double lag)
-        {}
+        inline void DidPushScene() noexcept;
 
-        virtual void RenderScene(double offset)
-        {}
+        inline void DidPopScene() noexcept;
+
+        inline void TickScene(double delta, double lag) noexcept;
+
+        inline void RenderScene(double offset) noexcept;
+
+        inline void RenderDebugGUI() noexcept;
+
+    protected:
+        virtual inline void OnActivated() noexcept = 0;
+
+        virtual inline void OnDeactivated() noexcept = 0;
+
+        virtual inline void OnSceneWillBePushed() noexcept = 0;
+
+        virtual inline void OnSceneWillBePopped() noexcept = 0;
+
+        virtual inline void OnSceneWasPushed() noexcept = 0;
+
+        virtual inline void OnSceneWasPopped() noexcept = 0;
+
+        virtual inline void OnSceneTicked(double delta, double lag) noexcept = 0;
+
+        virtual inline void OnSceneRendered(double offset, const HeaderTech::Render::SceneGraph::SceneGraphRenderManagement& mgmt) noexcept = 0;
+
+        virtual inline void OnDebugGuiRendered() noexcept = 0;
+
+        virtual inline void OnFramebufferResized(int width, int height) noexcept = 0;
 
     private:
         std::int32_t m_refCount;
 
-        void PushSceneCount() noexcept;
+        inline void PushSceneCount() noexcept;
 
-        void PopSceneCount() noexcept;
+        inline void PopSceneCount() noexcept;
 
     protected:
-        [[nodiscard]] HeaderTech::Core::Runtime *Runtime() const
+        [[nodiscard]] inline HeaderTech::Core::Runtime *Runtime() const noexcept
         { return m_runtime; }
 
-        [[nodiscard]] SceneManager *Owner() const
+        [[nodiscard]] inline SceneManager *Owner() const noexcept
         { return m_owner; }
 
-        [[nodiscard]] SceneGraph *Parent() const
+        [[nodiscard]] inline SceneGraph *Parent() const noexcept
         { return m_parent; }
 
-        [[nodiscard]] const ECS::EntityCollection &Collection() const
+        [[nodiscard]] inline EntityComponentSystem::EntityCollection &Entities() noexcept
         { return m_entities; }
 
     private:
@@ -87,10 +111,15 @@ namespace HeaderTech::Scene {
         SceneManager *m_owner;
         SceneGraph *m_parent;
         std::vector<SceneGraph *> m_children;
-        HeaderTech::Logging::Logger m_log;
 
-    private: // ECS
-        ECS::EntityCollection m_entities;
+    private: // Render Management
+        HeaderTech::Render::SceneGraph::SceneGraphRenderManagement m_management;
+
+    private: // EntityComponentSystem
+        EntityComponentSystem::EntityCollection m_entities;
+
+    protected:
+        HeaderTech::Logging::Logger m_log;
     };
 }
 

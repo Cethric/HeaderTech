@@ -1,305 +1,218 @@
 #include <Sandbox.h>
 
-class SampleScene2 final : public SceneGraph {
-public:
-    explicit SampleScene2(::Runtime *runtime, SceneManager *owner, SceneGraph *parent) :
-            SceneGraph(runtime, owner, parent),
-            m_log(HeaderTech::Logging::make_logger_async<SampleScene2>())
-    {}
+#include <glm/glm.hpp>
+#include <glm/ext.hpp>
 
-    ~SampleScene2() final
-    { SPDLOG_LOGGER_INFO(m_log, "Destroy"); }
-
-    void Activate() final
-    { SPDLOG_LOGGER_INFO(m_log, "Activated"); }
-
-    void Deactivate() final
-    { SPDLOG_LOGGER_INFO(m_log, "Deactivated"); }
-
-private:
-    HeaderTech::Logging::Logger m_log;
+struct RenderComponent final {
 };
 
-class SampleScene3 final : public SceneGraph {
-public:
-    explicit SampleScene3(::Runtime *runtime, SceneManager *owner, SceneGraph *parent) :
-            SceneGraph(runtime, owner, parent),
-            m_log(HeaderTech::Logging::make_logger_async<SampleScene3>())
-    {}
+struct TransformComponent final {
+    glm::vec3 position;
+    glm::quat orientation;
 
-    ~SampleScene3() final
-    { SPDLOG_LOGGER_INFO(m_log, "Destroy"); }
-
-    void Activate() final
-    { SPDLOG_LOGGER_INFO(m_log, "Activated"); }
-
-    void Deactivate() final
-    { SPDLOG_LOGGER_INFO(m_log, "Deactivated"); }
-
-private:
-    HeaderTech::Logging::Logger m_log;
-};
-
-class SampleScene4 final : public SceneGraph {
-public:
-    explicit SampleScene4(::Runtime *runtime, SceneManager *owner, SceneGraph *parent) :
-            SceneGraph(runtime, owner, parent),
-            m_log(HeaderTech::Logging::make_logger_async<SampleScene4>())
-    {
-        AddChildScene<SampleScene3>();
-    }
-
-    ~SampleScene4() final
-    { SPDLOG_LOGGER_INFO(m_log, "Destroy"); }
-
-    void Activate() final
-    { SPDLOG_LOGGER_INFO(m_log, "Activated"); }
-
-    void Deactivate() final
-    { SPDLOG_LOGGER_INFO(m_log, "Deactivated"); }
-
-private:
-    HeaderTech::Logging::Logger m_log;
-};
-
-struct TransformComponent {
-    float x, y, z;
-    float pitch, yaw, roll;
-
-    TransformComponent(float x, float y, float z, float pitch, float yaw, float roll)
-            : x(x), y(y), z(z),
-              pitch(pitch), yaw(yaw), roll(roll)
+    explicit inline TransformComponent(const glm::vec3 &position, const glm::quat &orientation) noexcept
+            : position(position),
+              orientation(orientation)
     {}
 };
 
-struct RenderComponent {
-};
-struct PhysicsComponent {
-};
-struct ImGuiComponent {
-};
-
-struct DebugComponent {
+struct DebugGuiComponent final {
     const char *name;
 
-    DebugComponent(const char *name) : name(name)
+    explicit inline DebugGuiComponent(const char *name) noexcept: name(name)
     {}
 };
 
-struct MaterialComponent {
-
-};
-struct DebugRenderComponent {
-
-};
-struct CameraComponent {
+struct CameraComponent final {
 
 };
 
-class SampleScene final : public SceneGraph, public RenderSurface {
+class RootScene final : public SceneGraph {
 public:
-    explicit SampleScene(::Runtime *runtime, SceneManager *owner, SceneGraph *parent) :
-            SceneGraph(runtime, owner, parent),
-            RenderSurface(runtime->GetWindow().GetRenderContext()),
-            m_log(HeaderTech::Logging::make_logger_async<SampleScene>()),
-            m_view(nullptr)
+    explicit RootScene(::Runtime *runtime, SceneManager *owner, SceneGraph *parent) noexcept:
+            SceneGraph(
+                    runtime,
+                    owner,
+                    parent,
+                    HeaderTech::Logging::make_logger_async<RootScene>(),
+                    {
+                            .width = runtime->GetWindow().GetWidth(),
+                            .height = runtime->GetWindow().GetHeight(),
+                    }
+            )
     {
-        AddChildScene<SampleScene2>();
-        AddChildScene<SampleScene4>();
-
-        runtime->Subscribe<HeaderTech::Window::Events::FramebufferSizeEvent>(this);
-
-        auto entity1 = AddEntity()
-                .WithComponent<TransformComponent>(1.f, 1.f, 1.f, 0.f, 0.f, 0.f)
-                .WithComponent<DebugComponent>("Example Component")
+        Entities()
+                .AddEntity()
                 .WithComponent<CameraComponent>()
-                .WithComponent<PhysicsComponent>()
-                .WithComponent<ImGuiComponent>()
-                .WithComponent<MaterialComponent>()
-                .WithComponent<DebugRenderComponent>()
+                .WithComponent<TransformComponent>(glm::vec3{0, 0, 0}, glm::quat{1, 0, 0, 1})
                 .WithComponent<RenderComponent>()
-                .ToEntityId();
-
-        AddEntity()
-                .WithComponent<TransformComponent>(1.f, 10.f, 1.f, 0.f, 0.f, 0.f)
-                .WithComponent<DebugComponent>("Example Component 2")
-                .WithComponent<PhysicsComponent>()
-                .WithComponent<ImGuiComponent>()
-                .WithComponent<MaterialComponent>()
+                .WithComponent<DebugGuiComponent>("Camera");
+        Entities()
+                .AddEntity()
                 .WithComponent<RenderComponent>()
-            /*.Release()*/;
-
-        AddEntity()
-                .WithComponent<TransformComponent>(0.f, 10.f, 0.f, 0.f, 0.f, 0.f)
-                .WithComponent<DebugComponent>("Example Component 3")
-                .WithComponent<PhysicsComponent>()
-                .WithComponent<ImGuiComponent>()
-                .WithComponent<MaterialComponent>()
+                .WithComponent<TransformComponent>(glm::vec3{0, 0, 0}, glm::quat{1, 0, 0, 1})
+                .WithComponent<DebugGuiComponent>("Example");
+        Entities()
+                .AddEntity()
+                .WithComponent<RenderComponent>();
+        Entities()
+                .AddEntity()
+                .WithComponent<RenderComponent>();
+        Entities()
+                .AddEntity()
                 .WithComponent<RenderComponent>()
-            /*.Release()*/;
-
-        auto entity2 = AddEntity()
-                .WithComponent<TransformComponent>(1.f, 10.f, 1.f, 0.f, 0.f, 0.f)
-                .WithComponent<DebugComponent>("Example Component 4")
-                .WithComponent<PhysicsComponent>()
-                .WithComponent<ImGuiComponent>()
-                .WithComponent<MaterialComponent>()
-                .WithComponent<DebugRenderComponent>()
+                .WithComponent<TransformComponent>(glm::vec3{0, 0, 0}, glm::quat{1, 0, 0, 1})
+                .WithComponent<DebugGuiComponent>("Example 2");
+        Entities()
+                .AddEntity()
+                .WithComponent<RenderComponent>();
+        Entities()
+                .AddEntity()
                 .WithComponent<RenderComponent>()
-                .ToEntityId();
+                .WithComponent<TransformComponent>(glm::vec3{0, 0, 0}, glm::quat{1, 0, 0, 1})
+                .WithComponent<DebugGuiComponent>("Example 3");
+        Entities()
+                .AddEntity()
+                .WithComponent<RenderComponent>();
+        Entities()
+                .AddEntity()
+                .WithComponent<RenderComponent>()
+                .WithComponent<TransformComponent>(glm::vec3{0, 0, 0}, glm::quat{1, 0, 0, 1})
+                .WithComponent<DebugGuiComponent>("Example 4");
+        Entities()
+                .AddEntity()
+                .WithComponent<RenderComponent>()
+                .WithComponent<DebugGuiComponent>("Example 5");
 
-        SPDLOG_LOGGER_INFO(m_log, "TransformComponent Id: {}",
-                           HeaderTech::Scene::ECS::ComponentIdSeq<TransformComponent>::value());
-        SPDLOG_LOGGER_INFO(m_log, "DebugComponent Id: {}",
-                           HeaderTech::Scene::ECS::ComponentIdSeq<DebugComponent>::value());
-        SPDLOG_LOGGER_INFO(m_log, "DebugComponent Id: {}",
-                           HeaderTech::Scene::ECS::ComponentIdSeq<DebugComponent>::value());
-        SPDLOG_LOGGER_INFO(m_log, "PhysicsComponent Id: {}",
-                           HeaderTech::Scene::ECS::ComponentIdSeq<PhysicsComponent>::value());
-        SPDLOG_LOGGER_INFO(m_log, "ImGuiComponent Id: {}",
-                           HeaderTech::Scene::ECS::ComponentIdSeq<ImGuiComponent>::value());
-        SPDLOG_LOGGER_INFO(m_log, "MaterialComponent Id: {}",
-                           HeaderTech::Scene::ECS::ComponentIdSeq<MaterialComponent>::value());
-        SPDLOG_LOGGER_INFO(m_log, "DebugRenderComponent Id: {}",
-                           HeaderTech::Scene::ECS::ComponentIdSeq<DebugRenderComponent>::value());
-        SPDLOG_LOGGER_INFO(m_log, "RenderComponent Id: {}",
-                           HeaderTech::Scene::ECS::ComponentIdSeq<RenderComponent>::value());
-        SPDLOG_LOGGER_INFO(m_log, "TransformComponent Id: {}",
-                           HeaderTech::Scene::ECS::ComponentIdSeq<TransformComponent>::value());
-
-        RegisterTickingSystem(
-                [](double delta, double lag, const HeaderTech::Scene::ECS::EntityCollection &entities) {}
-        );
-        RegisterRenderingSystem(
-                [](double offset, const HeaderTech::Scene::ECS::EntityCollection &entities) {
-//                    for (auto &transform_render : components.Get<TransformComponent, RenderComponent>()) {
-//
-//                    }
-                }
-        );
-
-        auto count = Collection().ComponentSize<RenderComponent>();
-        SPDLOG_LOGGER_INFO(m_log, "RenderComponent Count: {}", count);
-
-        GetEntity(entity1).RemoveComponent<CameraComponent>();
-        GetEntity(entity2).AddComponent<CameraComponent>();
-
-        auto view = Collection().View<RenderComponent, PhysicsComponent>();
-        for (auto group : *view) {
-            auto id = std::get<EntityId>(group);
-            auto render = std::get<RenderComponent*>(group);
-            auto physics = std::get<PhysicsComponent*>(group);
-            SPDLOG_LOGGER_INFO(m_log, "Get data for entity: {}", id);
-        }
-
-        m_view = Collection().View<RenderComponent, TransformComponent, DebugComponent, PhysicsComponent>();
+        this->Runtime()->Subscribe<HeaderTech::Window::Events::KeyEvent>(this);
     }
 
-    ~SampleScene() final
-    { SPDLOG_LOGGER_INFO(m_log, "Destroy"); }
-
-    void Activate() final
+    void OnEvent(HeaderTech::Window::Events::KeyEvent *event)
     {
-        SPDLOG_LOGGER_INFO(m_log, "Activated");
-        OnSetup();
-        for (auto group : *m_view) {
-            auto id = std::get<EntityId>(group);
-            auto render = std::get<RenderComponent *>(group);
-            auto transform = std::get<TransformComponent *>(group);
-            auto debug = std::get<DebugComponent *>(group);
-            SPDLOG_LOGGER_DEBUG(
-                    m_log,
-                    "Get data for entity 2: {} {} - {} {} {}",
-                    id,
-                    debug->name,
-                    transform->x,
-                    transform->y,
-                    transform->z
-            );
+        if (event->action == HeaderTech::Window::Events::KeyAction_PRESSED && event->key == GLFW_KEY_F) {
+            this->Runtime()->GetWindow().ToggleFullscreen();
         }
     }
-
-    void Deactivate() final
-    {
-        SPDLOG_LOGGER_INFO(m_log, "Deactivated");
-        OnTeardown();
-    }
-
-    void TickScene(double delta, double lag) final
-    {
-        ProfileCpuScoped(TickScene);
-        SceneGraph::TickScene(delta, lag);
-//        Owner()->PushScene();
-
-
-
-        for (auto group : *m_view) {
-            auto transform = std::get<TransformComponent *>(group);
-
-            transform->x *= (float) (10 * delta);
-            transform->y *= (float) (-10 * delta);
-            transform->z *= (float) (80 * delta);
-            transform->yaw *= (float) (10 * delta);
-            transform->pitch *= (float) (-10 * delta);
-            transform->roll *= (float) (80 * delta);
-        }
-    }
-
-    void RenderScene(double offset) final
-    {
-        ProfileCpuScoped(RenderScene);
-        SceneGraph::RenderScene(offset);
-        Render(offset);
-
-        SPDLOG_LOGGER_INFO(
-                m_log,
-                "Render; {}",
-                offset
-        );
-
-        for (auto group : *m_view) {
-            auto id = std::get<EntityId>(group);
-            auto render = std::get<RenderComponent *>(group);
-            auto transform = std::get<TransformComponent *>(group);
-            auto debug = std::get<DebugComponent *>(group);
-            SPDLOG_LOGGER_INFO(
-                    m_log,
-                    "Get data for entity 2: {} {} - {} {} {}",
-                    id,
-                    debug->name,
-                    transform->x,
-                    transform->y,
-                    transform->z
-            );
-        }
-    }
-
-    void OnEvent(HeaderTech::Window::Events::FramebufferSizeEvent *event)
-    { SPDLOG_LOGGER_INFO(m_log, "Resize Framebuffer: {}x{}", event->width, event->height); }
 
 protected:
-    void OnSetup() final
+    using BlankExcludes = HeaderTech::EntityComponentSystem::EntityComponentViewExcludes<>;
+    using RenderExcludes = HeaderTech::EntityComponentSystem::EntityComponentViewExcludes<RenderComponent>;
+    using CameraExcludes = HeaderTech::EntityComponentSystem::EntityComponentViewExcludes<CameraComponent>;
+
+    inline void OnActivated() noexcept final
     {
-        m_ctx->MakeCurrent();
+        SPDLOG_LOGGER_INFO(m_log, "Activated Root Scene");
+        m_updateView = Entities().CreateView<TransformComponent>(BlankExcludes{});
+        m_renderView = Entities().CreateView<RenderComponent, TransformComponent>(BlankExcludes{});
+        m_cameraView = Entities().CreateView<CameraComponent, TransformComponent>(RenderExcludes{});
+        m_debugView = Entities().CreateView<DebugGuiComponent>(CameraExcludes{});
     }
 
-    void OnTeardown() final
+    inline void OnDeactivated() noexcept final
     {
-        m_ctx->MakeCurrent();
+        SPDLOG_LOGGER_INFO(m_log, "Deactivated Root Scene");
+        m_updateView = nullptr;
+        m_renderView = nullptr;
+        m_debugView = nullptr;
+        m_cameraView = nullptr;
     }
 
-    void OnRender(double offset) final
+    inline void OnSceneWillBePushed() noexcept final
+    {}
+
+    inline void OnSceneWillBePopped() noexcept final
+    {}
+
+    inline void OnSceneWasPushed() noexcept final
+    {}
+
+    inline void OnSceneWasPopped() noexcept final
+    {}
+
+    inline void OnSceneTicked(double delta, double lag) noexcept final
     {
-        m_ctx->MakeCurrent();
+        TransformComponent *transform = nullptr;
+        for (const auto &update: *m_updateView) {
+            std::tie(std::ignore, transform) = update;
+            transform->position.x += 2 * delta;
+            transform->position.y += 3 * delta;
+            transform->position.z += 2 * delta;
+        }
     }
+
+    inline void OnSceneRendered(
+            double offset,
+            const HeaderTech::Render::SceneGraph::SceneGraphRenderManagement &mgmt
+    ) noexcept final
+    {
+        CameraComponent *camera = nullptr;
+        TransformComponent *cameraTransform = nullptr;
+        RenderComponent *render = nullptr;
+        TransformComponent *transform = nullptr;
+        for (const auto &camEntity : *m_cameraView) {
+            std::tie(std::ignore, camera, cameraTransform) = camEntity;
+
+            for (const auto &entity : *m_renderView) {
+                std::tie(std::ignore, render, transform) = entity;
+
+//                SPDLOG_LOGGER_INFO(
+//                        m_log,
+//                        "Render {} {} {}",
+//                        transform->position.x,
+//                        transform->position.y,
+//                        transform->position.z
+//                );
+            }
+        }
+    }
+
+    inline void OnDebugGuiRendered() noexcept final
+    {
+        ImGui::Begin("Example");
+        EntityId entityId;
+        DebugGuiComponent *debug = nullptr;
+        TransformComponent *transform = nullptr;
+        for (const auto &entity : *m_debugView) {
+            std::tie(entityId, debug) = entity;
+            ImGui::BulletText("%llu -> %s", entityId, debug->name);
+        }
+        for (const auto &entity : *m_updateView) {
+            std::tie(entityId, transform) = entity;
+            ImGui::BulletText(
+                    "%llu -> %f\t%f\t%f",
+                    entityId,
+                    transform->position.x,
+                    transform->position.y,
+                    transform->position.z
+            );
+        }
+        ImGui::End();
+    }
+
+    inline void OnFramebufferResized(int width, int height) noexcept final
+    { SPDLOG_LOGGER_INFO(m_log, "Resize Framebuffer: {} {}", width, height); }
 
 private:
-    HeaderTech::Logging::Logger m_log;
-    HeaderTech::Scene::ECS::EntityComponentViewPtr<RenderComponent, TransformComponent, DebugComponent, PhysicsComponent> m_view;
+    std::shared_ptr<HeaderTech::EntityComponentSystem::EntityComponentView<BlankExcludes, TransformComponent>> m_updateView;
+    std::shared_ptr<HeaderTech::EntityComponentSystem::EntityComponentView<BlankExcludes, RenderComponent, TransformComponent>> m_renderView;
+    std::shared_ptr<HeaderTech::EntityComponentSystem::EntityComponentView<RenderExcludes, CameraComponent, TransformComponent>> m_cameraView;
+    std::shared_ptr<HeaderTech::EntityComponentSystem::EntityComponentView<CameraExcludes, DebugGuiComponent>> m_debugView;
 };
 
 int main(int argc, const char **argv)
 {
+    IMGUI_CHECKVERSION();
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable : 4068)
+#endif
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "UnusedValue"
+    int result = -1;
+#pragma clang diagnostic pop
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
     auto config = BuildConfiguration(argc, argv);
     [[maybe_unused]] ScopedFileSystem fileSystem(argv[0], "Sandbox");
     {
@@ -309,15 +222,16 @@ int main(int argc, const char **argv)
             {
                 ScopedGlfw glfw;
                 {
-
                     Runtime runtime(config);
                     {
-                        HeaderTech::Scene::SceneManager sceneManager(&runtime);
-                        sceneManager.SetRootScene<SampleScene>();
-                        return runtime.Launch(sceneManager);
+                        auto sceneManager = new HeaderTech::Scene::SceneManager(&runtime);
+                        sceneManager->SetRootScene<RootScene>();
+                        result = runtime.Launch(sceneManager);
+                        delete sceneManager;
                     }
                 }
             }
         }
     }
+    return result;
 }

@@ -6,8 +6,9 @@
 #define HEADERTECH_RENDERCONTEXTAPI_H
 
 #include <api/BaseRenderContextApi.h>
-
+#include <api/RenderFramebuffer.h>
 
 #include <api/opengl/OpenGLRenderContextApi.h>
+#include <api/opengl/OpenGLRenderFramebuffer.h>
 
 #endif //HEADERTECH_RENDERCONTEXTAPI_H
