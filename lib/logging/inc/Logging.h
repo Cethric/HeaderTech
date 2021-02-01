@@ -6,6 +6,8 @@
 #define HEADERTECH_LOGGING_H
 
 #include <Logger.h>
+#include <ProfilerSink.h>
+#include <FileSink.h>
 #include <scoped/ScopedLogging.h>
 
 #if defined(HEADERTECH_LOGGING_IMPL) && DEFINE_IMPLEMENTATION == 1

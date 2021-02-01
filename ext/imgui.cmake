@@ -8,8 +8,8 @@ set(
         imgui/imgui.cpp
         imgui/imgui_demo.cpp
         imgui/imgui_draw.cpp
-        imgui/imgui_widgets.cpp
         imgui/imgui_tables.cpp
+        imgui/imgui_widgets.cpp
 )
 
 set(
@@ -29,14 +29,36 @@ set(
         imgui/misc/natvis/imgui.natvis
 )
 
-add_library(ImGui STATIC ${ImGui_SRC} ${ImGui_Inc} ${ImGui_Misc_Code})
+
+set(
+        ImGuiBackend_SRC
+        imgui/backends/imgui_impl_glfw.cpp
+        imgui_backends/ImGui_OpenGL3.cpp
+)
+
+set(
+        ImGuiBackend_Inc
+        imgui/backends/imgui_impl_glfw.h
+        imgui_backends/ImGui_OpenGL3.h
+)
+
+add_library(ImGui STATIC ${ImGui_SRC} ${ImGui_Inc} ${ImGui_Misc_Code} ${ImGuiBackend_SRC} ${ImGuiBackend_Inc})
 target_include_directories(ImGui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/imgui/)
 target_include_directories(ImGui PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/imgui/)
 target_include_directories(ImGui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/imgui/misc/cpp/)
 target_include_directories(ImGui PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/imgui/misc/cpp/)
-target_link_libraries(ImGui PUBLIC glad)
 
-add_executable(ImGuiFontCompressor WIN32 imgui/misc/fonts/binary_to_compressed_c.cpp)
+# ImGui Backends
+target_include_directories(ImGui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/imgui/backends/)
+target_include_directories(ImGui PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/imgui/backends/)
+target_include_directories(ImGui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/imgui_backends/)
+target_include_directories(ImGui PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/imgui_backends/)
+target_link_libraries(ImGui PRIVATE glad::glad)
+target_link_libraries(ImGui PRIVATE glfw::glfw3)
+target_compile_definitions(ImGui PRIVATE -DGLFW_INCLUDE_NONE=1)
+
+
+add_executable(ImGuiFontCompressor imgui/misc/fonts/binary_to_compressed_c.cpp)
 
 
 add_library(imgui::imgui ALIAS ImGui)

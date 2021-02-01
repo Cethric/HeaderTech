@@ -7,6 +7,7 @@
 
 #include <EventDispatcher.h>
 #include <api/RenderContextApi.h>
+#include <WindowTypes.h>
 
 namespace HeaderTech::Window::Api {
     class WindowApi {
@@ -27,6 +28,8 @@ namespace HeaderTech::Window::Api {
         [[nodiscard]] inline virtual int GetWidth() const noexcept = 0;
 
         [[nodiscard]] inline virtual int GetHeight() const noexcept = 0;
+
+        [[nodiscard]] inline virtual bool IsKeyPressed(KeyType key) const noexcept = 0;
 
     protected:
         HeaderTech::Events::EventDispatcher *m_dispatcher;

@@ -37,6 +37,8 @@ namespace HeaderTech::Window::Api::OpenGL {
 
         [[nodiscard]] inline int GetHeight() const noexcept final;
 
+        [[nodiscard]] inline bool IsKeyPressed(KeyType key) const noexcept final;
+
     protected:
         inline void LinkEvents();
 

@@ -26,7 +26,7 @@ namespace HeaderTech::Core {
 
         inline ~Runtime() final;
 
-        inline int Launch(HeaderTech::Scene::SceneManager *sceneManager);
+        inline int Launch(HeaderTech::Scene::SceneManager &sceneManager);
 
         inline void Stop();
 

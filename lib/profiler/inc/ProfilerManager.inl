@@ -12,13 +12,13 @@
 
 namespace HeaderTech::Profiler {
     inline ProfilerManager::ProfilerManager()
-            : m_server(),
-              m_logDispatcher(),
+            : m_logDispatcher(),
               m_profileDispatcher(),
-              m_cpuProfiles(),
-              m_currentCpuProfile(),
               m_log(HeaderTech::Logging::make_logger<ProfilerManager>()),
-              m_serverThread(&ProfilerManager::ProfilerServerThread, this)
+              m_server(),
+              m_serverThread(&ProfilerManager::ProfilerServerThread, this),
+              m_cpuProfiles(),
+              m_currentCpuProfile()
     { SPDLOG_LOGGER_DEBUG(m_log, "Construct Profiler"); }
 
     inline ProfilerManager::~ProfilerManager()

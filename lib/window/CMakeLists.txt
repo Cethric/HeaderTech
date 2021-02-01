@@ -31,7 +31,9 @@ set(
         inc/events/FileDropEvent.h
         # Windowing
         inc/Window.h
-        inc/Window.inl
+        inc/WindowTypes.h
+        inc/WindowBase.h
+        inc/WindowBase.inl
         # Window APIs
         inc/api/WindowApi.h
         inc/api/WindowApi.inl
@@ -39,11 +41,11 @@ set(
         inc/api/opengl/OpenGLWindowApi.h
         inc/api/opengl/OpenGLWindowApi.inl
         inc/api/opengl/OpenGLWindowApiEvents.inl
-)
+        inc/api/GLFWKeyMapping.h)
 
 add_library(HeaderTech_Window STATIC ${HeaderTech_Window_SRC} ${HeaderTech_Window_INC})
 target_include_directories(HeaderTech_Window PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc/)
 target_include_directories(HeaderTech_Window PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/inc/)
 target_include_directories(HeaderTech_Window PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
 target_link_libraries(HeaderTech_Window PUBLIC HeaderTech_Logging HeaderTech_Profiler HeaderTech_Events HeaderTech_Config HeaderTech_Render)
-target_link_libraries(HeaderTech_Window PUBLIC glfw)
+target_link_libraries(HeaderTech_Window PUBLIC glfw::glfw3)

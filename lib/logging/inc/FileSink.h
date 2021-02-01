@@ -36,7 +36,7 @@ namespace HeaderTech::Logging {
     template<class Mutex>
     class FileSink final : public spdlog::sinks::base_sink<Mutex> {
     public:
-        explicit inline FileSink(const std::string_view &filename) ;
+        explicit inline FileSink(const std::string_view &filename);
 
     protected:
         void sink_it_(const spdlog::details::log_msg &msg) final;

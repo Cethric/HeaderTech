@@ -5,7 +5,6 @@
 #ifndef HEADERTECH_ENTITYSET_INL
 #define HEADERTECH_ENTITYSET_INL
 
-
 #include <EntitySet.h>
 
 namespace HeaderTech::EntityComponentSystem {
@@ -119,8 +118,9 @@ namespace HeaderTech::EntityComponentSystem {
 
     template<Component ComponentType>
     inline EntityComponentDataSet<ComponentType>::EntityComponentDataSet() noexcept
-            : m_components(),
-              m_log(HeaderTech::Logging::get_or_make_logger_async<EntityComponentDataSet>())
+            : details::EntitySet(),
+              m_log(HeaderTech::Logging::get_or_make_logger_async<EntityComponentDataSet>()),
+              m_components()
     {}
 
     template<Component ComponentType>
@@ -156,13 +156,6 @@ namespace HeaderTech::EntityComponentSystem {
         m_components.erase(std::cbegin(m_components) + index);
         details::EntitySet::Remove(id);
     }
-
-//    template<Component ComponentType>
-//    bool EntityComponentDataSet<ComponentType>::Contains(EntityId id) noexcept
-//    {
-//        const auto index = EntityIndex(id);
-//        return index;
-//    }
 
     template<Component ComponentType>
     inline ComponentType *EntityComponentDataSet<ComponentType>::Get(EntityId id) noexcept

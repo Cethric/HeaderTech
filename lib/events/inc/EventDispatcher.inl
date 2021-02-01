@@ -19,7 +19,7 @@ namespace HeaderTech::Events {
     inline void EventDispatcher::Dispatch(Args... args) noexcept
     {
         ProfileCpuScoped(event_dispatcher);
-        std::lock_guard<std::mutex> lock(m_eventMutex);
+        std::lock_guard<std::recursive_mutex> lock(m_eventMutex);
 
         auto event = Event::MakeEvent<EventClass, Args...>(std::forward<Args>(args)...);
         m_eventQueue.push(std::move(event));
@@ -60,7 +60,7 @@ namespace HeaderTech::Events {
     template<EventType EventClass, typename EventFunction>
     EventSubscriptionPtr EventDispatcher::Subscribe(const EventFunction &function) noexcept
     {
-        std::lock_guard<std::mutex> lock(m_subscriptionMutex);
+        std::lock_guard<std::recursive_mutex> lock(m_subscriptionMutex);
 
         auto subscription = EventSubscription::CreateSubscription<EventClass, EventFunction>(function);
         constexpr auto id = EventIdChecker<EventClass>{}();
@@ -77,7 +77,7 @@ namespace HeaderTech::Events {
     template<EventType EventClass>
     void EventDispatcher::Unsubscribe(const EventSubscriptionPtr &subscription) noexcept
     {
-        std::lock_guard<std::mutex> lock(m_subscriptionMutex);
+        std::lock_guard<std::recursive_mutex> lock(m_subscriptionMutex);
 
         constexpr auto id = EventIdChecker<EventClass>{}();
         const auto search = m_subscriptions.find(id);
@@ -91,7 +91,7 @@ namespace HeaderTech::Events {
     template<EventType EventClass>
     void EventDispatcher::Unsubscribe() noexcept
     {
-        std::lock_guard<std::mutex> lock(m_subscriptionMutex);
+        std::lock_guard<std::recursive_mutex> lock(m_subscriptionMutex);
 
         constexpr auto id = EventIdChecker<EventClass>{}();
         m_subscriptions.erase(id);
@@ -100,7 +100,7 @@ namespace HeaderTech::Events {
     inline void EventDispatcher::ProcessEvent(const EventPtr &event) noexcept
     {
         ProfileCpuScoped(event_processor);
-        std::lock_guard<std::mutex> lock(m_subscriptionMutex);
+        std::lock_guard<std::recursive_mutex> lock(m_subscriptionMutex);
 
         const auto subscriptions = m_subscriptions.find(event->GetId());
         if (subscriptions != m_subscriptions.end()) {

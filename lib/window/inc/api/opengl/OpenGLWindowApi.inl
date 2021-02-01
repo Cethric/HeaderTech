@@ -8,6 +8,14 @@
 #include <api/opengl/OpenGLWindowApi.h>
 #include <api/opengl/OpenGLWindowApiEvents.inl>
 
+#include <api/GLFWKeyMapping.h>
+
+#ifdef _WIN32
+#define GLFW_EXPOSE_NATIVE_WIN32 1
+#endif
+
+#include <GLFW/glfw3native.h>
+
 namespace HeaderTech::Window::Api::OpenGL {
     OpenGLWindowApi::OpenGLWindowApi(
             const HeaderTech::Config::WindowConfig &config,
@@ -64,7 +72,11 @@ namespace HeaderTech::Window::Api::OpenGL {
             }
 
             if (activeMonitor) {
-                SPDLOG_INFO("Using window: {} {}", glfwGetMonitorName(activeMonitor), glfwGetWin32Monitor(activeMonitor));
+                SPDLOG_INFO(
+                        "Using window: {} {}",
+                        glfwGetMonitorName(activeMonitor),
+                        glfwGetWin32Monitor(activeMonitor)
+                );
                 const GLFWvidmode *mode = glfwGetVideoMode(activeMonitor);
 
                 glfwSetWindowMonitor(m_window, activeMonitor, 0, 0, mode->width, mode->height, mode->refreshRate);
@@ -93,6 +105,9 @@ namespace HeaderTech::Window::Api::OpenGL {
         glfwGetFramebufferSize(m_window, nullptr, &height);
         return height;
     }
+
+    bool OpenGLWindowApi::IsKeyPressed(KeyType key) const noexcept
+    { return glfwGetKey(m_window, HeaderTech::Window::Api::GLFW::KeyMapping[key]) == GLFW_PRESS; }
 }
 
 #endif //HEADERTECH_OPENGLWINDOWAPI_INL

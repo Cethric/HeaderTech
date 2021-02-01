@@ -44,8 +44,8 @@ namespace HeaderTech::Events {
     private:
         EventQueue m_eventQueue;
         EventSubscriptionMap m_subscriptions;
-        std::mutex m_eventMutex;
-        std::mutex m_subscriptionMutex;
+        std::recursive_mutex m_eventMutex;
+        std::recursive_mutex m_subscriptionMutex;
     };
 }
 

@@ -25,5 +25,5 @@ add_library(HeaderTech_Logging STATIC ${HeaderTech_Logging_SRC} ${HeaderTech_Log
 target_include_directories(HeaderTech_Logging PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc/)
 target_include_directories(HeaderTech_Logging PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/inc/)
 target_include_directories(HeaderTech_Logging PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
-target_link_libraries(HeaderTech_Logging PUBLIC spdlog::spdlog ctti)
+target_link_libraries(HeaderTech_Logging PUBLIC spdlog::spdlog ctti::ctti)
 target_link_libraries(HeaderTech_Logging PUBLIC HeaderTech_Profiler HeaderTech_FileSystem)

@@ -101,32 +101,22 @@ namespace HeaderTech::Render::Api::OpenGL {
     ) noexcept
             : HeaderTech::Render::Api::RenderContextApi(api),
               m_gl{},
-              m_window(api),
               m_debugGuiContext(ImGui::CreateContext(nullptr)),
-              m_debugData{
-                      .gl=nullptr,
-                      .program=0,
-                      .vboHandle=0,
-                      .elementsHandle=0,
-                      .attribLocationTex=0,
-                      .attribLocationProjMtx=0,
-                      .attribLocationVtxPos=0,
-                      .attribLocationVtxUV=0,
-                      .attribLocationVtxColor=0,
-                      .fontTexture=0,
-                      .mouseCursors={nullptr},
-                      .buttonPressed={false},
-                      .mainWindow=api->GetOwnedWindow(),
-                      .parentUserPointer=nullptr,
-                      .parentMouseButtonCallback=nullptr,
-                      .parentScrollCallback=nullptr,
-                      .parentKeyCallback=nullptr,
-                      .parentCharCallback=nullptr,
-              }
+              m_window(api)
     {
         api->MakeCurrent();
         gladLoadGLContext(&m_gl, glfwGetProcAddress);
+
+        m_gl.Enable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
         m_gl.DebugMessageCallback(&detail::opengl_debug_callback, nullptr);
+        m_gl.DebugMessageControl(
+                GL_DONT_CARE,
+                GL_DONT_CARE,
+                GL_DONT_CARE,
+                0,
+                nullptr,
+                true
+        );
 
         PrepareRenderDebugGUI();
 
@@ -137,12 +127,7 @@ namespace HeaderTech::Render::Api::OpenGL {
         m_gl.Clear(GL_COLOR_BUFFER_BIT);
     }
 
-    inline OpenGLRenderContextApi::~OpenGLRenderContextApi() noexcept
-    {
-        auto data = (void **) glfwGetWindowUserPointer(m_window->GetOwnedWindow());
-        delete[] data;
-        glfwSetWindowUserPointer(m_window->GetOwnedWindow(), m_debugData.parentUserPointer);
-    };
+    inline OpenGLRenderContextApi::~OpenGLRenderContextApi() noexcept = default;
 
     inline const GladGLContext &OpenGLRenderContextApi::Gl() const noexcept
     { return m_gl; }

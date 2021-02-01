@@ -18,8 +18,8 @@
 namespace HeaderTech::Core {
 
     inline Runtime::Runtime(const HeaderTech::Config::RuntimeConfig &config)
-            : m_log(HeaderTech::Logging::make_logger_async<Runtime>()),
-              m_running(false),
+            : m_running(false),
+              m_log(HeaderTech::Logging::make_logger_async<Runtime>()),
               m_window(new HeaderTech::Window::Window(config.window, this))
     {
         SPDLOG_LOGGER_DEBUG(m_log, "Constructor");
@@ -31,7 +31,7 @@ namespace HeaderTech::Core {
         delete m_window;
     }
 
-    inline int Runtime::Launch(HeaderTech::Scene::SceneManager *sceneManager)
+    inline int Runtime::Launch(HeaderTech::Scene::SceneManager &sceneManager)
     {
         SPDLOG_LOGGER_INFO(m_log, "Launch");
         m_running = true;
@@ -43,7 +43,6 @@ namespace HeaderTech::Core {
 
         auto profiler = HeaderTech::Profiler::Scoped::ScopedProfiler::GetProfiler();
 
-        auto &manager = *sceneManager;
         auto &window = *m_window;
 
         while (m_running && window.IsOpen()) {
@@ -60,18 +59,18 @@ namespace HeaderTech::Core {
                     ProfileCpuScoped(update_frame);
                     while (lag >= MS_PER_UPDATE) {
                         ProfileCpuScopedFlags(process_tick, HeaderTech::Profiler::Types::ScopedProfilerFlags_Recursive);
-                        manager.TickScene(MS_PER_UPDATE, lag);
+                        sceneManager.TickScene(MS_PER_UPDATE, lag);
                         lag -= MS_PER_UPDATE;
                     }
                 }
                 {
                     ProfileCpuScoped(process_frame);
-                    manager.RenderScene(lag / MS_PER_UPDATE);
+                    sceneManager.RenderScene(lag / MS_PER_UPDATE);
                 }
 
                 {
                     ProfileCpuScoped(render_imgui);
-                    manager.RenderDebugUI();
+                    sceneManager.RenderDebugUI();
                 }
                 window.Swap();
             }

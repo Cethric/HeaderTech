@@ -1,4 +1,3 @@
-set(BUILD_SHARED_LIBS ON CACHE INTERNAL "" FORCE)
 add_subdirectory(glad/cmake EXCLUDE_FROM_ALL)
 
 glad_add_library(
@@ -14,5 +13,7 @@ glad_add_library(
         LANGUAGE C
         API gl:core=4.6
 )
+
+add_library(glad::glad ALIAS glad)
 
 # lib glad

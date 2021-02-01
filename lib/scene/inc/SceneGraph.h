@@ -16,6 +16,8 @@
 #include <events/FramebufferSizeEvent.h>
 #include <scene/SceneGraphRenderManagement.h>
 
+#include <WindowTypes.h>
+
 namespace HeaderTech::Core {
     class Runtime;
 }
@@ -66,6 +68,8 @@ namespace HeaderTech::Scene {
         inline void RenderDebugGUI() noexcept;
 
     protected:
+        inline bool IsKeyPressed(HeaderTech::Window::KeyType key) noexcept;
+
         virtual inline void OnActivated() noexcept = 0;
 
         virtual inline void OnDeactivated() noexcept = 0;

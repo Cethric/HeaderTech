@@ -61,10 +61,10 @@ namespace HeaderTech::EntityComponentSystem {
     }
 
     inline EntityCollection::EntityCollection() noexcept
-            : m_activeEntities(),
+            : m_log(HeaderTech::Logging::get_or_make_logger_async<EntityCollection>()),
               m_releasedEntities(),
-              m_activeEntityData(),
-              m_log(HeaderTech::Logging::get_or_make_logger_async<EntityCollection>())
+              m_activeEntities(),
+              m_activeEntityData()
     {}
 
     inline EntityBuilder EntityCollection::AddEntity() noexcept

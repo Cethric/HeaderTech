@@ -17,10 +17,10 @@ namespace HeaderTech::Events {
         }
     }
 
-    inline Event::Event() noexcept: m_id(0),
-                                    m_priority(0),
-                                    m_event(nullptr),
-                                    m_destructor(nullptr)
+    inline Event::Event() noexcept: m_event(nullptr),
+                                    m_destructor(nullptr),
+                                    m_id(0),
+                                    m_priority(0)
     {
     }
 
@@ -64,8 +64,8 @@ namespace HeaderTech::Events {
         auto base = new EventClass(std::forward<EventArgs>(args)...);
         m_event = base;
         m_destructor = detail::event_destructor<EventClass>;
-        m_id = EventIdChecker<EventClass>{}(*base);
-        m_priority = EventPriorityChecker<EventClass>{}(*base);
+        m_id = EventIdChecker < EventClass > {}(*base);
+        m_priority = EventPriorityChecker < EventClass > {}(*base);
     }
 }
 

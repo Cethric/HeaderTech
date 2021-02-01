@@ -23,9 +23,9 @@ namespace HeaderTech::Scene {
               m_owner(owner),
               m_parent(parent),
               m_children(),
+              m_management(runtime, options),
               m_entities(),
-              m_log(std::move(logger)),
-              m_management(runtime, options)
+              m_log(std::move(logger))
     { m_runtime->Subscribe<HeaderTech::Window::Events::FramebufferSizeEvent>(this); }
 
     inline SceneGraph::~SceneGraph() noexcept
@@ -70,6 +70,11 @@ namespace HeaderTech::Scene {
         if (m_refCount < 0) {
             SPDLOG_LOGGER_WARN(m_log, "Scene Ref count decremented more that it was incremented: {}", m_refCount);
         }
+    }
+
+    inline bool SceneGraph::IsKeyPressed(HeaderTech::Window::KeyType key) noexcept
+    {
+        return Runtime()->GetWindow().IsKeyPressed(key);
     }
 }
 

@@ -37,6 +37,10 @@ namespace HeaderTech::EntityComponentSystem {
 
         class EntitySet : public BaseSet {
         public:
+            EntitySet() noexcept = default;
+
+            virtual ~EntitySet() noexcept = default;
+
             [[nodiscard]] inline std::uint64_t Add(EntityId id) noexcept;
 
             virtual inline void Remove(EntityId id) noexcept;
@@ -102,14 +106,12 @@ namespace HeaderTech::EntityComponentSystem {
     public:
         inline EntityComponentDataSet() noexcept;
 
-        inline ~EntityComponentDataSet() noexcept;
+        inline ~EntityComponentDataSet() noexcept final;
 
         template<typename...Args>
         inline void SetValue(EntityId id, Args...args) noexcept;
 
         inline void Remove(EntityId id) noexcept final;
-
-//        [[nodiscard]] inline bool Contains(EntityId id) noexcept;
 
         [[nodiscard]] inline ComponentType *Get(EntityId id) noexcept;
 

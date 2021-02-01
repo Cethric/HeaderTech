@@ -1,8 +1,11 @@
 //
-// Created by rogan2 on 19/11/2020.
+// Created by rogan2 on 20/01/2021.
 //
 
-#include <Window.h>
+#ifndef HEADERTECH_WINDOWBASE_INL
+#define HEADERTECH_WINDOWBASE_INL
+
+#include <WindowBase.h>
 #include <Render.h>
 #include <Events.h>
 #include <api/WindowApi.h>
@@ -59,4 +62,9 @@ namespace HeaderTech::Window {
     inline HeaderTech::Render::RenderContext *Window::GetRenderContext() const noexcept
     { return m_context; }
 
+    inline bool Window::IsKeyPressed(KeyType key) const noexcept
+    { return m_api->IsKeyPressed(key); }
+
 }
+
+#endif //HEADERTECH_WINDOWBASE_INL

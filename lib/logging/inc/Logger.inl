@@ -95,13 +95,19 @@ namespace HeaderTech::Logging {
         detail::clear_sinks();
     }
 
-    [[nodiscard]] inline Logger make_logger_async(const std::string &name)
+    inline Logger make_logger_async(const std::string &name)
     {
         auto sinks = detail::sinks();
         return spdlog::create_async<spdlog::sinks::dist_sink_mt>(name, sinks);
     }
 
-    Logger get_or_make_logger_async(const std::string &name)
+    template<typename Name>
+    inline Logger make_logger_async()
+    {
+        return make_logger_async(ctti::detailed_nameof<Name>().name().str());
+    }
+
+    inline Logger get_or_make_logger_async(const std::string &name)
     {
         auto logger = spdlog::get(name);
         if (logger == nullptr) {
@@ -111,24 +117,24 @@ namespace HeaderTech::Logging {
     }
 
     template<typename Name>
-    [[nodiscard]] inline Logger Logging::get_or_make_logger_async()
+    inline Logger get_or_make_logger_async()
     {
         return get_or_make_logger_async(ctti::detailed_nameof<Name>().name().str());
     }
 
-    template<typename Name>
-    [[nodiscard]] inline Logger Logging::make_logger_async()
-    {
-        return make_logger_async(ctti::detailed_nameof<Name>().name().str());
-    }
-
-    [[nodiscard]] inline Logger make_logger(const std::string &name)
+    inline Logger make_logger(const std::string &name)
     {
         auto sinks = detail::sinks2();
         return spdlog::create<spdlog::sinks::dist_sink_mt>(name, sinks);
     }
 
-    Logger get_or_make_logger(const std::string &name)
+    template<typename Name>
+    inline Logger make_logger()
+    {
+        return make_logger(ctti::detailed_nameof<Name>().name().str());
+    }
+
+    inline Logger get_or_make_logger(const std::string &name)
     {
         auto logger = spdlog::get(name);
         if (logger == nullptr) {
@@ -138,15 +144,9 @@ namespace HeaderTech::Logging {
     }
 
     template<typename Name>
-    Logger get_or_make_logger()
+    inline Logger get_or_make_logger()
     {
         return get_or_make_logger(ctti::detailed_nameof<Name>().name().str());
-    }
-
-    template<typename Name>
-    [[nodiscard]] inline Logger Logging::make_logger()
-    {
-        return make_logger(ctti::detailed_nameof<Name>().name().str());
     }
 }
 

@@ -45,7 +45,6 @@ public:
                 .AddEntity()
                 .WithComponent<CameraComponent>()
                 .WithComponent<TransformComponent>(glm::vec3{0, 0, 0}, glm::quat{1, 0, 0, 1})
-                .WithComponent<RenderComponent>()
                 .WithComponent<DebugGuiComponent>("Camera");
         Entities()
                 .AddEntity()
@@ -102,7 +101,7 @@ protected:
     inline void OnActivated() noexcept final
     {
         SPDLOG_LOGGER_INFO(m_log, "Activated Root Scene");
-        m_updateView = Entities().CreateView<TransformComponent>(BlankExcludes{});
+        m_updateView = Entities().CreateView<TransformComponent>(CameraExcludes{});
         m_renderView = Entities().CreateView<RenderComponent, TransformComponent>(BlankExcludes{});
         m_cameraView = Entities().CreateView<CameraComponent, TransformComponent>(RenderExcludes{});
         m_debugView = Entities().CreateView<DebugGuiComponent>(CameraExcludes{});
@@ -137,6 +136,25 @@ protected:
             transform->position.x += 2 * delta;
             transform->position.y += 3 * delta;
             transform->position.z += 2 * delta;
+        }
+
+        CameraComponent *camera = nullptr;
+
+        constexpr float speed = 2;
+        bool forward = IsKeyPressed(HeaderTech::Window::KeyType::Key_W);
+        bool backward = IsKeyPressed(HeaderTech::Window::KeyType::Key_S);
+        bool strafeLeft = IsKeyPressed(HeaderTech::Window::KeyType::Key_A);
+        bool strafeRight = IsKeyPressed(HeaderTech::Window::KeyType::Key_D);
+        bool raise = IsKeyPressed(HeaderTech::Window::KeyType::Key_Space);
+        bool lower = IsKeyPressed(HeaderTech::Window::KeyType::Key_Shift_Left);
+        for (const auto &update:*m_cameraView) {
+            std::tie(std::ignore, camera, transform) = update;
+            if (forward) transform->position.x += speed * delta;
+            if (backward) transform->position.x -= speed * delta;
+            if (strafeLeft) transform->position.z -= speed * delta;
+            if (strafeRight) transform->position.z += speed * delta;
+            if (raise) transform->position.y += speed * delta;
+            if (lower) transform->position.y -= speed * delta;
         }
     }
 
@@ -186,6 +204,18 @@ protected:
                     transform->position.z
             );
         }
+        CameraComponent *camera = nullptr;
+        ImGui::Text("Camera Components");
+        for (const auto &entity : *m_cameraView) {
+            std::tie(entityId, camera, transform) = entity;
+            ImGui::BulletText(
+                    "%llu -> %f\t%f\t%f",
+                    entityId,
+                    transform->position.x,
+                    transform->position.y,
+                    transform->position.z
+            );
+        }
         ImGui::End();
     }
 
@@ -193,7 +223,7 @@ protected:
     { SPDLOG_LOGGER_INFO(m_log, "Resize Framebuffer: {} {}", width, height); }
 
 private:
-    std::shared_ptr<HeaderTech::EntityComponentSystem::EntityComponentView<BlankExcludes, TransformComponent>> m_updateView;
+    std::shared_ptr<HeaderTech::EntityComponentSystem::EntityComponentView<CameraExcludes, TransformComponent>> m_updateView;
     std::shared_ptr<HeaderTech::EntityComponentSystem::EntityComponentView<BlankExcludes, RenderComponent, TransformComponent>> m_renderView;
     std::shared_ptr<HeaderTech::EntityComponentSystem::EntityComponentView<RenderExcludes, CameraComponent, TransformComponent>> m_cameraView;
     std::shared_ptr<HeaderTech::EntityComponentSystem::EntityComponentView<CameraExcludes, DebugGuiComponent>> m_debugView;
@@ -201,37 +231,40 @@ private:
 
 int main(int argc, const char **argv)
 {
-    IMGUI_CHECKVERSION();
+    try {
+        IMGUI_CHECKVERSION();
 #ifdef _MSC_VER
 #pragma warning(push)
 #pragma warning(disable : 4068)
 #endif
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "UnusedValue"
-    int result = -1;
+        int result = -1;
 #pragma clang diagnostic pop
 #ifdef _MSC_VER
 #pragma warning(pop)
 #endif
-    auto config = BuildConfiguration(argc, argv);
-    [[maybe_unused]] ScopedFileSystem fileSystem(argv[0], "Sandbox");
-    {
-        [[maybe_unused]] ScopedLogging logging(argc, argv);
+        auto config = BuildConfiguration(argc, argv);
+        [[maybe_unused]] ScopedFileSystem fileSystem(argv[0], "Sandbox");
         {
-            ScopedProfiler profiler;
+            [[maybe_unused]] ScopedLogging logging(argc, argv);
             {
-                ScopedGlfw glfw;
+                ScopedProfiler profiler;
                 {
-                    Runtime runtime(config);
+                    ScopedGlfw glfw;
                     {
-                        auto sceneManager = new HeaderTech::Scene::SceneManager(&runtime);
-                        sceneManager->SetRootScene<RootScene>();
-                        result = runtime.Launch(sceneManager);
-                        delete sceneManager;
+                        Runtime runtime(config);
+                        {
+                            HeaderTech::Scene::SceneManager sceneManager(&runtime);
+                            sceneManager.SetRootScene<RootScene>();
+                            result = runtime.Launch(sceneManager);
+                        }
                     }
                 }
             }
         }
+        return result;
+    } catch (std::exception &e) {
+        return -1;
     }
-    return result;
 }

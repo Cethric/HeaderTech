@@ -65,12 +65,6 @@ namespace HeaderTech::EntityComponentSystem {
             );
         }
 
-//        template<Component Include>
-//        [[nodiscard]] inline std::shared_ptr<EntityComponentView<Include>> CreateView() noexcept
-//        {
-//            return std::make_shared<EntityComponentView<Include>>(AssureComponentData<Include>());
-//        }
-
     protected:
         inline details::EntityIdStruct GetNextId() noexcept;
 

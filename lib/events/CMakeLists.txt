@@ -24,5 +24,5 @@ add_library(HeaderTech_Events STATIC ${HeaderTech_Events_SRC} ${HeaderTech_Event
 target_include_directories(HeaderTech_Events PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc/)
 target_include_directories(HeaderTech_Events PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/inc/)
 target_include_directories(HeaderTech_Events PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
-target_link_libraries(HeaderTech_Events PUBLIC ctti)
+target_link_libraries(HeaderTech_Events PUBLIC ctti::ctti)
 target_link_libraries(HeaderTech_Events PUBLIC HeaderTech_Logging)

@@ -20,4 +20,4 @@ target_include_directories(HeaderTech_FileSystem PUBLIC ${CMAKE_CURRENT_SOURCE_D
 target_include_directories(HeaderTech_FileSystem PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/inc/)
 target_include_directories(HeaderTech_FileSystem PUBLIC ${CMAKE_SOURCE_DIR}/ext/physfs/src)
 target_include_directories(HeaderTech_FileSystem PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
-target_link_libraries(HeaderTech_FileSystem PUBLIC physfs-static)
+target_link_libraries(HeaderTech_FileSystem PUBLIC physfs::physfs)

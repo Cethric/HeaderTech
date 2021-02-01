@@ -6,4 +6,6 @@ set(GLFW_INSTALL OFF CACHE INTERNAL "" FORCE)
 set(GLFW_VULKAN_STATIC OFF CACHE INTERNAL "" FORCE)
 add_subdirectory(glfw/ EXCLUDE_FROM_ALL)
 
+add_library(glfw::glfw3 ALIAS glfw)
+
 # lib glfw

@@ -8,7 +8,7 @@
 #include <LogDispatcher.h>
 
 namespace HeaderTech::Profiler {
-    LogDispatcher::LogDispatcher() : m_nextId(0), m_currentId(-1), m_message(), m_mutex(), m_condition()
+    LogDispatcher::LogDispatcher() : m_mutex(), m_condition(), m_nextId(0), m_currentId(-1), m_message()
     {
 
     }
