@@ -30,7 +30,7 @@
 <section>
 <title>Detailed Description</title>
 <para>
-Definition at line 18 of file KeyEvent.h.</para>
+Definition at line 20 of file KeyEvent.h.</para>
 </section>
 <section>
 <title>Constructor &amp; Destructor Documentation</title>
@@ -39,7 +39,7 @@ Definition at line 18 of file KeyEvent.h.</para>
 <indexterm><primary>KeyEvent</primary><secondary>HeaderTech::Window::Events::KeyEvent</secondary></indexterm>
 <indexterm><primary>HeaderTech::Window::Events::KeyEvent</primary><secondary>KeyEvent</secondary></indexterm>
 <para><computeroutput>HeaderTech::Window::Events::KeyEvent::KeyEvent (int key, int scanCode, <link linkend="_namespace_header_tech_1_1_window_1_1_events_1a59392e9a14abec3a5ba877bdcf62628e">KeyAction</link> action, int mods)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
-Definition at line 19 of file KeyEvent.h.</para>
+Definition at line 21 of file KeyEvent.h.</para>
 </section>
 </section>
 <section>
@@ -49,7 +49,7 @@ Definition at line 19 of file KeyEvent.h.</para>
 <indexterm><primary>GetPriority</primary><secondary>HeaderTech::Window::Events::KeyEvent</secondary></indexterm>
 <indexterm><primary>HeaderTech::Window::Events::KeyEvent</primary><secondary>GetPriority</secondary></indexterm>
 <para><computeroutput><link linkend="_namespace_header_tech_1_1_events_1a94ce76b1ca57f459e666e4bd3152652d">HeaderTech::Events::EventPriority</link> HeaderTech::Window::Events::KeyEvent::GetPriority ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
-Definition at line 27 of file KeyEvent.h.</para>
+Definition at line 29 of file KeyEvent.h.</para>
 </section>
 </section>
 <section>
@@ -59,25 +59,25 @@ Definition at line 27 of file KeyEvent.h.</para>
 <indexterm><primary>action</primary><secondary>HeaderTech::Window::Events::KeyEvent</secondary></indexterm>
 <indexterm><primary>HeaderTech::Window::Events::KeyEvent</primary><secondary>action</secondary></indexterm>
 <para><computeroutput><link linkend="_namespace_header_tech_1_1_window_1_1_events_1a59392e9a14abec3a5ba877bdcf62628e">KeyAction</link> HeaderTech::Window::Events::KeyEvent::action</computeroutput></para><para>
-Definition at line 32 of file KeyEvent.h.</para>
+Definition at line 34 of file KeyEvent.h.</para>
     </section><anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1a8f28080a2a13414ab5157644d6310b3e"/>    <section>
     <title>key</title>
 <indexterm><primary>key</primary><secondary>HeaderTech::Window::Events::KeyEvent</secondary></indexterm>
 <indexterm><primary>HeaderTech::Window::Events::KeyEvent</primary><secondary>key</secondary></indexterm>
 <para><computeroutput>int HeaderTech::Window::Events::KeyEvent::key</computeroutput></para><para>
-Definition at line 30 of file KeyEvent.h.</para>
+Definition at line 32 of file KeyEvent.h.</para>
     </section><anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1a1a59070a83aea33144b62e393a8eada7"/>    <section>
     <title>mods</title>
 <indexterm><primary>mods</primary><secondary>HeaderTech::Window::Events::KeyEvent</secondary></indexterm>
 <indexterm><primary>HeaderTech::Window::Events::KeyEvent</primary><secondary>mods</secondary></indexterm>
 <para><computeroutput>int HeaderTech::Window::Events::KeyEvent::mods</computeroutput></para><para>
-Definition at line 33 of file KeyEvent.h.</para>
+Definition at line 35 of file KeyEvent.h.</para>
     </section><anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1a79c725f934bded504948019d736338f4"/>    <section>
     <title>scanCode</title>
 <indexterm><primary>scanCode</primary><secondary>HeaderTech::Window::Events::KeyEvent</secondary></indexterm>
 <indexterm><primary>HeaderTech::Window::Events::KeyEvent</primary><secondary>scanCode</secondary></indexterm>
 <para><computeroutput>int HeaderTech::Window::Events::KeyEvent::scanCode</computeroutput></para><para>
-Definition at line 31 of file KeyEvent.h.</para>
+Definition at line 33 of file KeyEvent.h.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

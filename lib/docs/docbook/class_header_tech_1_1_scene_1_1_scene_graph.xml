@@ -23,7 +23,7 @@
         <itemizedlist>
             <listitem><para>template&lt;typename ChildScene , typename... Args&gt; </para><para>ChildScene * <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1a7bad5b4f4ed280c452f870016394caf2">AddChildScene</link> (Args...args) noexcept</para>
 </listitem>
-            <listitem><para>bool <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1ad51f44963cd540714d4ae4b56942b6ad">IsKeyPressed</link> (<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eac">HeaderTech::Window::KeyType</link> key) noexcept</para>
+            <listitem><para>bool <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1af702d8416db992c30f4005fea166def9">IsKeyPressed</link> (<link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7">HeaderTech::Core::KeyType</link> key) noexcept</para>
 </listitem>
             <listitem><para>virtual void <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1a326c90fe525d69cd903645e6f4fd8b5e">OnActivated</link> () noexcept=0</para>
 </listitem>
@@ -104,11 +104,11 @@ Definition at line 50 of file SceneGraph.inl.</para>
 <indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>Entities</secondary></indexterm>
 <para><computeroutput><link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_collection">EntityComponentSystem::EntityCollection</link>&amp; HeaderTech::Scene::SceneGraph::Entities ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
 Definition at line 110 of file SceneGraph.h.</para>
-    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1ad51f44963cd540714d4ae4b56942b6ad"/>    <section>
+    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1af702d8416db992c30f4005fea166def9"/>    <section>
     <title>IsKeyPressed()</title>
 <indexterm><primary>IsKeyPressed</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
 <indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>IsKeyPressed</secondary></indexterm>
-<para><computeroutput>bool HeaderTech::Scene::SceneGraph::IsKeyPressed (<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eac">HeaderTech::Window::KeyType</link> key)<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+<para><computeroutput>bool HeaderTech::Scene::SceneGraph::IsKeyPressed (<link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7">HeaderTech::Core::KeyType</link> key)<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
 Definition at line 75 of file SceneGraph.inl.</para>
     </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1a326c90fe525d69cd903645e6f4fd8b5e"/>    <section>
     <title>OnActivated()</title>

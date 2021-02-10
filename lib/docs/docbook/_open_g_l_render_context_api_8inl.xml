@@ -7,6 +7,7 @@
 #include &lt;api/opengl/OpenGLRenderFramebuffer.h&gt;
 #include &lt;LoggingIncludes.h&gt;
 #include &lt;GLFW/glfw3.h&gt;
+#include &lt;imgui.h&gt;
 </programlisting>Include dependency graph for OpenGLRenderContextApi.inl:<para>
     <informalfigure>
         <mediaobject>

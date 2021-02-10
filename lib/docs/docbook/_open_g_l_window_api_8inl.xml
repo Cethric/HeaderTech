@@ -6,20 +6,12 @@
 #include &lt;api/opengl/OpenGLWindowApiEvents.inl&gt;
 #include &lt;api/GLFWKeyMapping.h&gt;
 #include &lt;GLFW/glfw3native.h&gt;
+#include &lt;glad/gl.h&gt;
 </programlisting>Include dependency graph for OpenGLWindowApi.inl:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
                 <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_open_g_l_window_api_8inl__incl.png"></imagedata>
-            </imageobject>
-        </mediaobject>
-    </informalfigure>
-</para>
-This graph shows which files directly or indirectly include this file:<para>
-    <informalfigure>
-        <mediaobject>
-            <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_open_g_l_window_api_8inl__dep__incl.png"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>

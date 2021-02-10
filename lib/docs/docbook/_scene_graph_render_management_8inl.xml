@@ -4,8 +4,6 @@
 <indexterm><primary>render/inc/scene/SceneGraphRenderManagement.inl</primary></indexterm>
 <programlisting>#include &lt;scene/SceneGraphRenderManagement.h&gt;
 #include &lt;RuntimeIncludes.h&gt;
-#include &lt;api/RenderFramebuffer.h&gt;
-#include &lt;api/RenderFramebuffer.inl&gt;
 </programlisting>Include dependency graph for SceneGraphRenderManagement.inl:<para>
     <informalfigure>
         <mediaobject>

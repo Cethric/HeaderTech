@@ -1,7 +1,5 @@
 <map id="window/inc/events/ScrollEvent.h" name="window/inc/events/ScrollEvent.h">
-<area shape="rect" id="node1" title=" " alt="" coords="59,5,222,47"/>
-<area shape="rect" id="node2" href="$_open_g_l_window_api_events_8inl.html" title=" " alt="" coords="43,95,238,136"/>
-<area shape="rect" id="node3" href="$_open_g_l_window_api_8inl.html" title=" " alt="" coords="5,184,161,225"/>
-<area shape="rect" id="node4" href="$_window_api_includes_8inl.html" title=" " alt="" coords="53,273,228,315"/>
-<area shape="rect" id="node5" href="$_window_8inl.html" title=" " alt="" coords="65,363,217,389"/>
+<area shape="rect" id="node1" title=" " alt="" coords="21,5,184,47"/>
+<area shape="rect" id="node2" href="$_open_g_l_window_api_events_8inl.html" title=" " alt="" coords="5,95,200,136"/>
+<area shape="rect" id="node3" href="$_open_g_l_window_api_8inl.html" title=" " alt="" coords="25,184,181,225"/>
 </map>

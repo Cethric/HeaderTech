@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__window_api_8h" xml:lang="en-US">
-<title>window/inc/api/WindowApi.h File Reference</title>
-<indexterm><primary>window/inc/api/WindowApi.h</primary></indexterm>
+<title>core/inc/api/window/WindowApi.h File Reference</title>
+<indexterm><primary>core/inc/api/window/WindowApi.h</primary></indexterm>
 <programlisting>#include &lt;EventDispatcher.h&gt;
-#include &lt;api/RenderContextApi.h&gt;
 #include &lt;WindowTypes.h&gt;
+#include &lt;glm/glm.hpp&gt;
 </programlisting>Include dependency graph for WindowApi.h:<para>
     <informalfigure>
         <mediaobject>
@@ -26,7 +26,7 @@ This graph shows which files directly or indirectly include this file:<para>
 <simplesect>
     <title>Classes    </title>
         <itemizedlist>
-            <listitem><para>class <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_window_api">HeaderTech::Window::Api::WindowApi</link></para>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_core_1_1_api_1_1_window_1_1_window_api">HeaderTech::Core::Api::Window::WindowApi</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -35,9 +35,11 @@ This graph shows which files directly or indirectly include this file:<para>
         <itemizedlist>
             <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
 </listitem>
-            <listitem><para> <link linkend="_namespace_header_tech_1_1_window">HeaderTech::Window</link></para>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_core">HeaderTech::Core</link></para>
 </listitem>
-            <listitem><para> <link linkend="_namespace_header_tech_1_1_window_1_1_api">HeaderTech::Window::Api</link></para>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_core_1_1_api">HeaderTech::Core::Api</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_core_1_1_api_1_1_window">HeaderTech::Core::Api::Window</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>

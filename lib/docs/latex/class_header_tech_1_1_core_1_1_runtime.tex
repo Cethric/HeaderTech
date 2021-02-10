@@ -6,8 +6,7 @@
 
 
 
-Inheritance diagram for Header\+Tech\+::Core\+::Runtime\+:
-\nopagebreak
+Inheritance diagram for Header\+Tech\+::Core\+::Runtime\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -36,6 +35,8 @@ int \mbox{\hyperlink{class_header_tech_1_1_core_1_1_runtime_aedd029ee262ea3934a6
 void \mbox{\hyperlink{class_header_tech_1_1_core_1_1_runtime_ae74d5dc2082398b51715acd348e674a6}{Stop}} ()
 \item 
 \mbox{\hyperlink{class_header_tech_1_1_window_1_1_window}{Header\+Tech\+::\+Window\+::\+Window}} \& \mbox{\hyperlink{class_header_tech_1_1_core_1_1_runtime_ae86a963a99ae84a22770e7f1e4924596}{Get\+Window}} ()
+\item 
+bool \mbox{\hyperlink{class_header_tech_1_1_core_1_1_runtime_a8b5a3e327604fee6f8173b1409dd26e9}{Is\+Running}} () const noexcept
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
@@ -45,13 +46,15 @@ bool \mbox{\hyperlink{class_header_tech_1_1_core_1_1_runtime_a09cdea0f45a870c47a
 \mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Header\+Tech\+::\+Logging\+::\+Logger}} \mbox{\hyperlink{class_header_tech_1_1_core_1_1_runtime_af2e5c9a6d9a5c7eea153b7c02d80ab27}{m\+\_\+log}}
 \item 
 \mbox{\hyperlink{class_header_tech_1_1_window_1_1_window}{Header\+Tech\+::\+Window\+::\+Window}} $\ast$ \mbox{\hyperlink{class_header_tech_1_1_core_1_1_runtime_a7d629f37b9c478fc491467ce07dc4ee3}{m\+\_\+window}}
+\item 
+std\+::thread \mbox{\hyperlink{class_header_tech_1_1_core_1_1_runtime_a51c5fb9f039405ce2230dc46e7934666}{m\+\_\+event\+Thread}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 
 
-Definition at line 23 of file Runtime.\+h.
+Definition at line 24 of file Runtime.\+h.
 
 
 
@@ -64,7 +67,7 @@ Definition at line 23 of file Runtime.\+h.
 
 
 
-Definition at line 20 of file Runtime.\+inl.
+Definition at line 19 of file Runtime.\+inl.
 
 \mbox{\Hypertarget{class_header_tech_1_1_core_1_1_runtime_a03599dd7e5e150c5c6e9949682ba81b7}\label{class_header_tech_1_1_core_1_1_runtime_a03599dd7e5e150c5c6e9949682ba81b7}} 
 \index{HeaderTech::Core::Runtime@{HeaderTech::Core::Runtime}!````~Runtime@{$\sim$Runtime}}
@@ -87,8 +90,34 @@ Definition at line 28 of file Runtime.\+inl.
 
 
 
-Definition at line 33 of file Runtime.\+h.
+Definition at line 34 of file Runtime.\+h.
 
+\mbox{\Hypertarget{class_header_tech_1_1_core_1_1_runtime_a8b5a3e327604fee6f8173b1409dd26e9}\label{class_header_tech_1_1_core_1_1_runtime_a8b5a3e327604fee6f8173b1409dd26e9}} 
+\index{HeaderTech::Core::Runtime@{HeaderTech::Core::Runtime}!IsRunning@{IsRunning}}
+\index{IsRunning@{IsRunning}!HeaderTech::Core::Runtime@{HeaderTech::Core::Runtime}}
+\doxysubsubsection{\texorpdfstring{IsRunning()}{IsRunning()}}
+{\footnotesize\ttfamily bool Header\+Tech\+::\+Core\+::\+Runtime\+::\+Is\+Running (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 84 of file Runtime.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_core_1_1_runtime_a8b5a3e327604fee6f8173b1409dd26e9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_core_1_1_runtime_a8b5a3e327604fee6f8173b1409dd26e9_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_header_tech_1_1_core_1_1_runtime_aedd029ee262ea3934a6ad1e919f678b5}\label{class_header_tech_1_1_core_1_1_runtime_aedd029ee262ea3934a6ad1e919f678b5}} 
 \index{HeaderTech::Core::Runtime@{HeaderTech::Core::Runtime}!Launch@{Launch}}
 \index{Launch@{Launch}!HeaderTech::Core::Runtime@{HeaderTech::Core::Runtime}}
@@ -115,11 +144,21 @@ Here is the call graph for this function\+:
 
 
 
-Definition at line 82 of file Runtime.\+inl.
+Definition at line 81 of file Runtime.\+inl.
 
 
 
 \doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_core_1_1_runtime_a51c5fb9f039405ce2230dc46e7934666}\label{class_header_tech_1_1_core_1_1_runtime_a51c5fb9f039405ce2230dc46e7934666}} 
+\index{HeaderTech::Core::Runtime@{HeaderTech::Core::Runtime}!m\_eventThread@{m\_eventThread}}
+\index{m\_eventThread@{m\_eventThread}!HeaderTech::Core::Runtime@{HeaderTech::Core::Runtime}}
+\doxysubsubsection{\texorpdfstring{m\_eventThread}{m\_eventThread}}
+{\footnotesize\ttfamily std\+::thread Header\+Tech\+::\+Core\+::\+Runtime\+::m\+\_\+event\+Thread\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 48 of file Runtime.\+h.
+
 \mbox{\Hypertarget{class_header_tech_1_1_core_1_1_runtime_af2e5c9a6d9a5c7eea153b7c02d80ab27}\label{class_header_tech_1_1_core_1_1_runtime_af2e5c9a6d9a5c7eea153b7c02d80ab27}} 
 \index{HeaderTech::Core::Runtime@{HeaderTech::Core::Runtime}!m\_log@{m\_log}}
 \index{m\_log@{m\_log}!HeaderTech::Core::Runtime@{HeaderTech::Core::Runtime}}
@@ -128,7 +167,7 @@ Definition at line 82 of file Runtime.\+inl.
 
 
 
-Definition at line 38 of file Runtime.\+h.
+Definition at line 44 of file Runtime.\+h.
 
 \mbox{\Hypertarget{class_header_tech_1_1_core_1_1_runtime_a09cdea0f45a870c47ab2488096c06396}\label{class_header_tech_1_1_core_1_1_runtime_a09cdea0f45a870c47ab2488096c06396}} 
 \index{HeaderTech::Core::Runtime@{HeaderTech::Core::Runtime}!m\_running@{m\_running}}
@@ -138,7 +177,7 @@ Definition at line 38 of file Runtime.\+h.
 
 
 
-Definition at line 37 of file Runtime.\+h.
+Definition at line 43 of file Runtime.\+h.
 
 \mbox{\Hypertarget{class_header_tech_1_1_core_1_1_runtime_a7d629f37b9c478fc491467ce07dc4ee3}\label{class_header_tech_1_1_core_1_1_runtime_a7d629f37b9c478fc491467ce07dc4ee3}} 
 \index{HeaderTech::Core::Runtime@{HeaderTech::Core::Runtime}!m\_window@{m\_window}}
@@ -148,7 +187,7 @@ Definition at line 37 of file Runtime.\+h.
 
 
 
-Definition at line 40 of file Runtime.\+h.
+Definition at line 46 of file Runtime.\+h.
 
 
 

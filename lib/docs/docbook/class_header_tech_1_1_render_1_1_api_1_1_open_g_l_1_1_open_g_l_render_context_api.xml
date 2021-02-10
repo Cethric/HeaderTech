@@ -32,7 +32,7 @@ Collaboration diagram for HeaderTech::Render::Api::OpenGL::OpenGLRenderContextAp
 </listitem>
             <listitem><para>const GladGLContext &amp; <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_1ac04b4d81064a100b55370e439065cffc">Gl</link> () const noexcept</para>
 </listitem>
-            <listitem><para><link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer">HeaderTech::Render::Api::RenderFramebuffer</link> * <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_1af86811ac70a64122001818d807683a62">CreateFramebuffer</link> (int width, int height) noexcept final</para>
+            <listitem><para><link linkend="_class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_framebuffer">HeaderTech::Core::Api::Render::RenderFramebuffer</link> * <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_1adf284065644d50ad66a24d225b60105b">CreateFramebuffer</link> (int width, int height) noexcept final</para>
 </listitem>
             <listitem><para>void <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_1a22a0b44cd0440b1c9f427d1086b46a6c">PrepareRenderDebugGUI</link> () noexcept final</para>
 </listitem>
@@ -56,7 +56,7 @@ Collaboration diagram for HeaderTech::Render::Api::OpenGL::OpenGLRenderContextAp
 <section>
 <title>Detailed Description</title>
 <para>
-Definition at line 18 of file OpenGLRenderContextApi.h.</para>
+Definition at line 19 of file OpenGLRenderContextApi.h.</para>
 </section>
 <section>
 <title>Constructor &amp; Destructor Documentation</title>
@@ -65,37 +65,57 @@ Definition at line 18 of file OpenGLRenderContextApi.h.</para>
 <indexterm><primary>OpenGLRenderContextApi</primary><secondary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</secondary></indexterm>
 <indexterm><primary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</primary><secondary>OpenGLRenderContextApi</secondary></indexterm>
 <para><computeroutput>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi::OpenGLRenderContextApi (<link linkend="_class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api">HeaderTech::Window::Api::OpenGL::OpenGLWindowApi</link> * api)<computeroutput>[inline]</computeroutput>, <computeroutput>[explicit]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
-Definition at line 99 of file OpenGLRenderContextApi.inl.</para>
+Definition at line 101 of file OpenGLRenderContextApi.inl.</para>
     </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_1a452fbfe76c45ea95409cd03ec567c010"/>    <section>
     <title>~OpenGLRenderContextApi()</title>
 <indexterm><primary>~OpenGLRenderContextApi</primary><secondary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</secondary></indexterm>
 <indexterm><primary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</primary><secondary>~OpenGLRenderContextApi</secondary></indexterm>
-<para><computeroutput>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi::~OpenGLRenderContextApi ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[final]</computeroutput>, <computeroutput>[default]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para></section>
+<para><computeroutput>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi::~OpenGLRenderContextApi ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[final]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 132 of file OpenGLRenderContextApi.inl.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_a452fbfe76c45ea95409cd03ec567c010_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
 </section>
 <section>
 <title>Member Function Documentation</title>
-<anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_1af86811ac70a64122001818d807683a62"/>    <section>
+<anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_1adf284065644d50ad66a24d225b60105b"/>    <section>
     <title>CreateFramebuffer()</title>
 <indexterm><primary>CreateFramebuffer</primary><secondary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</secondary></indexterm>
 <indexterm><primary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</primary><secondary>CreateFramebuffer</secondary></indexterm>
-<para><computeroutput><link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer">HeaderTech::Render::Api::RenderFramebuffer</link> * HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi::CreateFramebuffer (int width, int height)<computeroutput>[inline]</computeroutput>, <computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
-Reimplemented from <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1a6b34767e92634cc2b22af099a2f1a168">HeaderTech::Render::Api::RenderContextApi</link>.</para>
+<para><computeroutput><link linkend="_class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_framebuffer">HeaderTech::Core::Api::Render::RenderFramebuffer</link> * HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi::CreateFramebuffer (int width, int height)<computeroutput>[inline]</computeroutput>, <computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_context_api_1ab3e8ea1567af65b4d6b95872f9f33602">HeaderTech::Core::Api::Render::RenderContextApi</link>.</para>
 <para>
-Definition at line 136 of file OpenGLRenderContextApi.inl.</para>
+Definition at line 139 of file OpenGLRenderContextApi.inl.</para>
     </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_1abf4c5fda9808750d38e1437c6ed6d1bf"/>    <section>
     <title>DestroyRenderDebugGUI()</title>
 <indexterm><primary>DestroyRenderDebugGUI</primary><secondary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</secondary></indexterm>
 <indexterm><primary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</primary><secondary>DestroyRenderDebugGUI</secondary></indexterm>
 <para><computeroutput>void HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi::DestroyRenderDebugGUI ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
-Implements <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1a7c551a3cc1c91c36fc78f8e0c7f94667">HeaderTech::Render::Api::RenderContextApi</link>.</para>
+Implements <link linkend="_class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_context_api_1a2e7fe33b2ffa227f11fbaa6f33660fcd">HeaderTech::Core::Api::Render::RenderContextApi</link>.</para>
 <para>
 Definition at line 43 of file OpenGLDebugGui.inl.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_abf4c5fda9808750d38e1437c6ed6d1bf_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
     </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_1adf8ee6e37f856e53d162832c8a2ec0e1"/>    <section>
     <title>DidRenderDebugGUI()</title>
 <indexterm><primary>DidRenderDebugGUI</primary><secondary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</secondary></indexterm>
 <indexterm><primary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</primary><secondary>DidRenderDebugGUI</secondary></indexterm>
 <para><computeroutput>void HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi::DidRenderDebugGUI ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
-Implements <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1a4b5b0d74e05c31632ea5ecce4cfb0e01">HeaderTech::Render::Api::RenderContextApi</link>.</para>
+Implements <link linkend="_class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_context_api_1a6142ac88f75518cc19fc25828bc1a86e">HeaderTech::Core::Api::Render::RenderContextApi</link>.</para>
 <para>
 Definition at line 103 of file OpenGLDebugGui.inl.</para>
 Here is the call graph for this function:<para>
@@ -112,13 +132,13 @@ Here is the call graph for this function:<para>
 <indexterm><primary>Gl</primary><secondary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</secondary></indexterm>
 <indexterm><primary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</primary><secondary>Gl</secondary></indexterm>
 <para><computeroutput>const GladGLContext &amp; HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi::Gl ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
-Definition at line 132 of file OpenGLRenderContextApi.inl.</para>
+Definition at line 135 of file OpenGLRenderContextApi.inl.</para>
     </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_1a22a0b44cd0440b1c9f427d1086b46a6c"/>    <section>
     <title>PrepareRenderDebugGUI()</title>
 <indexterm><primary>PrepareRenderDebugGUI</primary><secondary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</secondary></indexterm>
 <indexterm><primary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</primary><secondary>PrepareRenderDebugGUI</secondary></indexterm>
 <para><computeroutput>void HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi::PrepareRenderDebugGUI ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
-Implements <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1abb2a74ec2d88d7bc77aa8ff0c2325a17">HeaderTech::Render::Api::RenderContextApi</link>.</para>
+Implements <link linkend="_class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_context_api_1ad39fb3534e7e2194bd527010f7131788">HeaderTech::Core::Api::Render::RenderContextApi</link>.</para>
 <para>
 Definition at line 15 of file OpenGLDebugGui.inl.</para>
 Here is the call graph for this function:<para>
@@ -135,7 +155,7 @@ Here is the call graph for this function:<para>
 <indexterm><primary>WillRenderDebugGUI</primary><secondary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</secondary></indexterm>
 <indexterm><primary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</primary><secondary>WillRenderDebugGUI</secondary></indexterm>
 <para><computeroutput>void HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi::WillRenderDebugGUI ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
-Implements <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1aa86fa95b7ee5a814ec01ab699fbf8690">HeaderTech::Render::Api::RenderContextApi</link>.</para>
+Implements <link linkend="_class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_context_api_1a11e1e0192a4641cd9c8c5690672c5a01">HeaderTech::Core::Api::Render::RenderContextApi</link>.</para>
 <para>
 Definition at line 51 of file OpenGLDebugGui.inl.</para>
 </section>
@@ -147,13 +167,13 @@ Definition at line 51 of file OpenGLDebugGui.inl.</para>
 <indexterm><primary>m_debugGuiContext</primary><secondary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</secondary></indexterm>
 <indexterm><primary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</primary><secondary>m_debugGuiContext</secondary></indexterm>
 <para><computeroutput>ImGuiContext* HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi::m_debugGuiContext<computeroutput>[protected]</computeroutput></computeroutput></para><para>
-Definition at line 41 of file OpenGLRenderContextApi.h.</para>
+Definition at line 42 of file OpenGLRenderContextApi.h.</para>
     </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_1aa0a91c7490c86f6a5b19566ff130ccf9"/>    <section>
     <title>m_gl</title>
 <indexterm><primary>m_gl</primary><secondary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</secondary></indexterm>
 <indexterm><primary>HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</primary><secondary>m_gl</secondary></indexterm>
 <para><computeroutput>GladGLContext HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi::m_gl<computeroutput>[protected]</computeroutput></computeroutput></para><para>
-Definition at line 38 of file OpenGLRenderContextApi.h.</para>
+Definition at line 39 of file OpenGLRenderContextApi.h.</para>
 </section>
 <para>
 The documentation for this class was generated from the following files:</para>

@@ -21,15 +21,7 @@ Directory dependency graph for api:<para>
 <simplesect>
     <title>Files    </title>
         <itemizedlist>
-            <listitem><para>file <link linkend="__base_render_context_api_8h">BaseRenderContextApi.h</link></para>
-</listitem>
-            <listitem><para>file <link linkend="__render_context_api_8h">RenderContextApi.h</link></para>
-</listitem>
-            <listitem><para>file <link linkend="__render_context_api_8inl">RenderContextApi.inl</link></para>
-</listitem>
-            <listitem><para>file <link linkend="__render_framebuffer_8h">RenderFramebuffer.h</link></para>
-</listitem>
-            <listitem><para>file <link linkend="__render_framebuffer_8inl">RenderFramebuffer.inl</link></para>
+            <listitem><para>file <link linkend="__render_context_api_includes_8h">RenderContextApiIncludes.h</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>

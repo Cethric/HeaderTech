@@ -12,15 +12,6 @@
         </mediaobject>
     </informalfigure>
 </para>
-This graph shows which files directly or indirectly include this file:<para>
-    <informalfigure>
-        <mediaobject>
-            <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_open_g_l_render_framebuffer_8inl__dep__incl.png"></imagedata>
-            </imageobject>
-        </mediaobject>
-    </informalfigure>
-</para>
 <simplesect>
     <title>Namespaces    </title>
         <itemizedlist>

@@ -14,6 +14,8 @@ Directory dependency graph for inc:<para>
 <simplesect>
     <title>Directories    </title>
         <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_8a6b7bcd8cdad4531eb36cc59eb13064">api</link></para>
+</listitem>
             <listitem><para>directory <link linkend="_dir_f6572fbb2ec410a397d4fc448e51ff01">scoped</link></para>
 </listitem>
         </itemizedlist>
@@ -22,6 +24,8 @@ Directory dependency graph for inc:<para>
     <title>Files    </title>
         <itemizedlist>
             <listitem><para>file <link linkend="__core_includes_8h">CoreIncludes.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__window_types_8h">WindowTypes.h</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>

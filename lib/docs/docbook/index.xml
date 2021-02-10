@@ -8,6 +8,9 @@
 <xi:include href="namespace_header_tech.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 <xi:include href="namespace_header_tech_1_1_config.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 <xi:include href="namespace_header_tech_1_1_core.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespace_header_tech_1_1_core_1_1_api.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespace_header_tech_1_1_core_1_1_api_1_1_render.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespace_header_tech_1_1_core_1_1_api_1_1_window.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 <xi:include href="namespace_header_tech_1_1_core_1_1_events.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 <xi:include href="namespace_header_tech_1_1_core_1_1_scoped.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 <xi:include href="namespace_header_tech_1_1_entity_component_system.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -35,6 +38,7 @@
 <xi:include href="namespace_header_tech_1_1_window_1_1_api.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 <xi:include href="namespace_header_tech_1_1_window_1_1_api_1_1_g_l_f_w.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 <xi:include href="namespace_header_tech_1_1_window_1_1_api_1_1_open_g_l.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespace_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_callbacks.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 <xi:include href="namespace_header_tech_1_1_window_1_1_events.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 </chapter>
 <chapter>
@@ -87,8 +91,8 @@
     <xi:include href="class_header_tech_1_1_logging_1_1_profiler_sink.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="struct_header_tech_1_1_config_1_1_render_config.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="class_header_tech_1_1_render_1_1_render_context.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="class_header_tech_1_1_render_1_1_api_1_1_render_context_api.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_context_api.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_framebuffer.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="class_header_tech_1_1_render_1_1_render_object.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="class_header_tech_1_1_render_1_1_render_surface.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="struct_header_tech_1_1_render_1_1_scene_graph_1_1_render_surface_options.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -107,7 +111,7 @@
     <xi:include href="class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vibecf92609f3f82b850d6f31bd11eadd3.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="class_header_tech_1_1_window_1_1_window.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="class_header_tech_1_1_window_1_1_api_1_1_window_api.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_header_tech_1_1_core_1_1_api_1_1_window_1_1_window_api.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="struct_header_tech_1_1_window_1_1_events_1_1_window_close_event.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="struct_header_tech_1_1_config_1_1_window_config.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="struct_header_tech_1_1_window_1_1_events_1_1_window_content_scale_event.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -123,8 +127,16 @@
     <xi:include href="_config_includes_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_runtime_config_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_config_includes_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_render_api_includes_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_render_context_api_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_render_framebuffer_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_render_framebuffer_8inl.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_window_api_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="core_2inc_2api_2window_2_window_api_includes_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="window_2inc_2api_2_window_api_includes_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_core_includes_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_scoped_g_l_f_w_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_window_types_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_core_includes_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_component_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_e_c_s_includes_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -176,16 +188,12 @@
     <xi:include href="_types_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_profiler_includes_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_r_e_a_d_m_e_8md.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="_base_render_context_api_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_open_g_l_debug_gui_8inl.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_open_g_l_render_context_api_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_open_g_l_render_context_api_8inl.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_open_g_l_render_framebuffer_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_open_g_l_render_framebuffer_8inl.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="_render_context_api_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="_render_context_api_8inl.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="_render_framebuffer_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="_render_framebuffer_8inl.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_render_context_api_includes_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_render_context_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_render_context_8inl.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_render_includes_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -213,9 +221,6 @@
     <xi:include href="_open_g_l_window_api_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_open_g_l_window_api_8inl.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_open_g_l_window_api_events_8inl.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="_window_api_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="_window_api_includes_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="_window_api_includes_8inl.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_char_event_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_char_mods_event_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_cursor_enter_event_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -236,7 +241,6 @@
     <xi:include href="_window_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_window_8inl.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_window_includes_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="_window_types_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_window_includes_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 </chapter>
 <index/>

@@ -15,6 +15,7 @@
 #endif
 
 #include <GLFW/glfw3native.h>
+#include <glad/gl.h>
 
 namespace HeaderTech::Window::Api::OpenGL {
     OpenGLWindowApi::OpenGLWindowApi(
@@ -91,20 +92,11 @@ namespace HeaderTech::Window::Api::OpenGL {
     GLFWwindow *OpenGLWindowApi::GetOwnedWindow() const noexcept
     { return m_window; }
 
-    int OpenGLWindowApi::GetWidth() const noexcept
+    glm::ivec2 OpenGLWindowApi::GetSize() const noexcept
     {
-        // TODO so yeah this is inefficient
-        int width;
-        glfwGetFramebufferSize(m_window, &width, nullptr);
-        return width;
-    }
-
-    int OpenGLWindowApi::GetHeight() const noexcept
-    {
-        // TODO so yeah this is inefficient
-        int height;
-        glfwGetFramebufferSize(m_window, nullptr, &height);
-        return height;
+        glm::ivec2 size;
+        glfwGetFramebufferSize(m_window, &size.x, &size.y);
+        return size;
     }
 
     bool OpenGLWindowApi::IsKeyPressed(HeaderTech::Core::KeyType key) const noexcept

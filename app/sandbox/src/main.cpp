@@ -36,8 +36,7 @@ public:
                     parent,
                     HeaderTech::Logging::make_logger_async<RootScene>(),
                     {
-                            .width = runtime->GetWindow().GetWidth(),
-                            .height = runtime->GetWindow().GetHeight(),
+                        .window_size = runtime->GetWindow().GetSize()
                     }
             )
     {

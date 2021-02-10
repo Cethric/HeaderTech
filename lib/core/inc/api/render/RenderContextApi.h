@@ -28,8 +28,7 @@ namespace HeaderTech::Core::Api::Render {
 
         virtual inline void DidRenderDebugGUI() noexcept = 0;
 
-        [[nodiscard]] virtual inline RenderFramebuffer *CreateFramebuffer(int width, int height) noexcept
-        { return new RenderFramebuffer(width, height); }
+        [[nodiscard]] virtual inline RenderFramebuffer *CreateFramebuffer(int width, int height) noexcept = 0;
 
     protected:
         HeaderTech::Core::Api::Window::WindowApi *m_api;

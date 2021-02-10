@@ -7,8 +7,7 @@
 
 #include <ConfigIncludes.h>
 #include <WindowTypes.h>
-#include <api/window/WindowApi.h>
-#include <WindowTypes.h>
+#include <api/WindowApiIncludes.h>
 
 namespace HeaderTech {
     namespace Render {
@@ -36,9 +35,7 @@ namespace HeaderTech::Window {
 
         inline void ToggleFullscreen() noexcept;
 
-        [[nodiscard]] inline int GetWidth() const noexcept;
-
-        [[nodiscard]] inline int GetHeight() const noexcept;
+        [[nodiscard]] inline glm::ivec2 GetSize() const noexcept;
 
         [[nodiscard]] inline HeaderTech::Render::RenderContext *GetRenderContext() const noexcept;
 

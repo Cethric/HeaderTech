@@ -33,11 +33,9 @@ namespace HeaderTech::Window::Api::OpenGL {
 
         inline void MakeCurrent() noexcept final;
 
-        inline GLFWwindow *GetOwnedWindow() const noexcept;
+        [[nodiscard]] inline GLFWwindow *GetOwnedWindow() const noexcept;
 
-        [[nodiscard]] inline int GetWidth() const noexcept final;
-
-        [[nodiscard]] inline int GetHeight() const noexcept final;
+        [[nodiscard]] inline glm::ivec2 GetSize() const noexcept final;
 
         [[nodiscard]] inline bool IsKeyPressed(HeaderTech::Core::KeyType key) const noexcept final;
 

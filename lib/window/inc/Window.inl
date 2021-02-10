@@ -9,8 +9,6 @@
 #include <RenderIncludes.h>
 #include <EventsIncludes.h>
 
-#include <api/WindowApiIncludes.inl>
-
 namespace HeaderTech::Window {
     using Dispatcher = HeaderTech::Events::EventDispatcher;
 
@@ -52,11 +50,8 @@ namespace HeaderTech::Window {
     void Window::ToggleFullscreen() noexcept
     { m_api->ToggleFullscreen(); }
 
-    inline int Window::GetWidth() const noexcept
-    { return m_api->GetWidth(); }
-
-    inline int Window::GetHeight() const noexcept
-    { return m_api->GetHeight(); }
+    glm::ivec2 Window::GetSize() const noexcept
+    { return m_api->GetSize(); }
 
     inline HeaderTech::Render::RenderContext *Window::GetRenderContext() const noexcept
     { return m_context; }

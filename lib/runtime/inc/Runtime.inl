@@ -12,7 +12,6 @@
 #include <WindowIncludes.h>
 
 #include <GLFW/glfw3.h>
-#include <thread>
 #include <functional>
 
 namespace HeaderTech::Core {
@@ -20,7 +19,8 @@ namespace HeaderTech::Core {
     inline Runtime::Runtime(const HeaderTech::Config::RuntimeConfig &config)
             : m_running(false),
               m_log(HeaderTech::Logging::make_logger_async<Runtime>()),
-              m_window(new HeaderTech::Window::Window(config.window, this))
+              m_window(new HeaderTech::Window::Window(config.window, this)),
+              m_eventThread(&Runtime::EventProcessorThread, this)
     {
         SPDLOG_LOGGER_DEBUG(m_log, "Constructor");
     }
@@ -43,9 +43,7 @@ namespace HeaderTech::Core {
 
         auto profiler = HeaderTech::Profiler::Scoped::ScopedProfiler::GetProfiler();
 
-        auto &window = *m_window;
-
-        while (m_running && window.IsOpen()) {
+        while (IsRunning()) {
             {
                 ProfileCpuScoped(main_loop);
                 double current = glfwGetTime();
@@ -54,7 +52,6 @@ namespace HeaderTech::Core {
                 lag += elapsed;
 
                 glfwPollEvents();
-                DrainEvents();
                 {
                     ProfileCpuScoped(update_frame);
                     while (lag >= MS_PER_UPDATE) {
@@ -72,17 +69,28 @@ namespace HeaderTech::Core {
                     ProfileCpuScoped(render_imgui);
                     sceneManager.RenderDebugUI();
                 }
-                window.Swap();
+                m_window->Swap();
             }
             profiler->Flush();
             std::this_thread::yield();
         }
+        m_eventThread.join();
         return 0;
     }
 
     inline void Runtime::Stop()
+    { m_running = false; }
+
+    inline bool Runtime::IsRunning() const noexcept
+    { return m_running && m_window->IsOpen(); }
+
+    inline void Runtime::EventProcessorThread() noexcept
     {
-        m_running = false;
+        while (IsRunning()) {
+            ProfileCpuScoped(process_event_thread);
+            ProcessNextEvent();
+            std::this_thread::yield();
+        }
     }
 }
 

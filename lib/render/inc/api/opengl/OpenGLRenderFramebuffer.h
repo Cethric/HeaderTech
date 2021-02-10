@@ -19,11 +19,9 @@ namespace HeaderTech::Render::Api::OpenGL {
     public:
         inline ~OpenGLRenderFramebuffer() noexcept final;
 
-        inline void Resize(int width, int height) final;
+        inline void OnBuild() final;
 
-        inline void Build() final;
-
-        inline void Destroy() noexcept final;
+        inline void OnDestroy() noexcept final;
 
         inline void Lock() noexcept final;
 

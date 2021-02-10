@@ -3,6 +3,9 @@
 <title>core/inc/CoreIncludes.h File Reference</title>
 <indexterm><primary>core/inc/CoreIncludes.h</primary></indexterm>
 <programlisting>#include &lt;scoped/ScopedGLFW.h&gt;
+#include &lt;WindowTypes.h&gt;
+#include &lt;api/window/WindowApiIncludes.h&gt;
+#include &lt;api/render/RenderApiIncludes.h&gt;
 </programlisting>Include dependency graph for CoreIncludes.h:<para>
     <informalfigure>
         <mediaobject>

@@ -17,7 +17,7 @@
 <section>
 <title>Detailed Description</title>
 <para>
-Definition at line 20 of file ScopedGLFW.h.</para>
+Definition at line 22 of file ScopedGLFW.h.</para>
 </section>
 <section>
 <title>Constructor &amp; Destructor Documentation</title>
@@ -26,13 +26,13 @@ Definition at line 20 of file ScopedGLFW.h.</para>
 <indexterm><primary>ScopedGlfw</primary><secondary>HeaderTech::Core::Scoped::ScopedGlfw</secondary></indexterm>
 <indexterm><primary>HeaderTech::Core::Scoped::ScopedGlfw</primary><secondary>ScopedGlfw</secondary></indexterm>
 <para><computeroutput>HeaderTech::Core::Scoped::ScopedGlfw::ScopedGlfw ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
-Definition at line 22 of file ScopedGLFW.h.</para>
+Definition at line 24 of file ScopedGLFW.h.</para>
     </section><anchor xml:id="_class_header_tech_1_1_core_1_1_scoped_1_1_scoped_glfw_1a07fafdfc8d3730cf151bcfd0e1ac0162"/>    <section>
     <title>~ScopedGlfw()</title>
 <indexterm><primary>~ScopedGlfw</primary><secondary>HeaderTech::Core::Scoped::ScopedGlfw</secondary></indexterm>
 <indexterm><primary>HeaderTech::Core::Scoped::ScopedGlfw</primary><secondary>~ScopedGlfw</secondary></indexterm>
 <para><computeroutput>HeaderTech::Core::Scoped::ScopedGlfw::~ScopedGlfw ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
-Definition at line 32 of file ScopedGLFW.h.</para>
+Definition at line 34 of file ScopedGLFW.h.</para>
 </section>
 <para>
 The documentation for this class was generated from the following file:</para>

@@ -3,10 +3,9 @@
 <title>render/inc/api/opengl/OpenGLRenderContextApi.h File Reference</title>
 <indexterm><primary>render/inc/api/opengl/OpenGLRenderContextApi.h</primary></indexterm>
 <programlisting>#include &lt;glad/gl.h&gt;
-#include &lt;api/BaseRenderContextApi.h&gt;
-#include &lt;api/RenderFramebuffer.h&gt;
+#include &lt;api/render/RenderApiIncludes.h&gt;
 #include &lt;api/opengl/OpenGLWindowApi.h&gt;
-#include &quot;OpenGLRenderFramebuffer.h&quot;
+#include &lt;api/opengl/OpenGLRenderFramebuffer.h&gt;
 </programlisting>Include dependency graph for OpenGLRenderContextApi.h:<para>
     <informalfigure>
         <mediaobject>

@@ -1,7 +1,17 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__window_types_8h" xml:lang="en-US">
-<title>window/inc/WindowTypes.h File Reference</title>
-<indexterm><primary>window/inc/WindowTypes.h</primary></indexterm>
+<title>core/inc/WindowTypes.h File Reference</title>
+<indexterm><primary>core/inc/WindowTypes.h</primary></indexterm>
+<programlisting>#include &lt;cstdint&gt;
+</programlisting>Include dependency graph for WindowTypes.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_window_types_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
 This graph shows which files directly or indirectly include this file:<para>
     <informalfigure>
         <mediaobject>
@@ -16,55 +26,55 @@ This graph shows which files directly or indirectly include this file:<para>
         <itemizedlist>
             <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
 </listitem>
-            <listitem><para> <link linkend="_namespace_header_tech_1_1_window">HeaderTech::Window</link></para>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_core">HeaderTech::Core</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>
 <simplesect>
     <title>Enumerations    </title>
         <itemizedlist>
-            <listitem><para>enum <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eac">HeaderTech::Window::KeyType</link> : std::uint32_t { 
-<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca307ab80752fa1d0d24f4c6e39cc35496">HeaderTech::Window::Key_A</link> = 0
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca19e8361438606cd493a37112c4abfa11">HeaderTech::Window::Key_B</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacab37f9d362de5842dd0c38152ca7001ca">HeaderTech::Window::Key_C</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca0ad65a328e7ff4d43f3ee3be5ca7c35b">HeaderTech::Window::Key_D</link>
+            <listitem><para>enum <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7">HeaderTech::Core::KeyType</link> : std::uint32_t { 
+<link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7acc03f5f7b02beebb4cf6d5806a3d2f78">HeaderTech::Core::Key_A</link> = 0
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a5cf72807766346aa5a1ccae61ee3bd81">HeaderTech::Core::Key_B</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7ad4e7caff861699a56d13820098f0fa75">HeaderTech::Core::Key_C</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a7918b20eec3ae494b7ff291e8bec52d6">HeaderTech::Core::Key_D</link>
 , 
-<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacabb6c8ca18d05edc1e4b7f605d516f729">HeaderTech::Window::Key_E</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacac230208373f90fe932246793754e5d82">HeaderTech::Window::Key_F</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca5e5978f4acc59d0ff9b05e4ddd3e630a">HeaderTech::Window::Key_G</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaa21249b00d04d50e138a3c113383f0d3">HeaderTech::Window::Key_H</link>
+<link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a686d70a2c07550a007bda9a067be3baa">HeaderTech::Core::Key_E</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a654d4b97a8ceec6d6cb261b7ce164bc1">HeaderTech::Core::Key_F</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7afbeb0ec93b9ebc1961eea55473b06b4b">HeaderTech::Core::Key_G</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a178a49abc9b47cec2bd05c9366fa4ac4">HeaderTech::Core::Key_H</link>
 , 
-<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaa477a8c6598c7184009a84439dd65b06">HeaderTech::Window::Key_I</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaff910b56d268dad3aa416a2b90cb8ec7">HeaderTech::Window::Key_J</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca5e129cb4e547b34fc50033bc3a51550f">HeaderTech::Window::Key_K</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca134334df61747fa6d46527eed27c9026">HeaderTech::Window::Key_L</link>
+<link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a37c2c10e960c16ee5ce3f6bcc51754e4">HeaderTech::Core::Key_I</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a27d5233c74ffea9818f6718392854889">HeaderTech::Core::Key_J</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a915e5f2cbf5ed33cb09720d62cb4e896">HeaderTech::Core::Key_K</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a2ee1c91af501095eabdeddf1a294deb8">HeaderTech::Core::Key_L</link>
 , 
-<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca7f5638dae7697d2fc108b502e3b91339">HeaderTech::Window::Key_M</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaffa2c2f6766db9478a86a00b45f25071">HeaderTech::Window::Key_N</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca93f6940378c84fb93337afbcbc5bd4d0">HeaderTech::Window::Key_O</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca521f811f09a1759d9d329351bcca8ead">HeaderTech::Window::Key_P</link>
+<link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a9cdd463d62c3147ca4a1c3f3d46c5583">HeaderTech::Core::Key_M</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a299b472bc07d4c0ab9748e1a3a251709">HeaderTech::Core::Key_N</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a6b94fe63992855a38ad53494094db191">HeaderTech::Core::Key_O</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a7151abd64a85150706ab76100d63ff3f">HeaderTech::Core::Key_P</link>
 , 
-<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacac50bfb0a5965b833b4fb121377de2f85">HeaderTech::Window::Key_Q</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca834170eace69af14f593dea6ca299bd2">HeaderTech::Window::Key_R</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca68e4ebf30aa41cdf36052c4aa3141f64">HeaderTech::Window::Key_S</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca9ff93b2cecf530e3dc4aea76914fcafb">HeaderTech::Window::Key_T</link>
+<link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a482cb94663b65a14fe654bd107ac9f88">HeaderTech::Core::Key_Q</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a3dd1ff352ae1ad349b862bb1c115bce8">HeaderTech::Core::Key_R</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a2e7ca7db6b573435943d14ed56e96a6c">HeaderTech::Core::Key_S</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7afbe34650b764b24ae3063f93620dbcdd">HeaderTech::Core::Key_T</link>
 , 
-<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacae2df61bda6ce059bcbc3c14f0eeda6d0">HeaderTech::Window::Key_U</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaa27312a31a32f233f3ca74d559c2c290">HeaderTech::Window::Key_V</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacab81dfe5801d794eb54aecb47ce70bca8">HeaderTech::Window::Key_W</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca81cd906bd4ec5de380d37c08494e39f3">HeaderTech::Window::Key_X</link>
+<link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a87ae473de31c27d4010751ea44704ef2">HeaderTech::Core::Key_U</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7abfe5d7f3c421293bffa184a07aeca05a">HeaderTech::Core::Key_V</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a3db9cf691d8b41aa8bdb6f29daf05d5d">HeaderTech::Core::Key_W</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a5e2b35c66a464df56dcf00ca5d14ce21">HeaderTech::Core::Key_X</link>
 , 
-<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca298c8cae7e3cd69116226b30f0d22981">HeaderTech::Window::Key_Y</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca59a642db73a7e3cf62950d929dffbd2a">HeaderTech::Window::Key_Z</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca81575e0de5fe02d871b3db2fef566128">HeaderTech::Window::Key_Up</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca97ebb5690004882e2df299d1985545ae">HeaderTech::Window::Key_Down</link>
+<link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a3e53a87b102e117cb1c0e52ab13d06d3">HeaderTech::Core::Key_Y</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7af70565ba1af3a084178122884011c2cb">HeaderTech::Core::Key_Z</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a150e0d4fe7ea5e78ff302437c2a6313b">HeaderTech::Core::Key_Up</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7aaf17def66432654d88472b1050eff858">HeaderTech::Core::Key_Down</link>
 , 
-<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca26a45fd2e552d7cf9d8612b59b43a884">HeaderTech::Window::Key_Left</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacafcb6dad713164802f0701437ac1c9f8a">HeaderTech::Window::Key_Right</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca663980c9e17b7c980d5928e487e31592">HeaderTech::Window::Key_Space</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca8eb204448834b95a7580344aeb6ad227">HeaderTech::Window::Key_Shift_Left</link>
+<link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a9e910ab4e5e75e006790588fb9aa135f">HeaderTech::Core::Key_Left</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7ad1c71a72542357ab8d3388d9c32b18f5">HeaderTech::Core::Key_Right</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7af272b20e3b5ca755f2d155ea69b120a9">HeaderTech::Core::Key_Space</link>
+, <link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a038556ba822ac56de0b6b708f90698ff">HeaderTech::Core::Key_Shift_Left</link>
 , 
-<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacadab012e091d557947ba05cd027f902e1">HeaderTech::Window::Key_Shift_Right</link>
+<link linkend="_namespace_header_tech_1_1_core_1a4c6df79f1ee8ed7a8e0d01e6af5740c7a9b322ac1831e79a271bce67cd7381179">HeaderTech::Core::Key_Shift_Right</link>
  }</para>
 </listitem>
         </itemizedlist>

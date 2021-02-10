@@ -5,9 +5,9 @@
 #ifndef HEADERTECH_WINDOWINCLUDES_H
 #define HEADERTECH_WINDOWINCLUDES_H
 
-#include <WindowTypes.h>
 #include <Window.h>
 
+#include <api/WindowApiIncludes.h>
 
 #if defined(HEADERTECH_WINDOW_IMPL) && DEFINE_IMPLEMENTATION == 1
 

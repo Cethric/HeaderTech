@@ -52,6 +52,8 @@ This graph shows which files directly or indirectly include this file:<para>
 </listitem>
             <listitem><para> <link linkend="_namespace_header_tech_1_1_window_1_1_api_1_1_open_g_l">HeaderTech::Window::Api::OpenGL</link></para>
 </listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_callbacks">HeaderTech::Window::Api::OpenGL::Callbacks</link></para>
+</listitem>
         </itemizedlist>
 </simplesect>
 <simplesect>

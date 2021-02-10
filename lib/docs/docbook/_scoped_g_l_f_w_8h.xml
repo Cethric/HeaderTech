@@ -41,4 +41,21 @@ This graph shows which files directly or indirectly include this file:<para>
 </listitem>
         </itemizedlist>
 </simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__scoped_g_l_f_w_8h_1a088324ad8995e3eb76024e3e79083d48">GLFW_INCLUDE_NONE</link>   1</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__scoped_g_l_f_w_8h_1a088324ad8995e3eb76024e3e79083d48"/>    <section>
+    <title>GLFW_INCLUDE_NONE</title>
+<indexterm><primary>GLFW_INCLUDE_NONE</primary><secondary>ScopedGLFW.h</secondary></indexterm>
+<indexterm><primary>ScopedGLFW.h</primary><secondary>GLFW_INCLUDE_NONE</secondary></indexterm>
+<para><computeroutput>#define GLFW_INCLUDE_NONE   1</computeroutput></para><para>
+Definition at line 8 of file ScopedGLFW.h.</para>
+</section>
+</section>
 </section>

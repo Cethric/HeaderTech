@@ -3,9 +3,9 @@
 <title>window/inc/api/opengl/OpenGLWindowApi.h File Reference</title>
 <indexterm><primary>window/inc/api/opengl/OpenGLWindowApi.h</primary></indexterm>
 <programlisting>#include &lt;GLFW/glfw3.h&gt;
-#include &lt;api/WindowApi.h&gt;
-#include &lt;api/opengl/OpenGLWindowApi.h&gt;
+#include &lt;api/window/WindowApi.h&gt;
 #include &lt;ConfigIncludes.h&gt;
+#include &lt;WindowTypes.h&gt;
 </programlisting>Include dependency graph for OpenGLWindowApi.h:<para>
     <informalfigure>
         <mediaobject>

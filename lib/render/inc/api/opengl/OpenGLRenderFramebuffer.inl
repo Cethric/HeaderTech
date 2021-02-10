@@ -21,10 +21,7 @@ namespace HeaderTech::Render::Api::OpenGL {
 
     inline OpenGLRenderFramebuffer::~OpenGLRenderFramebuffer() noexcept = default;
 
-    inline void OpenGLRenderFramebuffer::Resize(int width, int height)
-    { RenderFramebuffer::Resize(width, height); }
-
-    inline void OpenGLRenderFramebuffer::Build()
+    inline void OpenGLRenderFramebuffer::OnBuild()
     {
         SPDLOG_LOGGER_INFO(m_log, "Build framebuffer with size: {} {}", m_width, m_height);
 
@@ -32,17 +29,13 @@ namespace HeaderTech::Render::Api::OpenGL {
 
 
         SPDLOG_LOGGER_INFO(m_log, "Framebuffer {} with size: {} {} has been created", m_framebuffer, m_width, m_height);
-        RenderFramebuffer::Build();
     }
 
-    inline void OpenGLRenderFramebuffer::Destroy() noexcept
+    inline void OpenGLRenderFramebuffer::OnDestroy() noexcept
     {
         SPDLOG_LOGGER_INFO(m_log, "Destroy framebuffer with size: {} {}", m_width, m_height);
 
         m_gl->DeleteFramebuffers(1, &m_framebuffer);
-
-
-        RenderFramebuffer::Destroy();
     }
 
     inline void OpenGLRenderFramebuffer::Lock() noexcept

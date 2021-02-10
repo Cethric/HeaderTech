@@ -12,15 +12,25 @@ namespace HeaderTech::Core::Api::Render {
 
         inline virtual ~RenderFramebuffer() noexcept;
 
-        inline virtual void Resize(int width, int height);
+        inline void Resize(int width, int height);
 
-        inline virtual void Build();
+        inline void Build();
 
-        inline virtual void Destroy() noexcept;
+        inline void Destroy() noexcept;
 
         inline virtual void Lock() noexcept;
 
         inline virtual void Unlock() noexcept;
+
+    protected:
+        inline virtual void OnBuild() = 0;
+
+        inline virtual void OnDestroy() noexcept = 0;
+
+    private:
+        inline void WillBuild();
+
+        inline void WillDestroy() noexcept;
 
     protected:
         int m_width;

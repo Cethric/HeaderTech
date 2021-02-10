@@ -8,7 +8,6 @@
 #include &lt;SceneManager.inl&gt;
 #include &lt;WindowIncludes.h&gt;
 #include &lt;GLFW/glfw3.h&gt;
-#include &lt;thread&gt;
 #include &lt;functional&gt;
 </programlisting>Include dependency graph for Runtime.inl:<para>
     <informalfigure>

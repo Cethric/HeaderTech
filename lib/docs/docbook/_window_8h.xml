@@ -37,11 +37,9 @@ This graph shows which files directly or indirectly include this file:<para>
 </listitem>
             <listitem><para> <link linkend="_namespace_header_tech_1_1_render">HeaderTech::Render</link></para>
 </listitem>
-            <listitem><para> <link linkend="_namespace_header_tech_1_1_window">HeaderTech::Window</link></para>
-</listitem>
-            <listitem><para> <link linkend="_namespace_header_tech_1_1_window_1_1_api">HeaderTech::Window::Api</link></para>
-</listitem>
             <listitem><para> <link linkend="_namespace_header_tech_1_1_events">HeaderTech::Events</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_window">HeaderTech::Window</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>

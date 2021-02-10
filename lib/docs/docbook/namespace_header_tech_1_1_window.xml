@@ -25,55 +25,6 @@
 </listitem>
         </itemizedlist>
 </simplesect>
-<simplesect>
-    <title>Enumerations    </title>
-        <itemizedlist>
-            <listitem><para>enum <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eac">KeyType</link> : std::uint32_t { 
-<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca307ab80752fa1d0d24f4c6e39cc35496">Key_A</link> = 0
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca19e8361438606cd493a37112c4abfa11">Key_B</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacab37f9d362de5842dd0c38152ca7001ca">Key_C</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca0ad65a328e7ff4d43f3ee3be5ca7c35b">Key_D</link>
-, 
-<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacabb6c8ca18d05edc1e4b7f605d516f729">Key_E</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacac230208373f90fe932246793754e5d82">Key_F</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca5e5978f4acc59d0ff9b05e4ddd3e630a">Key_G</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaa21249b00d04d50e138a3c113383f0d3">Key_H</link>
-, 
-<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaa477a8c6598c7184009a84439dd65b06">Key_I</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaff910b56d268dad3aa416a2b90cb8ec7">Key_J</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca5e129cb4e547b34fc50033bc3a51550f">Key_K</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca134334df61747fa6d46527eed27c9026">Key_L</link>
-, 
-<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca7f5638dae7697d2fc108b502e3b91339">Key_M</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaffa2c2f6766db9478a86a00b45f25071">Key_N</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca93f6940378c84fb93337afbcbc5bd4d0">Key_O</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca521f811f09a1759d9d329351bcca8ead">Key_P</link>
-, 
-<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacac50bfb0a5965b833b4fb121377de2f85">Key_Q</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca834170eace69af14f593dea6ca299bd2">Key_R</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca68e4ebf30aa41cdf36052c4aa3141f64">Key_S</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca9ff93b2cecf530e3dc4aea76914fcafb">Key_T</link>
-, 
-<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacae2df61bda6ce059bcbc3c14f0eeda6d0">Key_U</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaa27312a31a32f233f3ca74d559c2c290">Key_V</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacab81dfe5801d794eb54aecb47ce70bca8">Key_W</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca81cd906bd4ec5de380d37c08494e39f3">Key_X</link>
-, 
-<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca298c8cae7e3cd69116226b30f0d22981">Key_Y</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca59a642db73a7e3cf62950d929dffbd2a">Key_Z</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca81575e0de5fe02d871b3db2fef566128">Key_Up</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca97ebb5690004882e2df299d1985545ae">Key_Down</link>
-, 
-<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca26a45fd2e552d7cf9d8612b59b43a884">Key_Left</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacafcb6dad713164802f0701437ac1c9f8a">Key_Right</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca663980c9e17b7c980d5928e487e31592">Key_Space</link>
-, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca8eb204448834b95a7580344aeb6ad227">Key_Shift_Left</link>
-, 
-<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacadab012e091d557947ba05cd027f902e1">Key_Shift_Right</link>
- }</para>
-</listitem>
-        </itemizedlist>
-</simplesect>
 <section>
 <title>Typedef Documentation</title>
 <anchor xml:id="_namespace_header_tech_1_1_window_1a1ad4af3b34fba9f789b3ca87234084b7"/>    <section>
@@ -81,92 +32,7 @@
 <indexterm><primary>Dispatcher</primary><secondary>HeaderTech::Window</secondary></indexterm>
 <indexterm><primary>HeaderTech::Window</primary><secondary>Dispatcher</secondary></indexterm>
 <para><computeroutput>using <link linkend="_namespace_header_tech_1_1_window_1a1ad4af3b34fba9f789b3ca87234084b7">HeaderTech::Window::Dispatcher</link> = typedef <link linkend="_class_header_tech_1_1_events_1_1_event_dispatcher">HeaderTech::Events::EventDispatcher</link></computeroutput></para><para>
-Definition at line 15 of file Window.inl.</para>
-</section>
-</section>
-<section>
-<title>Enumeration Type Documentation</title>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eac"/>    <section>
-    <title>KeyType</title>
-<indexterm><primary>KeyType</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>KeyType</secondary></indexterm>
-<para><computeroutput>enum <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eac">HeaderTech::Window::KeyType</link> : std::uint32_t</computeroutput></para><informaltable frame="all">
-<title>Enumerator</title>
-    <tgroup cols="2" align="left" colsep="1" rowsep="1">
-      <colspec colname='c1'/>
-      <colspec colname='c2'/>
-<tbody>
-<row><entry><indexterm><primary>Key_A</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_A</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca307ab80752fa1d0d24f4c6e39cc35496"/>Key_A</entry><entry></entry></row><row><entry><indexterm><primary>Key_B</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_B</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca19e8361438606cd493a37112c4abfa11"/>Key_B</entry><entry></entry></row><row><entry><indexterm><primary>Key_C</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_C</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacab37f9d362de5842dd0c38152ca7001ca"/>Key_C</entry><entry></entry></row><row><entry><indexterm><primary>Key_D</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_D</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca0ad65a328e7ff4d43f3ee3be5ca7c35b"/>Key_D</entry><entry></entry></row><row><entry><indexterm><primary>Key_E</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_E</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacabb6c8ca18d05edc1e4b7f605d516f729"/>Key_E</entry><entry></entry></row><row><entry><indexterm><primary>Key_F</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_F</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacac230208373f90fe932246793754e5d82"/>Key_F</entry><entry></entry></row><row><entry><indexterm><primary>Key_G</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_G</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca5e5978f4acc59d0ff9b05e4ddd3e630a"/>Key_G</entry><entry></entry></row><row><entry><indexterm><primary>Key_H</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_H</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaa21249b00d04d50e138a3c113383f0d3"/>Key_H</entry><entry></entry></row><row><entry><indexterm><primary>Key_I</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_I</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaa477a8c6598c7184009a84439dd65b06"/>Key_I</entry><entry></entry></row><row><entry><indexterm><primary>Key_J</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_J</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaff910b56d268dad3aa416a2b90cb8ec7"/>Key_J</entry><entry></entry></row><row><entry><indexterm><primary>Key_K</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_K</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca5e129cb4e547b34fc50033bc3a51550f"/>Key_K</entry><entry></entry></row><row><entry><indexterm><primary>Key_L</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_L</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca134334df61747fa6d46527eed27c9026"/>Key_L</entry><entry></entry></row><row><entry><indexterm><primary>Key_M</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_M</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca7f5638dae7697d2fc108b502e3b91339"/>Key_M</entry><entry></entry></row><row><entry><indexterm><primary>Key_N</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_N</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaffa2c2f6766db9478a86a00b45f25071"/>Key_N</entry><entry></entry></row><row><entry><indexterm><primary>Key_O</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_O</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca93f6940378c84fb93337afbcbc5bd4d0"/>Key_O</entry><entry></entry></row><row><entry><indexterm><primary>Key_P</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_P</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca521f811f09a1759d9d329351bcca8ead"/>Key_P</entry><entry></entry></row><row><entry><indexterm><primary>Key_Q</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_Q</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacac50bfb0a5965b833b4fb121377de2f85"/>Key_Q</entry><entry></entry></row><row><entry><indexterm><primary>Key_R</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_R</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca834170eace69af14f593dea6ca299bd2"/>Key_R</entry><entry></entry></row><row><entry><indexterm><primary>Key_S</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_S</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca68e4ebf30aa41cdf36052c4aa3141f64"/>Key_S</entry><entry></entry></row><row><entry><indexterm><primary>Key_T</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_T</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca9ff93b2cecf530e3dc4aea76914fcafb"/>Key_T</entry><entry></entry></row><row><entry><indexterm><primary>Key_U</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_U</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacae2df61bda6ce059bcbc3c14f0eeda6d0"/>Key_U</entry><entry></entry></row><row><entry><indexterm><primary>Key_V</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_V</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaa27312a31a32f233f3ca74d559c2c290"/>Key_V</entry><entry></entry></row><row><entry><indexterm><primary>Key_W</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_W</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacab81dfe5801d794eb54aecb47ce70bca8"/>Key_W</entry><entry></entry></row><row><entry><indexterm><primary>Key_X</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_X</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca81cd906bd4ec5de380d37c08494e39f3"/>Key_X</entry><entry></entry></row><row><entry><indexterm><primary>Key_Y</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_Y</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca298c8cae7e3cd69116226b30f0d22981"/>Key_Y</entry><entry></entry></row><row><entry><indexterm><primary>Key_Z</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_Z</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca59a642db73a7e3cf62950d929dffbd2a"/>Key_Z</entry><entry></entry></row><row><entry><indexterm><primary>Key_Up</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_Up</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca81575e0de5fe02d871b3db2fef566128"/>Key_Up</entry><entry></entry></row><row><entry><indexterm><primary>Key_Down</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_Down</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca97ebb5690004882e2df299d1985545ae"/>Key_Down</entry><entry></entry></row><row><entry><indexterm><primary>Key_Left</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_Left</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca26a45fd2e552d7cf9d8612b59b43a884"/>Key_Left</entry><entry></entry></row><row><entry><indexterm><primary>Key_Right</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_Right</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacafcb6dad713164802f0701437ac1c9f8a"/>Key_Right</entry><entry></entry></row><row><entry><indexterm><primary>Key_Space</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_Space</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca663980c9e17b7c980d5928e487e31592"/>Key_Space</entry><entry></entry></row><row><entry><indexterm><primary>Key_Shift_Left</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_Shift_Left</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca8eb204448834b95a7580344aeb6ad227"/>Key_Shift_Left</entry><entry></entry></row><row><entry><indexterm><primary>Key_Shift_Right</primary><secondary>HeaderTech::Window</secondary></indexterm>
-<indexterm><primary>HeaderTech::Window</primary><secondary>Key_Shift_Right</secondary></indexterm>
-<anchor xml:id="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacadab012e091d557947ba05cd027f902e1"/>Key_Shift_Right</entry><entry></entry></row>    </tbody>
-    </tgroup>
-</informaltable>
-<para>
-Definition at line 10 of file WindowTypes.h.</para>
+Definition at line 13 of file Window.inl.</para>
 </section>
 </section>
 </section>

@@ -35,7 +35,7 @@ set(
         inc/Window.inl
         # Window APIs
         inc/api/WindowApiIncludes.h
-        inc/api/WindowApiIncludes.inl
+
         inc/api/opengl/OpenGLWindowApi.h
         inc/api/opengl/OpenGLWindowApi.inl
         inc/api/opengl/OpenGLWindowApiEvents.inl
@@ -47,4 +47,4 @@ target_include_directories(HeaderTech_Window PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/
 target_include_directories(HeaderTech_Window PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/inc/)
 target_include_directories(HeaderTech_Window PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
 target_link_libraries(HeaderTech_Window PUBLIC HeaderTech_Logging HeaderTech_Profiler HeaderTech_Events HeaderTech_Config HeaderTech_Render HeaderTech_Core)
-target_link_libraries(HeaderTech_Window PUBLIC glfw::glfw3)
+target_link_libraries(HeaderTech_Window PUBLIC glfw::glfw3 glm::glm glad::glad)

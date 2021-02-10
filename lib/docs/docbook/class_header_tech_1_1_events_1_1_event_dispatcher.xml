@@ -76,15 +76,6 @@ Definition at line 30 of file EventDispatcher.inl.</para>
 <indexterm><primary>HeaderTech::Events::EventDispatcher</primary><secondary>DrainEvents</secondary></indexterm>
 <para><computeroutput>void HeaderTech::Events::EventDispatcher::DrainEvents ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
 Definition at line 48 of file EventDispatcher.inl.</para>
-Here is the caller graph for this function:<para>
-    <informalfigure>
-        <mediaobject>
-            <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_events_1_1_event_dispatcher_a6c55bbd8d6c764d7c9bb5d2b0cf681e8_icgraph.png"></imagedata>
-            </imageobject>
-        </mediaobject>
-    </informalfigure>
-</para>
     </section><anchor xml:id="_class_header_tech_1_1_events_1_1_event_dispatcher_1a51ccc2110fc01c496c97fc20a1246659"/>    <section>
     <title>ProcessNextEvent()</title>
 <indexterm><primary>ProcessNextEvent</primary><secondary>HeaderTech::Events::EventDispatcher</secondary></indexterm>

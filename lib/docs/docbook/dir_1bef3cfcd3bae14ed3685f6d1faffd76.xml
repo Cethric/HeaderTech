@@ -23,11 +23,7 @@ Directory dependency graph for api:<para>
         <itemizedlist>
             <listitem><para>file <link linkend="__g_l_f_w_key_mapping_8h">GLFWKeyMapping.h</link></para>
 </listitem>
-            <listitem><para>file <link linkend="__window_api_8h">WindowApi.h</link></para>
-</listitem>
-            <listitem><para>file <link linkend="__window_api_includes_8h">WindowApiIncludes.h</link></para>
-</listitem>
-            <listitem><para>file <link linkend="__window_api_includes_8inl">WindowApiIncludes.inl</link></para>
+            <listitem><para>file <link linkend="_window_2inc_2api_2_window_api_includes_8h">WindowApiIncludes.h</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>

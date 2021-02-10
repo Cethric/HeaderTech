@@ -11,11 +11,4 @@
 </listitem>
         </itemizedlist>
 </simplesect>
-<simplesect>
-    <title>Classes    </title>
-        <itemizedlist>
-            <listitem><para>class <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_window_api">WindowApi</link></para>
-</listitem>
-        </itemizedlist>
-</simplesect>
 </section>

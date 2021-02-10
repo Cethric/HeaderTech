@@ -3,6 +3,7 @@
 <title>render/inc/scene/SceneGraphRenderManagement.h File Reference</title>
 <indexterm><primary>render/inc/scene/SceneGraphRenderManagement.h</primary></indexterm>
 <programlisting>#include &lt;RenderContext.h&gt;
+#include &lt;api/render/RenderApiIncludes.h&gt;
 </programlisting>Include dependency graph for SceneGraphRenderManagement.h:<para>
     <informalfigure>
         <mediaobject>

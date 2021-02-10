@@ -8,7 +8,7 @@
 <simplesect>
     <title>Public Member Functions    </title>
         <itemizedlist>
-            <listitem><para><link linkend="_class_header_tech_1_1_render_1_1_render_context_1a249f4ec3cfd80d8dd958f87a40a541b2">RenderContext</link> (<link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api">HeaderTech::Render::Api::RenderContextApi</link> *api)</para>
+            <listitem><para><link linkend="_class_header_tech_1_1_render_1_1_render_context_1ad92ddaea31605e766a428a1e59d1db7c">RenderContext</link> (<link linkend="_class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_context_api">HeaderTech::Core::Api::Render::RenderContextApi</link> *api)</para>
 </listitem>
             <listitem><para><link linkend="_class_header_tech_1_1_render_1_1_render_context_1acb9de70482ac061a3b7b5d34c0bf9b66">~RenderContext</link> ()</para>
 </listitem>
@@ -18,44 +18,44 @@
 </listitem>
             <listitem><para>void <link linkend="_class_header_tech_1_1_render_1_1_render_context_1a3d695936f4fa0b84eb9a269ad7a82bb8">DidRenderDebugGUI</link> () noexcept</para>
 </listitem>
-            <listitem><para><link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer">Api::RenderFramebuffer</link> * <link linkend="_class_header_tech_1_1_render_1_1_render_context_1a4e6d32eb16a3266dc0a0a8a977bb9710">CreateFramebuffer</link> (int width, int height)</para>
+            <listitem><para><link linkend="_class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_framebuffer">HeaderTech::Core::Api::Render::RenderFramebuffer</link> * <link linkend="_class_header_tech_1_1_render_1_1_render_context_1adfcaa5a4c30ae85cecf26e952f15d1a8">CreateFramebuffer</link> (int width, int height)</para>
 </listitem>
         </itemizedlist>
 </simplesect>
 <section>
 <title>Detailed Description</title>
 <para>
-Definition at line 15 of file RenderContext.h.</para>
+Definition at line 11 of file RenderContext.h.</para>
 </section>
 <section>
 <title>Constructor &amp; Destructor Documentation</title>
-<anchor xml:id="_class_header_tech_1_1_render_1_1_render_context_1a249f4ec3cfd80d8dd958f87a40a541b2"/>    <section>
+<anchor xml:id="_class_header_tech_1_1_render_1_1_render_context_1ad92ddaea31605e766a428a1e59d1db7c"/>    <section>
     <title>RenderContext()</title>
 <indexterm><primary>RenderContext</primary><secondary>HeaderTech::Render::RenderContext</secondary></indexterm>
 <indexterm><primary>HeaderTech::Render::RenderContext</primary><secondary>RenderContext</secondary></indexterm>
-<para><computeroutput>HeaderTech::Render::RenderContext::RenderContext (<link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api">HeaderTech::Render::Api::RenderContextApi</link> * api)<computeroutput>[inline]</computeroutput>, <computeroutput>[explicit]</computeroutput></computeroutput></para><para>
-Definition at line 13 of file RenderContext.inl.</para>
+<para><computeroutput>HeaderTech::Render::RenderContext::RenderContext (<link linkend="_class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_context_api">HeaderTech::Core::Api::Render::RenderContextApi</link> * api)<computeroutput>[inline]</computeroutput>, <computeroutput>[explicit]</computeroutput></computeroutput></para><para>
+Definition at line 11 of file RenderContext.inl.</para>
     </section><anchor xml:id="_class_header_tech_1_1_render_1_1_render_context_1acb9de70482ac061a3b7b5d34c0bf9b66"/>    <section>
     <title>~RenderContext()</title>
 <indexterm><primary>~RenderContext</primary><secondary>HeaderTech::Render::RenderContext</secondary></indexterm>
 <indexterm><primary>HeaderTech::Render::RenderContext</primary><secondary>~RenderContext</secondary></indexterm>
 <para><computeroutput>HeaderTech::Render::RenderContext::~RenderContext ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
-Definition at line 16 of file RenderContext.inl.</para>
+Definition at line 14 of file RenderContext.inl.</para>
 </section>
 </section>
 <section>
 <title>Member Function Documentation</title>
-<anchor xml:id="_class_header_tech_1_1_render_1_1_render_context_1a4e6d32eb16a3266dc0a0a8a977bb9710"/>    <section>
+<anchor xml:id="_class_header_tech_1_1_render_1_1_render_context_1adfcaa5a4c30ae85cecf26e952f15d1a8"/>    <section>
     <title>CreateFramebuffer()</title>
 <indexterm><primary>CreateFramebuffer</primary><secondary>HeaderTech::Render::RenderContext</secondary></indexterm>
 <indexterm><primary>HeaderTech::Render::RenderContext</primary><secondary>CreateFramebuffer</secondary></indexterm>
-<para><computeroutput><link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer">Api::RenderFramebuffer</link> * HeaderTech::Render::RenderContext::CreateFramebuffer (int width, int height)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
-Definition at line 28 of file RenderContext.inl.</para>
+<para><computeroutput><link linkend="_class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_framebuffer">HeaderTech::Core::Api::Render::RenderFramebuffer</link> * HeaderTech::Render::RenderContext::CreateFramebuffer (int width, int height)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 26 of file RenderContext.inl.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_render_context_a4e6d32eb16a3266dc0a0a8a977bb9710_cgraph.png"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_render_context_adfcaa5a4c30ae85cecf26e952f15d1a8_cgraph.png"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
@@ -65,7 +65,7 @@ Here is the call graph for this function:<para>
 <indexterm><primary>DidRenderDebugGUI</primary><secondary>HeaderTech::Render::RenderContext</secondary></indexterm>
 <indexterm><primary>HeaderTech::Render::RenderContext</primary><secondary>DidRenderDebugGUI</secondary></indexterm>
 <para><computeroutput>void HeaderTech::Render::RenderContext::DidRenderDebugGUI ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
-Definition at line 25 of file RenderContext.inl.</para>
+Definition at line 23 of file RenderContext.inl.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -80,7 +80,7 @@ Here is the call graph for this function:<para>
 <indexterm><primary>MakeCurrent</primary><secondary>HeaderTech::Render::RenderContext</secondary></indexterm>
 <indexterm><primary>HeaderTech::Render::RenderContext</primary><secondary>MakeCurrent</secondary></indexterm>
 <para><computeroutput>void HeaderTech::Render::RenderContext::MakeCurrent ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
-Definition at line 19 of file RenderContext.inl.</para>
+Definition at line 17 of file RenderContext.inl.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -95,7 +95,7 @@ Here is the call graph for this function:<para>
 <indexterm><primary>WillRenderDebugGUI</primary><secondary>HeaderTech::Render::RenderContext</secondary></indexterm>
 <indexterm><primary>HeaderTech::Render::RenderContext</primary><secondary>WillRenderDebugGUI</secondary></indexterm>
 <para><computeroutput>void HeaderTech::Render::RenderContext::WillRenderDebugGUI ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
-Definition at line 22 of file RenderContext.inl.</para>
+Definition at line 20 of file RenderContext.inl.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>

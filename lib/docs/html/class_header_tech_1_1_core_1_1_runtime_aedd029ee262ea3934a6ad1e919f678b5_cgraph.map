@@ -1,8 +1,12 @@
 <map id="HeaderTech::Core::Runtime::Launch" name="HeaderTech::Core::Runtime::Launch">
-<area shape="rect" id="node1" title=" " alt="" coords="5,152,188,193"/>
-<area shape="rect" id="node2" href="$class_header_tech_1_1_events_1_1_event_dispatcher.html#a6c55bbd8d6c764d7c9bb5d2b0cf681e8" title=" " alt="" coords="239,5,440,47"/>
-<area shape="rect" id="node3" href="$class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_profiler.html#abec16ac635b9dd5f301c0f153992cb9d" title=" " alt="" coords="256,71,423,127"/>
-<area shape="rect" id="node4" href="$class_header_tech_1_1_scene_1_1_scene_manager.html#ae6ba56a5b86678a58ac42c0d3b8225e8" title=" " alt="" coords="236,152,443,193"/>
-<area shape="rect" id="node5" href="$class_header_tech_1_1_scene_1_1_scene_manager.html#a99a0ea5dc5702318995f4b747cd45e65" title=" " alt="" coords="242,217,437,259"/>
-<area shape="rect" id="node6" href="$class_header_tech_1_1_scene_1_1_scene_manager.html#ac23cab43532e4c7c33c47b5e53611841" title=" " alt="" coords="250,283,429,324"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,185,188,226"/>
+<area shape="rect" id="node2" href="$class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_profiler.html#abec16ac635b9dd5f301c0f153992cb9d" title=" " alt="" coords="256,5,423,61"/>
+<area shape="rect" id="node3" href="$class_header_tech_1_1_core_1_1_runtime.html#a8b5a3e327604fee6f8173b1409dd26e9" title=" " alt="" coords="248,86,431,127"/>
+<area shape="rect" id="node6" href="$class_header_tech_1_1_scene_1_1_scene_manager.html#ae6ba56a5b86678a58ac42c0d3b8225e8" title=" " alt="" coords="236,151,443,193"/>
+<area shape="rect" id="node7" href="$class_header_tech_1_1_scene_1_1_scene_manager.html#a99a0ea5dc5702318995f4b747cd45e65" title=" " alt="" coords="242,217,437,258"/>
+<area shape="rect" id="node8" href="$class_header_tech_1_1_window_1_1_window.html#a73756e7981b02da96c69195aacfc4f91" title=" " alt="" coords="267,282,412,323"/>
+<area shape="rect" id="node10" href="$class_header_tech_1_1_scene_1_1_scene_manager.html#ac23cab43532e4c7c33c47b5e53611841" title=" " alt="" coords="250,347,429,389"/>
+<area shape="rect" id="node4" href="$class_header_tech_1_1_window_1_1_window.html#a81f0111e981e0cab73c1b89027f1cd82" title=" " alt="" coords="497,86,642,127"/>
+<area shape="rect" id="node5" href="$class_header_tech_1_1_core_1_1_api_1_1_window_1_1_window_api.html#a5eea00859eb93f983cb40848edacf9cc" title=" " alt="" coords="696,79,853,135"/>
+<area shape="rect" id="node9" href="$class_header_tech_1_1_core_1_1_api_1_1_window_1_1_window_api.html#aa9ad50e9c077b56b57821b5e09356e33" title=" " alt="" coords="491,275,648,331"/>
 </map>

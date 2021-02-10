@@ -3,6 +3,13 @@
 <title>HeaderTech::Window::Api::OpenGL Namespace Reference</title>
 <indexterm><primary>HeaderTech::Window::Api::OpenGL</primary></indexterm>
 <simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_callbacks">Callbacks</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>class <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api">OpenGLWindowApi</link></para>

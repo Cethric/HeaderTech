@@ -29,8 +29,6 @@ Directory dependency graph for inc:<para>
 </listitem>
             <listitem><para>file <link linkend="__window_includes_8h">WindowIncludes.h</link></para>
 </listitem>
-            <listitem><para>file <link linkend="__window_types_8h">WindowTypes.h</link></para>
-</listitem>
         </itemizedlist>
 </simplesect>
 </section>

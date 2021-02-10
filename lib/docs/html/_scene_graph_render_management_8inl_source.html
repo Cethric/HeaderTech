@@ -96,85 +96,80 @@ $(document).ready(function(){initNavTree('_scene_graph_render_management_8inl_so
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_runtime_includes_8h.html">RuntimeIncludes.h</a>&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_render_framebuffer_8h.html">api/RenderFramebuffer.h</a>&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_render_framebuffer_8inl.html">api/RenderFramebuffer.inl</a>&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_header_tech_1_1_render_1_1_scene_graph.html">HeaderTech::Render::SceneGraph</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">inline</span> SceneGraphRenderManagement::SceneGraphRenderManagement(</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <a class="code" href="class_header_tech_1_1_core_1_1_runtime.html">HeaderTech::Core::Runtime</a> *runtime,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keyword">const</span> RenderSurfaceOptions &amp;options</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    ) <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            : SceneGraphRenderManagement(runtime-&gt;<a class="code" href="class_header_tech_1_1_core_1_1_runtime.html#ae86a963a99ae84a22770e7f1e4924596">GetWindow</a>().<a class="code" href="class_header_tech_1_1_window_1_1_window.html#a5f5d2ae745a2e1d509f64f1646ab55c2">GetRenderContext</a>(), options)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {}</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">inline</span> SceneGraphRenderManagement::SceneGraphRenderManagement(</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <a class="code" href="class_header_tech_1_1_render_1_1_render_context.html">HeaderTech::Render::RenderContext</a> *context,</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keyword">const</span> RenderSurfaceOptions &amp;options</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    ) <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            : m_context(context),</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;              m_framebuffer(</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                      context-&gt;<a class="code" href="class_header_tech_1_1_render_1_1_render_context.html#a4e6d32eb16a3266dc0a0a8a977bb9710">CreateFramebuffer</a>(</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                              options.width,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                              options.height</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                      )</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;              )</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {}</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_header_tech_1_1_render_1_1_scene_graph.html">HeaderTech::Render::SceneGraph</a> {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">inline</span> SceneGraphRenderManagement::SceneGraphRenderManagement(</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            <a class="code" href="class_header_tech_1_1_core_1_1_runtime.html">HeaderTech::Core::Runtime</a> *runtime,</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            <span class="keyword">const</span> RenderSurfaceOptions &amp;options</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    ) <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            : SceneGraphRenderManagement(runtime-&gt;<a class="code" href="class_header_tech_1_1_core_1_1_runtime.html#ae86a963a99ae84a22770e7f1e4924596">GetWindow</a>().<a class="code" href="class_header_tech_1_1_window_1_1_window.html#a5f5d2ae745a2e1d509f64f1646ab55c2">GetRenderContext</a>(), options)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">inline</span> SceneGraphRenderManagement::SceneGraphRenderManagement(</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <a class="code" href="class_header_tech_1_1_render_1_1_render_context.html">HeaderTech::Render::RenderContext</a> *context,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keyword">const</span> RenderSurfaceOptions &amp;options</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    ) <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            : m_context(context),</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;              m_framebuffer(</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                      context-&gt;<a class="code" href="class_header_tech_1_1_render_1_1_render_context.html#adfcaa5a4c30ae85cecf26e952f15d1a8">CreateFramebuffer</a>(</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                              options.window_size.x,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                              options.window_size.y</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                      )</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;              )</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    {}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">inline</span> SceneGraphRenderManagement::~SceneGraphRenderManagement() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    { <span class="keyword">delete</span> m_framebuffer; }</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">inline</span> SceneGraphRenderManagement::~SceneGraphRenderManagement() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    { <span class="keyword">delete</span> m_framebuffer; }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::ResizeFramebuffer(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height) <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    { m_framebuffer-&gt;Resize(width, height); }</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::ResizeFramebuffer(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height) <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    { m_framebuffer-&gt;Resize(width, height); }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::Activate() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    { m_framebuffer-&gt;Build(); }</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::Activate() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    { m_framebuffer-&gt;Build(); }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::Deactivate() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    { m_framebuffer-&gt;Destroy(); }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::Deactivate() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    { m_framebuffer-&gt;Destroy(); }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::WillPushScene() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {}</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::WillPushScene() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::WillPopScene() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {}</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::WillPopScene() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::DidPushScene() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {}</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::DidPushScene() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::DidPopScene() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {}</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::DidPopScene() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::TickScene(<span class="keywordtype">double</span> delta, <span class="keywordtype">double</span> lag) <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {}</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::TickScene(<span class="keywordtype">double</span> delta, <span class="keywordtype">double</span> lag) <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> SceneGraphRenderManagement::WillRenderScene() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    { m_framebuffer-&gt;Lock(); }</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> SceneGraphRenderManagement::WillRenderScene() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    { m_framebuffer-&gt;Lock(); }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::RenderScene(<span class="keywordtype">double</span> offset) <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {}</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::RenderScene(<span class="keywordtype">double</span> offset) <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> SceneGraphRenderManagement::DidRenderScene() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    { m_framebuffer-&gt;Unlock(); }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> SceneGraphRenderManagement::DidRenderScene() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    { m_framebuffer-&gt;Unlock(); }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::WillRenderDebugGUI() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    { m_context-&gt;WillRenderDebugGUI(); }</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::WillRenderDebugGUI() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    { m_context-&gt;WillRenderDebugGUI(); }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::DidRenderDebugGUI() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    { m_context-&gt;DidRenderDebugGUI(); }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//HEADERTECH_SCENEGRAPHRENDERMANAGEMENT_INL</span></div>
-<div class="ttc" id="a_render_framebuffer_8h_html"><div class="ttname"><a href="_render_framebuffer_8h.html">RenderFramebuffer.h</a></div></div>
-<div class="ttc" id="a_render_framebuffer_8inl_html"><div class="ttname"><a href="_render_framebuffer_8inl.html">RenderFramebuffer.inl</a></div></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> SceneGraphRenderManagement::DidRenderDebugGUI() <a class="code" href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">noexcept</a></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    { m_context-&gt;DidRenderDebugGUI(); }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//HEADERTECH_SCENEGRAPHRENDERMANAGEMENT_INL</span></div>
 <div class="ttc" id="a_runtime_includes_8h_html"><div class="ttname"><a href="_runtime_includes_8h.html">RuntimeIncludes.h</a></div></div>
 <div class="ttc" id="a_scene_graph_render_management_8h_html"><div class="ttname"><a href="_scene_graph_render_management_8h.html">SceneGraphRenderManagement.h</a></div></div>
-<div class="ttc" id="aclass_header_tech_1_1_core_1_1_runtime_html"><div class="ttname"><a href="class_header_tech_1_1_core_1_1_runtime.html">HeaderTech::Core::Runtime</a></div><div class="ttdef"><b>Definition:</b> <a href="_runtime_8h_source.html#l00023">Runtime.h:23</a></div></div>
-<div class="ttc" id="aclass_header_tech_1_1_core_1_1_runtime_html_ae86a963a99ae84a22770e7f1e4924596"><div class="ttname"><a href="class_header_tech_1_1_core_1_1_runtime.html#ae86a963a99ae84a22770e7f1e4924596">HeaderTech::Core::Runtime::GetWindow</a></div><div class="ttdeci">HeaderTech::Window::Window &amp; GetWindow()</div><div class="ttdef"><b>Definition:</b> <a href="_runtime_8h_source.html#l00033">Runtime.h:33</a></div></div>
-<div class="ttc" id="aclass_header_tech_1_1_render_1_1_render_context_html"><div class="ttname"><a href="class_header_tech_1_1_render_1_1_render_context.html">HeaderTech::Render::RenderContext</a></div><div class="ttdef"><b>Definition:</b> <a href="_render_context_8h_source.html#l00015">RenderContext.h:15</a></div></div>
-<div class="ttc" id="aclass_header_tech_1_1_render_1_1_render_context_html_a4e6d32eb16a3266dc0a0a8a977bb9710"><div class="ttname"><a href="class_header_tech_1_1_render_1_1_render_context.html#a4e6d32eb16a3266dc0a0a8a977bb9710">HeaderTech::Render::RenderContext::CreateFramebuffer</a></div><div class="ttdeci">Api::RenderFramebuffer * CreateFramebuffer(int width, int height)</div><div class="ttdef"><b>Definition:</b> <a href="_render_context_8inl_source.html#l00028">RenderContext.inl:28</a></div></div>
-<div class="ttc" id="aclass_header_tech_1_1_window_1_1_window_html_a5f5d2ae745a2e1d509f64f1646ab55c2"><div class="ttname"><a href="class_header_tech_1_1_window_1_1_window.html#a5f5d2ae745a2e1d509f64f1646ab55c2">HeaderTech::Window::Window::GetRenderContext</a></div><div class="ttdeci">HeaderTech::Render::RenderContext * GetRenderContext() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_window_8inl_source.html#l00061">Window.inl:61</a></div></div>
+<div class="ttc" id="aclass_header_tech_1_1_core_1_1_runtime_html"><div class="ttname"><a href="class_header_tech_1_1_core_1_1_runtime.html">HeaderTech::Core::Runtime</a></div><div class="ttdef"><b>Definition:</b> <a href="_runtime_8h_source.html#l00024">Runtime.h:24</a></div></div>
+<div class="ttc" id="aclass_header_tech_1_1_core_1_1_runtime_html_ae86a963a99ae84a22770e7f1e4924596"><div class="ttname"><a href="class_header_tech_1_1_core_1_1_runtime.html#ae86a963a99ae84a22770e7f1e4924596">HeaderTech::Core::Runtime::GetWindow</a></div><div class="ttdeci">HeaderTech::Window::Window &amp; GetWindow()</div><div class="ttdef"><b>Definition:</b> <a href="_runtime_8h_source.html#l00034">Runtime.h:34</a></div></div>
+<div class="ttc" id="aclass_header_tech_1_1_render_1_1_render_context_html"><div class="ttname"><a href="class_header_tech_1_1_render_1_1_render_context.html">HeaderTech::Render::RenderContext</a></div><div class="ttdef"><b>Definition:</b> <a href="_render_context_8h_source.html#l00011">RenderContext.h:11</a></div></div>
+<div class="ttc" id="aclass_header_tech_1_1_render_1_1_render_context_html_adfcaa5a4c30ae85cecf26e952f15d1a8"><div class="ttname"><a href="class_header_tech_1_1_render_1_1_render_context.html#adfcaa5a4c30ae85cecf26e952f15d1a8">HeaderTech::Render::RenderContext::CreateFramebuffer</a></div><div class="ttdeci">HeaderTech::Core::Api::Render::RenderFramebuffer * CreateFramebuffer(int width, int height)</div><div class="ttdef"><b>Definition:</b> <a href="_render_context_8inl_source.html#l00026">RenderContext.inl:26</a></div></div>
+<div class="ttc" id="aclass_header_tech_1_1_window_1_1_window_html_a5f5d2ae745a2e1d509f64f1646ab55c2"><div class="ttname"><a href="class_header_tech_1_1_window_1_1_window.html#a5f5d2ae745a2e1d509f64f1646ab55c2">HeaderTech::Window::Window::GetRenderContext</a></div><div class="ttdeci">HeaderTech::Render::RenderContext * GetRenderContext() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_window_8inl_source.html#l00056">Window.inl:56</a></div></div>
 <div class="ttc" id="anamespace_header_tech_1_1_events_1_1detail_html_afe6bc6e32140bfb1db6be0bad6914b7f"><div class="ttname"><a href="namespace_header_tech_1_1_events_1_1detail.html#afe6bc6e32140bfb1db6be0bad6914b7f">HeaderTech::Events::detail::noexcept</a></div><div class="ttdeci">const EventPtr &amp;event noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_event_subscription_8inl_source.html#l00054">EventSubscription.inl:55</a></div></div>
-<div class="ttc" id="anamespace_header_tech_1_1_render_1_1_scene_graph_html"><div class="ttname"><a href="namespace_header_tech_1_1_render_1_1_scene_graph.html">HeaderTech::Render::SceneGraph</a></div><div class="ttdef"><b>Definition:</b> <a href="_scene_graph_render_management_8h_source.html#l00018">SceneGraphRenderManagement.h:18</a></div></div>
+<div class="ttc" id="anamespace_header_tech_1_1_render_1_1_scene_graph_html"><div class="ttname"><a href="namespace_header_tech_1_1_render_1_1_scene_graph.html">HeaderTech::Render::SceneGraph</a></div><div class="ttdef"><b>Definition:</b> <a href="_scene_graph_render_management_8h_source.html#l00019">SceneGraphRenderManagement.h:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -3,7 +3,7 @@
 <title>render/inc/api/opengl/OpenGLRenderFramebuffer.h File Reference</title>
 <indexterm><primary>render/inc/api/opengl/OpenGLRenderFramebuffer.h</primary></indexterm>
 <programlisting>#include &lt;glad/gl.h&gt;
-#include &lt;api/RenderFramebuffer.h&gt;
+#include &lt;api/render/RenderApiIncludes.h&gt;
 #include &lt;LoggingIncludes.h&gt;
 </programlisting>Include dependency graph for OpenGLRenderFramebuffer.h:<para>
     <informalfigure>

@@ -3,8 +3,6 @@
 <title>render/inc/RenderContext.inl File Reference</title>
 <indexterm><primary>render/inc/RenderContext.inl</primary></indexterm>
 <programlisting>#include &lt;RenderContext.h&gt;
-#include &lt;api/RenderContextApi.h&gt;
-#include &lt;api/RenderContextApi.inl&gt;
 </programlisting>Include dependency graph for RenderContext.inl:<para>
     <informalfigure>
         <mediaobject>

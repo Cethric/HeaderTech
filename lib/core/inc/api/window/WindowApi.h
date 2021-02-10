@@ -8,6 +8,8 @@
 #include <EventDispatcher.h>
 #include <WindowTypes.h>
 
+#include <glm/glm.hpp>
+
 namespace HeaderTech::Core::Api::Window {
     class WindowApi {
     public:
@@ -24,9 +26,7 @@ namespace HeaderTech::Core::Api::Window {
 
         inline virtual void MakeCurrent() noexcept = 0;
 
-        [[nodiscard]] inline virtual int GetWidth() const noexcept = 0;
-
-        [[nodiscard]] inline virtual int GetHeight() const noexcept = 0;
+        [[nodiscard]] inline virtual glm::ivec2 GetSize() const noexcept = 0;
 
         [[nodiscard]] inline virtual bool IsKeyPressed(KeyType key) const noexcept = 0;
 

@@ -9,13 +9,4 @@
 </listitem>
         </itemizedlist>
 </simplesect>
-<simplesect>
-    <title>Classes    </title>
-        <itemizedlist>
-            <listitem><para>class <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api">RenderContextApi</link></para>
-</listitem>
-            <listitem><para>class <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer">RenderFramebuffer</link></para>
-</listitem>
-        </itemizedlist>
-</simplesect>
 </section>

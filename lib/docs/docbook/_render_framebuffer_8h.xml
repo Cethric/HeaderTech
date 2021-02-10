@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__render_framebuffer_8h" xml:lang="en-US">
-<title>render/inc/api/RenderFramebuffer.h File Reference</title>
-<indexterm><primary>render/inc/api/RenderFramebuffer.h</primary></indexterm>
+<title>core/inc/api/render/RenderFramebuffer.h File Reference</title>
+<indexterm><primary>core/inc/api/render/RenderFramebuffer.h</primary></indexterm>
 This graph shows which files directly or indirectly include this file:<para>
     <informalfigure>
         <mediaobject>
@@ -14,7 +14,7 @@ This graph shows which files directly or indirectly include this file:<para>
 <simplesect>
     <title>Classes    </title>
         <itemizedlist>
-            <listitem><para>class <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer">HeaderTech::Render::Api::RenderFramebuffer</link></para>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_framebuffer">HeaderTech::Core::Api::Render::RenderFramebuffer</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -23,9 +23,11 @@ This graph shows which files directly or indirectly include this file:<para>
         <itemizedlist>
             <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
 </listitem>
-            <listitem><para> <link linkend="_namespace_header_tech_1_1_render">HeaderTech::Render</link></para>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_core">HeaderTech::Core</link></para>
 </listitem>
-            <listitem><para> <link linkend="_namespace_header_tech_1_1_render_1_1_api">HeaderTech::Render::Api</link></para>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_core_1_1_api">HeaderTech::Core::Api</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_core_1_1_api_1_1_render">HeaderTech::Core::Api::Render</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>

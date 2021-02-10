@@ -6,6 +6,7 @@
 #define HEADERTECH_RUNTIME_H
 
 #include <memory>
+#include <thread>
 #include <LoggingIncludes.h>
 #include <EventDispatcher.h>
 #include <events/LaunchEvent.h>
@@ -33,11 +34,18 @@ namespace HeaderTech::Core {
         [[nodiscard]] inline HeaderTech::Window::Window &GetWindow()
         { return *m_window; }
 
+        [[nodiscard]] inline bool IsRunning() const noexcept;
+
+    private:
+        inline void EventProcessorThread() noexcept;
+
     protected:
         bool m_running;
         HeaderTech::Logging::Logger m_log;
 
         HeaderTech::Window::Window *m_window;
+
+        std::thread m_eventThread;
     };
 }
 

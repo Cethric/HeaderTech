@@ -18,8 +18,7 @@ namespace HeaderTech::Core {
 
 namespace HeaderTech::Render::SceneGraph {
     struct RenderSurfaceOptions {
-        int width;
-        int height;
+        glm::ivec2 window_size;
     };
 
     class SceneGraphRenderManagement {

@@ -28,11 +28,9 @@ Collaboration diagram for HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuff
         <itemizedlist>
             <listitem><para><link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1a585e3a53f185de550ba0a481444520b4">~OpenGLRenderFramebuffer</link> () noexcept final</para>
 </listitem>
-            <listitem><para>void <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1a5f8e96a5f5245cef559c57d106f8f6bb">Resize</link> (int width, int height) final</para>
+            <listitem><para>void <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1a075aca1882e162bb14128fb704e09f65">OnBuild</link> () final</para>
 </listitem>
-            <listitem><para>void <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1ac7c9c8c4f7b99304d855a576042cfe8d">Build</link> () final</para>
-</listitem>
-            <listitem><para>void <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1add7f7fa85ba8085768cf2d736c4a7092">Destroy</link> () noexcept final</para>
+            <listitem><para>void <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1afeac0d3f25db2d1ff6360cec9df716d6">OnDestroy</link> () noexcept final</para>
 </listitem>
             <listitem><para>void <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1afb15197adddf67d85da475f46aa85e2e">Lock</link> () noexcept final</para>
 </listitem>
@@ -65,91 +63,38 @@ Definition at line 13 of file OpenGLRenderFramebuffer.h.</para>
 </section>
 <section>
 <title>Member Function Documentation</title>
-<anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1ac7c9c8c4f7b99304d855a576042cfe8d"/>    <section>
-    <title>Build()</title>
-<indexterm><primary>Build</primary><secondary>HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</secondary></indexterm>
-<indexterm><primary>HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</primary><secondary>Build</secondary></indexterm>
-<para><computeroutput>void HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer::Build ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
-Reimplemented from <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1a44190ec70c9de67a9d86970471f8cf68">HeaderTech::Render::Api::RenderFramebuffer</link>.</para>
-<para>
-Definition at line 25 of file OpenGLRenderFramebuffer.inl.</para>
-Here is the call graph for this function:<para>
-    <informalfigure>
-        <mediaobject>
-            <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_ac7c9c8c4f7b99304d855a576042cfe8d_cgraph.png"></imagedata>
-            </imageobject>
-        </mediaobject>
-    </informalfigure>
-</para>
-    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1add7f7fa85ba8085768cf2d736c4a7092"/>    <section>
-    <title>Destroy()</title>
-<indexterm><primary>Destroy</primary><secondary>HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</secondary></indexterm>
-<indexterm><primary>HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</primary><secondary>Destroy</secondary></indexterm>
-<para><computeroutput>void HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer::Destroy ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
-Reimplemented from <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1ab2e4264abbb670d469a784d7b80c24be">HeaderTech::Render::Api::RenderFramebuffer</link>.</para>
-<para>
-Definition at line 36 of file OpenGLRenderFramebuffer.inl.</para>
-Here is the call graph for this function:<para>
-    <informalfigure>
-        <mediaobject>
-            <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_add7f7fa85ba8085768cf2d736c4a7092_cgraph.png"></imagedata>
-            </imageobject>
-        </mediaobject>
-    </informalfigure>
-</para>
-    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1afb15197adddf67d85da475f46aa85e2e"/>    <section>
+<anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1afb15197adddf67d85da475f46aa85e2e"/>    <section>
     <title>Lock()</title>
 <indexterm><primary>Lock</primary><secondary>HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</secondary></indexterm>
 <indexterm><primary>HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</primary><secondary>Lock</secondary></indexterm>
 <para><computeroutput>void HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer::Lock ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
-Reimplemented from <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1a0385520faf645e602cd3e2298829f693">HeaderTech::Render::Api::RenderFramebuffer</link>.</para>
+Reimplemented from <link linkend="_class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_framebuffer_1a25cc86a91bb7e1197f813e34359d8b10">HeaderTech::Core::Api::Render::RenderFramebuffer</link>.</para>
 <para>
-Definition at line 46 of file OpenGLRenderFramebuffer.inl.</para>
-Here is the call graph for this function:<para>
-    <informalfigure>
-        <mediaobject>
-            <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_afb15197adddf67d85da475f46aa85e2e_cgraph.png"></imagedata>
-            </imageobject>
-        </mediaobject>
-    </informalfigure>
-</para>
-    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1a5f8e96a5f5245cef559c57d106f8f6bb"/>    <section>
-    <title>Resize()</title>
-<indexterm><primary>Resize</primary><secondary>HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</secondary></indexterm>
-<indexterm><primary>HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</primary><secondary>Resize</secondary></indexterm>
-<para><computeroutput>void HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer::Resize (int width, int height)<computeroutput>[inline]</computeroutput>, <computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
-Reimplemented from <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1a95d0eeece803ebf124443bd7bf3637c1">HeaderTech::Render::Api::RenderFramebuffer</link>.</para>
+Definition at line 41 of file OpenGLRenderFramebuffer.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1a075aca1882e162bb14128fb704e09f65"/>    <section>
+    <title>OnBuild()</title>
+<indexterm><primary>OnBuild</primary><secondary>HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</primary><secondary>OnBuild</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer::OnBuild ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_framebuffer_1ad99911606f3e1a3243c6f822dfd9501a">HeaderTech::Core::Api::Render::RenderFramebuffer</link>.</para>
 <para>
-Definition at line 22 of file OpenGLRenderFramebuffer.inl.</para>
-Here is the call graph for this function:<para>
-    <informalfigure>
-        <mediaobject>
-            <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_a5f8e96a5f5245cef559c57d106f8f6bb_cgraph.png"></imagedata>
-            </imageobject>
-        </mediaobject>
-    </informalfigure>
-</para>
+Definition at line 24 of file OpenGLRenderFramebuffer.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1afeac0d3f25db2d1ff6360cec9df716d6"/>    <section>
+    <title>OnDestroy()</title>
+<indexterm><primary>OnDestroy</primary><secondary>HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</primary><secondary>OnDestroy</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer::OnDestroy ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_framebuffer_1a9334443955cc2a1044fd5934403b80d1">HeaderTech::Core::Api::Render::RenderFramebuffer</link>.</para>
+<para>
+Definition at line 34 of file OpenGLRenderFramebuffer.inl.</para>
     </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1abe95733e39fdfb575750d274a14257f2"/>    <section>
     <title>Unlock()</title>
 <indexterm><primary>Unlock</primary><secondary>HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</secondary></indexterm>
 <indexterm><primary>HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</primary><secondary>Unlock</secondary></indexterm>
 <para><computeroutput>void HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer::Unlock ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
-Reimplemented from <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1a51f9d5206fa1b02cbc494a1beb0eec73">HeaderTech::Render::Api::RenderFramebuffer</link>.</para>
+Reimplemented from <link linkend="_class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_framebuffer_1a8325e7e4e6398e2949a308180d863b41">HeaderTech::Core::Api::Render::RenderFramebuffer</link>.</para>
 <para>
-Definition at line 53 of file OpenGLRenderFramebuffer.inl.</para>
-Here is the call graph for this function:<para>
-    <informalfigure>
-        <mediaobject>
-            <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_abe95733e39fdfb575750d274a14257f2_cgraph.png"></imagedata>
-            </imageobject>
-        </mediaobject>
-    </informalfigure>
-</para>
+Definition at line 48 of file OpenGLRenderFramebuffer.inl.</para>
 </section>
 </section>
 <section>

@@ -24,8 +24,8 @@ namespace HeaderTech::Render::SceneGraph {
             : m_context(context),
               m_framebuffer(
                       context->CreateFramebuffer(
-                              options.width,
-                              options.height
+                              options.window_size.x,
+                              options.window_size.y
                       )
               )
     {}

@@ -22,7 +22,10 @@ set(
         inc/ProfilerTypes.h
         inc/scoped/ScopedProfiler.h
         inc/scoped/ScopedProfileMark.h
-        inc/scoped/ScopedProfileMark.inl inc/scoped/ScopedProfiler.inl inc/scoped/ScopedProfilerIncludes.h)
+        inc/scoped/ScopedProfileMark.inl
+        inc/scoped/ScopedProfiler.inl
+        inc/scoped/ScopedProfilerIncludes.h
+)
 
 add_library(HeaderTech_Profiler STATIC ${HeaderTech_Profiler_SRC} ${HeaderTech_Profiler_INC})
 target_include_directories(HeaderTech_Profiler PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc/)

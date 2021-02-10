@@ -31,6 +31,8 @@
 </listitem>
             <listitem><para>#define <link linkend="__render_includes_8cpp_1a47b1d28ea9ecf3541bf173f3ec420894">HEADERTECH_RUNTIME_IMPL</link>   1</para>
 </listitem>
+            <listitem><para>#define <link linkend="__render_includes_8cpp_1ac01c70bac7c119c60f5f6f978e6910bd">HEADERTECH_CORE_IMPL</link>   1</para>
+</listitem>
             <listitem><para>#define <link linkend="__render_includes_8cpp_1a65b83c179278272965a09f52c7f775dd">DEFINE_IMPLEMENTATION</link>   1</para>
 </listitem>
         </itemizedlist>
@@ -42,13 +44,19 @@
 <indexterm><primary>DEFINE_IMPLEMENTATION</primary><secondary>RenderIncludes.cpp</secondary></indexterm>
 <indexterm><primary>RenderIncludes.cpp</primary><secondary>DEFINE_IMPLEMENTATION</secondary></indexterm>
 <para><computeroutput>#define DEFINE_IMPLEMENTATION   1</computeroutput></para><para>
-Definition at line 13 of file RenderIncludes.cpp.</para>
+Definition at line 14 of file RenderIncludes.cpp.</para>
     </section><anchor xml:id="__render_includes_8cpp_1a38be129ec5276a3072c53066bc84c1fa"/>    <section>
     <title>HEADERTECH_CONFIG_IMPL</title>
 <indexterm><primary>HEADERTECH_CONFIG_IMPL</primary><secondary>RenderIncludes.cpp</secondary></indexterm>
 <indexterm><primary>RenderIncludes.cpp</primary><secondary>HEADERTECH_CONFIG_IMPL</secondary></indexterm>
 <para><computeroutput>#define HEADERTECH_CONFIG_IMPL   1</computeroutput></para><para>
 Definition at line 8 of file RenderIncludes.cpp.</para>
+    </section><anchor xml:id="__render_includes_8cpp_1ac01c70bac7c119c60f5f6f978e6910bd"/>    <section>
+    <title>HEADERTECH_CORE_IMPL</title>
+<indexterm><primary>HEADERTECH_CORE_IMPL</primary><secondary>RenderIncludes.cpp</secondary></indexterm>
+<indexterm><primary>RenderIncludes.cpp</primary><secondary>HEADERTECH_CORE_IMPL</secondary></indexterm>
+<para><computeroutput>#define HEADERTECH_CORE_IMPL   1</computeroutput></para><para>
+Definition at line 13 of file RenderIncludes.cpp.</para>
     </section><anchor xml:id="__render_includes_8cpp_1aa251c2d3ff6494d6ca3d81886f1cd54a"/>    <section>
     <title>HEADERTECH_EVENTS_IMPL</title>
 <indexterm><primary>HEADERTECH_EVENTS_IMPL</primary><secondary>RenderIncludes.cpp</secondary></indexterm>

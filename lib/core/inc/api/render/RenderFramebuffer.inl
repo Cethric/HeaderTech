@@ -16,28 +16,40 @@ namespace HeaderTech::Core::Api::Render {
     {}
 
     inline RenderFramebuffer::~RenderFramebuffer() noexcept
-    { if (m_isBuilt) { Destroy(); }}
+    { if (m_isBuilt) { WillDestroy(); }}
 
     inline void RenderFramebuffer::Resize(int width, int height)
     {
-        auto built = m_isBuilt;
-        if (built) { Destroy(); }
+        auto wasBuilt = m_isBuilt;
+        if (wasBuilt) { WillDestroy(); }
         m_width = width;
         m_height = height;
-        if (built) { Build(); }
+        if (wasBuilt) { WillBuild(); }
     }
 
-    inline void RenderFramebuffer::Build()
-    { m_isBuilt = true; }
+    void RenderFramebuffer::Build()
+    { WillBuild(); }
 
-    inline void RenderFramebuffer::Destroy() noexcept
-    { m_isBuilt = false; }
+    void RenderFramebuffer::Destroy() noexcept
+    { WillDestroy(); }
 
     inline void RenderFramebuffer::Lock() noexcept
     { m_isLocked = true; }
 
     inline void RenderFramebuffer::Unlock() noexcept
     { m_isLocked = false; }
+
+    void RenderFramebuffer::WillBuild()
+    {
+        OnBuild();
+        m_isBuilt = true;
+    }
+
+    void RenderFramebuffer::WillDestroy() noexcept
+    {
+        OnDestroy();
+        m_isBuilt = false;
+    }
 }
 
 #endif //HEADERTECH_RENDERFRAMEBUFFER_INL

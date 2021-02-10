@@ -5,7 +5,6 @@
 <programlisting>#include &lt;Window.h&gt;
 #include &lt;RenderIncludes.h&gt;
 #include &lt;EventsIncludes.h&gt;
-#include &lt;api/WindowApiIncludes.inl&gt;
 </programlisting>Include dependency graph for Window.inl:<para>
     <informalfigure>
         <mediaobject>

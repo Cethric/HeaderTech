@@ -36,6 +36,8 @@ Collaboration diagram for HeaderTech::Core::Runtime:<para>
 </listitem>
             <listitem><para><link linkend="_class_header_tech_1_1_window_1_1_window">HeaderTech::Window::Window</link> &amp; <link linkend="_class_header_tech_1_1_core_1_1_runtime_1ae86a963a99ae84a22770e7f1e4924596">GetWindow</link> ()</para>
 </listitem>
+            <listitem><para>bool <link linkend="_class_header_tech_1_1_core_1_1_runtime_1a8b5a3e327604fee6f8173b1409dd26e9">IsRunning</link> () const noexcept</para>
+</listitem>
         </itemizedlist>
 </simplesect>
 <simplesect>
@@ -47,12 +49,14 @@ Collaboration diagram for HeaderTech::Core::Runtime:<para>
 </listitem>
             <listitem><para><link linkend="_class_header_tech_1_1_window_1_1_window">HeaderTech::Window::Window</link> * <link linkend="_class_header_tech_1_1_core_1_1_runtime_1a7d629f37b9c478fc491467ce07dc4ee3">m_window</link></para>
 </listitem>
+            <listitem><para>std::thread <link linkend="_class_header_tech_1_1_core_1_1_runtime_1a51c5fb9f039405ce2230dc46e7934666">m_eventThread</link></para>
+</listitem>
         </itemizedlist>
 </simplesect>
 <section>
 <title>Detailed Description</title>
 <para>
-Definition at line 23 of file Runtime.h.</para>
+Definition at line 24 of file Runtime.h.</para>
 </section>
 <section>
 <title>Constructor &amp; Destructor Documentation</title>
@@ -61,7 +65,7 @@ Definition at line 23 of file Runtime.h.</para>
 <indexterm><primary>Runtime</primary><secondary>HeaderTech::Core::Runtime</secondary></indexterm>
 <indexterm><primary>HeaderTech::Core::Runtime</primary><secondary>Runtime</secondary></indexterm>
 <para><computeroutput>HeaderTech::Core::Runtime::Runtime (const <link linkend="_struct_header_tech_1_1_config_1_1_runtime_config">HeaderTech::Config::RuntimeConfig</link> &amp; config)<computeroutput>[inline]</computeroutput>, <computeroutput>[explicit]</computeroutput></computeroutput></para><para>
-Definition at line 20 of file Runtime.inl.</para>
+Definition at line 19 of file Runtime.inl.</para>
     </section><anchor xml:id="_class_header_tech_1_1_core_1_1_runtime_1a03599dd7e5e150c5c6e9949682ba81b7"/>    <section>
     <title>~Runtime()</title>
 <indexterm><primary>~Runtime</primary><secondary>HeaderTech::Core::Runtime</secondary></indexterm>
@@ -77,7 +81,31 @@ Definition at line 28 of file Runtime.inl.</para>
 <indexterm><primary>GetWindow</primary><secondary>HeaderTech::Core::Runtime</secondary></indexterm>
 <indexterm><primary>HeaderTech::Core::Runtime</primary><secondary>GetWindow</secondary></indexterm>
 <para><computeroutput><link linkend="_class_header_tech_1_1_window_1_1_window">HeaderTech::Window::Window</link>&amp; HeaderTech::Core::Runtime::GetWindow ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
-Definition at line 33 of file Runtime.h.</para>
+Definition at line 34 of file Runtime.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_core_1_1_runtime_1a8b5a3e327604fee6f8173b1409dd26e9"/>    <section>
+    <title>IsRunning()</title>
+<indexterm><primary>IsRunning</primary><secondary>HeaderTech::Core::Runtime</secondary></indexterm>
+<indexterm><primary>HeaderTech::Core::Runtime</primary><secondary>IsRunning</secondary></indexterm>
+<para><computeroutput>bool HeaderTech::Core::Runtime::IsRunning ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 84 of file Runtime.inl.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_core_1_1_runtime_a8b5a3e327604fee6f8173b1409dd26e9_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_core_1_1_runtime_a8b5a3e327604fee6f8173b1409dd26e9_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
     </section><anchor xml:id="_class_header_tech_1_1_core_1_1_runtime_1aedd029ee262ea3934a6ad1e919f678b5"/>    <section>
     <title>Launch()</title>
 <indexterm><primary>Launch</primary><secondary>HeaderTech::Core::Runtime</secondary></indexterm>
@@ -98,29 +126,35 @@ Here is the call graph for this function:<para>
 <indexterm><primary>Stop</primary><secondary>HeaderTech::Core::Runtime</secondary></indexterm>
 <indexterm><primary>HeaderTech::Core::Runtime</primary><secondary>Stop</secondary></indexterm>
 <para><computeroutput>void HeaderTech::Core::Runtime::Stop ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
-Definition at line 82 of file Runtime.inl.</para>
+Definition at line 81 of file Runtime.inl.</para>
 </section>
 </section>
 <section>
 <title>Member Data Documentation</title>
-<anchor xml:id="_class_header_tech_1_1_core_1_1_runtime_1af2e5c9a6d9a5c7eea153b7c02d80ab27"/>    <section>
+<anchor xml:id="_class_header_tech_1_1_core_1_1_runtime_1a51c5fb9f039405ce2230dc46e7934666"/>    <section>
+    <title>m_eventThread</title>
+<indexterm><primary>m_eventThread</primary><secondary>HeaderTech::Core::Runtime</secondary></indexterm>
+<indexterm><primary>HeaderTech::Core::Runtime</primary><secondary>m_eventThread</secondary></indexterm>
+<para><computeroutput>std::thread HeaderTech::Core::Runtime::m_eventThread<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line 48 of file Runtime.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_core_1_1_runtime_1af2e5c9a6d9a5c7eea153b7c02d80ab27"/>    <section>
     <title>m_log</title>
 <indexterm><primary>m_log</primary><secondary>HeaderTech::Core::Runtime</secondary></indexterm>
 <indexterm><primary>HeaderTech::Core::Runtime</primary><secondary>m_log</secondary></indexterm>
 <para><computeroutput><link linkend="_namespace_header_tech_1_1_logging_1a0621070397f6df5586f73f0e6014279c">HeaderTech::Logging::Logger</link> HeaderTech::Core::Runtime::m_log<computeroutput>[protected]</computeroutput></computeroutput></para><para>
-Definition at line 38 of file Runtime.h.</para>
+Definition at line 44 of file Runtime.h.</para>
     </section><anchor xml:id="_class_header_tech_1_1_core_1_1_runtime_1a09cdea0f45a870c47ab2488096c06396"/>    <section>
     <title>m_running</title>
 <indexterm><primary>m_running</primary><secondary>HeaderTech::Core::Runtime</secondary></indexterm>
 <indexterm><primary>HeaderTech::Core::Runtime</primary><secondary>m_running</secondary></indexterm>
 <para><computeroutput>bool HeaderTech::Core::Runtime::m_running<computeroutput>[protected]</computeroutput></computeroutput></para><para>
-Definition at line 37 of file Runtime.h.</para>
+Definition at line 43 of file Runtime.h.</para>
     </section><anchor xml:id="_class_header_tech_1_1_core_1_1_runtime_1a7d629f37b9c478fc491467ce07dc4ee3"/>    <section>
     <title>m_window</title>
 <indexterm><primary>m_window</primary><secondary>HeaderTech::Core::Runtime</secondary></indexterm>
 <indexterm><primary>HeaderTech::Core::Runtime</primary><secondary>m_window</secondary></indexterm>
 <para><computeroutput><link linkend="_class_header_tech_1_1_window_1_1_window">HeaderTech::Window::Window</link>* HeaderTech::Core::Runtime::m_window<computeroutput>[protected]</computeroutput></computeroutput></para><para>
-Definition at line 40 of file Runtime.h.</para>
+Definition at line 46 of file Runtime.h.</para>
 </section>
 <para>
 The documentation for this class was generated from the following files:</para>

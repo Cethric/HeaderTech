@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__render_framebuffer_8inl" xml:lang="en-US">
-<title>render/inc/api/RenderFramebuffer.inl File Reference</title>
-<indexterm><primary>render/inc/api/RenderFramebuffer.inl</primary></indexterm>
-<programlisting>#include &lt;api/RenderFramebuffer.h&gt;
+<title>core/inc/api/render/RenderFramebuffer.inl File Reference</title>
+<indexterm><primary>core/inc/api/render/RenderFramebuffer.inl</primary></indexterm>
+<programlisting>#include &lt;api/render/RenderFramebuffer.h&gt;
 </programlisting>Include dependency graph for RenderFramebuffer.inl:<para>
     <informalfigure>
         <mediaobject>
@@ -12,23 +12,16 @@
         </mediaobject>
     </informalfigure>
 </para>
-This graph shows which files directly or indirectly include this file:<para>
-    <informalfigure>
-        <mediaobject>
-            <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_render_framebuffer_8inl__dep__incl.png"></imagedata>
-            </imageobject>
-        </mediaobject>
-    </informalfigure>
-</para>
 <simplesect>
     <title>Namespaces    </title>
         <itemizedlist>
             <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
 </listitem>
-            <listitem><para> <link linkend="_namespace_header_tech_1_1_render">HeaderTech::Render</link></para>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_core">HeaderTech::Core</link></para>
 </listitem>
-            <listitem><para> <link linkend="_namespace_header_tech_1_1_render_1_1_api">HeaderTech::Render::Api</link></para>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_core_1_1_api">HeaderTech::Core::Api</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_core_1_1_api_1_1_render">HeaderTech::Core::Api::Render</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>

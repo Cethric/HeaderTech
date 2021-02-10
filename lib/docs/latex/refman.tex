@@ -187,6 +187,9 @@
 \input{namespace_header_tech}
 \input{namespace_header_tech_1_1_config}
 \input{namespace_header_tech_1_1_core}
+\input{namespace_header_tech_1_1_core_1_1_api}
+\input{namespace_header_tech_1_1_core_1_1_api_1_1_render}
+\input{namespace_header_tech_1_1_core_1_1_api_1_1_window}
 \input{namespace_header_tech_1_1_core_1_1_events}
 \input{namespace_header_tech_1_1_core_1_1_scoped}
 \input{namespace_header_tech_1_1_entity_component_system}
@@ -214,6 +217,7 @@
 \input{namespace_header_tech_1_1_window_1_1_api}
 \input{namespace_header_tech_1_1_window_1_1_api_1_1_g_l_f_w}
 \input{namespace_header_tech_1_1_window_1_1_api_1_1_open_g_l}
+\input{namespace_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_callbacks}
 \input{namespace_header_tech_1_1_window_1_1_events}
 \chapter{Class Documentation}
 \input{struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_content}
@@ -264,8 +268,8 @@
 \input{class_header_tech_1_1_logging_1_1_profiler_sink}
 \input{struct_header_tech_1_1_config_1_1_render_config}
 \input{class_header_tech_1_1_render_1_1_render_context}
-\input{class_header_tech_1_1_render_1_1_api_1_1_render_context_api}
-\input{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer}
+\input{class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_context_api}
+\input{class_header_tech_1_1_core_1_1_api_1_1_render_1_1_render_framebuffer}
 \input{class_header_tech_1_1_render_1_1_render_object}
 \input{class_header_tech_1_1_render_1_1_render_surface}
 \input{struct_header_tech_1_1_render_1_1_scene_graph_1_1_render_surface_options}
@@ -284,7 +288,7 @@
 \input{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468}
 \input{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vibecf92609f3f82b850d6f31bd11eadd3}
 \input{class_header_tech_1_1_window_1_1_window}
-\input{class_header_tech_1_1_window_1_1_api_1_1_window_api}
+\input{class_header_tech_1_1_core_1_1_api_1_1_window_1_1_window_api}
 \input{struct_header_tech_1_1_window_1_1_events_1_1_window_close_event}
 \input{struct_header_tech_1_1_config_1_1_window_config}
 \input{struct_header_tech_1_1_window_1_1_events_1_1_window_content_scale_event}
@@ -298,8 +302,16 @@
 \input{_config_includes_8h}
 \input{_runtime_config_8h}
 \input{_config_includes_8cpp}
+\input{_render_api_includes_8h}
+\input{_render_context_api_8h}
+\input{_render_framebuffer_8h}
+\input{_render_framebuffer_8inl}
+\input{_window_api_8h}
+\input{core_2inc_2api_2window_2_window_api_includes_8h}
+\input{window_2inc_2api_2_window_api_includes_8h}
 \input{_core_includes_8h}
 \input{_scoped_g_l_f_w_8h}
+\input{_window_types_8h}
 \input{_core_includes_8cpp}
 \input{_component_8h}
 \input{_e_c_s_includes_8h}
@@ -351,16 +363,12 @@
 \input{_types_8h}
 \input{_profiler_includes_8cpp}
 \input{_r_e_a_d_m_e_8md}
-\input{_base_render_context_api_8h}
 \input{_open_g_l_debug_gui_8inl}
 \input{_open_g_l_render_context_api_8h}
 \input{_open_g_l_render_context_api_8inl}
 \input{_open_g_l_render_framebuffer_8h}
 \input{_open_g_l_render_framebuffer_8inl}
-\input{_render_context_api_8h}
-\input{_render_context_api_8inl}
-\input{_render_framebuffer_8h}
-\input{_render_framebuffer_8inl}
+\input{_render_context_api_includes_8h}
 \input{_render_context_8h}
 \input{_render_context_8inl}
 \input{_render_includes_8h}
@@ -388,9 +396,6 @@
 \input{_open_g_l_window_api_8h}
 \input{_open_g_l_window_api_8inl}
 \input{_open_g_l_window_api_events_8inl}
-\input{_window_api_8h}
-\input{_window_api_includes_8h}
-\input{_window_api_includes_8inl}
 \input{_char_event_8h}
 \input{_char_mods_event_8h}
 \input{_cursor_enter_event_8h}
@@ -411,7 +416,6 @@
 \input{_window_8h}
 \input{_window_8inl}
 \input{_window_includes_8h}
-\input{_window_types_8h}
 \input{_window_includes_8cpp}
 %--- End generated contents ---
 

@@ -6,7 +6,7 @@
 #include &lt;RenderObject.h&gt;
 #include &lt;RenderSurface.h&gt;
 #include &lt;scene/SceneGraphRenderManagement.h&gt;
-#include &lt;api/RenderContextApi.h&gt;
+#include &lt;api/RenderContextApiIncludes.h&gt;
 </programlisting>Include dependency graph for RenderIncludes.h:<para>
     <informalfigure>
         <mediaobject>
