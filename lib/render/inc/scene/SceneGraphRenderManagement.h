@@ -6,6 +6,7 @@
 #define HEADERTECH_SCENEGRAPHRENDERMANAGEMENT_H
 
 #include <RenderContext.h>
+#include <api/render/RenderApiIncludes.h>
 
 namespace HeaderTech::Scene {
     class SceneGraph;
@@ -63,12 +64,12 @@ namespace HeaderTech::Render::SceneGraph {
 
         inline void DidRenderDebugGUI() noexcept;
 
-        inline HeaderTech::Render::Api::RenderFramebuffer *GetFramebuffer() noexcept
+        inline HeaderTech::Core::Api::Render::RenderFramebuffer *GetFramebuffer() noexcept
         { return m_framebuffer; }
 
     private:
         HeaderTech::Render::RenderContext *m_context;
-        HeaderTech::Render::Api::RenderFramebuffer *m_framebuffer;
+        HeaderTech::Core::Api::Render::RenderFramebuffer *m_framebuffer;
     };
 }
 

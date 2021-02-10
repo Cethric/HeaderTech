@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_eafb92770fbc727220bdaa0b1292f771" xml:lang="en-US">
+<title>ecs Directory Reference</title>
+<indexterm><primary>ecs Directory Reference</primary></indexterm>
+Directory dependency graph for ecs:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_eafb92770fbc727220bdaa0b1292f771_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_b89ddd932c784cd56dda19fa8fdb3500">inc</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_cd62a81a5498271e83c00ee7432ae4e6">src</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

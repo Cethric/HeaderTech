@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__event_8inl" xml:lang="en-US">
+<title>events/inc/Event.inl File Reference</title>
+<indexterm><primary>events/inc/Event.inl</primary></indexterm>
+<programlisting>#include &lt;Event.h&gt;
+</programlisting>Include dependency graph for Event.inl:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_event_8inl__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_events">HeaderTech::Events</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_events_1_1detail">HeaderTech::Events::detail</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__event_8inl_1a5b97ff15dceb0966516b2584d44e3f8f">HEADERTECH_EVENT_INL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>template&lt;EventType EventClass&gt; </para><para><link linkend="_namespace_header_tech_1_1_events_1_1detail_1ad20bf18f6da5896af7bc149aaaff6a1f">HeaderTech::Events::detail::__declspec</link> (noalias) static inline void event_destructor(void *event) noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__event_8inl_1a5b97ff15dceb0966516b2584d44e3f8f"/>    <section>
+    <title>HEADERTECH_EVENT_INL</title>
+<indexterm><primary>HEADERTECH_EVENT_INL</primary><secondary>Event.inl</secondary></indexterm>
+<indexterm><primary>Event.inl</primary><secondary>HEADERTECH_EVENT_INL</secondary></indexterm>
+<para><computeroutput>#define HEADERTECH_EVENT_INL</computeroutput></para><para>
+Definition at line 6 of file Event.inl.</para>
+</section>
+</section>
+</section>

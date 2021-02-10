@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_7e868af64e31779987291c90ae140f88" xml:lang="en-US">
+<title>core/inc Directory Reference</title>
+<indexterm><primary>core/inc Directory Reference</primary></indexterm>
+Directory dependency graph for inc:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_7e868af64e31779987291c90ae140f88_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_f6572fbb2ec410a397d4fc448e51ff01">scoped</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__core_includes_8h">CoreIncludes.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

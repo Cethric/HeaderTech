@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_eb8593de7d743c3f77b57e6f1c6b1456" xml:lang="en-US">
+<title>logging/inc/scoped Directory Reference</title>
+<indexterm><primary>logging/inc/scoped Directory Reference</primary></indexterm>
+Directory dependency graph for scoped:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_eb8593de7d743c3f77b57e6f1c6b1456_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__scoped_logging_8h">ScopedLogging.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__scoped_logging_8inl">ScopedLogging.inl</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

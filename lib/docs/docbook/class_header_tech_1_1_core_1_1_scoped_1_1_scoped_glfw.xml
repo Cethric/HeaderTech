@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_core_1_1_scoped_1_1_scoped_glfw" xml:lang="en-US">
+<title>HeaderTech::Core::Scoped::ScopedGlfw Class Reference</title>
+<indexterm><primary>HeaderTech::Core::Scoped::ScopedGlfw</primary></indexterm>
+<para>
+<computeroutput>#include &lt;ScopedGLFW.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_core_1_1_scoped_1_1_scoped_glfw_1aeda2eab6651a75f2bccf3758c89071c2">ScopedGlfw</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_core_1_1_scoped_1_1_scoped_glfw_1a07fafdfc8d3730cf151bcfd0e1ac0162">~ScopedGlfw</link> () noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 20 of file ScopedGLFW.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_core_1_1_scoped_1_1_scoped_glfw_1aeda2eab6651a75f2bccf3758c89071c2"/>    <section>
+    <title>ScopedGlfw()</title>
+<indexterm><primary>ScopedGlfw</primary><secondary>HeaderTech::Core::Scoped::ScopedGlfw</secondary></indexterm>
+<indexterm><primary>HeaderTech::Core::Scoped::ScopedGlfw</primary><secondary>ScopedGlfw</secondary></indexterm>
+<para><computeroutput>HeaderTech::Core::Scoped::ScopedGlfw::ScopedGlfw ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 22 of file ScopedGLFW.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_core_1_1_scoped_1_1_scoped_glfw_1a07fafdfc8d3730cf151bcfd0e1ac0162"/>    <section>
+    <title>~ScopedGlfw()</title>
+<indexterm><primary>~ScopedGlfw</primary><secondary>HeaderTech::Core::Scoped::ScopedGlfw</secondary></indexterm>
+<indexterm><primary>HeaderTech::Core::Scoped::ScopedGlfw</primary><secondary>~ScopedGlfw</secondary></indexterm>
+<para><computeroutput>HeaderTech::Core::Scoped::ScopedGlfw::~ScopedGlfw ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 32 of file ScopedGLFW.h.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+core/inc/scoped/<link linkend="__scoped_g_l_f_w_8h">ScopedGLFW.h</link></section>
+</section>

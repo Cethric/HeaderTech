@@ -6,6 +6,7 @@
 #define HEADERTECH_SCOPEDFILESYSTEM_H
 
 #include <physfs.h>
+#include <exception>
 
 namespace HeaderTech::FileSystem::Scoped {
     class ScopedFileSystem {

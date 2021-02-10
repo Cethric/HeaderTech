@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view" xml:lang="en-US">
+<title>HeaderTech::EntityComponentSystem::EntityComponentView&lt;... &gt; Class Template Reference</title>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityComponentView&lt;... &gt;</primary></indexterm>
+<section>
+<title>Detailed Description</title>
+<simplesect><title>template&lt;typename...&gt;
+class HeaderTech::EntityComponentSystem::EntityComponentView&lt;... &gt;</title></simplesect>
+
+<para>
+Definition at line 34 of file EntityComponentView.h.</para>
+<para>
+The documentation for this class was generated from the following file:</para>
+ecs/inc/<link linkend="__entity_component_view_8h">EntityComponentView.h</link></section>
+</section>

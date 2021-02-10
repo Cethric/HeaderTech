@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_242bffd5922a56517aa74955921ce85a" xml:lang="en-US">
+<title>scene/src Directory Reference</title>
+<indexterm><primary>scene/src Directory Reference</primary></indexterm>
+Directory dependency graph for src:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_242bffd5922a56517aa74955921ce85a_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__scene_includes_8cpp">SceneIncludes.cpp</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

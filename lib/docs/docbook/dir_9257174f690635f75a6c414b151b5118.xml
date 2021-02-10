@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_9257174f690635f75a6c414b151b5118" xml:lang="en-US">
+<title>window Directory Reference</title>
+<indexterm><primary>window Directory Reference</primary></indexterm>
+Directory dependency graph for window:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_9257174f690635f75a6c414b151b5118_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_63072c957d7c3113907792dbdb04d9a4">inc</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_3cf63d633b733908870641994b61855b">src</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

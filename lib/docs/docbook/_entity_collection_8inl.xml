@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__entity_collection_8inl" xml:lang="en-US">
+<title>ecs/inc/EntityCollection.inl File Reference</title>
+<indexterm><primary>ecs/inc/EntityCollection.inl</primary></indexterm>
+<programlisting>#include &lt;algorithm&gt;
+#include &lt;unordered_set&gt;
+#include &lt;EntityCollection.h&gt;
+</programlisting>Include dependency graph for EntityCollection.inl:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_entity_collection_8inl__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_entity_id_struct">HeaderTech::EntityComponentSystem::details::EntityIdStruct</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_entity_component_data">HeaderTech::EntityComponentSystem::details::EntityComponentData</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_entity_component_system">HeaderTech::EntityComponentSystem</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_entity_component_system_1_1details">HeaderTech::EntityComponentSystem::details</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__entity_collection_8inl_1a4889b25ec5d2521783c1e637c986ffbf">HEADERTECH_ENTITYCOLLECTION_INL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__entity_collection_8inl_1a4889b25ec5d2521783c1e637c986ffbf"/>    <section>
+    <title>HEADERTECH_ENTITYCOLLECTION_INL</title>
+<indexterm><primary>HEADERTECH_ENTITYCOLLECTION_INL</primary><secondary>EntityCollection.inl</secondary></indexterm>
+<indexterm><primary>EntityCollection.inl</primary><secondary>HEADERTECH_ENTITYCOLLECTION_INL</secondary></indexterm>
+<para><computeroutput>#define HEADERTECH_ENTITYCOLLECTION_INL</computeroutput></para><para>
+Definition at line 6 of file EntityCollection.inl.</para>
+</section>
+</section>
+</section>

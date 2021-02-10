@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_header_tech_1_1_entity_component_system_1_1details" xml:lang="en-US">
+<title>HeaderTech::EntityComponentSystem::details Namespace Reference</title>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_component_id_seq">ComponentIdSeq</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_entity_id_struct">EntityIdStruct</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_entity_component_data">EntityComponentData</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_content">BaseSetContent</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_hash">BaseSetHash</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_eq">BaseSetEq</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set">EntitySet</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>using <link linkend="_namespace_header_tech_1_1_entity_component_system_1_1details_1aa2b3883a782e656e1ef1c4c640c280ab">BaseSet</link> = phmap::flat_hash_set&lt; <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_content">BaseSetContent</link>, <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_hash">BaseSetHash</link>, <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_eq">BaseSetEq</link> &gt;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_namespace_header_tech_1_1_entity_component_system_1_1details_1aa2b3883a782e656e1ef1c4c640c280ab"/>    <section>
+    <title>BaseSet</title>
+<indexterm><primary>BaseSet</primary><secondary>HeaderTech::EntityComponentSystem::details</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details</primary><secondary>BaseSet</secondary></indexterm>
+<para><computeroutput>using <link linkend="_namespace_header_tech_1_1_entity_component_system_1_1details_1aa2b3883a782e656e1ef1c4c640c280ab">HeaderTech::EntityComponentSystem::details::BaseSet</link> = typedef phmap::flat_hash_set&lt;<link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_content">BaseSetContent</link>, <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_hash">BaseSetHash</link>, <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_eq">BaseSetEq</link>&gt;</computeroutput></para><para>
+Definition at line 35 of file EntitySet.h.</para>
+</section>
+</section>
+</section>

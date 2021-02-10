@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_dac82461edbf7769d1d161433f435c63" xml:lang="en-US">
+<title>logging Directory Reference</title>
+<indexterm><primary>logging Directory Reference</primary></indexterm>
+Directory dependency graph for logging:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_dac82461edbf7769d1d161433f435c63_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_fabd4a88602184749798046b20e9ae47">inc</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_52918db0f3e9066a8c15d2de35f0e864">src</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

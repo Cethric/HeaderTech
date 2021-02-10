@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_header_tech_1_1_render_1_1_scene_graph" xml:lang="en-US">
+<title>HeaderTech::Render::SceneGraph Namespace Reference</title>
+<indexterm><primary>HeaderTech::Render::SceneGraph</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_render_1_1_scene_graph_1_1_render_surface_options">RenderSurfaceOptions</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_render_1_1_scene_graph_1_1_scene_graph_render_management">SceneGraphRenderManagement</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

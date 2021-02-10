@@ -16,16 +16,16 @@
 
 #include <imgui.h>
 
-#include <Logging.h>
-#include <Profiler.h>
-#include <Events.h>
-#include <Core.h>
-#include <FileSystem.h>
-#include <Config.h>
-#include <Scene.h>
-#include <UserInterface.h>
-#include <Render.h>
-#include <EntityComponentSystem.h>
+#include <LoggingIncludes.h>
+#include <ProfilerIncludes.h>
+#include <EventsIncludes.h>
+#include <CoreIncludes.h>
+#include <FileSystemIncludes.h>
+#include <ConfigIncludes.h>
+#include <SceneIncludes.h>
+#include <UIIncludes.h>
+#include <RenderIncludes.h>
+#include <ECSIncludes.h>
 
 using SceneGraph = HeaderTech::Scene::SceneGraph;
 using SceneManager = HeaderTech::Scene::SceneManager;

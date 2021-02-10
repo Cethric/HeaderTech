@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__render_framebuffer_8inl" xml:lang="en-US">
+<title>render/inc/api/RenderFramebuffer.inl File Reference</title>
+<indexterm><primary>render/inc/api/RenderFramebuffer.inl</primary></indexterm>
+<programlisting>#include &lt;api/RenderFramebuffer.h&gt;
+</programlisting>Include dependency graph for RenderFramebuffer.inl:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_render_framebuffer_8inl__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_render_framebuffer_8inl__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_render">HeaderTech::Render</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_render_1_1_api">HeaderTech::Render::Api</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__render_framebuffer_8inl_1a42d1b24171673338d731c3439029fb10">HEADERTECH_RENDERFRAMEBUFFER_INL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__render_framebuffer_8inl_1a42d1b24171673338d731c3439029fb10"/>    <section>
+    <title>HEADERTECH_RENDERFRAMEBUFFER_INL</title>
+<indexterm><primary>HEADERTECH_RENDERFRAMEBUFFER_INL</primary><secondary>RenderFramebuffer.inl</secondary></indexterm>
+<indexterm><primary>RenderFramebuffer.inl</primary><secondary>HEADERTECH_RENDERFRAMEBUFFER_INL</secondary></indexterm>
+<para><computeroutput>#define HEADERTECH_RENDERFRAMEBUFFER_INL</computeroutput></para><para>
+Definition at line 6 of file RenderFramebuffer.inl.</para>
+</section>
+</section>
+</section>

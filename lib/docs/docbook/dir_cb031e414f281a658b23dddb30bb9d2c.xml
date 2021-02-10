@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_cb031e414f281a658b23dddb30bb9d2c" xml:lang="en-US">
+<title>runtime Directory Reference</title>
+<indexterm><primary>runtime Directory Reference</primary></indexterm>
+Directory dependency graph for runtime:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_cb031e414f281a658b23dddb30bb9d2c_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_1338e178cdff2e223c872f79899bd0ee">inc</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_c2826f37176a201ceba37bdee7e7215a">src</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

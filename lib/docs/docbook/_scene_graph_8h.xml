@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__scene_graph_8h" xml:lang="en-US">
+<title>scene/inc/SceneGraph.h File Reference</title>
+<indexterm><primary>scene/inc/SceneGraph.h</primary></indexterm>
+<programlisting>#include &lt;memory&gt;
+#include &lt;concepts&gt;
+#include &lt;type_traits&gt;
+#include &lt;ctti/type_id.hpp&gt;
+#include &lt;ctti/detailed_nameof.hpp&gt;
+#include &lt;EntityCollection.h&gt;
+#include &lt;events/FramebufferSizeEvent.h&gt;
+#include &lt;scene/SceneGraphRenderManagement.h&gt;
+#include &lt;WindowTypes.h&gt;
+</programlisting>Include dependency graph for SceneGraph.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_scene_graph_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_scene_graph_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph">HeaderTech::Scene::SceneGraph</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_core">HeaderTech::Core</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_scene">HeaderTech::Scene</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

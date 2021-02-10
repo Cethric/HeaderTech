@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__scoped_profile_mark_8inl" xml:lang="en-US">
+<title>profiler/inc/scoped/ScopedProfileMark.inl File Reference</title>
+<indexterm><primary>profiler/inc/scoped/ScopedProfileMark.inl</primary></indexterm>
+<programlisting>#include &lt;scoped/ScopedProfileMark.h&gt;
+#include &lt;scoped/ScopedProfiler.h&gt;
+</programlisting>Include dependency graph for ScopedProfileMark.inl:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_scoped_profile_mark_8inl__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_profiler">HeaderTech::Profiler</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_profiler_1_1_scoped">HeaderTech::Profiler::Scoped</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__scoped_profile_mark_8inl_1a4a2a3f547c5e13e46f1e7f081750c28e">HEADERTECH_SCOPEDPROFILEMARK_INL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__scoped_profile_mark_8inl_1a4a2a3f547c5e13e46f1e7f081750c28e"/>    <section>
+    <title>HEADERTECH_SCOPEDPROFILEMARK_INL</title>
+<indexterm><primary>HEADERTECH_SCOPEDPROFILEMARK_INL</primary><secondary>ScopedProfileMark.inl</secondary></indexterm>
+<indexterm><primary>ScopedProfileMark.inl</primary><secondary>HEADERTECH_SCOPEDPROFILEMARK_INL</secondary></indexterm>
+<para><computeroutput>#define HEADERTECH_SCOPEDPROFILEMARK_INL</computeroutput></para><para>
+Definition at line 6 of file ScopedProfileMark.inl.</para>
+</section>
+</section>
+</section>

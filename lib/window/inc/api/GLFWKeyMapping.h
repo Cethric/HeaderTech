@@ -5,6 +5,8 @@
 #ifndef HEADERTECH_GLFWKEYMAPPING_H
 #define HEADERTECH_GLFWKEYMAPPING_H
 
+#define GLFW_INCLUDE_NONE 1
+
 #include <GLFW/glfw3.h>
 #include <WindowTypes.h>
 

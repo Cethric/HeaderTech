@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_core_1_1_events_1_1_launch_event" xml:lang="en-US">
+<title>HeaderTech::Core::Events::LaunchEvent Class Reference</title>
+<indexterm><primary>HeaderTech::Core::Events::LaunchEvent</primary></indexterm>
+<para>
+<computeroutput>#include &lt;LaunchEvent.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_core_1_1_events_1_1_launch_event_1a2c05630cf071689e4688fd68dce74728">LaunchEvent</link> (<link linkend="_namespace_header_tech_1_1_events_1a94ce76b1ca57f459e666e4bd3152652d">HeaderTech::Events::EventPriority</link> priority)</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_core_1_1_events_1_1_launch_event_1a60cc253d418e7084dc427ec3773a63f3">~LaunchEvent</link> ()=default</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_header_tech_1_1_events_1a94ce76b1ca57f459e666e4bd3152652d">HeaderTech::Events::EventPriority</link> <link linkend="_class_header_tech_1_1_core_1_1_events_1_1_launch_event_1a86d32f0f510727587fa70c586fe36340">GetPriority</link> () const</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para>std::uint8_t <link linkend="_class_header_tech_1_1_core_1_1_events_1_1_launch_event_1a15217f570a8def477125b72c857e3cf2">m_priority</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 11 of file LaunchEvent.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_core_1_1_events_1_1_launch_event_1a2c05630cf071689e4688fd68dce74728"/>    <section>
+    <title>LaunchEvent()</title>
+<indexterm><primary>LaunchEvent</primary><secondary>HeaderTech::Core::Events::LaunchEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Core::Events::LaunchEvent</primary><secondary>LaunchEvent</secondary></indexterm>
+<para><computeroutput>HeaderTech::Core::Events::LaunchEvent::LaunchEvent (<link linkend="_namespace_header_tech_1_1_events_1a94ce76b1ca57f459e666e4bd3152652d">HeaderTech::Events::EventPriority</link> priority)<computeroutput>[inline]</computeroutput>, <computeroutput>[explicit]</computeroutput></computeroutput></para><para>
+Definition at line 13 of file LaunchEvent.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_core_1_1_events_1_1_launch_event_1a60cc253d418e7084dc427ec3773a63f3"/>    <section>
+    <title>~LaunchEvent()</title>
+<indexterm><primary>~LaunchEvent</primary><secondary>HeaderTech::Core::Events::LaunchEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Core::Events::LaunchEvent</primary><secondary>~LaunchEvent</secondary></indexterm>
+<para><computeroutput>HeaderTech::Core::Events::LaunchEvent::~LaunchEvent ( )<computeroutput>[default]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_core_1_1_events_1_1_launch_event_1a86d32f0f510727587fa70c586fe36340"/>    <section>
+    <title>GetPriority()</title>
+<indexterm><primary>GetPriority</primary><secondary>HeaderTech::Core::Events::LaunchEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Core::Events::LaunchEvent</primary><secondary>GetPriority</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_header_tech_1_1_events_1a94ce76b1ca57f459e666e4bd3152652d">HeaderTech::Events::EventPriority</link> HeaderTech::Core::Events::LaunchEvent::GetPriority ( ) const<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 18 of file LaunchEvent.h.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_core_1_1_events_1_1_launch_event_1a15217f570a8def477125b72c857e3cf2"/>    <section>
+    <title>m_priority</title>
+<indexterm><primary>m_priority</primary><secondary>HeaderTech::Core::Events::LaunchEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Core::Events::LaunchEvent</primary><secondary>m_priority</secondary></indexterm>
+<para><computeroutput>std::uint8_t HeaderTech::Core::Events::LaunchEvent::m_priority<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line 22 of file LaunchEvent.h.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+runtime/inc/events/<link linkend="__launch_event_8h">LaunchEvent.h</link></section>
+</section>

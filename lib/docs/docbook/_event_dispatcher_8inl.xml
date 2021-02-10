@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__event_dispatcher_8inl" xml:lang="en-US">
+<title>events/inc/EventDispatcher.inl File Reference</title>
+<indexterm><primary>events/inc/EventDispatcher.inl</primary></indexterm>
+<programlisting>#include &lt;memory&gt;
+#include &lt;algorithm&gt;
+#include &lt;iterator&gt;
+#include &lt;EventDispatcher.h&gt;
+#include &lt;scoped/ScopedProfilerIncludes.h&gt;
+</programlisting>Include dependency graph for EventDispatcher.inl:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_event_dispatcher_8inl__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_events">HeaderTech::Events</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__event_dispatcher_8inl_1a7674f0734ca49c1c8b4512963d07b997">HEADERTECH_EVENTDISPATCHER_INL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__event_dispatcher_8inl_1a7674f0734ca49c1c8b4512963d07b997"/>    <section>
+    <title>HEADERTECH_EVENTDISPATCHER_INL</title>
+<indexterm><primary>HEADERTECH_EVENTDISPATCHER_INL</primary><secondary>EventDispatcher.inl</secondary></indexterm>
+<indexterm><primary>EventDispatcher.inl</primary><secondary>HEADERTECH_EVENTDISPATCHER_INL</secondary></indexterm>
+<para><computeroutput>#define HEADERTECH_EVENTDISPATCHER_INL</computeroutput></para><para>
+Definition at line 6 of file EventDispatcher.inl.</para>
+</section>
+</section>
+</section>

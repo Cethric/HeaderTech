@@ -5,6 +5,8 @@
 #ifndef HEADERTECH_KEYEVENT_H
 #define HEADERTECH_KEYEVENT_H
 
+#define GLFW_INCLUDE_NONE 1
+
 #include <Event.h>
 #include <GLFW/glfw3.h>
 

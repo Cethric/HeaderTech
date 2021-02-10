@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__window_types_8h" xml:lang="en-US">
+<title>window/inc/WindowTypes.h File Reference</title>
+<indexterm><primary>window/inc/WindowTypes.h</primary></indexterm>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_window_types_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_window">HeaderTech::Window</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eac">HeaderTech::Window::KeyType</link> : std::uint32_t { 
+<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca307ab80752fa1d0d24f4c6e39cc35496">HeaderTech::Window::Key_A</link> = 0
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca19e8361438606cd493a37112c4abfa11">HeaderTech::Window::Key_B</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacab37f9d362de5842dd0c38152ca7001ca">HeaderTech::Window::Key_C</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca0ad65a328e7ff4d43f3ee3be5ca7c35b">HeaderTech::Window::Key_D</link>
+, 
+<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacabb6c8ca18d05edc1e4b7f605d516f729">HeaderTech::Window::Key_E</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacac230208373f90fe932246793754e5d82">HeaderTech::Window::Key_F</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca5e5978f4acc59d0ff9b05e4ddd3e630a">HeaderTech::Window::Key_G</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaa21249b00d04d50e138a3c113383f0d3">HeaderTech::Window::Key_H</link>
+, 
+<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaa477a8c6598c7184009a84439dd65b06">HeaderTech::Window::Key_I</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaff910b56d268dad3aa416a2b90cb8ec7">HeaderTech::Window::Key_J</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca5e129cb4e547b34fc50033bc3a51550f">HeaderTech::Window::Key_K</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca134334df61747fa6d46527eed27c9026">HeaderTech::Window::Key_L</link>
+, 
+<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca7f5638dae7697d2fc108b502e3b91339">HeaderTech::Window::Key_M</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaffa2c2f6766db9478a86a00b45f25071">HeaderTech::Window::Key_N</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca93f6940378c84fb93337afbcbc5bd4d0">HeaderTech::Window::Key_O</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca521f811f09a1759d9d329351bcca8ead">HeaderTech::Window::Key_P</link>
+, 
+<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacac50bfb0a5965b833b4fb121377de2f85">HeaderTech::Window::Key_Q</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca834170eace69af14f593dea6ca299bd2">HeaderTech::Window::Key_R</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca68e4ebf30aa41cdf36052c4aa3141f64">HeaderTech::Window::Key_S</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca9ff93b2cecf530e3dc4aea76914fcafb">HeaderTech::Window::Key_T</link>
+, 
+<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacae2df61bda6ce059bcbc3c14f0eeda6d0">HeaderTech::Window::Key_U</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacaa27312a31a32f233f3ca74d559c2c290">HeaderTech::Window::Key_V</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacab81dfe5801d794eb54aecb47ce70bca8">HeaderTech::Window::Key_W</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca81cd906bd4ec5de380d37c08494e39f3">HeaderTech::Window::Key_X</link>
+, 
+<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca298c8cae7e3cd69116226b30f0d22981">HeaderTech::Window::Key_Y</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca59a642db73a7e3cf62950d929dffbd2a">HeaderTech::Window::Key_Z</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca81575e0de5fe02d871b3db2fef566128">HeaderTech::Window::Key_Up</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca97ebb5690004882e2df299d1985545ae">HeaderTech::Window::Key_Down</link>
+, 
+<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca26a45fd2e552d7cf9d8612b59b43a884">HeaderTech::Window::Key_Left</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacafcb6dad713164802f0701437ac1c9f8a">HeaderTech::Window::Key_Right</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca663980c9e17b7c980d5928e487e31592">HeaderTech::Window::Key_Space</link>
+, <link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eaca8eb204448834b95a7580344aeb6ad227">HeaderTech::Window::Key_Shift_Left</link>
+, 
+<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eacadab012e091d557947ba05cd027f902e1">HeaderTech::Window::Key_Shift_Right</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

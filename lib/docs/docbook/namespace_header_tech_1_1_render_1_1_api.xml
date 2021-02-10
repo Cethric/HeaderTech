@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_header_tech_1_1_render_1_1_api" xml:lang="en-US">
+<title>HeaderTech::Render::Api Namespace Reference</title>
+<indexterm><primary>HeaderTech::Render::Api</primary></indexterm>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_render_1_1_api_1_1_open_g_l">OpenGL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api">RenderContextApi</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer">RenderFramebuffer</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_header_tech" xml:lang="en-US">
+<title>HeaderTech Namespace Reference</title>
+<indexterm><primary>HeaderTech</primary></indexterm>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_config">Config</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_core">Core</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_entity_component_system">EntityComponentSystem</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_events">Events</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_file_system">FileSystem</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_logging">Logging</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_profiler">Profiler</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_render">Render</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_scene">Scene</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_u_i">UI</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_window">Window</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

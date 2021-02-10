@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__scoped_profile_mark_8h" xml:lang="en-US">
+<title>profiler/inc/scoped/ScopedProfileMark.h File Reference</title>
+<indexterm><primary>profiler/inc/scoped/ScopedProfileMark.h</primary></indexterm>
+<programlisting>#include &lt;ctti/type_id.hpp&gt;
+#include &lt;ProfilerTypes.h&gt;
+</programlisting>Include dependency graph for ScopedProfileMark.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_scoped_profile_mark_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_scoped_profile_mark_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_cpu_profiler">HeaderTech::Profiler::Scoped::ScopedCpuProfiler</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_profiler">HeaderTech::Profiler</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_profiler_1_1_scoped">HeaderTech::Profiler::Scoped</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__scoped_profile_mark_8h_1a922d2784284e8f6ee4009c3d92ba48b6">FUNCTION_NAME</link>   __FUNCTION_NAME__</para>
+</listitem>
+            <listitem><para>#define <link linkend="__scoped_profile_mark_8h_1a6b71aa2231beb2e8957f237241edceeb">ProfileCpuScopedFlags</link>(name,  flags)   <link linkend="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_cpu_profiler">HeaderTech::Profiler::Scoped::ScopedCpuProfiler</link> scoped_cpu_profile_##name(#name, ctti::id_from_name(#name).hash(), __FUNCTION__, __FILE__, __LINE__, flags)</para>
+</listitem>
+            <listitem><para>#define <link linkend="__scoped_profile_mark_8h_1ad883d4ac4e247e82fe52e832297cecc8">ProfileCpuScoped</link>(name)   <link linkend="__scoped_profile_mark_8h_1a6b71aa2231beb2e8957f237241edceeb">ProfileCpuScopedFlags</link>(name, <link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1ae8d68aba4c6dba792ca8d1655a3ddabcac58b5ac2d4405df2e0db2b1e95ca006f">HeaderTech::Profiler::Types::ScopedProfilerFlags_None</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__scoped_profile_mark_8h_1a922d2784284e8f6ee4009c3d92ba48b6"/>    <section>
+    <title>FUNCTION_NAME</title>
+<indexterm><primary>FUNCTION_NAME</primary><secondary>ScopedProfileMark.h</secondary></indexterm>
+<indexterm><primary>ScopedProfileMark.h</primary><secondary>FUNCTION_NAME</secondary></indexterm>
+<para><computeroutput>#define FUNCTION_NAME   __FUNCTION_NAME__</computeroutput></para><para>
+Definition at line 32 of file ScopedProfileMark.h.</para>
+    </section><anchor xml:id="__scoped_profile_mark_8h_1ad883d4ac4e247e82fe52e832297cecc8"/>    <section>
+    <title>ProfileCpuScoped</title>
+<indexterm><primary>ProfileCpuScoped</primary><secondary>ScopedProfileMark.h</secondary></indexterm>
+<indexterm><primary>ScopedProfileMark.h</primary><secondary>ProfileCpuScoped</secondary></indexterm>
+<para><computeroutput>#define ProfileCpuScoped( name)   <link linkend="__scoped_profile_mark_8h_1a6b71aa2231beb2e8957f237241edceeb">ProfileCpuScopedFlags</link>(name, <link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1ae8d68aba4c6dba792ca8d1655a3ddabcac58b5ac2d4405df2e0db2b1e95ca006f">HeaderTech::Profiler::Types::ScopedProfilerFlags_None</link>)</computeroutput></para><para>
+Definition at line 37 of file ScopedProfileMark.h.</para>
+    </section><anchor xml:id="__scoped_profile_mark_8h_1a6b71aa2231beb2e8957f237241edceeb"/>    <section>
+    <title>ProfileCpuScopedFlags</title>
+<indexterm><primary>ProfileCpuScopedFlags</primary><secondary>ScopedProfileMark.h</secondary></indexterm>
+<indexterm><primary>ScopedProfileMark.h</primary><secondary>ProfileCpuScopedFlags</secondary></indexterm>
+<para><computeroutput>#define ProfileCpuScopedFlags( name,  flags)   <link linkend="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_cpu_profiler">HeaderTech::Profiler::Scoped::ScopedCpuProfiler</link> scoped_cpu_profile_##name(#name, ctti::id_from_name(#name).hash(), __FUNCTION__, __FILE__, __LINE__, flags)</computeroutput></para><para>
+Definition at line 35 of file ScopedProfileMark.h.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,207 @@
+\hypertarget{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api}{}\doxysection{Header\+Tech\+::Render\+::Api\+::Open\+GL\+::Open\+GLRender\+Context\+Api Class Reference}
+\label{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api}\index{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}}
+
+
+{\ttfamily \#include $<$Open\+GLRender\+Context\+Api.\+h$>$}
+
+
+
+Inheritance diagram for Header\+Tech\+::Render\+::Api\+::Open\+GL\+::Open\+GLRender\+Context\+Api\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Header\+Tech\+::Render\+::Api\+::Open\+GL\+::Open\+GLRender\+Context\+Api\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_a8787d54dcc6b76a44b2b5ba660f7dbc7}{Open\+GLRender\+Context\+Api}} (\mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api}{Header\+Tech\+::\+Window\+::\+Api\+::\+Open\+GL\+::\+Open\+GLWindow\+Api}} $\ast$api) noexcept
+\item 
+\mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_a452fbfe76c45ea95409cd03ec567c010}{$\sim$\+Open\+GLRender\+Context\+Api}} () noexcept final
+\item 
+const Glad\+GLContext \& \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_ac04b4d81064a100b55370e439065cffc}{Gl}} () const noexcept
+\item 
+\mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer}{Header\+Tech\+::\+Render\+::\+Api\+::\+Render\+Framebuffer}} $\ast$ \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_af86811ac70a64122001818d807683a62}{Create\+Framebuffer}} (int width, int height) noexcept final
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_a22a0b44cd0440b1c9f427d1086b46a6c}{Prepare\+Render\+Debug\+GUI}} () noexcept final
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_abf4c5fda9808750d38e1437c6ed6d1bf}{Destroy\+Render\+Debug\+GUI}} () noexcept final
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_a80d6a4ff4b764bdf70ab52bf4f4bc720}{Will\+Render\+Debug\+GUI}} () noexcept final
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_adf8ee6e37f856e53d162832c8a2ec0e1}{Did\+Render\+Debug\+GUI}} () noexcept final
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Glad\+GLContext \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_aa0a91c7490c86f6a5b19566ff130ccf9}{m\+\_\+gl}}
+\item 
+Im\+Gui\+Context $\ast$ \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_aa2e39cf5480bc8373cc5e1dd3f7d1d23}{m\+\_\+debug\+Gui\+Context}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 18 of file Open\+GLRender\+Context\+Api.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_a8787d54dcc6b76a44b2b5ba660f7dbc7}\label{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_a8787d54dcc6b76a44b2b5ba660f7dbc7}} 
+\index{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}!OpenGLRenderContextApi@{OpenGLRenderContextApi}}
+\index{OpenGLRenderContextApi@{OpenGLRenderContextApi}!HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}}
+\doxysubsubsection{\texorpdfstring{OpenGLRenderContextApi()}{OpenGLRenderContextApi()}}
+{\footnotesize\ttfamily Header\+Tech\+::\+Render\+::\+Api\+::\+Open\+GL\+::\+Open\+GLRender\+Context\+Api\+::\+Open\+GLRender\+Context\+Api (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api}{Header\+Tech\+::\+Window\+::\+Api\+::\+Open\+GL\+::\+Open\+GLWindow\+Api}} $\ast$}]{api }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 99 of file Open\+GLRender\+Context\+Api.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_a452fbfe76c45ea95409cd03ec567c010}\label{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_a452fbfe76c45ea95409cd03ec567c010}} 
+\index{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}!````~OpenGLRenderContextApi@{$\sim$OpenGLRenderContextApi}}
+\index{````~OpenGLRenderContextApi@{$\sim$OpenGLRenderContextApi}!HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}}
+\doxysubsubsection{\texorpdfstring{$\sim$OpenGLRenderContextApi()}{~OpenGLRenderContextApi()}}
+{\footnotesize\ttfamily Header\+Tech\+::\+Render\+::\+Api\+::\+Open\+GL\+::\+Open\+GLRender\+Context\+Api\+::$\sim$\+Open\+GLRender\+Context\+Api (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [default]}, {\ttfamily [noexcept]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_af86811ac70a64122001818d807683a62}\label{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_af86811ac70a64122001818d807683a62}} 
+\index{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}!CreateFramebuffer@{CreateFramebuffer}}
+\index{CreateFramebuffer@{CreateFramebuffer}!HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}}
+\doxysubsubsection{\texorpdfstring{CreateFramebuffer()}{CreateFramebuffer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer}{Header\+Tech\+::\+Render\+::\+Api\+::\+Render\+Framebuffer}} $\ast$ Header\+Tech\+::\+Render\+::\+Api\+::\+Open\+GL\+::\+Open\+GLRender\+Context\+Api\+::\+Create\+Framebuffer (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_render_context_api_a6b34767e92634cc2b22af099a2f1a168}{Header\+Tech\+::\+Render\+::\+Api\+::\+Render\+Context\+Api}}.
+
+
+
+Definition at line 136 of file Open\+GLRender\+Context\+Api.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_abf4c5fda9808750d38e1437c6ed6d1bf}\label{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_abf4c5fda9808750d38e1437c6ed6d1bf}} 
+\index{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}!DestroyRenderDebugGUI@{DestroyRenderDebugGUI}}
+\index{DestroyRenderDebugGUI@{DestroyRenderDebugGUI}!HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}}
+\doxysubsubsection{\texorpdfstring{DestroyRenderDebugGUI()}{DestroyRenderDebugGUI()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Render\+::\+Api\+::\+Open\+GL\+::\+Open\+GLRender\+Context\+Api\+::\+Destroy\+Render\+Debug\+GUI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Implements \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_render_context_api_a7c551a3cc1c91c36fc78f8e0c7f94667}{Header\+Tech\+::\+Render\+::\+Api\+::\+Render\+Context\+Api}}.
+
+
+
+Definition at line 43 of file Open\+GLDebug\+Gui.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_adf8ee6e37f856e53d162832c8a2ec0e1}\label{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_adf8ee6e37f856e53d162832c8a2ec0e1}} 
+\index{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}!DidRenderDebugGUI@{DidRenderDebugGUI}}
+\index{DidRenderDebugGUI@{DidRenderDebugGUI}!HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}}
+\doxysubsubsection{\texorpdfstring{DidRenderDebugGUI()}{DidRenderDebugGUI()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Render\+::\+Api\+::\+Open\+GL\+::\+Open\+GLRender\+Context\+Api\+::\+Did\+Render\+Debug\+GUI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Implements \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_render_context_api_a4b5b0d74e05c31632ea5ecce4cfb0e01}{Header\+Tech\+::\+Render\+::\+Api\+::\+Render\+Context\+Api}}.
+
+
+
+Definition at line 103 of file Open\+GLDebug\+Gui.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_adf8ee6e37f856e53d162832c8a2ec0e1_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_ac04b4d81064a100b55370e439065cffc}\label{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_ac04b4d81064a100b55370e439065cffc}} 
+\index{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}!Gl@{Gl}}
+\index{Gl@{Gl}!HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}}
+\doxysubsubsection{\texorpdfstring{Gl()}{Gl()}}
+{\footnotesize\ttfamily const Glad\+GLContext \& Header\+Tech\+::\+Render\+::\+Api\+::\+Open\+GL\+::\+Open\+GLRender\+Context\+Api\+::\+Gl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 132 of file Open\+GLRender\+Context\+Api.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_a22a0b44cd0440b1c9f427d1086b46a6c}\label{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_a22a0b44cd0440b1c9f427d1086b46a6c}} 
+\index{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}!PrepareRenderDebugGUI@{PrepareRenderDebugGUI}}
+\index{PrepareRenderDebugGUI@{PrepareRenderDebugGUI}!HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}}
+\doxysubsubsection{\texorpdfstring{PrepareRenderDebugGUI()}{PrepareRenderDebugGUI()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Render\+::\+Api\+::\+Open\+GL\+::\+Open\+GLRender\+Context\+Api\+::\+Prepare\+Render\+Debug\+GUI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Implements \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_render_context_api_abb2a74ec2d88d7bc77aa8ff0c2325a17}{Header\+Tech\+::\+Render\+::\+Api\+::\+Render\+Context\+Api}}.
+
+
+
+Definition at line 15 of file Open\+GLDebug\+Gui.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_a22a0b44cd0440b1c9f427d1086b46a6c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_a80d6a4ff4b764bdf70ab52bf4f4bc720}\label{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_a80d6a4ff4b764bdf70ab52bf4f4bc720}} 
+\index{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}!WillRenderDebugGUI@{WillRenderDebugGUI}}
+\index{WillRenderDebugGUI@{WillRenderDebugGUI}!HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}}
+\doxysubsubsection{\texorpdfstring{WillRenderDebugGUI()}{WillRenderDebugGUI()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Render\+::\+Api\+::\+Open\+GL\+::\+Open\+GLRender\+Context\+Api\+::\+Will\+Render\+Debug\+GUI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Implements \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_render_context_api_aa86fa95b7ee5a814ec01ab699fbf8690}{Header\+Tech\+::\+Render\+::\+Api\+::\+Render\+Context\+Api}}.
+
+
+
+Definition at line 51 of file Open\+GLDebug\+Gui.\+inl.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_aa2e39cf5480bc8373cc5e1dd3f7d1d23}\label{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_aa2e39cf5480bc8373cc5e1dd3f7d1d23}} 
+\index{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}!m\_debugGuiContext@{m\_debugGuiContext}}
+\index{m\_debugGuiContext@{m\_debugGuiContext}!HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}}
+\doxysubsubsection{\texorpdfstring{m\_debugGuiContext}{m\_debugGuiContext}}
+{\footnotesize\ttfamily Im\+Gui\+Context$\ast$ Header\+Tech\+::\+Render\+::\+Api\+::\+Open\+GL\+::\+Open\+GLRender\+Context\+Api\+::m\+\_\+debug\+Gui\+Context\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 41 of file Open\+GLRender\+Context\+Api.\+h.
+
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_aa0a91c7490c86f6a5b19566ff130ccf9}\label{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_aa0a91c7490c86f6a5b19566ff130ccf9}} 
+\index{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}!m\_gl@{m\_gl}}
+\index{m\_gl@{m\_gl}!HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi@{HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi}}
+\doxysubsubsection{\texorpdfstring{m\_gl}{m\_gl}}
+{\footnotesize\ttfamily Glad\+GLContext Header\+Tech\+::\+Render\+::\+Api\+::\+Open\+GL\+::\+Open\+GLRender\+Context\+Api\+::m\+\_\+gl\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 38 of file Open\+GLRender\+Context\+Api.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+render/inc/api/opengl/\mbox{\hyperlink{_open_g_l_render_context_api_8h}{Open\+GLRender\+Context\+Api.\+h}}\item 
+render/inc/api/opengl/\mbox{\hyperlink{_open_g_l_debug_gui_8inl}{Open\+GLDebug\+Gui.\+inl}}\item 
+render/inc/api/opengl/\mbox{\hyperlink{_open_g_l_render_context_api_8inl}{Open\+GLRender\+Context\+Api.\+inl}}\end{DoxyCompactItemize}

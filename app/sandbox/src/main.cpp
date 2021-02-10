@@ -141,20 +141,20 @@ protected:
         CameraComponent *camera = nullptr;
 
         constexpr float speed = 2;
-        bool forward = IsKeyPressed(HeaderTech::Window::KeyType::Key_W);
-        bool backward = IsKeyPressed(HeaderTech::Window::KeyType::Key_S);
-        bool strafeLeft = IsKeyPressed(HeaderTech::Window::KeyType::Key_A);
-        bool strafeRight = IsKeyPressed(HeaderTech::Window::KeyType::Key_D);
-        bool raise = IsKeyPressed(HeaderTech::Window::KeyType::Key_Space);
-        bool lower = IsKeyPressed(HeaderTech::Window::KeyType::Key_Shift_Left);
+        bool forward = IsKeyPressed(HeaderTech::Core::KeyType::Key_W);
+        bool backward = IsKeyPressed(HeaderTech::Core::KeyType::Key_S);
+        bool strafeLeft = IsKeyPressed(HeaderTech::Core::KeyType::Key_A);
+        bool strafeRight = IsKeyPressed(HeaderTech::Core::KeyType::Key_D);
+        bool raise = IsKeyPressed(HeaderTech::Core::KeyType::Key_Space);
+        bool lower = IsKeyPressed(HeaderTech::Core::KeyType::Key_Shift_Left);
         for (const auto &update:*m_cameraView) {
             std::tie(std::ignore, camera, transform) = update;
-            if (forward) transform->position.x += speed * delta;
-            if (backward) transform->position.x -= speed * delta;
-            if (strafeLeft) transform->position.z -= speed * delta;
-            if (strafeRight) transform->position.z += speed * delta;
-            if (raise) transform->position.y += speed * delta;
-            if (lower) transform->position.y -= speed * delta;
+            if (forward) transform->position.x += speed * (float) delta;
+            if (backward) transform->position.x -= speed * (float) delta;
+            if (strafeLeft) transform->position.z -= speed * (float) delta;
+            if (strafeRight) transform->position.z += speed * (float) delta;
+            if (raise) transform->position.y += speed * (float) delta;
+            if (lower) transform->position.y -= speed * (float) delta;
         }
     }
 

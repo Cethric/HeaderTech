@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__runtime_8inl" xml:lang="en-US">
+<title>runtime/inc/Runtime.inl File Reference</title>
+<indexterm><primary>runtime/inc/Runtime.inl</primary></indexterm>
+<programlisting>#include &lt;Runtime.h&gt;
+#include &lt;scoped/ScopedProfilerIncludes.h&gt;
+#include &lt;SceneManager.h&gt;
+#include &lt;SceneManager.inl&gt;
+#include &lt;WindowIncludes.h&gt;
+#include &lt;GLFW/glfw3.h&gt;
+#include &lt;thread&gt;
+#include &lt;functional&gt;
+</programlisting>Include dependency graph for Runtime.inl:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_runtime_8inl__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_runtime_8inl__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_core">HeaderTech::Core</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__runtime_8inl_1a53f5a79502115b0039e42d610153ded9">HEADERTECH_RUNTIME_INL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__runtime_8inl_1a53f5a79502115b0039e42d610153ded9"/>    <section>
+    <title>HEADERTECH_RUNTIME_INL</title>
+<indexterm><primary>HEADERTECH_RUNTIME_INL</primary><secondary>Runtime.inl</secondary></indexterm>
+<indexterm><primary>Runtime.inl</primary><secondary>HEADERTECH_RUNTIME_INL</secondary></indexterm>
+<para><computeroutput>#define HEADERTECH_RUNTIME_INL</computeroutput></para><para>
+Definition at line 6 of file Runtime.inl.</para>
+</section>
+</section>
+</section>

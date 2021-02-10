@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_entity_component_system_1_1_component_collection" xml:lang="en-US">
+<title>HeaderTech::EntityComponentSystem::ComponentCollection Class Reference</title>
+<indexterm><primary>HeaderTech::EntityComponentSystem::ComponentCollection</primary></indexterm>
+<para>
+<computeroutput>#include &lt;Component.h&gt;</computeroutput>
+</para>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 35 of file Component.h.</para>
+<para>
+The documentation for this class was generated from the following file:</para>
+ecs/inc/<link linkend="__component_8h">Component.h</link></section>
+</section>

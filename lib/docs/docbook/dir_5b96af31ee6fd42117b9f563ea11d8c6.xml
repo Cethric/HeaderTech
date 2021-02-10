@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_5b96af31ee6fd42117b9f563ea11d8c6" xml:lang="en-US">
+<title>profiler/inc/scoped Directory Reference</title>
+<indexterm><primary>profiler/inc/scoped Directory Reference</primary></indexterm>
+Directory dependency graph for scoped:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_5b96af31ee6fd42117b9f563ea11d8c6_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__scoped_profile_mark_8h">ScopedProfileMark.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__scoped_profile_mark_8inl">ScopedProfileMark.inl</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__scoped_profiler_8h">ScopedProfiler.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__scoped_profiler_8inl">ScopedProfiler.inl</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__scoped_profiler_includes_8h">ScopedProfilerIncludes.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

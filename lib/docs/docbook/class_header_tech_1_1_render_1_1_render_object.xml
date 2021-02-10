@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_render_1_1_render_object" xml:lang="en-US">
+<title>HeaderTech::Render::RenderObject Class Reference</title>
+<indexterm><primary>HeaderTech::Render::RenderObject</primary></indexterm>
+<para>
+<computeroutput>#include &lt;RenderObject.h&gt;</computeroutput>
+</para>
+Inheritance diagram for HeaderTech::Render::RenderObject:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_render_object__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for HeaderTech::Render::RenderObject:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_render_object__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_render_1_1_render_object_1a6e611462dacbe26ae5422c05c61e328c">RenderObject</link> (<link linkend="_class_header_tech_1_1_render_1_1_render_context">RenderContext</link> *ctx)</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_header_tech_1_1_render_1_1_render_object_1aae82de511ca0dfc0e8f1c66169b71156">~RenderObject</link> ()=default</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_render_1_1_render_object_1aa529bcd4433839ff56e0131e03b70fcd">OnSetup</link> ()=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_render_1_1_render_object_1afffed263815619f671f727ffb3adf3d9">OnTeardown</link> ()=0</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_render_1_1_render_context">RenderContext</link> * <link linkend="_class_header_tech_1_1_render_1_1_render_object_1a03d47ea0615168694ccf43c319e1a8cb">RenderCtx</link> () const noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_render_1_1_render_context">RenderContext</link> * <link linkend="_class_header_tech_1_1_render_1_1_render_object_1a1cd922d43b7d1e54c06b292d0b595ec3">m_ctx</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 11 of file RenderObject.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_render_1_1_render_object_1a6e611462dacbe26ae5422c05c61e328c"/>    <section>
+    <title>RenderObject()</title>
+<indexterm><primary>RenderObject</primary><secondary>HeaderTech::Render::RenderObject</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::RenderObject</primary><secondary>RenderObject</secondary></indexterm>
+<para><computeroutput>HeaderTech::Render::RenderObject::RenderObject (<link linkend="_class_header_tech_1_1_render_1_1_render_context">RenderContext</link> * ctx)<computeroutput>[inline]</computeroutput>, <computeroutput>[explicit]</computeroutput></computeroutput></para><para>
+Definition at line 13 of file RenderObject.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_render_object_1aae82de511ca0dfc0e8f1c66169b71156"/>    <section>
+    <title>~RenderObject()</title>
+<indexterm><primary>~RenderObject</primary><secondary>HeaderTech::Render::RenderObject</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::RenderObject</primary><secondary>~RenderObject</secondary></indexterm>
+<para><computeroutput>virtual HeaderTech::Render::RenderObject::~RenderObject ( )<computeroutput>[virtual]</computeroutput>, <computeroutput>[default]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_render_1_1_render_object_1aa529bcd4433839ff56e0131e03b70fcd"/>    <section>
+    <title>OnSetup()</title>
+<indexterm><primary>OnSetup</primary><secondary>HeaderTech::Render::RenderObject</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::RenderObject</primary><secondary>OnSetup</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Render::RenderObject::OnSetup ( )<computeroutput>[protected]</computeroutput>, <computeroutput>[pure virtual]</computeroutput></computeroutput></para>    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_render_object_1afffed263815619f671f727ffb3adf3d9"/>    <section>
+    <title>OnTeardown()</title>
+<indexterm><primary>OnTeardown</primary><secondary>HeaderTech::Render::RenderObject</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::RenderObject</primary><secondary>OnTeardown</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Render::RenderObject::OnTeardown ( )<computeroutput>[protected]</computeroutput>, <computeroutput>[pure virtual]</computeroutput></computeroutput></para>    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_render_object_1a03d47ea0615168694ccf43c319e1a8cb"/>    <section>
+    <title>RenderCtx()</title>
+<indexterm><primary>RenderCtx</primary><secondary>HeaderTech::Render::RenderObject</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::RenderObject</primary><secondary>RenderCtx</secondary></indexterm>
+<para><computeroutput><link linkend="_class_header_tech_1_1_render_1_1_render_context">RenderContext</link>* HeaderTech::Render::RenderObject::RenderCtx ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 23 of file RenderObject.h.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_render_1_1_render_object_1a1cd922d43b7d1e54c06b292d0b595ec3"/>    <section>
+    <title>m_ctx</title>
+<indexterm><primary>m_ctx</primary><secondary>HeaderTech::Render::RenderObject</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::RenderObject</primary><secondary>m_ctx</secondary></indexterm>
+<para><computeroutput><link linkend="_class_header_tech_1_1_render_1_1_render_context">RenderContext</link>* HeaderTech::Render::RenderObject::m_ctx<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line 27 of file RenderObject.h.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+render/inc/<link linkend="__render_object_8h">RenderObject.h</link></section>
+</section>

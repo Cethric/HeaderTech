@@ -6,12 +6,12 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(
         HeaderTech_UserInterface_SRC
-        src/UserInterface.cpp
+        src/UIIncludes.cpp
 )
 
 set(
         HeaderTech_UserInterface_INC
-        inc/UserInterface.h
+        inc/UIIncludes.h
 
         inc/ImGuiSurface.h)
 

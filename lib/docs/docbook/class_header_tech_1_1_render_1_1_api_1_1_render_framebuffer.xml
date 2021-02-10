@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer" xml:lang="en-US">
+<title>HeaderTech::Render::Api::RenderFramebuffer Class Reference</title>
+<indexterm><primary>HeaderTech::Render::Api::RenderFramebuffer</primary></indexterm>
+<para>
+<computeroutput>#include &lt;RenderFramebuffer.h&gt;</computeroutput>
+</para>
+Inheritance diagram for HeaderTech::Render::Api::RenderFramebuffer:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1aedef0f129d3d21bf5d4a1ff12e7b2ccf">RenderFramebuffer</link> (int width, int height) noexcept</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1a57511e8a445a5e58c12cd98d8992b949">~RenderFramebuffer</link> () noexcept</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1a95d0eeece803ebf124443bd7bf3637c1">Resize</link> (int width, int height)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1a44190ec70c9de67a9d86970471f8cf68">Build</link> ()</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1ab2e4264abbb670d469a784d7b80c24be">Destroy</link> () noexcept</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1a0385520faf645e602cd3e2298829f693">Lock</link> () noexcept</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1a51f9d5206fa1b02cbc494a1beb0eec73">Unlock</link> () noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1ab328471eb9ea85d800a19f7210076d85">m_width</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1af82dc713f5a36e242c6223311ee02b34">m_height</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1a58af320b9cd7a237a692badaa214f52f">m_isBuilt</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1ae388576edfe73ba26ac620b6e8fc5736">m_isLocked</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 9 of file RenderFramebuffer.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1aedef0f129d3d21bf5d4a1ff12e7b2ccf"/>    <section>
+    <title>RenderFramebuffer()</title>
+<indexterm><primary>RenderFramebuffer</primary><secondary>HeaderTech::Render::Api::RenderFramebuffer</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderFramebuffer</primary><secondary>RenderFramebuffer</secondary></indexterm>
+<para><computeroutput>HeaderTech::Render::Api::RenderFramebuffer::RenderFramebuffer (int width, int height)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 11 of file RenderFramebuffer.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1a57511e8a445a5e58c12cd98d8992b949"/>    <section>
+    <title>~RenderFramebuffer()</title>
+<indexterm><primary>~RenderFramebuffer</primary><secondary>HeaderTech::Render::Api::RenderFramebuffer</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderFramebuffer</primary><secondary>~RenderFramebuffer</secondary></indexterm>
+<para><computeroutput>HeaderTech::Render::Api::RenderFramebuffer::~RenderFramebuffer ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 18 of file RenderFramebuffer.inl.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a57511e8a445a5e58c12cd98d8992b949_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1a44190ec70c9de67a9d86970471f8cf68"/>    <section>
+    <title>Build()</title>
+<indexterm><primary>Build</primary><secondary>HeaderTech::Render::Api::RenderFramebuffer</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderFramebuffer</primary><secondary>Build</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Render::Api::RenderFramebuffer::Build ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Reimplemented in <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1ac7c9c8c4f7b99304d855a576042cfe8d">HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</link>.</para>
+<para>
+Definition at line 30 of file RenderFramebuffer.inl.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a44190ec70c9de67a9d86970471f8cf68_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1ab2e4264abbb670d469a784d7b80c24be"/>    <section>
+    <title>Destroy()</title>
+<indexterm><primary>Destroy</primary><secondary>HeaderTech::Render::Api::RenderFramebuffer</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderFramebuffer</primary><secondary>Destroy</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Render::Api::RenderFramebuffer::Destroy ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Reimplemented in <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1add7f7fa85ba8085768cf2d736c4a7092">HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</link>.</para>
+<para>
+Definition at line 33 of file RenderFramebuffer.inl.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_ab2e4264abbb670d469a784d7b80c24be_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1a0385520faf645e602cd3e2298829f693"/>    <section>
+    <title>Lock()</title>
+<indexterm><primary>Lock</primary><secondary>HeaderTech::Render::Api::RenderFramebuffer</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderFramebuffer</primary><secondary>Lock</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Render::Api::RenderFramebuffer::Lock ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Reimplemented in <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1afb15197adddf67d85da475f46aa85e2e">HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</link>.</para>
+<para>
+Definition at line 36 of file RenderFramebuffer.inl.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a0385520faf645e602cd3e2298829f693_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1a95d0eeece803ebf124443bd7bf3637c1"/>    <section>
+    <title>Resize()</title>
+<indexterm><primary>Resize</primary><secondary>HeaderTech::Render::Api::RenderFramebuffer</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderFramebuffer</primary><secondary>Resize</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Render::Api::RenderFramebuffer::Resize (int width, int height)<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Reimplemented in <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1a5f8e96a5f5245cef559c57d106f8f6bb">HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</link>.</para>
+<para>
+Definition at line 21 of file RenderFramebuffer.inl.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a95d0eeece803ebf124443bd7bf3637c1_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a95d0eeece803ebf124443bd7bf3637c1_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1a51f9d5206fa1b02cbc494a1beb0eec73"/>    <section>
+    <title>Unlock()</title>
+<indexterm><primary>Unlock</primary><secondary>HeaderTech::Render::Api::RenderFramebuffer</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderFramebuffer</primary><secondary>Unlock</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Render::Api::RenderFramebuffer::Unlock ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Reimplemented in <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_1abe95733e39fdfb575750d274a14257f2">HeaderTech::Render::Api::OpenGL::OpenGLRenderFramebuffer</link>.</para>
+<para>
+Definition at line 39 of file RenderFramebuffer.inl.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a51f9d5206fa1b02cbc494a1beb0eec73_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1af82dc713f5a36e242c6223311ee02b34"/>    <section>
+    <title>m_height</title>
+<indexterm><primary>m_height</primary><secondary>HeaderTech::Render::Api::RenderFramebuffer</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderFramebuffer</primary><secondary>m_height</secondary></indexterm>
+<para><computeroutput>int HeaderTech::Render::Api::RenderFramebuffer::m_height<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line 27 of file RenderFramebuffer.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1a58af320b9cd7a237a692badaa214f52f"/>    <section>
+    <title>m_isBuilt</title>
+<indexterm><primary>m_isBuilt</primary><secondary>HeaderTech::Render::Api::RenderFramebuffer</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderFramebuffer</primary><secondary>m_isBuilt</secondary></indexterm>
+<para><computeroutput>bool HeaderTech::Render::Api::RenderFramebuffer::m_isBuilt<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line 28 of file RenderFramebuffer.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1ae388576edfe73ba26ac620b6e8fc5736"/>    <section>
+    <title>m_isLocked</title>
+<indexterm><primary>m_isLocked</primary><secondary>HeaderTech::Render::Api::RenderFramebuffer</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderFramebuffer</primary><secondary>m_isLocked</secondary></indexterm>
+<para><computeroutput>bool HeaderTech::Render::Api::RenderFramebuffer::m_isLocked<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line 29 of file RenderFramebuffer.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_1ab328471eb9ea85d800a19f7210076d85"/>    <section>
+    <title>m_width</title>
+<indexterm><primary>m_width</primary><secondary>HeaderTech::Render::Api::RenderFramebuffer</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderFramebuffer</primary><secondary>m_width</secondary></indexterm>
+<para><computeroutput>int HeaderTech::Render::Api::RenderFramebuffer::m_width<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line 26 of file RenderFramebuffer.h.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+render/inc/api/<link linkend="__render_framebuffer_8h">RenderFramebuffer.h</link>render/inc/api/<link linkend="__render_framebuffer_8inl">RenderFramebuffer.inl</link></section>
+</section>

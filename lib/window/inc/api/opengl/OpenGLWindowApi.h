@@ -9,11 +9,13 @@
 
 #include <GLFW/glfw3.h>
 
-#include <api/WindowApi.h>
-#include <api/opengl/OpenGLWindowApi.h>
+#include <api/window/WindowApi.h>
+#include <ConfigIncludes.h>
+
+#include <WindowTypes.h>
 
 namespace HeaderTech::Window::Api::OpenGL {
-    class OpenGLWindowApi final : public HeaderTech::Window::Api::WindowApi {
+    class OpenGLWindowApi final : public HeaderTech::Core::Api::Window::WindowApi {
     public:
         inline OpenGLWindowApi(
                 const HeaderTech::Config::WindowConfig &config,
@@ -37,7 +39,7 @@ namespace HeaderTech::Window::Api::OpenGL {
 
         [[nodiscard]] inline int GetHeight() const noexcept final;
 
-        [[nodiscard]] inline bool IsKeyPressed(KeyType key) const noexcept final;
+        [[nodiscard]] inline bool IsKeyPressed(HeaderTech::Core::KeyType key) const noexcept final;
 
     protected:
         inline void LinkEvents();

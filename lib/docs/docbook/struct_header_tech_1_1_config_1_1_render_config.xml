@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_header_tech_1_1_config_1_1_render_config" xml:lang="en-US">
+<title>HeaderTech::Config::RenderConfig Struct Reference</title>
+<indexterm><primary>HeaderTech::Config::RenderConfig</primary></indexterm>
+<para>
+<computeroutput>#include &lt;RuntimeConfig.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespace_header_tech_1_1_config_1a470b5f1acd0d0ad1ffe5e7dcdd38bec1">RenderConfigApi</link> <link linkend="_struct_header_tech_1_1_config_1_1_render_config_1ad3dc1dc6b80088c13636418aafc9147d">api</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 16 of file RuntimeConfig.h.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_config_1_1_render_config_1ad3dc1dc6b80088c13636418aafc9147d"/>    <section>
+    <title>api</title>
+<indexterm><primary>api</primary><secondary>HeaderTech::Config::RenderConfig</secondary></indexterm>
+<indexterm><primary>HeaderTech::Config::RenderConfig</primary><secondary>api</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_header_tech_1_1_config_1a470b5f1acd0d0ad1ffe5e7dcdd38bec1">RenderConfigApi</link> HeaderTech::Config::RenderConfig::api</computeroutput></para><para>
+Definition at line 17 of file RuntimeConfig.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+config/inc/<link linkend="__runtime_config_8h">RuntimeConfig.h</link></section>
+</section>

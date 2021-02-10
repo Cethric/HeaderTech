@@ -6,11 +6,11 @@
 #define HEADERTECH_OPENGLRENDERFRAMEBUFFER_H
 
 #include <glad/gl.h>
-#include <api/RenderFramebuffer.h>
-#include <Logging.h>
+#include <api/render/RenderApiIncludes.h>
+#include <LoggingIncludes.h>
 
 namespace HeaderTech::Render::Api::OpenGL {
-    class OpenGLRenderFramebuffer final : public HeaderTech::Render::Api::RenderFramebuffer {
+    class OpenGLRenderFramebuffer final : public HeaderTech::Core::Api::Render::RenderFramebuffer {
     private:
         friend class OpenGLRenderContextApi;
 
@@ -30,7 +30,7 @@ namespace HeaderTech::Render::Api::OpenGL {
         inline void Unlock() noexcept final;
 
     private:
-        GladGLContext* m_gl;
+        GladGLContext *m_gl;
         HeaderTech::Logging::Logger m_log;
 
     private:

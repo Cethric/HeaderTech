@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator" xml:lang="en-US">
+<title>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt; Class Template Reference</title>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</primary></indexterm>
+<para>
+<computeroutput>#include &lt;EntitySet.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1a128272aa10c70178e963c79558460f54">EntitySetIterator</link> (std::vector&lt; ComponentType * &gt; &amp;components, <link linkend="_namespace_header_tech_1_1_entity_component_system_1_1details_1aa2b3883a782e656e1ef1c4c640c280ab">BaseSet</link> &amp;entities, const BaseSet::size_type &amp;idx)</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link> &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1adb89a562db8649c3252c22ad1ce0eca0">operator++</link> () noexcept</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link> &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1aa9562d4dc54b9ec66dff79f65595ba57">operator--</link> () noexcept</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link> &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1a34ad8dd9daf1ecd05402f274b5c12ab2">operator+=</link> (const BaseSet::size_type &amp;value) noexcept</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link> &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1abede723efd3ddac365265d850d3891cd">operator+</link> (const BaseSet::size_type &amp;value) noexcept</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link> &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1a97831b3377afe0e9cb47747fb3949472">operator-=</link> (const BaseSet::size_type &amp;value) noexcept</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link> &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1a36ceb1054d505c110b980cd7a17334a8">operator-</link> (const BaseSet::size_type &amp;value) noexcept</para>
+</listitem>
+            <listitem><para>ComponentType &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1ad3b68fe6688a728928500e5918ef7f93">operator[]</link> (const BaseSet::size_type &amp;value) noexcept</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1a737fb505f5f40245258fc43eaadc0e60">operator==</link> (const <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link> &amp;other) noexcept</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1a6134bc60ed1fd0720c14a69aed33523c">operator!=</link> (const <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link> &amp;other) noexcept</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1a59206c29408771a9076561264a203b73">operator&lt;</link> (const <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link> &amp;other) noexcept</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1ad7ac943993c08484ff387840aa0f7c0b">operator&gt;</link> (const <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link> &amp;other) noexcept</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1af210f658434225c8db23da40d0e70c61">operator&lt;=</link> (const <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link> &amp;other) noexcept</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1a1d8b72c3306d2648fc2e6c0ecd74ff9c">operator&gt;=</link> (const <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link> &amp;other) noexcept</para>
+</listitem>
+            <listitem><para>ComponentType * <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1a5947d84789798dba68ebdee808cc244f">operator-&gt;</link> () noexcept</para>
+</listitem>
+            <listitem><para>ComponentType &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1acdd9633a68515d9b49bc7612a9b7331d">operator*</link> () noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<simplesect><title>template&lt;Component ComponentType&gt;
+class HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</title></simplesect>
+
+<para>
+Definition at line 57 of file EntitySet.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1a128272aa10c70178e963c79558460f54"/>    <section>
+    <title>EntitySetIterator()</title>
+<indexterm><primary>EntitySetIterator</primary><secondary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</primary><secondary>EntitySetIterator</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput><link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">HeaderTech::EntityComponentSystem::details::EntitySetIterator</link>&lt; ComponentType &gt;::<link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link> (std::vector&lt; ComponentType * &gt; &amp; components, <link linkend="_namespace_header_tech_1_1_entity_component_system_1_1details_1aa2b3883a782e656e1ef1c4c640c280ab">BaseSet</link> &amp; entities, const BaseSet::size_type &amp; idx)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 32 of file EntitySet.inl.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1a6134bc60ed1fd0720c14a69aed33523c"/>    <section>
+    <title>operator!=()</title>
+<indexterm><primary>operator!=</primary><secondary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</primary><secondary>operator!=</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput>bool <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">HeaderTech::EntityComponentSystem::details::EntitySetIterator</link>&lt; ComponentType &gt;::operator!= (const <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link>&lt; ComponentType &gt; &amp; other)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 85 of file EntitySet.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1acdd9633a68515d9b49bc7612a9b7331d"/>    <section>
+    <title>operator*()</title>
+<indexterm><primary>operator*</primary><secondary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</primary><secondary>operator*</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput>ComponentType &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">HeaderTech::EntityComponentSystem::details::EntitySetIterator</link>&lt; ComponentType &gt;::operator*<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 112 of file EntitySet.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1abede723efd3ddac365265d850d3891cd"/>    <section>
+    <title>operator+()</title>
+<indexterm><primary>operator+</primary><secondary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</primary><secondary>operator+</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput><link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link>&lt; ComponentType &gt; &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">HeaderTech::EntityComponentSystem::details::EntitySetIterator</link>&lt; ComponentType &gt;::operator+ (const BaseSet::size_type &amp; value)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 54 of file EntitySet.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1adb89a562db8649c3252c22ad1ce0eca0"/>    <section>
+    <title>operator++()</title>
+<indexterm><primary>operator++</primary><secondary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</primary><secondary>operator++</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput><link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link>&lt; ComponentType &gt; &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">HeaderTech::EntityComponentSystem::details::EntitySetIterator</link>&lt; ComponentType &gt;::operator++<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 40 of file EntitySet.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1a34ad8dd9daf1ecd05402f274b5c12ab2"/>    <section>
+    <title>operator+=()</title>
+<indexterm><primary>operator+=</primary><secondary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</primary><secondary>operator+=</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput><link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link>&lt; ComponentType &gt; &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">HeaderTech::EntityComponentSystem::details::EntitySetIterator</link>&lt; ComponentType &gt;::operator+= (const BaseSet::size_type &amp; value)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 49 of file EntitySet.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1a36ceb1054d505c110b980cd7a17334a8"/>    <section>
+    <title>operator-()</title>
+<indexterm><primary>operator-</primary><secondary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</primary><secondary>operator-</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput><link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link>&lt; ComponentType &gt; &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">HeaderTech::EntityComponentSystem::details::EntitySetIterator</link>&lt; ComponentType &gt;::operator- (const BaseSet::size_type &amp; value)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 67 of file EntitySet.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1aa9562d4dc54b9ec66dff79f65595ba57"/>    <section>
+    <title>operator--()</title>
+<indexterm><primary>operator--</primary><secondary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</primary><secondary>operator--</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput><link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link>&lt; ComponentType &gt; &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">HeaderTech::EntityComponentSystem::details::EntitySetIterator</link>&lt; ComponentType &gt;::operator--<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 44 of file EntitySet.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1a97831b3377afe0e9cb47747fb3949472"/>    <section>
+    <title>operator-=()</title>
+<indexterm><primary>operator-=</primary><secondary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</primary><secondary>operator-=</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput><link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link>&lt; ComponentType &gt; &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">HeaderTech::EntityComponentSystem::details::EntitySetIterator</link>&lt; ComponentType &gt;::operator-= (const BaseSet::size_type &amp; value)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 62 of file EntitySet.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1a5947d84789798dba68ebdee808cc244f"/>    <section>
+    <title>operator-&gt;()</title>
+<indexterm><primary>operator-&gt;</primary><secondary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</primary><secondary>operator-&gt;</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput>ComponentType * <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">HeaderTech::EntityComponentSystem::details::EntitySetIterator</link>&lt; ComponentType &gt;::operator-&gt;<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 105 of file EntitySet.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1a59206c29408771a9076561264a203b73"/>    <section>
+    <title>operator&lt;()</title>
+<indexterm><primary>operator&lt;</primary><secondary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</primary><secondary>operator&lt;</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput>bool <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">HeaderTech::EntityComponentSystem::details::EntitySetIterator</link>&lt; ComponentType &gt;::operator&lt; (const <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link>&lt; ComponentType &gt; &amp; other)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 89 of file EntitySet.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1af210f658434225c8db23da40d0e70c61"/>    <section>
+    <title>operator&lt;=()</title>
+<indexterm><primary>operator&lt;=</primary><secondary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</primary><secondary>operator&lt;=</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput>bool <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">HeaderTech::EntityComponentSystem::details::EntitySetIterator</link>&lt; ComponentType &gt;::operator&lt;= (const <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link>&lt; ComponentType &gt; &amp; other)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 97 of file EntitySet.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1a737fb505f5f40245258fc43eaadc0e60"/>    <section>
+    <title>operator==()</title>
+<indexterm><primary>operator==</primary><secondary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</primary><secondary>operator==</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput>bool <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">HeaderTech::EntityComponentSystem::details::EntitySetIterator</link>&lt; ComponentType &gt;::operator== (const <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link>&lt; ComponentType &gt; &amp; other)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 81 of file EntitySet.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1ad7ac943993c08484ff387840aa0f7c0b"/>    <section>
+    <title>operator&gt;()</title>
+<indexterm><primary>operator&gt;</primary><secondary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</primary><secondary>operator&gt;</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput>bool <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">HeaderTech::EntityComponentSystem::details::EntitySetIterator</link>&lt; ComponentType &gt;::operator&gt; (const <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link>&lt; ComponentType &gt; &amp; other)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 93 of file EntitySet.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1a1d8b72c3306d2648fc2e6c0ecd74ff9c"/>    <section>
+    <title>operator&gt;=()</title>
+<indexterm><primary>operator&gt;=</primary><secondary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</primary><secondary>operator&gt;=</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput>bool <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">HeaderTech::EntityComponentSystem::details::EntitySetIterator</link>&lt; ComponentType &gt;::operator&gt;= (const <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">EntitySetIterator</link>&lt; ComponentType &gt; &amp; other)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 101 of file EntitySet.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator_1ad3b68fe6688a728928500e5918ef7f93"/>    <section>
+    <title>operator[]()</title>
+<indexterm><primary>operator[]</primary><secondary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</primary><secondary>operator[]</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput>ComponentType &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">HeaderTech::EntityComponentSystem::details::EntitySetIterator</link>&lt; ComponentType &gt;::operator[] (const BaseSet::size_type &amp; value)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 74 of file EntitySet.inl.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+ecs/inc/<link linkend="__entity_set_8h">EntitySet.h</link>ecs/inc/<link linkend="__entity_set_8inl">EntitySet.inl</link></section>
+</section>

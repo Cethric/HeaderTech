@@ -8,7 +8,8 @@
 #include <ProfilerManager.h>
 #include <Logger.inl>
 #include <ProfileDispatcher.inl>
-#include <ScopedProfileMark.h>
+#include <scoped/ScopedProfileMark.h>
+#include <GLFW/glfw3.h>
 
 namespace HeaderTech::Profiler {
     inline ProfilerManager::ProfilerManager()

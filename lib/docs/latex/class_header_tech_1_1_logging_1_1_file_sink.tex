@@ -1,0 +1,93 @@
+\hypertarget{class_header_tech_1_1_logging_1_1_file_sink}{}\doxysection{Header\+Tech\+::Logging\+::File\+Sink$<$ Mutex $>$ Class Template Reference}
+\label{class_header_tech_1_1_logging_1_1_file_sink}\index{HeaderTech::Logging::FileSink$<$ Mutex $>$@{HeaderTech::Logging::FileSink$<$ Mutex $>$}}
+
+
+{\ttfamily \#include $<$File\+Sink.\+h$>$}
+
+
+
+Inheritance diagram for Header\+Tech\+::Logging\+::File\+Sink$<$ Mutex $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{class_header_tech_1_1_logging_1_1_file_sink__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Header\+Tech\+::Logging\+::File\+Sink$<$ Mutex $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{class_header_tech_1_1_logging_1_1_file_sink__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_header_tech_1_1_logging_1_1_file_sink_a9f389dfdabafada6ceeea29d6af5e948}{File\+Sink}} (const std\+::string\+\_\+view \&filename)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_logging_1_1_file_sink_aaaf1eba38df21db16d949d0f0d7f5b5e}{sink\+\_\+it\+\_\+}} (const spdlog\+::details\+::log\+\_\+msg \&msg) final
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_logging_1_1_file_sink_ac539d54afdc54b6ada00d88ea162965b}{flush\+\_\+}} () final
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class Mutex$>$\newline
+class Header\+Tech\+::\+Logging\+::\+File\+Sink$<$ Mutex $>$}
+
+
+
+Definition at line 37 of file File\+Sink.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_logging_1_1_file_sink_a9f389dfdabafada6ceeea29d6af5e948}\label{class_header_tech_1_1_logging_1_1_file_sink_a9f389dfdabafada6ceeea29d6af5e948}} 
+\index{HeaderTech::Logging::FileSink$<$ Mutex $>$@{HeaderTech::Logging::FileSink$<$ Mutex $>$}!FileSink@{FileSink}}
+\index{FileSink@{FileSink}!HeaderTech::Logging::FileSink$<$ Mutex $>$@{HeaderTech::Logging::FileSink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{FileSink()}{FileSink()}}
+{\footnotesize\ttfamily template$<$class Mutex $>$ \\
+\mbox{\hyperlink{class_header_tech_1_1_logging_1_1_file_sink}{Header\+Tech\+::\+Logging\+::\+File\+Sink}}$<$ Mutex $>$\+::\mbox{\hyperlink{class_header_tech_1_1_logging_1_1_file_sink}{File\+Sink}} (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Definition at line 50 of file File\+Sink.\+inl.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_logging_1_1_file_sink_ac539d54afdc54b6ada00d88ea162965b}\label{class_header_tech_1_1_logging_1_1_file_sink_ac539d54afdc54b6ada00d88ea162965b}} 
+\index{HeaderTech::Logging::FileSink$<$ Mutex $>$@{HeaderTech::Logging::FileSink$<$ Mutex $>$}!flush\_@{flush\_}}
+\index{flush\_@{flush\_}!HeaderTech::Logging::FileSink$<$ Mutex $>$@{HeaderTech::Logging::FileSink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{flush\_()}{flush\_()}}
+{\footnotesize\ttfamily template$<$class Mutex $>$ \\
+void \mbox{\hyperlink{class_header_tech_1_1_logging_1_1_file_sink}{Header\+Tech\+::\+Logging\+::\+File\+Sink}}$<$ Mutex $>$\+::flush\+\_\+\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 64 of file File\+Sink.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_logging_1_1_file_sink_aaaf1eba38df21db16d949d0f0d7f5b5e}\label{class_header_tech_1_1_logging_1_1_file_sink_aaaf1eba38df21db16d949d0f0d7f5b5e}} 
+\index{HeaderTech::Logging::FileSink$<$ Mutex $>$@{HeaderTech::Logging::FileSink$<$ Mutex $>$}!sink\_it\_@{sink\_it\_}}
+\index{sink\_it\_@{sink\_it\_}!HeaderTech::Logging::FileSink$<$ Mutex $>$@{HeaderTech::Logging::FileSink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{sink\_it\_()}{sink\_it\_()}}
+{\footnotesize\ttfamily template$<$class Mutex $>$ \\
+void \mbox{\hyperlink{class_header_tech_1_1_logging_1_1_file_sink}{Header\+Tech\+::\+Logging\+::\+File\+Sink}}$<$ Mutex $>$\+::sink\+\_\+it\+\_\+ (\begin{DoxyParamCaption}\item[{const spdlog\+::details\+::log\+\_\+msg \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 56 of file File\+Sink.\+inl.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+logging/inc/\mbox{\hyperlink{_file_sink_8h}{File\+Sink.\+h}}\item 
+logging/inc/\mbox{\hyperlink{_file_sink_8inl}{File\+Sink.\+inl}}\end{DoxyCompactItemize}

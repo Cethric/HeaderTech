@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__open_g_l_render_framebuffer_8inl" xml:lang="en-US">
+<title>render/inc/api/opengl/OpenGLRenderFramebuffer.inl File Reference</title>
+<indexterm><primary>render/inc/api/opengl/OpenGLRenderFramebuffer.inl</primary></indexterm>
+<programlisting>#include &lt;api/opengl/OpenGLRenderFramebuffer.h&gt;
+</programlisting>Include dependency graph for OpenGLRenderFramebuffer.inl:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_open_g_l_render_framebuffer_8inl__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_open_g_l_render_framebuffer_8inl__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_render">HeaderTech::Render</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_render_1_1_api">HeaderTech::Render::Api</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_render_1_1_api_1_1_open_g_l">HeaderTech::Render::Api::OpenGL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__open_g_l_render_framebuffer_8inl_1a07b811b15ca8600713f99479e322a485">HEADERTECH_OPENGLRENDERFRAMEBUFFER_INL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__open_g_l_render_framebuffer_8inl_1a07b811b15ca8600713f99479e322a485"/>    <section>
+    <title>HEADERTECH_OPENGLRENDERFRAMEBUFFER_INL</title>
+<indexterm><primary>HEADERTECH_OPENGLRENDERFRAMEBUFFER_INL</primary><secondary>OpenGLRenderFramebuffer.inl</secondary></indexterm>
+<indexterm><primary>OpenGLRenderFramebuffer.inl</primary><secondary>HEADERTECH_OPENGLRENDERFRAMEBUFFER_INL</secondary></indexterm>
+<para><computeroutput>#define HEADERTECH_OPENGLRENDERFRAMEBUFFER_INL</computeroutput></para><para>
+Definition at line 6 of file OpenGLRenderFramebuffer.inl.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,224 @@
+\hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468}{}\doxysection{Header\+Tech\+::Entity\+Component\+System\+::Entity\+Component\+View$<$ Entity\+Component\+View\+Excludes$<$ Excludes... $>$, Includes... $>$\+::view\+\_\+iterator Class Reference}
+\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468}\index{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}}
+
+
+{\ttfamily \#include $<$Entity\+Component\+View.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a350f3eb4c14b9f9812efc1bc2d135569}{iterator\+\_\+category}} = std\+::bidirectional\+\_\+iterator\+\_\+tag
+\item 
+using \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ab4df38625c4e918233af0f4443ddf35b}{value\+\_\+type}} = std\+::tuple$<$ \mbox{\hyperlink{namespace_header_tech_1_1_entity_component_system_adc7f09842048a2530861950e6ed2feef}{Entity\+Id}}, Includes $\ast$... $>$
+\item 
+using \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ae0ceb3970c859613c396d71a39ef5c34}{difference\+\_\+type}} = size\+\_\+t
+\item 
+using \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ae2f7f53b83bc7dd4cbd4ff29433b868b}{pointer}} = \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ab4df38625c4e918233af0f4443ddf35b}{value\+\_\+type}} $\ast$
+\item 
+using \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a23d8f31e5b0e799342f841d6d969e702}{reference}} = \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ab4df38625c4e918233af0f4443ddf35b}{value\+\_\+type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+view\+\_\+iterator \& \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ae63985222c49b39322750c3cd6407d5a}{operator++}} () noexcept
+\item 
+view\+\_\+iterator \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_af9389ff7d3cb2fe20d68d910e7f9efdb}{operator++}} (int) noexcept
+\item 
+view\+\_\+iterator \& \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a3a383a5f4add81f62896f251db6f0f82}{operator-\/-\/}} () noexcept
+\item 
+view\+\_\+iterator \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ae179b9d84bb0b8daadc726b583d38cd4}{operator-\/-\/}} (int) noexcept
+\item 
+bool \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_afe7d7c00482a80e853b7bd8d709633ed}{operator==}} (view\+\_\+iterator other)
+\item 
+bool \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ab72a67d31f486a37b998be585ab4ead2}{operator!=}} (view\+\_\+iterator other)
+\item 
+\mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a23d8f31e5b0e799342f841d6d969e702}{reference}} \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a2a71e23e8fb257371e9c4af4fa1566a1}{operator$\ast$}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_aa27b952efad50781a197b1e22059019d}{Is\+Valid}} () const noexcept
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a8b0bcfc26cf256fbe4e040fde3c1b9c8}{Entity\+Component\+View$<$ Entity\+Component\+View\+Excludes$<$ Excludes... $>$, Includes... $>$}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$Component... Excludes, Component... Includes$>$\newline
+class Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+View$<$ Entity\+Component\+View\+Excludes$<$ Excludes... $>$, Includes... $>$\+::view\+\_\+iterator}
+
+
+
+Definition at line 39 of file Entity\+Component\+View.\+h.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ae0ceb3970c859613c396d71a39ef5c34}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ae0ceb3970c859613c396d71a39ef5c34}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}!difference\_type@{difference\_type}}
+\index{difference\_type@{difference\_type}!HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}}
+\doxysubsubsection{\texorpdfstring{difference\_type}{difference\_type}}
+{\footnotesize\ttfamily template$<$Component... Excludes, Component... Includes$>$ \\
+using \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+View}}$<$ \mbox{\hyperlink{struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes}{Entity\+Component\+View\+Excludes}}$<$ Excludes... $>$, Includes... $>$\+::\mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ae0ceb3970c859613c396d71a39ef5c34}{view\+\_\+iterator\+::difference\+\_\+type}} =  size\+\_\+t}
+
+
+
+Definition at line 47 of file Entity\+Component\+View.\+h.
+
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a350f3eb4c14b9f9812efc1bc2d135569}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a350f3eb4c14b9f9812efc1bc2d135569}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}!iterator\_category@{iterator\_category}}
+\index{iterator\_category@{iterator\_category}!HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}}
+\doxysubsubsection{\texorpdfstring{iterator\_category}{iterator\_category}}
+{\footnotesize\ttfamily template$<$Component... Excludes, Component... Includes$>$ \\
+using \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+View}}$<$ \mbox{\hyperlink{struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes}{Entity\+Component\+View\+Excludes}}$<$ Excludes... $>$, Includes... $>$\+::\mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a350f3eb4c14b9f9812efc1bc2d135569}{view\+\_\+iterator\+::iterator\+\_\+category}} =  std\+::bidirectional\+\_\+iterator\+\_\+tag}
+
+
+
+Definition at line 45 of file Entity\+Component\+View.\+h.
+
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ae2f7f53b83bc7dd4cbd4ff29433b868b}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ae2f7f53b83bc7dd4cbd4ff29433b868b}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}!pointer@{pointer}}
+\index{pointer@{pointer}!HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}}
+\doxysubsubsection{\texorpdfstring{pointer}{pointer}}
+{\footnotesize\ttfamily template$<$Component... Excludes, Component... Includes$>$ \\
+using \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+View}}$<$ \mbox{\hyperlink{struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes}{Entity\+Component\+View\+Excludes}}$<$ Excludes... $>$, Includes... $>$\+::\mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ae2f7f53b83bc7dd4cbd4ff29433b868b}{view\+\_\+iterator\+::pointer}} =  \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ab4df38625c4e918233af0f4443ddf35b}{value\+\_\+type}} $\ast$}
+
+
+
+Definition at line 48 of file Entity\+Component\+View.\+h.
+
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a23d8f31e5b0e799342f841d6d969e702}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a23d8f31e5b0e799342f841d6d969e702}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}!reference@{reference}}
+\index{reference@{reference}!HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}}
+\doxysubsubsection{\texorpdfstring{reference}{reference}}
+{\footnotesize\ttfamily template$<$Component... Excludes, Component... Includes$>$ \\
+using \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+View}}$<$ \mbox{\hyperlink{struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes}{Entity\+Component\+View\+Excludes}}$<$ Excludes... $>$, Includes... $>$\+::\mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a23d8f31e5b0e799342f841d6d969e702}{view\+\_\+iterator\+::reference}} =  \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ab4df38625c4e918233af0f4443ddf35b}{value\+\_\+type}}}
+
+
+
+Definition at line 49 of file Entity\+Component\+View.\+h.
+
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ab4df38625c4e918233af0f4443ddf35b}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ab4df38625c4e918233af0f4443ddf35b}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily template$<$Component... Excludes, Component... Includes$>$ \\
+using \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+View}}$<$ \mbox{\hyperlink{struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes}{Entity\+Component\+View\+Excludes}}$<$ Excludes... $>$, Includes... $>$\+::\mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ab4df38625c4e918233af0f4443ddf35b}{view\+\_\+iterator\+::value\+\_\+type}} =  std\+::tuple$<$\mbox{\hyperlink{namespace_header_tech_1_1_entity_component_system_adc7f09842048a2530861950e6ed2feef}{Entity\+Id}}, Includes $\ast$ ...$>$}
+
+
+
+Definition at line 46 of file Entity\+Component\+View.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_aa27b952efad50781a197b1e22059019d}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_aa27b952efad50781a197b1e22059019d}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}!IsValid@{IsValid}}
+\index{IsValid@{IsValid}!HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}}
+\doxysubsubsection{\texorpdfstring{IsValid()}{IsValid()}}
+{\footnotesize\ttfamily template$<$Component... Excludes, Component... Includes$>$ \\
+bool \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+View}}$<$ \mbox{\hyperlink{struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes}{Entity\+Component\+View\+Excludes}}$<$ Excludes... $>$, Includes... $>$\+::view\+\_\+iterator\+::\+Is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 71 of file Entity\+Component\+View.\+h.
+
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ab72a67d31f486a37b998be585ab4ead2}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ab72a67d31f486a37b998be585ab4ead2}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$Component... Excludes, Component... Includes$>$ \\
+bool \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+View}}$<$ \mbox{\hyperlink{struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes}{Entity\+Component\+View\+Excludes}}$<$ Excludes... $>$, Includes... $>$\+::view\+\_\+iterator\+::operator!= (\begin{DoxyParamCaption}\item[{view\+\_\+iterator}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 109 of file Entity\+Component\+View.\+h.
+
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a2a71e23e8fb257371e9c4af4fa1566a1}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a2a71e23e8fb257371e9c4af4fa1566a1}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily template$<$Component... Excludes, Component... Includes$>$ \\
+\mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a23d8f31e5b0e799342f841d6d969e702}{reference}} \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+View}}$<$ \mbox{\hyperlink{struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes}{Entity\+Component\+View\+Excludes}}$<$ Excludes... $>$, Includes... $>$\+::view\+\_\+iterator\+::operator$\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 112 of file Entity\+Component\+View.\+h.
+
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ae63985222c49b39322750c3cd6407d5a}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ae63985222c49b39322750c3cd6407d5a}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$Component... Excludes, Component... Includes$>$ \\
+view\+\_\+iterator\& \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+View}}$<$ \mbox{\hyperlink{struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes}{Entity\+Component\+View\+Excludes}}$<$ Excludes... $>$, Includes... $>$\+::view\+\_\+iterator\+::operator++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 80 of file Entity\+Component\+View.\+h.
+
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_af9389ff7d3cb2fe20d68d910e7f9efdb}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_af9389ff7d3cb2fe20d68d910e7f9efdb}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$Component... Excludes, Component... Includes$>$ \\
+view\+\_\+iterator \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+View}}$<$ \mbox{\hyperlink{struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes}{Entity\+Component\+View\+Excludes}}$<$ Excludes... $>$, Includes... $>$\+::view\+\_\+iterator\+::operator++ (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 86 of file Entity\+Component\+View.\+h.
+
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a3a383a5f4add81f62896f251db6f0f82}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a3a383a5f4add81f62896f251db6f0f82}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}}
+\doxysubsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$Component... Excludes, Component... Includes$>$ \\
+view\+\_\+iterator\& \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+View}}$<$ \mbox{\hyperlink{struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes}{Entity\+Component\+View\+Excludes}}$<$ Excludes... $>$, Includes... $>$\+::view\+\_\+iterator\+::operator-\/-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 93 of file Entity\+Component\+View.\+h.
+
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ae179b9d84bb0b8daadc726b583d38cd4}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_ae179b9d84bb0b8daadc726b583d38cd4}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}}
+\doxysubsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$Component... Excludes, Component... Includes$>$ \\
+view\+\_\+iterator \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+View}}$<$ \mbox{\hyperlink{struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes}{Entity\+Component\+View\+Excludes}}$<$ Excludes... $>$, Includes... $>$\+::view\+\_\+iterator\+::operator-\/-\/ (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 99 of file Entity\+Component\+View.\+h.
+
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_afe7d7c00482a80e853b7bd8d709633ed}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_afe7d7c00482a80e853b7bd8d709633ed}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}!operator==@{operator==}}
+\index{operator==@{operator==}!HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$Component... Excludes, Component... Includes$>$ \\
+bool \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+View}}$<$ \mbox{\hyperlink{struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes}{Entity\+Component\+View\+Excludes}}$<$ Excludes... $>$, Includes... $>$\+::view\+\_\+iterator\+::operator== (\begin{DoxyParamCaption}\item[{view\+\_\+iterator}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 106 of file Entity\+Component\+View.\+h.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a8b0bcfc26cf256fbe4e040fde3c1b9c8}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468_a8b0bcfc26cf256fbe4e040fde3c1b9c8}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}!EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$@{EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$}}
+\index{EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$@{EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$}!HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator@{HeaderTech::EntityComponentSystem::EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$::view\_iterator}}
+\doxysubsubsection{\texorpdfstring{EntityComponentView$<$ EntityComponentViewExcludes$<$ Excludes... $>$, Includes... $>$}{EntityComponentView< EntityComponentViewExcludes< Excludes... >, Includes... >}}
+{\footnotesize\ttfamily template$<$Component... Excludes, Component... Includes$>$ \\
+friend class \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_view}{Entity\+Component\+View}}$<$ \mbox{\hyperlink{struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes}{Entity\+Component\+View\+Excludes}}$<$ Excludes... $>$, Includes... $>$\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line 158 of file Entity\+Component\+View.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ecs/inc/\mbox{\hyperlink{_entity_component_view_8h}{Entity\+Component\+View.\+h}}\end{DoxyCompactItemize}

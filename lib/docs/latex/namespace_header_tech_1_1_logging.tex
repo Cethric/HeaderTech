@@ -1,0 +1,246 @@
+\hypertarget{namespace_header_tech_1_1_logging}{}\doxysection{Header\+Tech\+::Logging Namespace Reference}
+\label{namespace_header_tech_1_1_logging}\index{HeaderTech::Logging@{HeaderTech::Logging}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_header_tech_1_1_logging_1_1detail}{detail}}
+\item 
+ \mbox{\hyperlink{namespace_header_tech_1_1_logging_1_1details}{details}}
+\item 
+ \mbox{\hyperlink{namespace_header_tech_1_1_logging_1_1_scoped}{Scoped}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_header_tech_1_1_logging_1_1_file_sink}{File\+Sink}}
+\item 
+class \mbox{\hyperlink{class_header_tech_1_1_logging_1_1_profiler_sink}{Profiler\+Sink}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespace_header_tech_1_1_logging_a9d7d08ed24a467533059b3daff520e35}{File\+Sink\+Mt}} = \mbox{\hyperlink{class_header_tech_1_1_logging_1_1_file_sink}{File\+Sink}}$<$ std\+::mutex $>$
+\item 
+using \mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Logger}} = std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$
+\item 
+using \mbox{\hyperlink{namespace_header_tech_1_1_logging_a992a5255ca853efd8c90e4f6b1dfd8be}{Profiler\+Sink\+Mt}} = \mbox{\hyperlink{class_header_tech_1_1_logging_1_1_profiler_sink}{Profiler\+Sink}}$<$ std\+::mutex $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Logger}} \mbox{\hyperlink{namespace_header_tech_1_1_logging_a66a2ae65ce784686baa4d1b753d7c7b4}{make\+\_\+logger\+\_\+async}} (const std\+::string \&name)
+\item 
+\mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Logger}} \mbox{\hyperlink{namespace_header_tech_1_1_logging_a3de917fdaec21da46d158605cd46e56d}{get\+\_\+or\+\_\+make\+\_\+logger\+\_\+async}} (const std\+::string \&name)
+\item 
+{\footnotesize template$<$typename Name $>$ }\\\mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Logger}} \mbox{\hyperlink{namespace_header_tech_1_1_logging_a43185012d80ad42ba8eaf93db659065d}{make\+\_\+logger\+\_\+async}} ()
+\item 
+{\footnotesize template$<$typename Name $>$ }\\\mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Logger}} \mbox{\hyperlink{namespace_header_tech_1_1_logging_a7550444465936c29c2d924fb51005763}{get\+\_\+or\+\_\+make\+\_\+logger\+\_\+async}} ()
+\item 
+\mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Logger}} \mbox{\hyperlink{namespace_header_tech_1_1_logging_a361837a4e70d9e6e344585a089d7714c}{make\+\_\+logger}} (const std\+::string \&name)
+\item 
+\mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Logger}} \mbox{\hyperlink{namespace_header_tech_1_1_logging_ae7535e4336cd5448c3b503c809d53fc5}{get\+\_\+or\+\_\+make\+\_\+logger}} (const std\+::string \&name)
+\item 
+{\footnotesize template$<$typename Name $>$ }\\\mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Logger}} \mbox{\hyperlink{namespace_header_tech_1_1_logging_a34bf7eb49af681528382063eeb8448e0}{make\+\_\+logger}} ()
+\item 
+{\footnotesize template$<$typename Name $>$ }\\\mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Logger}} \mbox{\hyperlink{namespace_header_tech_1_1_logging_a82b5ab8751b124d04b4b6adcb4336ec0}{get\+\_\+or\+\_\+make\+\_\+logger}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespace_header_tech_1_1_logging_a9d7d08ed24a467533059b3daff520e35}\label{namespace_header_tech_1_1_logging_a9d7d08ed24a467533059b3daff520e35}} 
+\index{HeaderTech::Logging@{HeaderTech::Logging}!FileSinkMt@{FileSinkMt}}
+\index{FileSinkMt@{FileSinkMt}!HeaderTech::Logging@{HeaderTech::Logging}}
+\doxysubsubsection{\texorpdfstring{FileSinkMt}{FileSinkMt}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespace_header_tech_1_1_logging_a9d7d08ed24a467533059b3daff520e35}{Header\+Tech\+::\+Logging\+::\+File\+Sink\+Mt}} = typedef \mbox{\hyperlink{class_header_tech_1_1_logging_1_1_file_sink}{File\+Sink}}$<$std\+::mutex$>$}
+
+
+
+Definition at line 51 of file File\+Sink.\+h.
+
+\mbox{\Hypertarget{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}\label{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}} 
+\index{HeaderTech::Logging@{HeaderTech::Logging}!Logger@{Logger}}
+\index{Logger@{Logger}!HeaderTech::Logging@{HeaderTech::Logging}}
+\doxysubsubsection{\texorpdfstring{Logger}{Logger}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Header\+Tech\+::\+Logging\+::\+Logger}} = typedef std\+::shared\+\_\+ptr$<$spdlog\+::logger$>$}
+
+
+
+Definition at line 14 of file Logger.\+h.
+
+\mbox{\Hypertarget{namespace_header_tech_1_1_logging_a992a5255ca853efd8c90e4f6b1dfd8be}\label{namespace_header_tech_1_1_logging_a992a5255ca853efd8c90e4f6b1dfd8be}} 
+\index{HeaderTech::Logging@{HeaderTech::Logging}!ProfilerSinkMt@{ProfilerSinkMt}}
+\index{ProfilerSinkMt@{ProfilerSinkMt}!HeaderTech::Logging@{HeaderTech::Logging}}
+\doxysubsubsection{\texorpdfstring{ProfilerSinkMt}{ProfilerSinkMt}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespace_header_tech_1_1_logging_a992a5255ca853efd8c90e4f6b1dfd8be}{Header\+Tech\+::\+Logging\+::\+Profiler\+Sink\+Mt}} = typedef \mbox{\hyperlink{class_header_tech_1_1_logging_1_1_profiler_sink}{Profiler\+Sink}}$<$std\+::mutex$>$}
+
+
+
+Definition at line 26 of file Profiler\+Sink.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespace_header_tech_1_1_logging_a82b5ab8751b124d04b4b6adcb4336ec0}\label{namespace_header_tech_1_1_logging_a82b5ab8751b124d04b4b6adcb4336ec0}} 
+\index{HeaderTech::Logging@{HeaderTech::Logging}!get\_or\_make\_logger@{get\_or\_make\_logger}}
+\index{get\_or\_make\_logger@{get\_or\_make\_logger}!HeaderTech::Logging@{HeaderTech::Logging}}
+\doxysubsubsection{\texorpdfstring{get\_or\_make\_logger()}{get\_or\_make\_logger()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Name $>$ \\
+\mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Logger}} Header\+Tech\+::\+Logging\+::get\+\_\+or\+\_\+make\+\_\+logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 147 of file Logger.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_header_tech_1_1_logging_a82b5ab8751b124d04b4b6adcb4336ec0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_header_tech_1_1_logging_ae7535e4336cd5448c3b503c809d53fc5}\label{namespace_header_tech_1_1_logging_ae7535e4336cd5448c3b503c809d53fc5}} 
+\index{HeaderTech::Logging@{HeaderTech::Logging}!get\_or\_make\_logger@{get\_or\_make\_logger}}
+\index{get\_or\_make\_logger@{get\_or\_make\_logger}!HeaderTech::Logging@{HeaderTech::Logging}}
+\doxysubsubsection{\texorpdfstring{get\_or\_make\_logger()}{get\_or\_make\_logger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Logger}} Header\+Tech\+::\+Logging\+::get\+\_\+or\+\_\+make\+\_\+logger (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 137 of file Logger.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{namespace_header_tech_1_1_logging_ae7535e4336cd5448c3b503c809d53fc5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{namespace_header_tech_1_1_logging_ae7535e4336cd5448c3b503c809d53fc5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_header_tech_1_1_logging_a7550444465936c29c2d924fb51005763}\label{namespace_header_tech_1_1_logging_a7550444465936c29c2d924fb51005763}} 
+\index{HeaderTech::Logging@{HeaderTech::Logging}!get\_or\_make\_logger\_async@{get\_or\_make\_logger\_async}}
+\index{get\_or\_make\_logger\_async@{get\_or\_make\_logger\_async}!HeaderTech::Logging@{HeaderTech::Logging}}
+\doxysubsubsection{\texorpdfstring{get\_or\_make\_logger\_async()}{get\_or\_make\_logger\_async()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Name $>$ \\
+\mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Logger}} Header\+Tech\+::\+Logging\+::get\+\_\+or\+\_\+make\+\_\+logger\+\_\+async (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 120 of file Logger.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_header_tech_1_1_logging_a7550444465936c29c2d924fb51005763_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_header_tech_1_1_logging_a3de917fdaec21da46d158605cd46e56d}\label{namespace_header_tech_1_1_logging_a3de917fdaec21da46d158605cd46e56d}} 
+\index{HeaderTech::Logging@{HeaderTech::Logging}!get\_or\_make\_logger\_async@{get\_or\_make\_logger\_async}}
+\index{get\_or\_make\_logger\_async@{get\_or\_make\_logger\_async}!HeaderTech::Logging@{HeaderTech::Logging}}
+\doxysubsubsection{\texorpdfstring{get\_or\_make\_logger\_async()}{get\_or\_make\_logger\_async()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Logger}} Header\+Tech\+::\+Logging\+::get\+\_\+or\+\_\+make\+\_\+logger\+\_\+async (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 110 of file Logger.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_header_tech_1_1_logging_a3de917fdaec21da46d158605cd46e56d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_header_tech_1_1_logging_a3de917fdaec21da46d158605cd46e56d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_header_tech_1_1_logging_a34bf7eb49af681528382063eeb8448e0}\label{namespace_header_tech_1_1_logging_a34bf7eb49af681528382063eeb8448e0}} 
+\index{HeaderTech::Logging@{HeaderTech::Logging}!make\_logger@{make\_logger}}
+\index{make\_logger@{make\_logger}!HeaderTech::Logging@{HeaderTech::Logging}}
+\doxysubsubsection{\texorpdfstring{make\_logger()}{make\_logger()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Name $>$ \\
+\mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Logger}} Header\+Tech\+::\+Logging\+::make\+\_\+logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 132 of file Logger.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{namespace_header_tech_1_1_logging_a34bf7eb49af681528382063eeb8448e0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_header_tech_1_1_logging_a361837a4e70d9e6e344585a089d7714c}\label{namespace_header_tech_1_1_logging_a361837a4e70d9e6e344585a089d7714c}} 
+\index{HeaderTech::Logging@{HeaderTech::Logging}!make\_logger@{make\_logger}}
+\index{make\_logger@{make\_logger}!HeaderTech::Logging@{HeaderTech::Logging}}
+\doxysubsubsection{\texorpdfstring{make\_logger()}{make\_logger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Logger}} Header\+Tech\+::\+Logging\+::make\+\_\+logger (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 125 of file Logger.\+inl.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_header_tech_1_1_logging_a361837a4e70d9e6e344585a089d7714c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_header_tech_1_1_logging_a43185012d80ad42ba8eaf93db659065d}\label{namespace_header_tech_1_1_logging_a43185012d80ad42ba8eaf93db659065d}} 
+\index{HeaderTech::Logging@{HeaderTech::Logging}!make\_logger\_async@{make\_logger\_async}}
+\index{make\_logger\_async@{make\_logger\_async}!HeaderTech::Logging@{HeaderTech::Logging}}
+\doxysubsubsection{\texorpdfstring{make\_logger\_async()}{make\_logger\_async()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Name $>$ \\
+\mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Logger}} Header\+Tech\+::\+Logging\+::make\+\_\+logger\+\_\+async (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 105 of file Logger.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{namespace_header_tech_1_1_logging_a43185012d80ad42ba8eaf93db659065d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_header_tech_1_1_logging_a66a2ae65ce784686baa4d1b753d7c7b4}\label{namespace_header_tech_1_1_logging_a66a2ae65ce784686baa4d1b753d7c7b4}} 
+\index{HeaderTech::Logging@{HeaderTech::Logging}!make\_logger\_async@{make\_logger\_async}}
+\index{make\_logger\_async@{make\_logger\_async}!HeaderTech::Logging@{HeaderTech::Logging}}
+\doxysubsubsection{\texorpdfstring{make\_logger\_async()}{make\_logger\_async()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_header_tech_1_1_logging_a0621070397f6df5586f73f0e6014279c}{Logger}} Header\+Tech\+::\+Logging\+::make\+\_\+logger\+\_\+async (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 98 of file Logger.\+inl.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_header_tech_1_1_logging_a66a2ae65ce784686baa4d1b753d7c7b4_icgraph}
+\end{center}
+\end{figure}

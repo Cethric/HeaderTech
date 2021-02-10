@@ -13,7 +13,7 @@
 #include <phmap.h>
 
 #include <Component.h>
-#include <Logging.h>
+#include <LoggingIncludes.h>
 
 namespace HeaderTech::EntityComponentSystem {
     namespace details {

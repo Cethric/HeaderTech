@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_profiler" xml:lang="en-US">
+<title>HeaderTech::Profiler::Scoped::ScopedProfiler Class Reference</title>
+<indexterm><primary>HeaderTech::Profiler::Scoped::ScopedProfiler</primary></indexterm>
+<para>
+<computeroutput>#include &lt;ScopedProfiler.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_profiler_1a0fa1601669eb01ca614006709100ef38">ScopedProfiler</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_profiler_1a4fd18195926aaf98157884b34bb05e35">~ScopedProfiler</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_header_tech_1_1_profiler_1_1_profiler_manager">HeaderTech::Profiler::ProfilerManager</link> * <link linkend="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_profiler_1abec16ac635b9dd5f301c0f153992cb9d">GetProfiler</link> () noexcept</para>
+</listitem>
+            <listitem><para>static bool <link linkend="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_profiler_1a188869931c5e91b90114753fedd86c87">HasProfiler</link> () noexcept</para>
+</listitem>
+            <listitem><para>static void <link linkend="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_profiler_1adeccb06b347a3bf48e3e146482cc19ef">UseProfiler</link> (const CallbackFn &amp;callback) noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 15 of file ScopedProfiler.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_profiler_1a0fa1601669eb01ca614006709100ef38"/>    <section>
+    <title>ScopedProfiler()</title>
+<indexterm><primary>ScopedProfiler</primary><secondary>HeaderTech::Profiler::Scoped::ScopedProfiler</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::Scoped::ScopedProfiler</primary><secondary>ScopedProfiler</secondary></indexterm>
+<para><computeroutput>HeaderTech::Profiler::Scoped::ScopedProfiler::ScopedProfiler ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 12 of file ScopedProfiler.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_profiler_1a4fd18195926aaf98157884b34bb05e35"/>    <section>
+    <title>~ScopedProfiler()</title>
+<indexterm><primary>~ScopedProfiler</primary><secondary>HeaderTech::Profiler::Scoped::ScopedProfiler</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::Scoped::ScopedProfiler</primary><secondary>~ScopedProfiler</secondary></indexterm>
+<para><computeroutput>HeaderTech::Profiler::Scoped::ScopedProfiler::~ScopedProfiler ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 15 of file ScopedProfiler.inl.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_profiler_1abec16ac635b9dd5f301c0f153992cb9d"/>    <section>
+    <title>GetProfiler()</title>
+<indexterm><primary>GetProfiler</primary><secondary>HeaderTech::Profiler::Scoped::ScopedProfiler</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::Scoped::ScopedProfiler</primary><secondary>GetProfiler</secondary></indexterm>
+<para><computeroutput><link linkend="_class_header_tech_1_1_profiler_1_1_profiler_manager">HeaderTech::Profiler::ProfilerManager</link> * HeaderTech::Profiler::Scoped::ScopedProfiler::GetProfiler ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 18 of file ScopedProfiler.inl.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_profiler_abec16ac635b9dd5f301c0f153992cb9d_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_profiler_1a188869931c5e91b90114753fedd86c87"/>    <section>
+    <title>HasProfiler()</title>
+<indexterm><primary>HasProfiler</primary><secondary>HeaderTech::Profiler::Scoped::ScopedProfiler</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::Scoped::ScopedProfiler</primary><secondary>HasProfiler</secondary></indexterm>
+<para><computeroutput>bool HeaderTech::Profiler::Scoped::ScopedProfiler::HasProfiler ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 21 of file ScopedProfiler.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_profiler_1adeccb06b347a3bf48e3e146482cc19ef"/>    <section>
+    <title>UseProfiler()</title>
+<indexterm><primary>UseProfiler</primary><secondary>HeaderTech::Profiler::Scoped::ScopedProfiler</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::Scoped::ScopedProfiler</primary><secondary>UseProfiler</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Profiler::Scoped::ScopedProfiler::UseProfiler (const CallbackFn &amp; callback)<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 24 of file ScopedProfiler.inl.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+profiler/inc/scoped/<link linkend="__scoped_profiler_8h">ScopedProfiler.h</link>profiler/inc/scoped/<link linkend="__scoped_profiler_8inl">ScopedProfiler.inl</link></section>
+</section>

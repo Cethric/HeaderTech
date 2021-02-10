@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__u_i_includes_8cpp" xml:lang="en-US">
+<title>ui/src/UIIncludes.cpp File Reference</title>
+<indexterm><primary>ui/src/UIIncludes.cpp</primary></indexterm>
+<programlisting>#include &lt;UIIncludes.h&gt;
+</programlisting>Include dependency graph for UIIncludes.cpp:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_u_i_includes_8cpp__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>

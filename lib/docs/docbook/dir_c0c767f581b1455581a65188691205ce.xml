@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_c0c767f581b1455581a65188691205ce" xml:lang="en-US">
+<title>window/inc/api/opengl Directory Reference</title>
+<indexterm><primary>window/inc/api/opengl Directory Reference</primary></indexterm>
+Directory dependency graph for opengl:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_c0c767f581b1455581a65188691205ce_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__open_g_l_window_api_8h">OpenGLWindowApi.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__open_g_l_window_api_8inl">OpenGLWindowApi.inl</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__open_g_l_window_api_events_8inl">OpenGLWindowApiEvents.inl</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

@@ -1,0 +1,216 @@
+\hypertarget{class_header_tech_1_1_window_1_1_window}{}\doxysection{Header\+Tech\+::Window\+::Window Class Reference}
+\label{class_header_tech_1_1_window_1_1_window}\index{HeaderTech::Window::Window@{HeaderTech::Window::Window}}
+
+
+{\ttfamily \#include $<$Window.\+h$>$}
+
+
+
+Collaboration diagram for Header\+Tech\+::Window\+::Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{class_header_tech_1_1_window_1_1_window__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_header_tech_1_1_window_1_1_window_a4de301bb7b242cc1d8af2df9734a45bc}{Window}} (const \mbox{\hyperlink{struct_header_tech_1_1_config_1_1_window_config}{Header\+Tech\+::\+Config\+::\+Window\+Config}} \&config, \mbox{\hyperlink{class_header_tech_1_1_events_1_1_event_dispatcher}{Header\+Tech\+::\+Events\+::\+Event\+Dispatcher}} $\ast$dispatcher) noexcept
+\item 
+\mbox{\hyperlink{class_header_tech_1_1_window_1_1_window_a6fb2d06427ca02998081306150ab463c}{$\sim$\+Window}} () noexcept
+\item 
+bool \mbox{\hyperlink{class_header_tech_1_1_window_1_1_window_a81f0111e981e0cab73c1b89027f1cd82}{Is\+Open}} () noexcept
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_window_1_1_window_a73756e7981b02da96c69195aacfc4f91}{Swap}} () noexcept
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_window_1_1_window_a20a5d247b7ee18cae41ed6103e6d9ee8}{Toggle\+Fullscreen}} () noexcept
+\item 
+int \mbox{\hyperlink{class_header_tech_1_1_window_1_1_window_a0b6228ddd5ada9ed3c4fa3fee25d82b9}{Get\+Width}} () const noexcept
+\item 
+int \mbox{\hyperlink{class_header_tech_1_1_window_1_1_window_a2ed41f26e9fb4f2c9defc2cdd51ebb12}{Get\+Height}} () const noexcept
+\item 
+\mbox{\hyperlink{class_header_tech_1_1_render_1_1_render_context}{Header\+Tech\+::\+Render\+::\+Render\+Context}} $\ast$ \mbox{\hyperlink{class_header_tech_1_1_window_1_1_window_a5f5d2ae745a2e1d509f64f1646ab55c2}{Get\+Render\+Context}} () const noexcept
+\item 
+bool \mbox{\hyperlink{class_header_tech_1_1_window_1_1_window_a0967bcc36dcac6f1e4bd8e82b744192c}{Is\+Key\+Pressed}} (\mbox{\hyperlink{namespace_header_tech_1_1_window_a7acdd182dd046ccf26fa885357162eac}{Key\+Type}} key) const noexcept
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_window_api}{Header\+Tech\+::\+Window\+::\+Api\+::\+Window\+Api}} $\ast$ \mbox{\hyperlink{class_header_tech_1_1_window_1_1_window_afb6ca3854abd4e6aa273ef607f1c32ad}{m\+\_\+api}}
+\item 
+\mbox{\hyperlink{class_header_tech_1_1_render_1_1_render_context}{Header\+Tech\+::\+Render\+::\+Render\+Context}} $\ast$ \mbox{\hyperlink{class_header_tech_1_1_window_1_1_window_a1ec346cb9e655dc0cda3d7b60459bad7}{m\+\_\+context}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 26 of file Window.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_window_a4de301bb7b242cc1d8af2df9734a45bc}\label{class_header_tech_1_1_window_1_1_window_a4de301bb7b242cc1d8af2df9734a45bc}} 
+\index{HeaderTech::Window::Window@{HeaderTech::Window::Window}!Window@{Window}}
+\index{Window@{Window}!HeaderTech::Window::Window@{HeaderTech::Window::Window}}
+\doxysubsubsection{\texorpdfstring{Window()}{Window()}}
+{\footnotesize\ttfamily Header\+Tech\+::\+Window\+::\+Window\+::\+Window (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_header_tech_1_1_config_1_1_window_config}{Header\+Tech\+::\+Config\+::\+Window\+Config}} \&}]{config,  }\item[{\mbox{\hyperlink{class_header_tech_1_1_events_1_1_event_dispatcher}{Header\+Tech\+::\+Events\+::\+Event\+Dispatcher}} $\ast$}]{dispatcher }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 17 of file Window.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_window_a6fb2d06427ca02998081306150ab463c}\label{class_header_tech_1_1_window_1_1_window_a6fb2d06427ca02998081306150ab463c}} 
+\index{HeaderTech::Window::Window@{HeaderTech::Window::Window}!````~Window@{$\sim$Window}}
+\index{````~Window@{$\sim$Window}!HeaderTech::Window::Window@{HeaderTech::Window::Window}}
+\doxysubsubsection{\texorpdfstring{$\sim$Window()}{~Window()}}
+{\footnotesize\ttfamily Header\+Tech\+::\+Window\+::\+Window\+::$\sim$\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 40 of file Window.\+inl.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_window_a2ed41f26e9fb4f2c9defc2cdd51ebb12}\label{class_header_tech_1_1_window_1_1_window_a2ed41f26e9fb4f2c9defc2cdd51ebb12}} 
+\index{HeaderTech::Window::Window@{HeaderTech::Window::Window}!GetHeight@{GetHeight}}
+\index{GetHeight@{GetHeight}!HeaderTech::Window::Window@{HeaderTech::Window::Window}}
+\doxysubsubsection{\texorpdfstring{GetHeight()}{GetHeight()}}
+{\footnotesize\ttfamily int Header\+Tech\+::\+Window\+::\+Window\+::\+Get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 58 of file Window.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_window_1_1_window_a2ed41f26e9fb4f2c9defc2cdd51ebb12_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_window_a5f5d2ae745a2e1d509f64f1646ab55c2}\label{class_header_tech_1_1_window_1_1_window_a5f5d2ae745a2e1d509f64f1646ab55c2}} 
+\index{HeaderTech::Window::Window@{HeaderTech::Window::Window}!GetRenderContext@{GetRenderContext}}
+\index{GetRenderContext@{GetRenderContext}!HeaderTech::Window::Window@{HeaderTech::Window::Window}}
+\doxysubsubsection{\texorpdfstring{GetRenderContext()}{GetRenderContext()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_header_tech_1_1_render_1_1_render_context}{Header\+Tech\+::\+Render\+::\+Render\+Context}} $\ast$ Header\+Tech\+::\+Window\+::\+Window\+::\+Get\+Render\+Context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 61 of file Window.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_window_a0b6228ddd5ada9ed3c4fa3fee25d82b9}\label{class_header_tech_1_1_window_1_1_window_a0b6228ddd5ada9ed3c4fa3fee25d82b9}} 
+\index{HeaderTech::Window::Window@{HeaderTech::Window::Window}!GetWidth@{GetWidth}}
+\index{GetWidth@{GetWidth}!HeaderTech::Window::Window@{HeaderTech::Window::Window}}
+\doxysubsubsection{\texorpdfstring{GetWidth()}{GetWidth()}}
+{\footnotesize\ttfamily int Header\+Tech\+::\+Window\+::\+Window\+::\+Get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 55 of file Window.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_window_1_1_window_a0b6228ddd5ada9ed3c4fa3fee25d82b9_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_window_a0967bcc36dcac6f1e4bd8e82b744192c}\label{class_header_tech_1_1_window_1_1_window_a0967bcc36dcac6f1e4bd8e82b744192c}} 
+\index{HeaderTech::Window::Window@{HeaderTech::Window::Window}!IsKeyPressed@{IsKeyPressed}}
+\index{IsKeyPressed@{IsKeyPressed}!HeaderTech::Window::Window@{HeaderTech::Window::Window}}
+\doxysubsubsection{\texorpdfstring{IsKeyPressed()}{IsKeyPressed()}}
+{\footnotesize\ttfamily bool Header\+Tech\+::\+Window\+::\+Window\+::\+Is\+Key\+Pressed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_header_tech_1_1_window_a7acdd182dd046ccf26fa885357162eac}{Key\+Type}}}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 64 of file Window.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_window_a81f0111e981e0cab73c1b89027f1cd82}\label{class_header_tech_1_1_window_1_1_window_a81f0111e981e0cab73c1b89027f1cd82}} 
+\index{HeaderTech::Window::Window@{HeaderTech::Window::Window}!IsOpen@{IsOpen}}
+\index{IsOpen@{IsOpen}!HeaderTech::Window::Window@{HeaderTech::Window::Window}}
+\doxysubsubsection{\texorpdfstring{IsOpen()}{IsOpen()}}
+{\footnotesize\ttfamily bool Header\+Tech\+::\+Window\+::\+Window\+::\+Is\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 46 of file Window.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_window_1_1_window_a81f0111e981e0cab73c1b89027f1cd82_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_window_a73756e7981b02da96c69195aacfc4f91}\label{class_header_tech_1_1_window_1_1_window_a73756e7981b02da96c69195aacfc4f91}} 
+\index{HeaderTech::Window::Window@{HeaderTech::Window::Window}!Swap@{Swap}}
+\index{Swap@{Swap}!HeaderTech::Window::Window@{HeaderTech::Window::Window}}
+\doxysubsubsection{\texorpdfstring{Swap()}{Swap()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Window\+::\+Window\+::\+Swap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 49 of file Window.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_window_1_1_window_a73756e7981b02da96c69195aacfc4f91_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_window_a20a5d247b7ee18cae41ed6103e6d9ee8}\label{class_header_tech_1_1_window_1_1_window_a20a5d247b7ee18cae41ed6103e6d9ee8}} 
+\index{HeaderTech::Window::Window@{HeaderTech::Window::Window}!ToggleFullscreen@{ToggleFullscreen}}
+\index{ToggleFullscreen@{ToggleFullscreen}!HeaderTech::Window::Window@{HeaderTech::Window::Window}}
+\doxysubsubsection{\texorpdfstring{ToggleFullscreen()}{ToggleFullscreen()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Window\+::\+Window\+::\+Toggle\+Fullscreen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 52 of file Window.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_window_1_1_window_a20a5d247b7ee18cae41ed6103e6d9ee8_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_window_afb6ca3854abd4e6aa273ef607f1c32ad}\label{class_header_tech_1_1_window_1_1_window_afb6ca3854abd4e6aa273ef607f1c32ad}} 
+\index{HeaderTech::Window::Window@{HeaderTech::Window::Window}!m\_api@{m\_api}}
+\index{m\_api@{m\_api}!HeaderTech::Window::Window@{HeaderTech::Window::Window}}
+\doxysubsubsection{\texorpdfstring{m\_api}{m\_api}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_window_api}{Header\+Tech\+::\+Window\+::\+Api\+::\+Window\+Api}}$\ast$ Header\+Tech\+::\+Window\+::\+Window\+::m\+\_\+api\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 50 of file Window.\+h.
+
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_window_a1ec346cb9e655dc0cda3d7b60459bad7}\label{class_header_tech_1_1_window_1_1_window_a1ec346cb9e655dc0cda3d7b60459bad7}} 
+\index{HeaderTech::Window::Window@{HeaderTech::Window::Window}!m\_context@{m\_context}}
+\index{m\_context@{m\_context}!HeaderTech::Window::Window@{HeaderTech::Window::Window}}
+\doxysubsubsection{\texorpdfstring{m\_context}{m\_context}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_header_tech_1_1_render_1_1_render_context}{Header\+Tech\+::\+Render\+::\+Render\+Context}}$\ast$ Header\+Tech\+::\+Window\+::\+Window\+::m\+\_\+context\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 51 of file Window.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+window/inc/\mbox{\hyperlink{_window_8h}{Window.\+h}}\item 
+window/inc/\mbox{\hyperlink{_window_8inl}{Window.\+inl}}\end{DoxyCompactItemize}

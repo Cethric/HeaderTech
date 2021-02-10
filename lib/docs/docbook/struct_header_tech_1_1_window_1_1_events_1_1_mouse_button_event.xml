@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_mouse_button_event" xml:lang="en-US">
+<title>HeaderTech::Window::Events::MouseButtonEvent Struct Reference</title>
+<indexterm><primary>HeaderTech::Window::Events::MouseButtonEvent</primary></indexterm>
+<para>
+<computeroutput>#include &lt;MouseButtonEvent.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_mouse_button_event_1a0fc3bec2bd2ca1552ada43b5976ee09f">MouseButtonEvent</link> (int <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_mouse_button_event_1abfd0dca6cdc6ec5d1e2522056366dba1">button</link>, <link linkend="_namespace_header_tech_1_1_window_1_1_events_1a1a4b3c52ad3dde7b33118654c0397180">MouseButtonAction</link> <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_mouse_button_event_1a32a135777de82b4b819709f759cc15e1">action</link>, int <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_mouse_button_event_1ad2ad22f34b9a10a107d9483b8ae5d736">mods</link>) noexcept</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_header_tech_1_1_events_1a94ce76b1ca57f459e666e4bd3152652d">HeaderTech::Events::EventPriority</link> <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_mouse_button_event_1adc3c5444fb158a8b69e78e177c062bc6">GetPriority</link> () const noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_mouse_button_event_1abfd0dca6cdc6ec5d1e2522056366dba1">button</link></para>
+</listitem>
+            <listitem><para><link linkend="_namespace_header_tech_1_1_window_1_1_events_1a1a4b3c52ad3dde7b33118654c0397180">MouseButtonAction</link> <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_mouse_button_event_1a32a135777de82b4b819709f759cc15e1">action</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_mouse_button_event_1ad2ad22f34b9a10a107d9483b8ae5d736">mods</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 17 of file MouseButtonEvent.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_mouse_button_event_1a0fc3bec2bd2ca1552ada43b5976ee09f"/>    <section>
+    <title>MouseButtonEvent()</title>
+<indexterm><primary>MouseButtonEvent</primary><secondary>HeaderTech::Window::Events::MouseButtonEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::MouseButtonEvent</primary><secondary>MouseButtonEvent</secondary></indexterm>
+<para><computeroutput>HeaderTech::Window::Events::MouseButtonEvent::MouseButtonEvent (int button, <link linkend="_namespace_header_tech_1_1_window_1_1_events_1a1a4b3c52ad3dde7b33118654c0397180">MouseButtonAction</link> action, int mods)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 18 of file MouseButtonEvent.h.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_mouse_button_event_1adc3c5444fb158a8b69e78e177c062bc6"/>    <section>
+    <title>GetPriority()</title>
+<indexterm><primary>GetPriority</primary><secondary>HeaderTech::Window::Events::MouseButtonEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::MouseButtonEvent</primary><secondary>GetPriority</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_header_tech_1_1_events_1a94ce76b1ca57f459e666e4bd3152652d">HeaderTech::Events::EventPriority</link> HeaderTech::Window::Events::MouseButtonEvent::GetPriority ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 25 of file MouseButtonEvent.h.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_mouse_button_event_1a32a135777de82b4b819709f759cc15e1"/>    <section>
+    <title>action</title>
+<indexterm><primary>action</primary><secondary>HeaderTech::Window::Events::MouseButtonEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::MouseButtonEvent</primary><secondary>action</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_header_tech_1_1_window_1_1_events_1a1a4b3c52ad3dde7b33118654c0397180">MouseButtonAction</link> HeaderTech::Window::Events::MouseButtonEvent::action</computeroutput></para><para>
+Definition at line 29 of file MouseButtonEvent.h.</para>
+    </section><anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_mouse_button_event_1abfd0dca6cdc6ec5d1e2522056366dba1"/>    <section>
+    <title>button</title>
+<indexterm><primary>button</primary><secondary>HeaderTech::Window::Events::MouseButtonEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::MouseButtonEvent</primary><secondary>button</secondary></indexterm>
+<para><computeroutput>int HeaderTech::Window::Events::MouseButtonEvent::button</computeroutput></para><para>
+Definition at line 28 of file MouseButtonEvent.h.</para>
+    </section><anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_mouse_button_event_1ad2ad22f34b9a10a107d9483b8ae5d736"/>    <section>
+    <title>mods</title>
+<indexterm><primary>mods</primary><secondary>HeaderTech::Window::Events::MouseButtonEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::MouseButtonEvent</primary><secondary>mods</secondary></indexterm>
+<para><computeroutput>int HeaderTech::Window::Events::MouseButtonEvent::mods</computeroutput></para><para>
+Definition at line 30 of file MouseButtonEvent.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+window/inc/events/<link linkend="__mouse_button_event_8h">MouseButtonEvent.h</link></section>
+</section>

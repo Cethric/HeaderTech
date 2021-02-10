@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__profiler_types_8h" xml:lang="en-US">
+<title>profiler/inc/ProfilerTypes.h File Reference</title>
+<indexterm><primary>profiler/inc/ProfilerTypes.h</primary></indexterm>
+<programlisting>#include &lt;phmap.h&gt;
+#include &lt;nlohmann/json.hpp&gt;
+#include &lt;queue&gt;
+#include &lt;string&gt;
+</programlisting>Include dependency graph for ProfilerTypes.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_profiler_types_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_profiler_types_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_hashing">HeaderTech::Profiler::Types::detail::CpuProfileHashing</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_equal_to">HeaderTech::Profiler::Types::detail::CpuProfileEqualTo</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_profiler_1_1_types_1_1_cpu_profile">HeaderTech::Profiler::Types::CpuProfile</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_profiler">HeaderTech::Profiler</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_profiler_1_1_types">HeaderTech::Profiler::Types</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1_1detail">HeaderTech::Profiler::Types::detail</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>using <link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1_1detail_1a7c53e827151fa5aa70b7922b6f3f54b5">HeaderTech::Profiler::Types::detail::CpuProfileHash</link> = std::uint64_t</para>
+</listitem>
+            <listitem><para>using <link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1a8e137ae9e781981c898a50b04ea1916c">HeaderTech::Profiler::Types::CpuProfileChildrenList</link> = phmap::flat_hash_set&lt; CpuProfileHash, detail::CpuProfileHashing, detail::CpuProfileEqualTo &gt;</para>
+</listitem>
+            <listitem><para>using <link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1a5b0ccaf4d275b58e6e4ddd2cc125a348">HeaderTech::Profiler::Types::CpuProfileMap</link> = phmap::parallel_flat_hash_map&lt; CpuProfileHash, CpuProfile, detail::CpuProfileHashing, detail::CpuProfileEqualTo &gt;</para>
+</listitem>
+            <listitem><para>using <link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1a8aaad54c03d2d863a7cb13a8e77364fb">HeaderTech::Profiler::Types::CpuProfileHashQueue</link> = std::deque&lt; CpuProfileHash &gt;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1ae8d68aba4c6dba792ca8d1655a3ddabc">HeaderTech::Profiler::Types::ScopedProfilerFlags</link> : std::uint8_t { <link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1ae8d68aba4c6dba792ca8d1655a3ddabcac58b5ac2d4405df2e0db2b1e95ca006f">HeaderTech::Profiler::Types::ScopedProfilerFlags_None</link>
+, <link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1ae8d68aba4c6dba792ca8d1655a3ddabca2b5f02afae5eaff11bf29f3e8d546e47">HeaderTech::Profiler::Types::ScopedProfilerFlags_Aggregate</link>
+, <link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1ae8d68aba4c6dba792ca8d1655a3ddabcae6b60903ffc3ae85fcafed8af8585b9e">HeaderTech::Profiler::Types::ScopedProfilerFlags_Recursive</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1ace2731b649a1f677a61deef9adf46259">HeaderTech::Profiler::Types::NLOHMANN_JSON_SERIALIZE_ENUM</link> (ScopedProfilerFlags, { { ScopedProfilerFlags_None, &quot;none&quot; }, { ScopedProfilerFlags_Aggregate, &quot;aggregate&quot; }, { ScopedProfilerFlags_Recursive, &quot;recursive&quot; }, }) using CpuProfileHash</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

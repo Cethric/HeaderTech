@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_fabd4a88602184749798046b20e9ae47" xml:lang="en-US">
+<title>logging/inc Directory Reference</title>
+<indexterm><primary>logging/inc Directory Reference</primary></indexterm>
+Directory dependency graph for inc:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_fabd4a88602184749798046b20e9ae47_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_eb8593de7d743c3f77b57e6f1c6b1456">scoped</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__file_sink_8h">FileSink.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__file_sink_8inl">FileSink.inl</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__logger_8h">Logger.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__logger_8inl">Logger.inl</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__logging_includes_8h">LoggingIncludes.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__profiler_sink_8h">ProfilerSink.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__profiler_sink_8inl">ProfilerSink.inl</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

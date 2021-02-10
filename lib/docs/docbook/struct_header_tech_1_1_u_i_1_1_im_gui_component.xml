@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_header_tech_1_1_u_i_1_1_im_gui_component" xml:lang="en-US">
+<title>HeaderTech::UI::ImGuiComponent Struct Reference</title>
+<indexterm><primary>HeaderTech::UI::ImGuiComponent</primary></indexterm>
+<para>
+<computeroutput>#include &lt;ImGuiSurface.h&gt;</computeroutput>
+</para>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 11 of file ImGuiSurface.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+ui/inc/<link linkend="__im_gui_surface_8h">ImGuiSurface.h</link></section>
+</section>

@@ -13,7 +13,7 @@
 #include <EntitySet.h>
 #include <EntityComponentView.h>
 
-#include <Logging.h>
+#include <LoggingIncludes.h>
 
 #include <ctti/detailed_nameof.hpp>
 

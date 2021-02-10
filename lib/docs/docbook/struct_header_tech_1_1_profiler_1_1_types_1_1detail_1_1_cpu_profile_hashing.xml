@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_hashing" xml:lang="en-US">
+<title>HeaderTech::Profiler::Types::detail::CpuProfileHashing Struct Reference</title>
+<indexterm><primary>HeaderTech::Profiler::Types::detail::CpuProfileHashing</primary></indexterm>
+<para>
+<computeroutput>#include &lt;ProfilerTypes.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>size_t <link linkend="_struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_hashing_1a68acf78c04ac46f35fab6e285ddfde5e">_hash</link> (const std::uint64_t &amp;val) const noexcept</para>
+</listitem>
+            <listitem><para>size_t <link linkend="_struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_hashing_1a00b6c0762a1d90f26230ff1ab3014198">operator()</link> (const std::uint64_t &amp;val) const noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 18 of file ProfilerTypes.h.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_hashing_1a68acf78c04ac46f35fab6e285ddfde5e"/>    <section>
+    <title>_hash()</title>
+<indexterm><primary>_hash</primary><secondary>HeaderTech::Profiler::Types::detail::CpuProfileHashing</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::Types::detail::CpuProfileHashing</primary><secondary>_hash</secondary></indexterm>
+<para><computeroutput>size_t HeaderTech::Profiler::Types::detail::CpuProfileHashing::_hash (const std::uint64_t &amp; val) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 19 of file ProfilerTypes.h.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_hashing_a68acf78c04ac46f35fab6e285ddfde5e_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_hashing_1a00b6c0762a1d90f26230ff1ab3014198"/>    <section>
+    <title>operator()()</title>
+<indexterm><primary>operator()</primary><secondary>HeaderTech::Profiler::Types::detail::CpuProfileHashing</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::Types::detail::CpuProfileHashing</primary><secondary>operator()</secondary></indexterm>
+<para><computeroutput>size_t HeaderTech::Profiler::Types::detail::CpuProfileHashing::operator() (const std::uint64_t &amp; val) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 22 of file ProfilerTypes.h.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_hashing_a00b6c0762a1d90f26230ff1ab3014198_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+profiler/inc/<link linkend="__profiler_types_8h">ProfilerTypes.h</link></section>
+</section>

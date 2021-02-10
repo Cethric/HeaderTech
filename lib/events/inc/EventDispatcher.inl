@@ -10,6 +10,7 @@
 #include <iterator>
 
 #include <EventDispatcher.h>
+#include <scoped/ScopedProfilerIncludes.h>
 
 namespace HeaderTech::Events {
     inline EventDispatcher::EventDispatcher() noexcept: m_eventMutex(), m_subscriptionMutex()

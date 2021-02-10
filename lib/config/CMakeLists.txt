@@ -6,12 +6,12 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(
         HeaderTech_Config_SRC
-        src/Config.cpp
+        src/ConfigIncludes.cpp
 )
 
 set(
         HeaderTech_Config_INC
-        inc/Config.h
+        inc/ConfigIncludes.h
         inc/RuntimeConfig.h
 )
 

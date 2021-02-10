@@ -1,0 +1,103 @@
+\hypertarget{namespace_header_tech_1_1_profiler_1_1_types}{}\doxysection{Header\+Tech\+::Profiler\+::Types Namespace Reference}
+\label{namespace_header_tech_1_1_profiler_1_1_types}\index{HeaderTech::Profiler::Types@{HeaderTech::Profiler::Types}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_1_1detail}{detail}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_header_tech_1_1_profiler_1_1_types_1_1_cpu_profile}{Cpu\+Profile}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_a8e137ae9e781981c898a50b04ea1916c}{Cpu\+Profile\+Children\+List}} = phmap\+::flat\+\_\+hash\+\_\+set$<$ Cpu\+Profile\+Hash, \mbox{\hyperlink{struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_hashing}{detail\+::\+Cpu\+Profile\+Hashing}}, \mbox{\hyperlink{struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_equal_to}{detail\+::\+Cpu\+Profile\+Equal\+To}} $>$
+\item 
+using \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_a5b0ccaf4d275b58e6e4ddd2cc125a348}{Cpu\+Profile\+Map}} = phmap\+::parallel\+\_\+flat\+\_\+hash\+\_\+map$<$ Cpu\+Profile\+Hash, \mbox{\hyperlink{struct_header_tech_1_1_profiler_1_1_types_1_1_cpu_profile}{Cpu\+Profile}}, \mbox{\hyperlink{struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_hashing}{detail\+::\+Cpu\+Profile\+Hashing}}, \mbox{\hyperlink{struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_equal_to}{detail\+::\+Cpu\+Profile\+Equal\+To}} $>$
+\item 
+using \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_a8aaad54c03d2d863a7cb13a8e77364fb}{Cpu\+Profile\+Hash\+Queue}} = std\+::deque$<$ Cpu\+Profile\+Hash $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabc}{Scoped\+Profiler\+Flags}} \+: std\+::uint8\+\_\+t \{ \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabcac58b5ac2d4405df2e0db2b1e95ca006f}{Scoped\+Profiler\+Flags\+\_\+\+None}}
+, \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabca2b5f02afae5eaff11bf29f3e8d546e47}{Scoped\+Profiler\+Flags\+\_\+\+Aggregate}}
+, \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabcae6b60903ffc3ae85fcafed8af8585b9e}{Scoped\+Profiler\+Flags\+\_\+\+Recursive}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_ace2731b649a1f677a61deef9adf46259}{NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM}} (\mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabc}{Scoped\+Profiler\+Flags}}, \{ \{ \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabcac58b5ac2d4405df2e0db2b1e95ca006f}{Scoped\+Profiler\+Flags\+\_\+\+None}}, \char`\"{}none\char`\"{} \}, \{ Scoped\+Profiler\+Flags\+\_\+\+Aggregate, \char`\"{}aggregate\char`\"{} \}, \{ Scoped\+Profiler\+Flags\+\_\+\+Recursive, \char`\"{}recursive\char`\"{} \}, \}) using Cpu\+Profile\+Hash
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespace_header_tech_1_1_profiler_1_1_types_a8e137ae9e781981c898a50b04ea1916c}\label{namespace_header_tech_1_1_profiler_1_1_types_a8e137ae9e781981c898a50b04ea1916c}} 
+\index{HeaderTech::Profiler::Types@{HeaderTech::Profiler::Types}!CpuProfileChildrenList@{CpuProfileChildrenList}}
+\index{CpuProfileChildrenList@{CpuProfileChildrenList}!HeaderTech::Profiler::Types@{HeaderTech::Profiler::Types}}
+\doxysubsubsection{\texorpdfstring{CpuProfileChildrenList}{CpuProfileChildrenList}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_a8e137ae9e781981c898a50b04ea1916c}{Header\+Tech\+::\+Profiler\+::\+Types\+::\+Cpu\+Profile\+Children\+List}} = typedef phmap\+::flat\+\_\+hash\+\_\+set$<$ Cpu\+Profile\+Hash, \mbox{\hyperlink{struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_hashing}{detail\+::\+Cpu\+Profile\+Hashing}}, \mbox{\hyperlink{struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_equal_to}{detail\+::\+Cpu\+Profile\+Equal\+To}} $>$}
+
+
+
+Definition at line 45 of file Profiler\+Types.\+h.
+
+\mbox{\Hypertarget{namespace_header_tech_1_1_profiler_1_1_types_a8aaad54c03d2d863a7cb13a8e77364fb}\label{namespace_header_tech_1_1_profiler_1_1_types_a8aaad54c03d2d863a7cb13a8e77364fb}} 
+\index{HeaderTech::Profiler::Types@{HeaderTech::Profiler::Types}!CpuProfileHashQueue@{CpuProfileHashQueue}}
+\index{CpuProfileHashQueue@{CpuProfileHashQueue}!HeaderTech::Profiler::Types@{HeaderTech::Profiler::Types}}
+\doxysubsubsection{\texorpdfstring{CpuProfileHashQueue}{CpuProfileHashQueue}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_a8aaad54c03d2d863a7cb13a8e77364fb}{Header\+Tech\+::\+Profiler\+::\+Types\+::\+Cpu\+Profile\+Hash\+Queue}} = typedef std\+::deque$<$Cpu\+Profile\+Hash$>$}
+
+
+
+Definition at line 94 of file Profiler\+Types.\+h.
+
+\mbox{\Hypertarget{namespace_header_tech_1_1_profiler_1_1_types_a5b0ccaf4d275b58e6e4ddd2cc125a348}\label{namespace_header_tech_1_1_profiler_1_1_types_a5b0ccaf4d275b58e6e4ddd2cc125a348}} 
+\index{HeaderTech::Profiler::Types@{HeaderTech::Profiler::Types}!CpuProfileMap@{CpuProfileMap}}
+\index{CpuProfileMap@{CpuProfileMap}!HeaderTech::Profiler::Types@{HeaderTech::Profiler::Types}}
+\doxysubsubsection{\texorpdfstring{CpuProfileMap}{CpuProfileMap}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_a5b0ccaf4d275b58e6e4ddd2cc125a348}{Header\+Tech\+::\+Profiler\+::\+Types\+::\+Cpu\+Profile\+Map}} = typedef phmap\+::parallel\+\_\+flat\+\_\+hash\+\_\+map$<$ Cpu\+Profile\+Hash, \mbox{\hyperlink{struct_header_tech_1_1_profiler_1_1_types_1_1_cpu_profile}{Cpu\+Profile}}, \mbox{\hyperlink{struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_hashing}{detail\+::\+Cpu\+Profile\+Hashing}}, \mbox{\hyperlink{struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_equal_to}{detail\+::\+Cpu\+Profile\+Equal\+To}} $>$}
+
+
+
+Definition at line 88 of file Profiler\+Types.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabc}\label{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabc}} 
+\index{HeaderTech::Profiler::Types@{HeaderTech::Profiler::Types}!ScopedProfilerFlags@{ScopedProfilerFlags}}
+\index{ScopedProfilerFlags@{ScopedProfilerFlags}!HeaderTech::Profiler::Types@{HeaderTech::Profiler::Types}}
+\doxysubsubsection{\texorpdfstring{ScopedProfilerFlags}{ScopedProfilerFlags}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabc}{Header\+Tech\+::\+Profiler\+::\+Types\+::\+Scoped\+Profiler\+Flags}} \+: std\+::uint8\+\_\+t}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ScopedProfilerFlags\_None@{ScopedProfilerFlags\_None}!HeaderTech::Profiler::Types@{HeaderTech::Profiler::Types}}\index{HeaderTech::Profiler::Types@{HeaderTech::Profiler::Types}!ScopedProfilerFlags\_None@{ScopedProfilerFlags\_None}}}\mbox{\Hypertarget{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabcac58b5ac2d4405df2e0db2b1e95ca006f}\label{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabcac58b5ac2d4405df2e0db2b1e95ca006f}} 
+Scoped\+Profiler\+Flags\+\_\+\+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ScopedProfilerFlags\_Aggregate@{ScopedProfilerFlags\_Aggregate}!HeaderTech::Profiler::Types@{HeaderTech::Profiler::Types}}\index{HeaderTech::Profiler::Types@{HeaderTech::Profiler::Types}!ScopedProfilerFlags\_Aggregate@{ScopedProfilerFlags\_Aggregate}}}\mbox{\Hypertarget{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabca2b5f02afae5eaff11bf29f3e8d546e47}\label{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabca2b5f02afae5eaff11bf29f3e8d546e47}} 
+Scoped\+Profiler\+Flags\+\_\+\+Aggregate&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ScopedProfilerFlags\_Recursive@{ScopedProfilerFlags\_Recursive}!HeaderTech::Profiler::Types@{HeaderTech::Profiler::Types}}\index{HeaderTech::Profiler::Types@{HeaderTech::Profiler::Types}!ScopedProfilerFlags\_Recursive@{ScopedProfilerFlags\_Recursive}}}\mbox{\Hypertarget{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabcae6b60903ffc3ae85fcafed8af8585b9e}\label{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabcae6b60903ffc3ae85fcafed8af8585b9e}} 
+Scoped\+Profiler\+Flags\+\_\+\+Recursive&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 32 of file Profiler\+Types.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespace_header_tech_1_1_profiler_1_1_types_ace2731b649a1f677a61deef9adf46259}\label{namespace_header_tech_1_1_profiler_1_1_types_ace2731b649a1f677a61deef9adf46259}} 
+\index{HeaderTech::Profiler::Types@{HeaderTech::Profiler::Types}!NLOHMANN\_JSON\_SERIALIZE\_ENUM@{NLOHMANN\_JSON\_SERIALIZE\_ENUM}}
+\index{NLOHMANN\_JSON\_SERIALIZE\_ENUM@{NLOHMANN\_JSON\_SERIALIZE\_ENUM}!HeaderTech::Profiler::Types@{HeaderTech::Profiler::Types}}
+\doxysubsubsection{\texorpdfstring{NLOHMANN\_JSON\_SERIALIZE\_ENUM()}{NLOHMANN\_JSON\_SERIALIZE\_ENUM()}}
+{\footnotesize\ttfamily Header\+Tech\+::\+Profiler\+::\+Types\+::\+NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabc}{Scoped\+Profiler\+Flags}}}]{,  }\item[{\{ \{ \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabcac58b5ac2d4405df2e0db2b1e95ca006f}{Scoped\+Profiler\+Flags\+\_\+\+None}}, \char`\"{}none\char`\"{} \}, \{ Scoped\+Profiler\+Flags\+\_\+\+Aggregate, \char`\"{}aggregate\char`\"{} \}, \{ Scoped\+Profiler\+Flags\+\_\+\+Recursive, \char`\"{}recursive\char`\"{} \}, \}}]{ }\end{DoxyParamCaption})}
+

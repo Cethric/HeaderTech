@@ -6,11 +6,12 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(
         HeaderTech_Window_SRC
-        src/Window.cpp
+        src/WindowIncludes.cpp
 )
 
 set(
         HeaderTech_Window_INC
+        inc/WindowIncludes.h
         # Window Events
         inc/events/WindowPositionEvent.h
         inc/events/WindowSizeEvent.h
@@ -31,21 +32,19 @@ set(
         inc/events/FileDropEvent.h
         # Windowing
         inc/Window.h
-        inc/WindowTypes.h
-        inc/WindowBase.h
-        inc/WindowBase.inl
+        inc/Window.inl
         # Window APIs
-        inc/api/WindowApi.h
-        inc/api/WindowApi.inl
-        inc/api/BaseWindowApi.h
+        inc/api/WindowApiIncludes.h
+        inc/api/WindowApiIncludes.inl
         inc/api/opengl/OpenGLWindowApi.h
         inc/api/opengl/OpenGLWindowApi.inl
         inc/api/opengl/OpenGLWindowApiEvents.inl
-        inc/api/GLFWKeyMapping.h)
+        inc/api/GLFWKeyMapping.h
+)
 
 add_library(HeaderTech_Window STATIC ${HeaderTech_Window_SRC} ${HeaderTech_Window_INC})
 target_include_directories(HeaderTech_Window PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc/)
 target_include_directories(HeaderTech_Window PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/inc/)
 target_include_directories(HeaderTech_Window PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
-target_link_libraries(HeaderTech_Window PUBLIC HeaderTech_Logging HeaderTech_Profiler HeaderTech_Events HeaderTech_Config HeaderTech_Render)
+target_link_libraries(HeaderTech_Window PUBLIC HeaderTech_Logging HeaderTech_Profiler HeaderTech_Events HeaderTech_Config HeaderTech_Render HeaderTech_Core)
 target_link_libraries(HeaderTech_Window PUBLIC glfw::glfw3)

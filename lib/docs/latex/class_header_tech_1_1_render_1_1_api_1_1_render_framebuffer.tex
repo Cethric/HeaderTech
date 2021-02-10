@@ -1,0 +1,252 @@
+\hypertarget{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer}{}\doxysection{Header\+Tech\+::Render\+::Api\+::Render\+Framebuffer Class Reference}
+\label{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer}\index{HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}}
+
+
+{\ttfamily \#include $<$Render\+Framebuffer.\+h$>$}
+
+
+
+Inheritance diagram for Header\+Tech\+::Render\+::Api\+::Render\+Framebuffer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_aedef0f129d3d21bf5d4a1ff12e7b2ccf}{Render\+Framebuffer}} (int width, int height) noexcept
+\item 
+virtual \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a57511e8a445a5e58c12cd98d8992b949}{$\sim$\+Render\+Framebuffer}} () noexcept
+\item 
+virtual void \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a95d0eeece803ebf124443bd7bf3637c1}{Resize}} (int width, int height)
+\item 
+virtual void \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a44190ec70c9de67a9d86970471f8cf68}{Build}} ()
+\item 
+virtual void \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_ab2e4264abbb670d469a784d7b80c24be}{Destroy}} () noexcept
+\item 
+virtual void \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a0385520faf645e602cd3e2298829f693}{Lock}} () noexcept
+\item 
+virtual void \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a51f9d5206fa1b02cbc494a1beb0eec73}{Unlock}} () noexcept
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_ab328471eb9ea85d800a19f7210076d85}{m\+\_\+width}}
+\item 
+int \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_af82dc713f5a36e242c6223311ee02b34}{m\+\_\+height}}
+\item 
+bool \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a58af320b9cd7a237a692badaa214f52f}{m\+\_\+is\+Built}}
+\item 
+bool \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_ae388576edfe73ba26ac620b6e8fc5736}{m\+\_\+is\+Locked}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 9 of file Render\+Framebuffer.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_aedef0f129d3d21bf5d4a1ff12e7b2ccf}\label{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_aedef0f129d3d21bf5d4a1ff12e7b2ccf}} 
+\index{HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}!RenderFramebuffer@{RenderFramebuffer}}
+\index{RenderFramebuffer@{RenderFramebuffer}!HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}}
+\doxysubsubsection{\texorpdfstring{RenderFramebuffer()}{RenderFramebuffer()}}
+{\footnotesize\ttfamily Header\+Tech\+::\+Render\+::\+Api\+::\+Render\+Framebuffer\+::\+Render\+Framebuffer (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 11 of file Render\+Framebuffer.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a57511e8a445a5e58c12cd98d8992b949}\label{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a57511e8a445a5e58c12cd98d8992b949}} 
+\index{HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}!````~RenderFramebuffer@{$\sim$RenderFramebuffer}}
+\index{````~RenderFramebuffer@{$\sim$RenderFramebuffer}!HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}}
+\doxysubsubsection{\texorpdfstring{$\sim$RenderFramebuffer()}{~RenderFramebuffer()}}
+{\footnotesize\ttfamily Header\+Tech\+::\+Render\+::\+Api\+::\+Render\+Framebuffer\+::$\sim$\+Render\+Framebuffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 18 of file Render\+Framebuffer.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a57511e8a445a5e58c12cd98d8992b949_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a44190ec70c9de67a9d86970471f8cf68}\label{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a44190ec70c9de67a9d86970471f8cf68}} 
+\index{HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}!Build@{Build}}
+\index{Build@{Build}!HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}}
+\doxysubsubsection{\texorpdfstring{Build()}{Build()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Render\+::\+Api\+::\+Render\+Framebuffer\+::\+Build (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_ac7c9c8c4f7b99304d855a576042cfe8d}{Header\+Tech\+::\+Render\+::\+Api\+::\+Open\+GL\+::\+Open\+GLRender\+Framebuffer}}.
+
+
+
+Definition at line 30 of file Render\+Framebuffer.\+inl.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a44190ec70c9de67a9d86970471f8cf68_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_ab2e4264abbb670d469a784d7b80c24be}\label{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_ab2e4264abbb670d469a784d7b80c24be}} 
+\index{HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}}
+\doxysubsubsection{\texorpdfstring{Destroy()}{Destroy()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Render\+::\+Api\+::\+Render\+Framebuffer\+::\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_add7f7fa85ba8085768cf2d736c4a7092}{Header\+Tech\+::\+Render\+::\+Api\+::\+Open\+GL\+::\+Open\+GLRender\+Framebuffer}}.
+
+
+
+Definition at line 33 of file Render\+Framebuffer.\+inl.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_ab2e4264abbb670d469a784d7b80c24be_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a0385520faf645e602cd3e2298829f693}\label{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a0385520faf645e602cd3e2298829f693}} 
+\index{HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}!Lock@{Lock}}
+\index{Lock@{Lock}!HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}}
+\doxysubsubsection{\texorpdfstring{Lock()}{Lock()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Render\+::\+Api\+::\+Render\+Framebuffer\+::\+Lock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_afb15197adddf67d85da475f46aa85e2e}{Header\+Tech\+::\+Render\+::\+Api\+::\+Open\+GL\+::\+Open\+GLRender\+Framebuffer}}.
+
+
+
+Definition at line 36 of file Render\+Framebuffer.\+inl.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a0385520faf645e602cd3e2298829f693_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a95d0eeece803ebf124443bd7bf3637c1}\label{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a95d0eeece803ebf124443bd7bf3637c1}} 
+\index{HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}!Resize@{Resize}}
+\index{Resize@{Resize}!HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}}
+\doxysubsubsection{\texorpdfstring{Resize()}{Resize()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Render\+::\+Api\+::\+Render\+Framebuffer\+::\+Resize (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_a5f8e96a5f5245cef559c57d106f8f6bb}{Header\+Tech\+::\+Render\+::\+Api\+::\+Open\+GL\+::\+Open\+GLRender\+Framebuffer}}.
+
+
+
+Definition at line 21 of file Render\+Framebuffer.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a95d0eeece803ebf124443bd7bf3637c1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a95d0eeece803ebf124443bd7bf3637c1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a51f9d5206fa1b02cbc494a1beb0eec73}\label{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a51f9d5206fa1b02cbc494a1beb0eec73}} 
+\index{HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}!Unlock@{Unlock}}
+\index{Unlock@{Unlock}!HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}}
+\doxysubsubsection{\texorpdfstring{Unlock()}{Unlock()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Render\+::\+Api\+::\+Render\+Framebuffer\+::\+Unlock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_framebuffer_abe95733e39fdfb575750d274a14257f2}{Header\+Tech\+::\+Render\+::\+Api\+::\+Open\+GL\+::\+Open\+GLRender\+Framebuffer}}.
+
+
+
+Definition at line 39 of file Render\+Framebuffer.\+inl.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a51f9d5206fa1b02cbc494a1beb0eec73_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_af82dc713f5a36e242c6223311ee02b34}\label{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_af82dc713f5a36e242c6223311ee02b34}} 
+\index{HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}!m\_height@{m\_height}}
+\index{m\_height@{m\_height}!HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}}
+\doxysubsubsection{\texorpdfstring{m\_height}{m\_height}}
+{\footnotesize\ttfamily int Header\+Tech\+::\+Render\+::\+Api\+::\+Render\+Framebuffer\+::m\+\_\+height\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 27 of file Render\+Framebuffer.\+h.
+
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a58af320b9cd7a237a692badaa214f52f}\label{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_a58af320b9cd7a237a692badaa214f52f}} 
+\index{HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}!m\_isBuilt@{m\_isBuilt}}
+\index{m\_isBuilt@{m\_isBuilt}!HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}}
+\doxysubsubsection{\texorpdfstring{m\_isBuilt}{m\_isBuilt}}
+{\footnotesize\ttfamily bool Header\+Tech\+::\+Render\+::\+Api\+::\+Render\+Framebuffer\+::m\+\_\+is\+Built\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 28 of file Render\+Framebuffer.\+h.
+
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_ae388576edfe73ba26ac620b6e8fc5736}\label{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_ae388576edfe73ba26ac620b6e8fc5736}} 
+\index{HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}!m\_isLocked@{m\_isLocked}}
+\index{m\_isLocked@{m\_isLocked}!HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}}
+\doxysubsubsection{\texorpdfstring{m\_isLocked}{m\_isLocked}}
+{\footnotesize\ttfamily bool Header\+Tech\+::\+Render\+::\+Api\+::\+Render\+Framebuffer\+::m\+\_\+is\+Locked\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 29 of file Render\+Framebuffer.\+h.
+
+\mbox{\Hypertarget{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_ab328471eb9ea85d800a19f7210076d85}\label{class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer_ab328471eb9ea85d800a19f7210076d85}} 
+\index{HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}!m\_width@{m\_width}}
+\index{m\_width@{m\_width}!HeaderTech::Render::Api::RenderFramebuffer@{HeaderTech::Render::Api::RenderFramebuffer}}
+\doxysubsubsection{\texorpdfstring{m\_width}{m\_width}}
+{\footnotesize\ttfamily int Header\+Tech\+::\+Render\+::\+Api\+::\+Render\+Framebuffer\+::m\+\_\+width\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 26 of file Render\+Framebuffer.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+render/inc/api/\mbox{\hyperlink{_render_framebuffer_8h}{Render\+Framebuffer.\+h}}\item 
+render/inc/api/\mbox{\hyperlink{_render_framebuffer_8inl}{Render\+Framebuffer.\+inl}}\end{DoxyCompactItemize}

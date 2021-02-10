@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_header_tech_1_1_config" xml:lang="en-US">
+<title>HeaderTech::Config Namespace Reference</title>
+<indexterm><primary>HeaderTech::Config</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_config_1_1_render_config">RenderConfig</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_config_1_1_window_config">WindowConfig</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_config_1_1_runtime_config">RuntimeConfig</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_namespace_header_tech_1_1_config_1a470b5f1acd0d0ad1ffe5e7dcdd38bec1">RenderConfigApi</link> { <link linkend="_namespace_header_tech_1_1_config_1a470b5f1acd0d0ad1ffe5e7dcdd38bec1a907425ba2015cd223cf1b3261a35b67e">RenderConfigApi_OpenGL</link>
+, <link linkend="_namespace_header_tech_1_1_config_1a470b5f1acd0d0ad1ffe5e7dcdd38bec1a9f5c4e8a5396fd19693fb4899d3496ef">RenderConfigApi_Vulkan</link>
+, <link linkend="_namespace_header_tech_1_1_config_1a470b5f1acd0d0ad1ffe5e7dcdd38bec1ae4107177c53f09416b0dc47c3ef4f5dd">RenderConfigApi_Metal</link>
+, <link linkend="_namespace_header_tech_1_1_config_1a470b5f1acd0d0ad1ffe5e7dcdd38bec1a7d2ffe355808d234eecbd5bacbee5896">RenderConfigApi_Direct3D</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_struct_header_tech_1_1_config_1_1_runtime_config">RuntimeConfig</link> <link linkend="_namespace_header_tech_1_1_config_1a8130bc6cbcc2ad78c4f4104811dc94f2">BuildConfiguration</link> (int argc, const char **argv)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_namespace_header_tech_1_1_config_1a470b5f1acd0d0ad1ffe5e7dcdd38bec1"/>    <section>
+    <title>RenderConfigApi</title>
+<indexterm><primary>RenderConfigApi</primary><secondary>HeaderTech::Config</secondary></indexterm>
+<indexterm><primary>HeaderTech::Config</primary><secondary>RenderConfigApi</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_namespace_header_tech_1_1_config_1a470b5f1acd0d0ad1ffe5e7dcdd38bec1">HeaderTech::Config::RenderConfigApi</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>RenderConfigApi_OpenGL</primary><secondary>HeaderTech::Config</secondary></indexterm>
+<indexterm><primary>HeaderTech::Config</primary><secondary>RenderConfigApi_OpenGL</secondary></indexterm>
+<anchor xml:id="_namespace_header_tech_1_1_config_1a470b5f1acd0d0ad1ffe5e7dcdd38bec1a907425ba2015cd223cf1b3261a35b67e"/>RenderConfigApi_OpenGL</entry><entry></entry></row><row><entry><indexterm><primary>RenderConfigApi_Vulkan</primary><secondary>HeaderTech::Config</secondary></indexterm>
+<indexterm><primary>HeaderTech::Config</primary><secondary>RenderConfigApi_Vulkan</secondary></indexterm>
+<anchor xml:id="_namespace_header_tech_1_1_config_1a470b5f1acd0d0ad1ffe5e7dcdd38bec1a9f5c4e8a5396fd19693fb4899d3496ef"/>RenderConfigApi_Vulkan</entry><entry></entry></row><row><entry><indexterm><primary>RenderConfigApi_Metal</primary><secondary>HeaderTech::Config</secondary></indexterm>
+<indexterm><primary>HeaderTech::Config</primary><secondary>RenderConfigApi_Metal</secondary></indexterm>
+<anchor xml:id="_namespace_header_tech_1_1_config_1a470b5f1acd0d0ad1ffe5e7dcdd38bec1ae4107177c53f09416b0dc47c3ef4f5dd"/>RenderConfigApi_Metal</entry><entry></entry></row><row><entry><indexterm><primary>RenderConfigApi_Direct3D</primary><secondary>HeaderTech::Config</secondary></indexterm>
+<indexterm><primary>HeaderTech::Config</primary><secondary>RenderConfigApi_Direct3D</secondary></indexterm>
+<anchor xml:id="_namespace_header_tech_1_1_config_1a470b5f1acd0d0ad1ffe5e7dcdd38bec1a7d2ffe355808d234eecbd5bacbee5896"/>RenderConfigApi_Direct3D</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line 9 of file RuntimeConfig.h.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_namespace_header_tech_1_1_config_1a8130bc6cbcc2ad78c4f4104811dc94f2"/>    <section>
+    <title>BuildConfiguration()</title>
+<indexterm><primary>BuildConfiguration</primary><secondary>HeaderTech::Config</secondary></indexterm>
+<indexterm><primary>HeaderTech::Config</primary><secondary>BuildConfiguration</secondary></indexterm>
+<para><computeroutput><link linkend="_struct_header_tech_1_1_config_1_1_runtime_config">RuntimeConfig</link> HeaderTech::Config::BuildConfiguration (int argc, const char ** argv)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 31 of file RuntimeConfig.h.</para>
+</section>
+</section>
+</section>

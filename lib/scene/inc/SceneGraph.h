@@ -68,7 +68,7 @@ namespace HeaderTech::Scene {
         inline void RenderDebugGUI() noexcept;
 
     protected:
-        inline bool IsKeyPressed(HeaderTech::Window::KeyType key) noexcept;
+        inline bool IsKeyPressed(HeaderTech::Core::KeyType key) noexcept;
 
         virtual inline void OnActivated() noexcept = 0;
 

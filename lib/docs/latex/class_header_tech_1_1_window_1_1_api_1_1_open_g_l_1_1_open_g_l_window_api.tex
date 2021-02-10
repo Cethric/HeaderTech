@@ -1,0 +1,238 @@
+\hypertarget{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api}{}\doxysection{Header\+Tech\+::Window\+::Api\+::Open\+GL\+::Open\+GLWindow\+Api Class Reference}
+\label{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api}\index{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}}
+
+
+{\ttfamily \#include $<$Open\+GLWindow\+Api.\+h$>$}
+
+
+
+Inheritance diagram for Header\+Tech\+::Window\+::Api\+::Open\+GL\+::Open\+GLWindow\+Api\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Header\+Tech\+::Window\+::Api\+::Open\+GL\+::Open\+GLWindow\+Api\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a75e989329acdee8b4c20261136bfaedc}{Open\+GLWindow\+Api}} (const \mbox{\hyperlink{struct_header_tech_1_1_config_1_1_window_config}{Header\+Tech\+::\+Config\+::\+Window\+Config}} \&config, \mbox{\hyperlink{class_header_tech_1_1_events_1_1_event_dispatcher}{Header\+Tech\+::\+Events\+::\+Event\+Dispatcher}} $\ast$dispatcher, GLFWwindow $\ast$shared=nullptr) noexcept
+\item 
+\mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a885b80f564a49854e4818ff574dfad58}{$\sim$\+Open\+GLWindow\+Api}} () noexcept final
+\item 
+bool \mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a423b3b4494c694f73b2733ea98f9493d}{Is\+Open}} () noexcept final
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_ae0f85487773e93bb08e84d3e8bb99256}{Swap\+Buffers}} () noexcept final
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_affd8ea0629144010767d1072c427da50}{Toggle\+Fullscreen}} () noexcept final
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_aacdf12e27034d400555a8df31d4666f6}{Make\+Current}} () noexcept final
+\item 
+GLFWwindow $\ast$ \mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a8708b425b650630d835acee99e6eae40}{Get\+Owned\+Window}} () const noexcept
+\item 
+int \mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a422475c878d1a332adacb8030ef66e37}{Get\+Width}} () const noexcept final
+\item 
+int \mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a75ac17c301389fce946b538dee15331d}{Get\+Height}} () const noexcept final
+\item 
+bool \mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a550d2df5a35147c8bac045a91d47fd17}{Is\+Key\+Pressed}} (\mbox{\hyperlink{namespace_header_tech_1_1_window_a7acdd182dd046ccf26fa885357162eac}{Key\+Type}} key) const noexcept final
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_af781e46028bdee957977621c2f87e5d7}{Link\+Events}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+GLFWwindow $\ast$ \mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_adbd09f3ed2694e54b491a8a9d66a506b}{m\+\_\+window}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 17 of file Open\+GLWindow\+Api.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a75e989329acdee8b4c20261136bfaedc}\label{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a75e989329acdee8b4c20261136bfaedc}} 
+\index{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}!OpenGLWindowApi@{OpenGLWindowApi}}
+\index{OpenGLWindowApi@{OpenGLWindowApi}!HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}}
+\doxysubsubsection{\texorpdfstring{OpenGLWindowApi()}{OpenGLWindowApi()}}
+{\footnotesize\ttfamily Header\+Tech\+::\+Window\+::\+Api\+::\+Open\+GL\+::\+Open\+GLWindow\+Api\+::\+Open\+GLWindow\+Api (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_header_tech_1_1_config_1_1_window_config}{Header\+Tech\+::\+Config\+::\+Window\+Config}} \&}]{config,  }\item[{\mbox{\hyperlink{class_header_tech_1_1_events_1_1_event_dispatcher}{Header\+Tech\+::\+Events\+::\+Event\+Dispatcher}} $\ast$}]{dispatcher,  }\item[{GLFWwindow $\ast$}]{shared = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 20 of file Open\+GLWindow\+Api.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a885b80f564a49854e4818ff574dfad58}\label{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a885b80f564a49854e4818ff574dfad58}} 
+\index{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}!````~OpenGLWindowApi@{$\sim$OpenGLWindowApi}}
+\index{````~OpenGLWindowApi@{$\sim$OpenGLWindowApi}!HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}}
+\doxysubsubsection{\texorpdfstring{$\sim$OpenGLWindowApi()}{~OpenGLWindowApi()}}
+{\footnotesize\ttfamily Header\+Tech\+::\+Window\+::\+Api\+::\+Open\+GL\+::\+Open\+GLWindow\+Api\+::$\sim$\+Open\+GLWindow\+Api (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 37 of file Open\+GLWindow\+Api.\+inl.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a75ac17c301389fce946b538dee15331d}\label{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a75ac17c301389fce946b538dee15331d}} 
+\index{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}!GetHeight@{GetHeight}}
+\index{GetHeight@{GetHeight}!HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}}
+\doxysubsubsection{\texorpdfstring{GetHeight()}{GetHeight()}}
+{\footnotesize\ttfamily int Header\+Tech\+::\+Window\+::\+Api\+::\+Open\+GL\+::\+Open\+GLWindow\+Api\+::\+Get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Implements \mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_window_api_a3f3700b4cb877440f8846684a66767c9}{Header\+Tech\+::\+Window\+::\+Api\+::\+Window\+Api}}.
+
+
+
+Definition at line 101 of file Open\+GLWindow\+Api.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a8708b425b650630d835acee99e6eae40}\label{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a8708b425b650630d835acee99e6eae40}} 
+\index{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}!GetOwnedWindow@{GetOwnedWindow}}
+\index{GetOwnedWindow@{GetOwnedWindow}!HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}}
+\doxysubsubsection{\texorpdfstring{GetOwnedWindow()}{GetOwnedWindow()}}
+{\footnotesize\ttfamily GLFWwindow $\ast$ Header\+Tech\+::\+Window\+::\+Api\+::\+Open\+GL\+::\+Open\+GLWindow\+Api\+::\+Get\+Owned\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 90 of file Open\+GLWindow\+Api.\+inl.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a8708b425b650630d835acee99e6eae40_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a422475c878d1a332adacb8030ef66e37}\label{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a422475c878d1a332adacb8030ef66e37}} 
+\index{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}!GetWidth@{GetWidth}}
+\index{GetWidth@{GetWidth}!HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}}
+\doxysubsubsection{\texorpdfstring{GetWidth()}{GetWidth()}}
+{\footnotesize\ttfamily int Header\+Tech\+::\+Window\+::\+Api\+::\+Open\+GL\+::\+Open\+GLWindow\+Api\+::\+Get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Implements \mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_window_api_a047720152b7648ddc4f07857994e7873}{Header\+Tech\+::\+Window\+::\+Api\+::\+Window\+Api}}.
+
+
+
+Definition at line 93 of file Open\+GLWindow\+Api.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a550d2df5a35147c8bac045a91d47fd17}\label{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a550d2df5a35147c8bac045a91d47fd17}} 
+\index{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}!IsKeyPressed@{IsKeyPressed}}
+\index{IsKeyPressed@{IsKeyPressed}!HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}}
+\doxysubsubsection{\texorpdfstring{IsKeyPressed()}{IsKeyPressed()}}
+{\footnotesize\ttfamily bool Header\+Tech\+::\+Window\+::\+Api\+::\+Open\+GL\+::\+Open\+GLWindow\+Api\+::\+Is\+Key\+Pressed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_header_tech_1_1_window_a7acdd182dd046ccf26fa885357162eac}{Key\+Type}}}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Implements \mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_window_api_a7d26cd4a3d4bae5376e195506b8ec75c}{Header\+Tech\+::\+Window\+::\+Api\+::\+Window\+Api}}.
+
+
+
+Definition at line 109 of file Open\+GLWindow\+Api.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a423b3b4494c694f73b2733ea98f9493d}\label{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_a423b3b4494c694f73b2733ea98f9493d}} 
+\index{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}!IsOpen@{IsOpen}}
+\index{IsOpen@{IsOpen}!HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}}
+\doxysubsubsection{\texorpdfstring{IsOpen()}{IsOpen()}}
+{\footnotesize\ttfamily bool Header\+Tech\+::\+Window\+::\+Api\+::\+Open\+GL\+::\+Open\+GLWindow\+Api\+::\+Is\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Implements \mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_window_api_af6666c775dcc18ef0759e67d78bb831d}{Header\+Tech\+::\+Window\+::\+Api\+::\+Window\+Api}}.
+
+
+
+Definition at line 43 of file Open\+GLWindow\+Api.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_af781e46028bdee957977621c2f87e5d7}\label{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_af781e46028bdee957977621c2f87e5d7}} 
+\index{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}!LinkEvents@{LinkEvents}}
+\index{LinkEvents@{LinkEvents}!HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}}
+\doxysubsubsection{\texorpdfstring{LinkEvents()}{LinkEvents()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Window\+::\+Api\+::\+Open\+GL\+::\+Open\+GLWindow\+Api\+::\+Link\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 175 of file Open\+GLWindow\+Api\+Events.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_aacdf12e27034d400555a8df31d4666f6}\label{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_aacdf12e27034d400555a8df31d4666f6}} 
+\index{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}!MakeCurrent@{MakeCurrent}}
+\index{MakeCurrent@{MakeCurrent}!HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}}
+\doxysubsubsection{\texorpdfstring{MakeCurrent()}{MakeCurrent()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Window\+::\+Api\+::\+Open\+GL\+::\+Open\+GLWindow\+Api\+::\+Make\+Current (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Implements \mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_window_api_af42e9aa8e65103b7c75859257dbbeac5}{Header\+Tech\+::\+Window\+::\+Api\+::\+Window\+Api}}.
+
+
+
+Definition at line 87 of file Open\+GLWindow\+Api.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_ae0f85487773e93bb08e84d3e8bb99256}\label{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_ae0f85487773e93bb08e84d3e8bb99256}} 
+\index{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}!SwapBuffers@{SwapBuffers}}
+\index{SwapBuffers@{SwapBuffers}!HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}}
+\doxysubsubsection{\texorpdfstring{SwapBuffers()}{SwapBuffers()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Window\+::\+Api\+::\+Open\+GL\+::\+Open\+GLWindow\+Api\+::\+Swap\+Buffers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Implements \mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_window_api_af354c567ea5b9b64fe8fe354a4248bbd}{Header\+Tech\+::\+Window\+::\+Api\+::\+Window\+Api}}.
+
+
+
+Definition at line 46 of file Open\+GLWindow\+Api.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_affd8ea0629144010767d1072c427da50}\label{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_affd8ea0629144010767d1072c427da50}} 
+\index{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}!ToggleFullscreen@{ToggleFullscreen}}
+\index{ToggleFullscreen@{ToggleFullscreen}!HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}}
+\doxysubsubsection{\texorpdfstring{ToggleFullscreen()}{ToggleFullscreen()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Window\+::\+Api\+::\+Open\+GL\+::\+Open\+GLWindow\+Api\+::\+Toggle\+Fullscreen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Implements \mbox{\hyperlink{class_header_tech_1_1_window_1_1_api_1_1_window_api_a64006a444644e4864b345fb978437f95}{Header\+Tech\+::\+Window\+::\+Api\+::\+Window\+Api}}.
+
+
+
+Definition at line 49 of file Open\+GLWindow\+Api.\+inl.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_adbd09f3ed2694e54b491a8a9d66a506b}\label{class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_adbd09f3ed2694e54b491a8a9d66a506b}} 
+\index{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}!m\_window@{m\_window}}
+\index{m\_window@{m\_window}!HeaderTech::Window::Api::OpenGL::OpenGLWindowApi@{HeaderTech::Window::Api::OpenGL::OpenGLWindowApi}}
+\doxysubsubsection{\texorpdfstring{m\_window}{m\_window}}
+{\footnotesize\ttfamily GLFWwindow$\ast$ Header\+Tech\+::\+Window\+::\+Api\+::\+Open\+GL\+::\+Open\+GLWindow\+Api\+::m\+\_\+window\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 47 of file Open\+GLWindow\+Api.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+window/inc/api/opengl/\mbox{\hyperlink{_open_g_l_window_api_8h}{Open\+GLWindow\+Api.\+h}}\item 
+window/inc/api/opengl/\mbox{\hyperlink{_open_g_l_window_api_8inl}{Open\+GLWindow\+Api.\+inl}}\item 
+window/inc/api/opengl/\mbox{\hyperlink{_open_g_l_window_api_events_8inl}{Open\+GLWindow\+Api\+Events.\+inl}}\end{DoxyCompactItemize}

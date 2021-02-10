@@ -72,7 +72,7 @@ namespace HeaderTech::Scene {
         }
     }
 
-    inline bool SceneGraph::IsKeyPressed(HeaderTech::Window::KeyType key) noexcept
+    inline bool SceneGraph::IsKeyPressed(HeaderTech::Core::KeyType key) noexcept
     {
         return Runtime()->GetWindow().IsKeyPressed(key);
     }

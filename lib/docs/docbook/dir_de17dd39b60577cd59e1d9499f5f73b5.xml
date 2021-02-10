@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_de17dd39b60577cd59e1d9499f5f73b5" xml:lang="en-US">
+<title>filesystem/inc/scoped Directory Reference</title>
+<indexterm><primary>filesystem/inc/scoped Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__scoped_file_system_8h">ScopedFileSystem.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

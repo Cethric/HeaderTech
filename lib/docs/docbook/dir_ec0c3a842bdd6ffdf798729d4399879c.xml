@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_ec0c3a842bdd6ffdf798729d4399879c" xml:lang="en-US">
+<title>window/inc/events Directory Reference</title>
+<indexterm><primary>window/inc/events Directory Reference</primary></indexterm>
+Directory dependency graph for events:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_ec0c3a842bdd6ffdf798729d4399879c_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__char_event_8h">CharEvent.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__char_mods_event_8h">CharModsEvent.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__cursor_enter_event_8h">CursorEnterEvent.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__cursor_position_event_8h">CursorPositionEvent.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__file_drop_event_8h">FileDropEvent.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__framebuffer_size_event_8h">FramebufferSizeEvent.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__key_event_8h">KeyEvent.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__mouse_button_event_8h">MouseButtonEvent.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__scroll_event_8h">ScrollEvent.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__window_close_event_8h">WindowCloseEvent.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__window_content_scale_event_8h">WindowContentScaleEvent.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__window_focus_event_8h">WindowFocusEvent.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__window_iconify_event_8h">WindowIconifyEvent.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__window_maximize_event_8h">WindowMaximizeEvent.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__window_position_event_8h">WindowPositionEvent.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__window_refresh_event_8h">WindowRefreshEvent.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__window_size_event_8h">WindowSizeEvent.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

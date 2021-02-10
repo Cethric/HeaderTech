@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api" xml:lang="en-US">
+<title>HeaderTech::Render::Api::RenderContextApi Class Reference</title>
+<indexterm><primary>HeaderTech::Render::Api::RenderContextApi</primary></indexterm>
+<para>
+<computeroutput>#include &lt;BaseRenderContextApi.h&gt;</computeroutput>
+</para>
+Inheritance diagram for HeaderTech::Render::Api::RenderContextApi:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_render_context_api__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for HeaderTech::Render::Api::RenderContextApi:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_render_context_api__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1a062bb95e59eca789b0631120f479f648">RenderContextApi</link> (<link linkend="_class_header_tech_1_1_window_1_1_api_1_1_window_api">HeaderTech::Window::Api::WindowApi</link> *api) noexcept</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1a437c531bfd07ce1a3cc2256a64dce619">~RenderContextApi</link> () noexcept=default</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1a29505869128e0871d8ecb11a1646f9a5">MakeCurrent</link> () noexcept</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1abb2a74ec2d88d7bc77aa8ff0c2325a17">PrepareRenderDebugGUI</link> () noexcept=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1a7c551a3cc1c91c36fc78f8e0c7f94667">DestroyRenderDebugGUI</link> () noexcept=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1aa86fa95b7ee5a814ec01ab699fbf8690">WillRenderDebugGUI</link> () noexcept=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1a4b5b0d74e05c31632ea5ecce4cfb0e01">DidRenderDebugGUI</link> () noexcept=0</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer">RenderFramebuffer</link> * <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1a6b34767e92634cc2b22af099a2f1a168">CreateFramebuffer</link> (int width, int height) noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_window_1_1_api_1_1_window_api">HeaderTech::Window::Api::WindowApi</link> * <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1ae66ed25baffbe94ec4ddd0ca2b25be8a">m_api</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 14 of file BaseRenderContextApi.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1a062bb95e59eca789b0631120f479f648"/>    <section>
+    <title>RenderContextApi()</title>
+<indexterm><primary>RenderContextApi</primary><secondary>HeaderTech::Render::Api::RenderContextApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderContextApi</primary><secondary>RenderContextApi</secondary></indexterm>
+<para><computeroutput>HeaderTech::Render::Api::RenderContextApi::RenderContextApi (<link linkend="_class_header_tech_1_1_window_1_1_api_1_1_window_api">HeaderTech::Window::Api::WindowApi</link> * api)<computeroutput>[inline]</computeroutput>, <computeroutput>[explicit]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 16 of file BaseRenderContextApi.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1a437c531bfd07ce1a3cc2256a64dce619"/>    <section>
+    <title>~RenderContextApi()</title>
+<indexterm><primary>~RenderContextApi</primary><secondary>HeaderTech::Render::Api::RenderContextApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderContextApi</primary><secondary>~RenderContextApi</secondary></indexterm>
+<para><computeroutput>virtual HeaderTech::Render::Api::RenderContextApi::~RenderContextApi ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[default]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1a6b34767e92634cc2b22af099a2f1a168"/>    <section>
+    <title>CreateFramebuffer()</title>
+<indexterm><primary>CreateFramebuffer</primary><secondary>HeaderTech::Render::Api::RenderContextApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderContextApi</primary><secondary>CreateFramebuffer</secondary></indexterm>
+<para><computeroutput>virtual <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_render_framebuffer">RenderFramebuffer</link>* HeaderTech::Render::Api::RenderContextApi::CreateFramebuffer (int width, int height)<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Reimplemented in <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_1af86811ac70a64122001818d807683a62">HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</link>.</para>
+<para>
+Definition at line 35 of file BaseRenderContextApi.h.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_render_context_api_a6b34767e92634cc2b22af099a2f1a168_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1a7c551a3cc1c91c36fc78f8e0c7f94667"/>    <section>
+    <title>DestroyRenderDebugGUI()</title>
+<indexterm><primary>DestroyRenderDebugGUI</primary><secondary>HeaderTech::Render::Api::RenderContextApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderContextApi</primary><secondary>DestroyRenderDebugGUI</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Render::Api::RenderContextApi::DestroyRenderDebugGUI ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Implemented in <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_1abf4c5fda9808750d38e1437c6ed6d1bf">HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</link>.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1a4b5b0d74e05c31632ea5ecce4cfb0e01"/>    <section>
+    <title>DidRenderDebugGUI()</title>
+<indexterm><primary>DidRenderDebugGUI</primary><secondary>HeaderTech::Render::Api::RenderContextApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderContextApi</primary><secondary>DidRenderDebugGUI</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Render::Api::RenderContextApi::DidRenderDebugGUI ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Implemented in <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_1adf8ee6e37f856e53d162832c8a2ec0e1">HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_render_context_api_a4b5b0d74e05c31632ea5ecce4cfb0e01_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1a29505869128e0871d8ecb11a1646f9a5"/>    <section>
+    <title>MakeCurrent()</title>
+<indexterm><primary>MakeCurrent</primary><secondary>HeaderTech::Render::Api::RenderContextApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderContextApi</primary><secondary>MakeCurrent</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Render::Api::RenderContextApi::MakeCurrent ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 22 of file BaseRenderContextApi.h.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_render_context_api_a29505869128e0871d8ecb11a1646f9a5_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_render_context_api_a29505869128e0871d8ecb11a1646f9a5_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1abb2a74ec2d88d7bc77aa8ff0c2325a17"/>    <section>
+    <title>PrepareRenderDebugGUI()</title>
+<indexterm><primary>PrepareRenderDebugGUI</primary><secondary>HeaderTech::Render::Api::RenderContextApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderContextApi</primary><secondary>PrepareRenderDebugGUI</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Render::Api::RenderContextApi::PrepareRenderDebugGUI ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Implemented in <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_1a22a0b44cd0440b1c9f427d1086b46a6c">HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</link>.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1aa86fa95b7ee5a814ec01ab699fbf8690"/>    <section>
+    <title>WillRenderDebugGUI()</title>
+<indexterm><primary>WillRenderDebugGUI</primary><secondary>HeaderTech::Render::Api::RenderContextApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderContextApi</primary><secondary>WillRenderDebugGUI</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Render::Api::RenderContextApi::WillRenderDebugGUI ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Implemented in <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api_1a80d6a4ff4b764bdf70ab52bf4f4bc720">HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_render_1_1_api_1_1_render_context_api_aa86fa95b7ee5a814ec01ab699fbf8690_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_render_1_1_api_1_1_render_context_api_1ae66ed25baffbe94ec4ddd0ca2b25be8a"/>    <section>
+    <title>m_api</title>
+<indexterm><primary>m_api</primary><secondary>HeaderTech::Render::Api::RenderContextApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Render::Api::RenderContextApi</primary><secondary>m_api</secondary></indexterm>
+<para><computeroutput><link linkend="_class_header_tech_1_1_window_1_1_api_1_1_window_api">HeaderTech::Window::Api::WindowApi</link>* HeaderTech::Render::Api::RenderContextApi::m_api<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line 39 of file BaseRenderContextApi.h.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+render/inc/api/<link linkend="__base_render_context_api_8h">BaseRenderContextApi.h</link></section>
+</section>

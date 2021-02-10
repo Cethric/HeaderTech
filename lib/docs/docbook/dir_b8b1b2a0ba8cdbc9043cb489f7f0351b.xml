@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_b8b1b2a0ba8cdbc9043cb489f7f0351b" xml:lang="en-US">
+<title>profiler Directory Reference</title>
+<indexterm><primary>profiler Directory Reference</primary></indexterm>
+Directory dependency graph for profiler:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_b8b1b2a0ba8cdbc9043cb489f7f0351b_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_e86361f689162fc88bc1981a300cc190">inc</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_7779d62ca9ddc7df04f5adb7b213796b">src</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_074961d3df1f2df87dfe79b516b729c4">ui</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

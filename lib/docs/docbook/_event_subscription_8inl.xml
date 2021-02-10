@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__event_subscription_8inl" xml:lang="en-US">
+<title>events/inc/EventSubscription.inl File Reference</title>
+<indexterm><primary>events/inc/EventSubscription.inl</primary></indexterm>
+<programlisting>#include &lt;EventSubscription.h&gt;
+#include &lt;type_traits&gt;
+</programlisting>Include dependency graph for EventSubscription.inl:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_event_subscription_8inl__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_events">HeaderTech::Events</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_events_1_1detail">HeaderTech::Events::detail</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__event_subscription_8inl_1ad55ea81ac1e0b674e6568010271d07d7">HEADERTECH_EVENTSUBSCRIPTION_INL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>template&lt;EventType EventName, typename EventCallback &gt; </para><para>struct <link linkend="_namespace_header_tech_1_1_events_1_1detail_1abc085866ca019e174383b4a05e192fb9">HeaderTech::Events::detail::__declspec</link> (novtable) SubscriptionBase</para>
+</listitem>
+            <listitem><para>template&lt;EventType EventName, typename EventFunction &gt; </para><para><link linkend="_namespace_header_tech_1_1_events_1_1detail_1aa130068865141ec36662732ba0fb330a">HeaderTech::Events::detail::__declspec</link> (noalias) static const expr inline void subscription_destructor(void *function) noexcept</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_header_tech_1_1_events_1_1detail_1ace13bc1197f21344a435bf289ba95da5">HeaderTech::Events::detail::if</link> (cast)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>const EventPtr &amp;event <link linkend="_namespace_header_tech_1_1_events_1_1detail_1afe6bc6e32140bfb1db6be0bad6914b7f">HeaderTech::Events::detail::noexcept</link></para>
+</listitem>
+            <listitem><para>auto <link linkend="_namespace_header_tech_1_1_events_1_1detail_1a749cb59b304c739d73f90e65010a40d6">HeaderTech::Events::detail::base</link> = static_cast&lt;Caller *&gt;(function)</para>
+</listitem>
+            <listitem><para>auto <link linkend="_namespace_header_tech_1_1_events_1_1detail_1a6f44eb79b01ca27d780e15e8fc1287ae">HeaderTech::Events::detail::cast</link> = event-&gt;Cast&lt;EventName&gt;()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__event_subscription_8inl_1ad55ea81ac1e0b674e6568010271d07d7"/>    <section>
+    <title>HEADERTECH_EVENTSUBSCRIPTION_INL</title>
+<indexterm><primary>HEADERTECH_EVENTSUBSCRIPTION_INL</primary><secondary>EventSubscription.inl</secondary></indexterm>
+<indexterm><primary>EventSubscription.inl</primary><secondary>HEADERTECH_EVENTSUBSCRIPTION_INL</secondary></indexterm>
+<para><computeroutput>#define HEADERTECH_EVENTSUBSCRIPTION_INL</computeroutput></para><para>
+Definition at line 6 of file EventSubscription.inl.</para>
+</section>
+</section>
+</section>

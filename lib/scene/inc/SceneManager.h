@@ -5,7 +5,7 @@
 #ifndef HEADERTECH_SCENEMANAGER_H
 #define HEADERTECH_SCENEMANAGER_H
 
-#include <Logging.h>
+#include <LoggingIncludes.h>
 #include <thread>
 #include <vector>
 #include <SceneGraph.h>

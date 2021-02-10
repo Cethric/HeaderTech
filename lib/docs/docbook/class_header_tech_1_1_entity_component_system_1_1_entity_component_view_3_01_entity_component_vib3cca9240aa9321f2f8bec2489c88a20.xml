@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vib3cca9240aa9321f2f8bec2489c88a20" xml:lang="en-US">
+<title>HeaderTech::EntityComponentSystem::EntityComponentView&lt; EntityComponentViewExcludes&lt;&gt;, Include &gt; Class Template Reference</title>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityComponentView&lt; EntityComponentViewExcludes&lt;&gt;, Include &gt;</primary></indexterm>
+<para>
+<computeroutput>#include &lt;EntityComponentView.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vibecf92609f3f82b850d6f31bd11eadd3">view_iterator</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vib3cca9240aa9321f2f8bec2489c88a20_1a6e395eef9344428b8e396a88a44f679e">EntityComponentView</link> (<link linkend="_namespace_header_tech_1_1_entity_component_system_1ab448bf4617677ddd27ed204bedb5f653">DataSet</link>&lt; Include &gt; *include) noexcept</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vib3cca9240aa9321f2f8bec2489c88a20_1a4d3a8bae37db793db6a94c6ed8d0bc18">~EntityComponentView</link> () noexcept</para>
+</listitem>
+            <listitem><para>view_iterator <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vib3cca9240aa9321f2f8bec2489c88a20_1ac6a99053841274859b159cb1e073d967">begin</link> () noexcept</para>
+</listitem>
+            <listitem><para>view_iterator <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vib3cca9240aa9321f2f8bec2489c88a20_1a0444930fde9dcfa33d81e5557f09009c">end</link> () noexcept</para>
+</listitem>
+            <listitem><para>size_t <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vib3cca9240aa9321f2f8bec2489c88a20_1ac8023040b84a18e28085376210760663">Length</link> () const noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<simplesect><title>template&lt;Component Include&gt;
+class HeaderTech::EntityComponentSystem::EntityComponentView&lt; EntityComponentViewExcludes&lt;&gt;, Include &gt;</title></simplesect>
+
+<para>
+Definition at line 162 of file EntityComponentView.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vib3cca9240aa9321f2f8bec2489c88a20_1a6e395eef9344428b8e396a88a44f679e"/>    <section>
+    <title>EntityComponentView()</title>
+<indexterm><primary>EntityComponentView</primary><secondary>HeaderTech::EntityComponentSystem::EntityComponentView&lt; EntityComponentViewExcludes&lt;&gt;, Include &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityComponentView&lt; EntityComponentViewExcludes&lt;&gt;, Include &gt;</primary><secondary>EntityComponentView</secondary></indexterm>
+<computeroutput>template&lt;Component Include&gt; </computeroutput><para><computeroutput><link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view">HeaderTech::EntityComponentSystem::EntityComponentView</link>&lt; <link linkend="_struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes">EntityComponentViewExcludes</link>&lt;&gt;, Include &gt;::<link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view">EntityComponentView</link> (<link linkend="_namespace_header_tech_1_1_entity_component_system_1ab448bf4617677ddd27ed204bedb5f653">DataSet</link>&lt; Include &gt; * include)<computeroutput>[inline]</computeroutput>, <computeroutput>[explicit]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 248 of file EntityComponentView.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vib3cca9240aa9321f2f8bec2489c88a20_1a4d3a8bae37db793db6a94c6ed8d0bc18"/>    <section>
+    <title>~EntityComponentView()</title>
+<indexterm><primary>~EntityComponentView</primary><secondary>HeaderTech::EntityComponentSystem::EntityComponentView&lt; EntityComponentViewExcludes&lt;&gt;, Include &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityComponentView&lt; EntityComponentViewExcludes&lt;&gt;, Include &gt;</primary><secondary>~EntityComponentView</secondary></indexterm>
+<computeroutput>template&lt;Component Include&gt; </computeroutput><para><computeroutput><link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view">HeaderTech::EntityComponentSystem::EntityComponentView</link>&lt; <link linkend="_struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes">EntityComponentViewExcludes</link>&lt;&gt;, Include &gt;::~<link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view">EntityComponentView</link> ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 252 of file EntityComponentView.h.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vib3cca9240aa9321f2f8bec2489c88a20_1ac6a99053841274859b159cb1e073d967"/>    <section>
+    <title>begin()</title>
+<indexterm><primary>begin</primary><secondary>HeaderTech::EntityComponentSystem::EntityComponentView&lt; EntityComponentViewExcludes&lt;&gt;, Include &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityComponentView&lt; EntityComponentViewExcludes&lt;&gt;, Include &gt;</primary><secondary>begin</secondary></indexterm>
+<computeroutput>template&lt;Component Include&gt; </computeroutput><para><computeroutput>view_iterator <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view">HeaderTech::EntityComponentSystem::EntityComponentView</link>&lt; <link linkend="_struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes">EntityComponentViewExcludes</link>&lt;&gt;, Include &gt;::begin ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 255 of file EntityComponentView.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vib3cca9240aa9321f2f8bec2489c88a20_1a0444930fde9dcfa33d81e5557f09009c"/>    <section>
+    <title>end()</title>
+<indexterm><primary>end</primary><secondary>HeaderTech::EntityComponentSystem::EntityComponentView&lt; EntityComponentViewExcludes&lt;&gt;, Include &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityComponentView&lt; EntityComponentViewExcludes&lt;&gt;, Include &gt;</primary><secondary>end</secondary></indexterm>
+<computeroutput>template&lt;Component Include&gt; </computeroutput><para><computeroutput>view_iterator <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view">HeaderTech::EntityComponentSystem::EntityComponentView</link>&lt; <link linkend="_struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes">EntityComponentViewExcludes</link>&lt;&gt;, Include &gt;::end ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 258 of file EntityComponentView.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vib3cca9240aa9321f2f8bec2489c88a20_1ac8023040b84a18e28085376210760663"/>    <section>
+    <title>Length()</title>
+<indexterm><primary>Length</primary><secondary>HeaderTech::EntityComponentSystem::EntityComponentView&lt; EntityComponentViewExcludes&lt;&gt;, Include &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityComponentView&lt; EntityComponentViewExcludes&lt;&gt;, Include &gt;</primary><secondary>Length</secondary></indexterm>
+<computeroutput>template&lt;Component Include&gt; </computeroutput><para><computeroutput>size_t <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view">HeaderTech::EntityComponentSystem::EntityComponentView</link>&lt; <link linkend="_struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes">EntityComponentViewExcludes</link>&lt;&gt;, Include &gt;::Length ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 261 of file EntityComponentView.h.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+ecs/inc/<link linkend="__entity_component_view_8h">EntityComponentView.h</link></section>
+</section>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__entity_set_8h" xml:lang="en-US">
+<title>ecs/inc/EntitySet.h File Reference</title>
+<indexterm><primary>ecs/inc/EntitySet.h</primary></indexterm>
+<programlisting>#include &lt;concepts&gt;
+#include &lt;type_traits&gt;
+#include &lt;unordered_set&gt;
+#include &lt;ctti/detailed_nameof.hpp&gt;
+#include &lt;phmap.h&gt;
+#include &lt;Component.h&gt;
+#include &lt;LoggingIncludes.h&gt;
+</programlisting>Include dependency graph for EntitySet.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_entity_set_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_entity_set_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_content">HeaderTech::EntityComponentSystem::details::BaseSetContent</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_hash">HeaderTech::EntityComponentSystem::details::BaseSetHash</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_eq">HeaderTech::EntityComponentSystem::details::BaseSetEq</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set">HeaderTech::EntityComponentSystem::details::EntitySet</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator">HeaderTech::EntityComponentSystem::details::EntitySetIterator&lt; ComponentType &gt;</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set">HeaderTech::EntityComponentSystem::EntityComponentDataSet&lt; ComponentType &gt;</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_entity_component_system">HeaderTech::EntityComponentSystem</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_entity_component_system_1_1details">HeaderTech::EntityComponentSystem::details</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>using <link linkend="_namespace_header_tech_1_1_entity_component_system_1_1details_1aa2b3883a782e656e1ef1c4c640c280ab">HeaderTech::EntityComponentSystem::details::BaseSet</link> = phmap::flat_hash_set&lt; BaseSetContent, BaseSetHash, BaseSetEq &gt;</para>
+</listitem>
+            <listitem><para>template&lt;Component ComponentType&gt; </para><para>using <link linkend="_namespace_header_tech_1_1_entity_component_system_1ae1c44b353dd1442369e7f15d7a4a0b54">HeaderTech::EntityComponentSystem::EntityComponentDataSetPtr</link> = EntityComponentDataSet&lt; ComponentType &gt; *</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

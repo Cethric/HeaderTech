@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_entity_component_data" xml:lang="en-US">
+<title>HeaderTech::EntityComponentSystem::details::EntityComponentData Struct Reference</title>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntityComponentData</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>std::unique_ptr&lt; <link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set">EntitySet</link> &gt; <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_entity_component_data_1a475929c24873925296bde7ed41488900">components</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 58 of file EntityCollection.inl.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_entity_component_data_1a475929c24873925296bde7ed41488900"/>    <section>
+    <title>components</title>
+<indexterm><primary>components</primary><secondary>HeaderTech::EntityComponentSystem::details::EntityComponentData</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::EntityComponentData</primary><secondary>components</secondary></indexterm>
+<para><computeroutput>std::unique_ptr&lt;<link linkend="_class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set">EntitySet</link>&gt; HeaderTech::EntityComponentSystem::details::EntityComponentData::components</computeroutput></para><para>
+Definition at line 59 of file EntityCollection.inl.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+ecs/inc/<link linkend="__entity_collection_8inl">EntityCollection.inl</link></section>
+</section>

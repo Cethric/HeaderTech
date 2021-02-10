@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_cpu_profiler" xml:lang="en-US">
+<title>HeaderTech::Profiler::Scoped::ScopedCpuProfiler Class Reference</title>
+<indexterm><primary>HeaderTech::Profiler::Scoped::ScopedCpuProfiler</primary></indexterm>
+<para>
+<computeroutput>#include &lt;ScopedProfileMark.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_cpu_profiler_1afa52e9a89c5fa6709886aa16f3732fe9">ScopedCpuProfiler</link> (const char *name, std::uint64_t hash, const char *function, const char *file, int line, <link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1ae8d68aba4c6dba792ca8d1655a3ddabc">Types::ScopedProfilerFlags</link> flags) noexcept</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_cpu_profiler_1ac2b1e43c7675c3dbac9e194745608c0f">~ScopedCpuProfiler</link> () noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 12 of file ScopedProfileMark.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_cpu_profiler_1afa52e9a89c5fa6709886aa16f3732fe9"/>    <section>
+    <title>ScopedCpuProfiler()</title>
+<indexterm><primary>ScopedCpuProfiler</primary><secondary>HeaderTech::Profiler::Scoped::ScopedCpuProfiler</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::Scoped::ScopedCpuProfiler</primary><secondary>ScopedCpuProfiler</secondary></indexterm>
+<para><computeroutput>HeaderTech::Profiler::Scoped::ScopedCpuProfiler::ScopedCpuProfiler (const char * name, std::uint64_t hash, const char * function, const char * file, int line, <link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1ae8d68aba4c6dba792ca8d1655a3ddabc">Types::ScopedProfilerFlags</link> flags)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 12 of file ScopedProfileMark.inl.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_cpu_profiler_afa52e9a89c5fa6709886aa16f3732fe9_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_cpu_profiler_1ac2b1e43c7675c3dbac9e194745608c0f"/>    <section>
+    <title>~ScopedCpuProfiler()</title>
+<indexterm><primary>~ScopedCpuProfiler</primary><secondary>HeaderTech::Profiler::Scoped::ScopedCpuProfiler</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::Scoped::ScopedCpuProfiler</primary><secondary>~ScopedCpuProfiler</secondary></indexterm>
+<para><computeroutput>HeaderTech::Profiler::Scoped::ScopedCpuProfiler::~ScopedCpuProfiler ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 18 of file ScopedProfileMark.inl.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_cpu_profiler_ac2b1e43c7675c3dbac9e194745608c0f_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+profiler/inc/scoped/<link linkend="__scoped_profile_mark_8h">ScopedProfileMark.h</link>profiler/inc/scoped/<link linkend="__scoped_profile_mark_8inl">ScopedProfileMark.inl</link></section>
+</section>

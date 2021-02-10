@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_cursor_enter_event" xml:lang="en-US">
+<title>HeaderTech::Window::Events::CursorEnterEvent Struct Reference</title>
+<indexterm><primary>HeaderTech::Window::Events::CursorEnterEvent</primary></indexterm>
+<para>
+<computeroutput>#include &lt;CursorEnterEvent.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_cursor_enter_event_1aa651cae0b364d5a96f35e45eb48ebb8c">CursorEnterEvent</link> (bool <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_cursor_enter_event_1a163c164c346afd8bff20ec5ca9ff849b">entered</link>) noexcept</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_header_tech_1_1_events_1a94ce76b1ca57f459e666e4bd3152652d">HeaderTech::Events::EventPriority</link> <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_cursor_enter_event_1a19e1fc0a502b576ea52bd6b342589281">GetPriority</link> () const noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_cursor_enter_event_1a163c164c346afd8bff20ec5ca9ff849b">entered</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 11 of file CursorEnterEvent.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_cursor_enter_event_1aa651cae0b364d5a96f35e45eb48ebb8c"/>    <section>
+    <title>CursorEnterEvent()</title>
+<indexterm><primary>CursorEnterEvent</primary><secondary>HeaderTech::Window::Events::CursorEnterEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::CursorEnterEvent</primary><secondary>CursorEnterEvent</secondary></indexterm>
+<para><computeroutput>HeaderTech::Window::Events::CursorEnterEvent::CursorEnterEvent (bool entered)<computeroutput>[inline]</computeroutput>, <computeroutput>[explicit]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 12 of file CursorEnterEvent.h.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_cursor_enter_event_1a19e1fc0a502b576ea52bd6b342589281"/>    <section>
+    <title>GetPriority()</title>
+<indexterm><primary>GetPriority</primary><secondary>HeaderTech::Window::Events::CursorEnterEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::CursorEnterEvent</primary><secondary>GetPriority</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_header_tech_1_1_events_1a94ce76b1ca57f459e666e4bd3152652d">HeaderTech::Events::EventPriority</link> HeaderTech::Window::Events::CursorEnterEvent::GetPriority ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 16 of file CursorEnterEvent.h.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_cursor_enter_event_1a163c164c346afd8bff20ec5ca9ff849b"/>    <section>
+    <title>entered</title>
+<indexterm><primary>entered</primary><secondary>HeaderTech::Window::Events::CursorEnterEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::CursorEnterEvent</primary><secondary>entered</secondary></indexterm>
+<para><computeroutput>bool HeaderTech::Window::Events::CursorEnterEvent::entered</computeroutput></para><para>
+Definition at line 19 of file CursorEnterEvent.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+window/inc/events/<link linkend="__cursor_enter_event_8h">CursorEnterEvent.h</link></section>
+</section>

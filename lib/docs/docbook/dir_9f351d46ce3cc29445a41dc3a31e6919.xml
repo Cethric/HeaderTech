@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_9f351d46ce3cc29445a41dc3a31e6919" xml:lang="en-US">
+<title>config Directory Reference</title>
+<indexterm><primary>config Directory Reference</primary></indexterm>
+Directory dependency graph for config:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_9f351d46ce3cc29445a41dc3a31e6919_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_3502e67ba08c0fe59f4b3d030cefe048">inc</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_3a63202400801d8e8c76019772127f22">src</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

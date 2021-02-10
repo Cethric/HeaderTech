@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__file_sink_8h" xml:lang="en-US">
+<title>logging/inc/FileSink.h File Reference</title>
+<indexterm><primary>logging/inc/FileSink.h</primary></indexterm>
+<programlisting>#include &lt;spdlog/sinks/base_sink.h&gt;
+#include &lt;mutex&gt;
+#include &lt;string_view&gt;
+#include &lt;physfs.h&gt;
+</programlisting>Include dependency graph for FileSink.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_file_sink_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_file_sink_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_logging_1_1details_1_1_file_sink_helper">HeaderTech::Logging::details::FileSinkHelper</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_logging_1_1_file_sink">HeaderTech::Logging::FileSink&lt; Mutex &gt;</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_logging">HeaderTech::Logging</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_logging_1_1details">HeaderTech::Logging::details</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>using <link linkend="_namespace_header_tech_1_1_logging_1a9d7d08ed24a467533059b3daff520e35">HeaderTech::Logging::FileSinkMt</link> = FileSink&lt; std::mutex &gt;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

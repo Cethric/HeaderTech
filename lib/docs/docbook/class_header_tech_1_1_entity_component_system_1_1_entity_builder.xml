@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_builder" xml:lang="en-US">
+<title>HeaderTech::EntityComponentSystem::EntityBuilder Class Reference</title>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityBuilder</primary></indexterm>
+<para>
+<computeroutput>#include &lt;EntityBuilder.h&gt;</computeroutput>
+</para>
+Collaboration diagram for HeaderTech::EntityComponentSystem::EntityBuilder:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_entity_component_system_1_1_entity_builder__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>template&lt;Component ComponentType, typename... Args&gt; </para><para><link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_builder">EntityBuilder</link> &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_builder_1a367a54d0e1b08d026c66741e7c827fe0">WithComponent</link> (Args...args) noexcept</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_builder_1a8eb38b4c7f1cd7a0e104656634374e5d">Release</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_header_tech_1_1_entity_component_system_1adc7f09842048a2530861950e6ed2feef">EntityId</link> <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_builder_1ac0408c803b855c9ac5a98dec20ea0e67">ToEntityId</link> () const noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespace_header_tech_1_1_entity_component_system_1adc7f09842048a2530861950e6ed2feef">EntityId</link> <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_builder_1a24f78e71125a66df37ed836ebe2e8c24">m_id</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_collection">EntityCollection</link> * <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_builder_1a602b34fafe5e11819656fc6329ea2329">m_collection</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Friends    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_builder_1a33fd6cb94ad4cae24740c91474579aa8">HeaderTech::EntityComponentSystem::EntityCollection</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 15 of file EntityBuilder.h.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_builder_1a8eb38b4c7f1cd7a0e104656634374e5d"/>    <section>
+    <title>Release()</title>
+<indexterm><primary>Release</primary><secondary>HeaderTech::EntityComponentSystem::EntityBuilder</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityBuilder</primary><secondary>Release</secondary></indexterm>
+<para><computeroutput>void HeaderTech::EntityComponentSystem::EntityBuilder::Release ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 24 of file EntityBuilder.inl.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_entity_component_system_1_1_entity_builder_a8eb38b4c7f1cd7a0e104656634374e5d_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_builder_1ac0408c803b855c9ac5a98dec20ea0e67"/>    <section>
+    <title>ToEntityId()</title>
+<indexterm><primary>ToEntityId</primary><secondary>HeaderTech::EntityComponentSystem::EntityBuilder</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityBuilder</primary><secondary>ToEntityId</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_header_tech_1_1_entity_component_system_1adc7f09842048a2530861950e6ed2feef">EntityId</link> HeaderTech::EntityComponentSystem::EntityBuilder::ToEntityId ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 30 of file EntityBuilder.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_builder_1a367a54d0e1b08d026c66741e7c827fe0"/>    <section>
+    <title>WithComponent()</title>
+<indexterm><primary>WithComponent</primary><secondary>HeaderTech::EntityComponentSystem::EntityBuilder</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityBuilder</primary><secondary>WithComponent</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType, typename... Args&gt; </computeroutput><para><computeroutput><link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_builder">EntityBuilder</link> &amp; HeaderTech::EntityComponentSystem::EntityBuilder::WithComponent (Args... args)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 18 of file EntityBuilder.inl.</para>
+</section>
+</section>
+<section>
+<title>Friends And Related Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_builder_1a33fd6cb94ad4cae24740c91474579aa8"/>    <section>
+    <title>HeaderTech::EntityComponentSystem::EntityCollection</title>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityCollection</primary><secondary>HeaderTech::EntityComponentSystem::EntityBuilder</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityBuilder</primary><secondary>HeaderTech::EntityComponentSystem::EntityCollection</secondary></indexterm>
+<para><computeroutput>friend class <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_collection">HeaderTech::EntityComponentSystem::EntityCollection</link><computeroutput>[friend]</computeroutput></computeroutput></para><para>
+Definition at line 17 of file EntityBuilder.h.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_builder_1a602b34fafe5e11819656fc6329ea2329"/>    <section>
+    <title>m_collection</title>
+<indexterm><primary>m_collection</primary><secondary>HeaderTech::EntityComponentSystem::EntityBuilder</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityBuilder</primary><secondary>m_collection</secondary></indexterm>
+<para><computeroutput><link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_collection">EntityCollection</link>* HeaderTech::EntityComponentSystem::EntityBuilder::m_collection<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line 35 of file EntityBuilder.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_builder_1a24f78e71125a66df37ed836ebe2e8c24"/>    <section>
+    <title>m_id</title>
+<indexterm><primary>m_id</primary><secondary>HeaderTech::EntityComponentSystem::EntityBuilder</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityBuilder</primary><secondary>m_id</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_header_tech_1_1_entity_component_system_1adc7f09842048a2530861950e6ed2feef">EntityId</link> HeaderTech::EntityComponentSystem::EntityBuilder::m_id<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line 34 of file EntityBuilder.h.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+ecs/inc/<link linkend="__entity_builder_8h">EntityBuilder.h</link>ecs/inc/<link linkend="__entity_builder_8inl">EntityBuilder.inl</link></section>
+</section>

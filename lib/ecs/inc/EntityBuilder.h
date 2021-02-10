@@ -5,7 +5,7 @@
 #ifndef HEADERTECH_ENTITYBUILDER_H
 #define HEADERTECH_ENTITYBUILDER_H
 
-#include <Logging.h>
+#include <LoggingIncludes.h>
 #include <Entity.h>
 #include <Component.h>
 

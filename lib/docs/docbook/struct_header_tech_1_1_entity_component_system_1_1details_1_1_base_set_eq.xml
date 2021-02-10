@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_eq" xml:lang="en-US">
+<title>HeaderTech::EntityComponentSystem::details::BaseSetEq Struct Reference</title>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::BaseSetEq</primary></indexterm>
+<para>
+<computeroutput>#include &lt;EntitySet.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_eq_1aef1bfa00b3d391ed4b410d793a8239d0">operator()</link> (const <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_content">BaseSetContent</link> &amp;a, const <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_content">BaseSetContent</link> &amp;b) const</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 30 of file EntitySet.h.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_eq_1aef1bfa00b3d391ed4b410d793a8239d0"/>    <section>
+    <title>operator()()</title>
+<indexterm><primary>operator()</primary><secondary>HeaderTech::EntityComponentSystem::details::BaseSetEq</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::details::BaseSetEq</primary><secondary>operator()</secondary></indexterm>
+<para><computeroutput>bool HeaderTech::EntityComponentSystem::details::BaseSetEq::operator() (const <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_content">BaseSetContent</link> &amp; a, const <link linkend="_struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_content">BaseSetContent</link> &amp; b) const<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 31 of file EntitySet.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+ecs/inc/<link linkend="__entity_set_8h">EntitySet.h</link></section>
+</section>

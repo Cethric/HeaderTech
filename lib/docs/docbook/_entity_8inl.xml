@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__entity_8inl" xml:lang="en-US">
+<title>ecs/inc/Entity.inl File Reference</title>
+<indexterm><primary>ecs/inc/Entity.inl</primary></indexterm>
+<programlisting>#include &lt;Entity.h&gt;
+#include &lt;EntityCollection.h&gt;
+</programlisting>Include dependency graph for Entity.inl:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_entity_8inl__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_entity_component_system">HeaderTech::EntityComponentSystem</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__entity_8inl_1a265ffe30be7f19fb8c31fb2406da8c2b">HEADERTECH_ENTITY_INL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__entity_8inl_1a265ffe30be7f19fb8c31fb2406da8c2b"/>    <section>
+    <title>HEADERTECH_ENTITY_INL</title>
+<indexterm><primary>HEADERTECH_ENTITY_INL</primary><secondary>Entity.inl</secondary></indexterm>
+<indexterm><primary>Entity.inl</primary><secondary>HEADERTECH_ENTITY_INL</secondary></indexterm>
+<para><computeroutput>#define HEADERTECH_ENTITY_INL</computeroutput></para><para>
+Definition at line 6 of file Entity.inl.</para>
+</section>
+</section>
+</section>

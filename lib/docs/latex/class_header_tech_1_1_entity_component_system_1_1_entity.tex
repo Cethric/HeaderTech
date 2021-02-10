@@ -1,0 +1,101 @@
+\hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity}{}\doxysection{Header\+Tech\+::Entity\+Component\+System\+::Entity Class Reference}
+\label{class_header_tech_1_1_entity_component_system_1_1_entity}\index{HeaderTech::EntityComponentSystem::Entity@{HeaderTech::EntityComponentSystem::Entity}}
+
+
+{\ttfamily \#include $<$Entity.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$Component Component\+Type, typename... Args$>$ }\\\mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity}{Entity}} \& \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_abf9870e4af209f243623a8c507e9cca7}{Add\+Component}} (Args...\+args) noexcept
+\item 
+{\footnotesize template$<$Component Component\+Type$>$ }\\\mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity}{Entity}} \& \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_a19e70c1805cdcaf013329445d7742c66}{Remove\+Component}} () noexcept
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_ade903aac2958f127f4d7f29668b67caf}{Release}} ()
+\item 
+\mbox{\hyperlink{namespace_header_tech_1_1_entity_component_system_adc7f09842048a2530861950e6ed2feef}{Entity\+Id}} \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_ab4c49f00a0b076fe1b9767250cb55186}{Get\+Id}} () const noexcept
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_a33fd6cb94ad4cae24740c91474579aa8}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Collection}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 15 of file Entity.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_abf9870e4af209f243623a8c507e9cca7}\label{class_header_tech_1_1_entity_component_system_1_1_entity_abf9870e4af209f243623a8c507e9cca7}} 
+\index{HeaderTech::EntityComponentSystem::Entity@{HeaderTech::EntityComponentSystem::Entity}!AddComponent@{AddComponent}}
+\index{AddComponent@{AddComponent}!HeaderTech::EntityComponentSystem::Entity@{HeaderTech::EntityComponentSystem::Entity}}
+\doxysubsubsection{\texorpdfstring{AddComponent()}{AddComponent()}}
+{\footnotesize\ttfamily template$<$Component Component\+Type, typename... Args$>$ \\
+\mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity}{Entity}} \& Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+::\+Add\+Component (\begin{DoxyParamCaption}\item[{Args...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 18 of file Entity.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_ab4c49f00a0b076fe1b9767250cb55186}\label{class_header_tech_1_1_entity_component_system_1_1_entity_ab4c49f00a0b076fe1b9767250cb55186}} 
+\index{HeaderTech::EntityComponentSystem::Entity@{HeaderTech::EntityComponentSystem::Entity}!GetId@{GetId}}
+\index{GetId@{GetId}!HeaderTech::EntityComponentSystem::Entity@{HeaderTech::EntityComponentSystem::Entity}}
+\doxysubsubsection{\texorpdfstring{GetId()}{GetId()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_header_tech_1_1_entity_component_system_adc7f09842048a2530861950e6ed2feef}{Entity\+Id}} Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+::\+Get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 34 of file Entity.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_ade903aac2958f127f4d7f29668b67caf}\label{class_header_tech_1_1_entity_component_system_1_1_entity_ade903aac2958f127f4d7f29668b67caf}} 
+\index{HeaderTech::EntityComponentSystem::Entity@{HeaderTech::EntityComponentSystem::Entity}!Release@{Release}}
+\index{Release@{Release}!HeaderTech::EntityComponentSystem::Entity@{HeaderTech::EntityComponentSystem::Entity}}
+\doxysubsubsection{\texorpdfstring{Release()}{Release()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+::\+Release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 31 of file Entity.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_entity_component_system_1_1_entity_ade903aac2958f127f4d7f29668b67caf_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_a19e70c1805cdcaf013329445d7742c66}\label{class_header_tech_1_1_entity_component_system_1_1_entity_a19e70c1805cdcaf013329445d7742c66}} 
+\index{HeaderTech::EntityComponentSystem::Entity@{HeaderTech::EntityComponentSystem::Entity}!RemoveComponent@{RemoveComponent}}
+\index{RemoveComponent@{RemoveComponent}!HeaderTech::EntityComponentSystem::Entity@{HeaderTech::EntityComponentSystem::Entity}}
+\doxysubsubsection{\texorpdfstring{RemoveComponent()}{RemoveComponent()}}
+{\footnotesize\ttfamily template$<$Component Component\+Type$>$ \\
+\mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity}{Entity}} \& Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+::\+Remove\+Component\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 25 of file Entity.\+inl.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_a33fd6cb94ad4cae24740c91474579aa8}\label{class_header_tech_1_1_entity_component_system_1_1_entity_a33fd6cb94ad4cae24740c91474579aa8}} 
+\index{HeaderTech::EntityComponentSystem::Entity@{HeaderTech::EntityComponentSystem::Entity}!HeaderTech::EntityComponentSystem::EntityCollection@{HeaderTech::EntityComponentSystem::EntityCollection}}
+\index{HeaderTech::EntityComponentSystem::EntityCollection@{HeaderTech::EntityComponentSystem::EntityCollection}!HeaderTech::EntityComponentSystem::Entity@{HeaderTech::EntityComponentSystem::Entity}}
+\doxysubsubsection{\texorpdfstring{HeaderTech::EntityComponentSystem::EntityCollection}{HeaderTech::EntityComponentSystem::EntityCollection}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_collection}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Collection}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line 17 of file Entity.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+ecs/inc/\mbox{\hyperlink{_entity_8h}{Entity.\+h}}\item 
+ecs/inc/\mbox{\hyperlink{_entity_8inl}{Entity.\+inl}}\end{DoxyCompactItemize}

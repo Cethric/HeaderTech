@@ -9,9 +9,11 @@
 
 #include <api/opengl/OpenGLRenderContextApi.h>
 #include <api/opengl/OpenGLRenderFramebuffer.h>
-#include <Logging.h>
+#include <LoggingIncludes.h>
 
 #include <GLFW/glfw3.h>
+
+#include <imgui.h>
 
 namespace HeaderTech::Render::Api::OpenGL {
     namespace detail {
@@ -99,7 +101,7 @@ namespace HeaderTech::Render::Api::OpenGL {
     inline OpenGLRenderContextApi::OpenGLRenderContextApi(
             HeaderTech::Window::Api::OpenGL::OpenGLWindowApi *api
     ) noexcept
-            : HeaderTech::Render::Api::RenderContextApi(api),
+            : HeaderTech::Core::Api::Render::RenderContextApi(api),
               m_gl{},
               m_debugGuiContext(ImGui::CreateContext(nullptr)),
               m_window(api)
@@ -127,12 +129,13 @@ namespace HeaderTech::Render::Api::OpenGL {
         m_gl.Clear(GL_COLOR_BUFFER_BIT);
     }
 
-    inline OpenGLRenderContextApi::~OpenGLRenderContextApi() noexcept = default;
+    inline OpenGLRenderContextApi::~OpenGLRenderContextApi() noexcept
+    { DestroyRenderDebugGUI(); }
 
     inline const GladGLContext &OpenGLRenderContextApi::Gl() const noexcept
     { return m_gl; }
 
-    HeaderTech::Render::Api::RenderFramebuffer *
+    HeaderTech::Core::Api::Render::RenderFramebuffer *
     OpenGLRenderContextApi::CreateFramebuffer(int width, int height) noexcept
     { return new OpenGLRenderFramebuffer(&m_gl, width, height); }
 

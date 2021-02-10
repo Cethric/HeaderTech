@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_header_tech_1_1_core" xml:lang="en-US">
+<title>HeaderTech::Core Namespace Reference</title>
+<indexterm><primary>HeaderTech::Core</primary></indexterm>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_core_1_1_events">Events</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_core_1_1_scoped">Scoped</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_core_1_1_runtime">Runtime</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

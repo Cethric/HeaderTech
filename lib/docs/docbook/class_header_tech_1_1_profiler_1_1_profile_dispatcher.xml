@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_profiler_1_1_profile_dispatcher" xml:lang="en-US">
+<title>HeaderTech::Profiler::ProfileDispatcher Class Reference</title>
+<indexterm><primary>HeaderTech::Profiler::ProfileDispatcher</primary></indexterm>
+<para>
+<computeroutput>#include &lt;ProfileDispatcher.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_profiler_1_1_profile_dispatcher_1ab5cf2f4de072a15fc9929939b2e5475f">ProfileDispatcher</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_profiler_1_1_profile_dispatcher_1a30585fa35fc21251df136cc3b6930fba">~ProfileDispatcher</link> ()=default</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_header_tech_1_1_profiler_1_1_profile_dispatcher_1a540b043d19e852730d4e767b9f4eb94f">WaitForEvent</link> (httplib::DataSink *sink)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_header_tech_1_1_profiler_1_1_profile_dispatcher_1a96346fe782d6b56488a347e89801551c">ProcessCpuProfiles</link> (const <link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1a5b0ccaf4d275b58e6e4ddd2cc125a348">Types::CpuProfileMap</link> &amp;profiles) noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 15 of file ProfileDispatcher.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_profiler_1_1_profile_dispatcher_1ab5cf2f4de072a15fc9929939b2e5475f"/>    <section>
+    <title>ProfileDispatcher()</title>
+<indexterm><primary>ProfileDispatcher</primary><secondary>HeaderTech::Profiler::ProfileDispatcher</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::ProfileDispatcher</primary><secondary>ProfileDispatcher</secondary></indexterm>
+<para><computeroutput>HeaderTech::Profiler::ProfileDispatcher::ProfileDispatcher ( )</computeroutput></para><para>
+Definition at line 13 of file ProfileDispatcher.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_profiler_1_1_profile_dispatcher_1a30585fa35fc21251df136cc3b6930fba"/>    <section>
+    <title>~ProfileDispatcher()</title>
+<indexterm><primary>~ProfileDispatcher</primary><secondary>HeaderTech::Profiler::ProfileDispatcher</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::ProfileDispatcher</primary><secondary>~ProfileDispatcher</secondary></indexterm>
+<para><computeroutput>HeaderTech::Profiler::ProfileDispatcher::~ProfileDispatcher ( )<computeroutput>[default]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_profiler_1_1_profile_dispatcher_1a96346fe782d6b56488a347e89801551c"/>    <section>
+    <title>ProcessCpuProfiles()</title>
+<indexterm><primary>ProcessCpuProfiles</primary><secondary>HeaderTech::Profiler::ProfileDispatcher</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::ProfileDispatcher</primary><secondary>ProcessCpuProfiles</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Profiler::ProfileDispatcher::ProcessCpuProfiles (const <link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1a5b0ccaf4d275b58e6e4ddd2cc125a348">Types::CpuProfileMap</link> &amp; profiles)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 27 of file ProfileDispatcher.inl.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_profiler_1_1_profile_dispatcher_a96346fe782d6b56488a347e89801551c_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_profiler_1_1_profile_dispatcher_1a540b043d19e852730d4e767b9f4eb94f"/>    <section>
+    <title>WaitForEvent()</title>
+<indexterm><primary>WaitForEvent</primary><secondary>HeaderTech::Profiler::ProfileDispatcher</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::ProfileDispatcher</primary><secondary>WaitForEvent</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Profiler::ProfileDispatcher::WaitForEvent (httplib::DataSink * sink)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 16 of file ProfileDispatcher.inl.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+profiler/inc/<link linkend="__profile_dispatcher_8h">ProfileDispatcher.h</link>profiler/inc/<link linkend="__profile_dispatcher_8inl">ProfileDispatcher.inl</link></section>
+</section>

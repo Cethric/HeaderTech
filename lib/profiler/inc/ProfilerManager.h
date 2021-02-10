@@ -11,10 +11,10 @@
 
 #include <Types.h>
 #include <LogDispatcher.h>
+#include <ProfilerTypes.h>
 #include <ProfileDispatcher.h>
 
-#include <Logging.h>
-#include <ProfilerTypes.h>
+#include <LoggingIncludes.h>
 
 namespace HeaderTech::Profiler {
     namespace Scoped {
@@ -47,9 +47,7 @@ namespace HeaderTech::Profiler {
 
         friend class HeaderTech::Profiler::Scoped::ScopedProfiler;
 
-    private:
-        friend class ScopedCpuProfiler;
-
+    public:
         inline void BeginCpuProfile(
                 const char *name,
                 std::uint64_t hash,

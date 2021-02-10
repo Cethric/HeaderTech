@@ -5,16 +5,12 @@
 #ifndef HEADERTECH_RENDERCONTEXT_H
 #define HEADERTECH_RENDERCONTEXT_H
 
+#include <api/render/RenderApiIncludes.h>
+
 namespace HeaderTech::Render {
-    namespace Api {
-        class RenderContextApi;
-
-        class RenderFramebuffer;
-    }
-
     class RenderContext {
     public:
-        inline explicit RenderContext(HeaderTech::Render::Api::RenderContextApi *api);
+        inline explicit RenderContext(HeaderTech::Core::Api::Render::RenderContextApi *api);
 
         inline ~RenderContext();
 
@@ -24,10 +20,10 @@ namespace HeaderTech::Render {
 
         inline void DidRenderDebugGUI() noexcept;
 
-        inline Api::RenderFramebuffer *CreateFramebuffer(int width, int height);
+        inline HeaderTech::Core::Api::Render::RenderFramebuffer *CreateFramebuffer(int width, int height);
 
     private:
-        HeaderTech::Render::Api::RenderContextApi *m_api;
+        HeaderTech::Core::Api::Render::RenderContextApi *m_api;
     };
 
 }

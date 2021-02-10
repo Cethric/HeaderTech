@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__scene_graph_render_management_8inl" xml:lang="en-US">
+<title>render/inc/scene/SceneGraphRenderManagement.inl File Reference</title>
+<indexterm><primary>render/inc/scene/SceneGraphRenderManagement.inl</primary></indexterm>
+<programlisting>#include &lt;scene/SceneGraphRenderManagement.h&gt;
+#include &lt;RuntimeIncludes.h&gt;
+#include &lt;api/RenderFramebuffer.h&gt;
+#include &lt;api/RenderFramebuffer.inl&gt;
+</programlisting>Include dependency graph for SceneGraphRenderManagement.inl:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_scene_graph_render_management_8inl__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_render">HeaderTech::Render</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_render_1_1_scene_graph">HeaderTech::Render::SceneGraph</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__scene_graph_render_management_8inl_1aac5319460fc07d40009eb54a895da5f5">HEADERTECH_SCENEGRAPHRENDERMANAGEMENT_INL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__scene_graph_render_management_8inl_1aac5319460fc07d40009eb54a895da5f5"/>    <section>
+    <title>HEADERTECH_SCENEGRAPHRENDERMANAGEMENT_INL</title>
+<indexterm><primary>HEADERTECH_SCENEGRAPHRENDERMANAGEMENT_INL</primary><secondary>SceneGraphRenderManagement.inl</secondary></indexterm>
+<indexterm><primary>SceneGraphRenderManagement.inl</primary><secondary>HEADERTECH_SCENEGRAPHRENDERMANAGEMENT_INL</secondary></indexterm>
+<para><computeroutput>#define HEADERTECH_SCENEGRAPHRENDERMANAGEMENT_INL</computeroutput></para><para>
+Definition at line 6 of file SceneGraphRenderManagement.inl.</para>
+</section>
+</section>
+</section>

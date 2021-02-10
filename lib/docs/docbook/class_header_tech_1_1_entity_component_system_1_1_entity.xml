@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity" xml:lang="en-US">
+<title>HeaderTech::EntityComponentSystem::Entity Class Reference</title>
+<indexterm><primary>HeaderTech::EntityComponentSystem::Entity</primary></indexterm>
+<para>
+<computeroutput>#include &lt;Entity.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>template&lt;Component ComponentType, typename... Args&gt; </para><para><link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity">Entity</link> &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_1abf9870e4af209f243623a8c507e9cca7">AddComponent</link> (Args...args) noexcept</para>
+</listitem>
+            <listitem><para>template&lt;Component ComponentType&gt; </para><para><link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity">Entity</link> &amp; <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_1a19e70c1805cdcaf013329445d7742c66">RemoveComponent</link> () noexcept</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_1ade903aac2958f127f4d7f29668b67caf">Release</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_header_tech_1_1_entity_component_system_1adc7f09842048a2530861950e6ed2feef">EntityId</link> <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_1ab4c49f00a0b076fe1b9767250cb55186">GetId</link> () const noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Friends    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_1a33fd6cb94ad4cae24740c91474579aa8">HeaderTech::EntityComponentSystem::EntityCollection</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 15 of file Entity.h.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_1abf9870e4af209f243623a8c507e9cca7"/>    <section>
+    <title>AddComponent()</title>
+<indexterm><primary>AddComponent</primary><secondary>HeaderTech::EntityComponentSystem::Entity</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::Entity</primary><secondary>AddComponent</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType, typename... Args&gt; </computeroutput><para><computeroutput><link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity">Entity</link> &amp; HeaderTech::EntityComponentSystem::Entity::AddComponent (Args... args)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 18 of file Entity.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_1ab4c49f00a0b076fe1b9767250cb55186"/>    <section>
+    <title>GetId()</title>
+<indexterm><primary>GetId</primary><secondary>HeaderTech::EntityComponentSystem::Entity</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::Entity</primary><secondary>GetId</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_header_tech_1_1_entity_component_system_1adc7f09842048a2530861950e6ed2feef">EntityId</link> HeaderTech::EntityComponentSystem::Entity::GetId ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 34 of file Entity.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_1ade903aac2958f127f4d7f29668b67caf"/>    <section>
+    <title>Release()</title>
+<indexterm><primary>Release</primary><secondary>HeaderTech::EntityComponentSystem::Entity</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::Entity</primary><secondary>Release</secondary></indexterm>
+<para><computeroutput>void HeaderTech::EntityComponentSystem::Entity::Release ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 31 of file Entity.inl.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_entity_component_system_1_1_entity_ade903aac2958f127f4d7f29668b67caf_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_1a19e70c1805cdcaf013329445d7742c66"/>    <section>
+    <title>RemoveComponent()</title>
+<indexterm><primary>RemoveComponent</primary><secondary>HeaderTech::EntityComponentSystem::Entity</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::Entity</primary><secondary>RemoveComponent</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput><link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity">Entity</link> &amp; HeaderTech::EntityComponentSystem::Entity::RemoveComponent<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 25 of file Entity.inl.</para>
+</section>
+</section>
+<section>
+<title>Friends And Related Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_entity_component_system_1_1_entity_1a33fd6cb94ad4cae24740c91474579aa8"/>    <section>
+    <title>HeaderTech::EntityComponentSystem::EntityCollection</title>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityCollection</primary><secondary>HeaderTech::EntityComponentSystem::Entity</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::Entity</primary><secondary>HeaderTech::EntityComponentSystem::EntityCollection</secondary></indexterm>
+<para><computeroutput>friend class <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_collection">HeaderTech::EntityComponentSystem::EntityCollection</link><computeroutput>[friend]</computeroutput></computeroutput></para><para>
+Definition at line 17 of file Entity.h.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+ecs/inc/<link linkend="__entity_8h">Entity.h</link>ecs/inc/<link linkend="__entity_8inl">Entity.inl</link></section>
+</section>

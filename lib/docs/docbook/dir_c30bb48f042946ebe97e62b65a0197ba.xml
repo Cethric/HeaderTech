@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_c30bb48f042946ebe97e62b65a0197ba" xml:lang="en-US">
+<title>render Directory Reference</title>
+<indexterm><primary>render Directory Reference</primary></indexterm>
+Directory dependency graph for render:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_c30bb48f042946ebe97e62b65a0197ba_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_d4914ee66417a0a475ecf2bd493cff60">inc</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_9cc27a6b038b2d4d542061134f8f01c2">src</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

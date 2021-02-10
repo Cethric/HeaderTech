@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__scoped_profiler_8inl" xml:lang="en-US">
+<title>profiler/inc/scoped/ScopedProfiler.inl File Reference</title>
+<indexterm><primary>profiler/inc/scoped/ScopedProfiler.inl</primary></indexterm>
+<programlisting>#include &lt;scoped/ScopedProfiler.h&gt;
+#include &lt;ProfilerManager.h&gt;
+</programlisting>Include dependency graph for ScopedProfiler.inl:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_scoped_profiler_8inl__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_profiler">HeaderTech::Profiler</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_profiler_1_1_scoped">HeaderTech::Profiler::Scoped</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__scoped_profiler_8inl_1a59932257b3793fbce737e00bdc0ef145">HEADERTECH_SCOPEDPROFILER_INL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__scoped_profiler_8inl_1a59932257b3793fbce737e00bdc0ef145"/>    <section>
+    <title>HEADERTECH_SCOPEDPROFILER_INL</title>
+<indexterm><primary>HEADERTECH_SCOPEDPROFILER_INL</primary><secondary>ScopedProfiler.inl</secondary></indexterm>
+<indexterm><primary>ScopedProfiler.inl</primary><secondary>HEADERTECH_SCOPEDPROFILER_INL</secondary></indexterm>
+<para><computeroutput>#define HEADERTECH_SCOPEDPROFILER_INL</computeroutput></para><para>
+Definition at line 6 of file ScopedProfiler.inl.</para>
+</section>
+</section>
+</section>

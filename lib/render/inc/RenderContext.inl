@@ -6,11 +6,9 @@
 #define HEADERTECH_RENDERCONTEXT_INL
 
 #include <RenderContext.h>
-#include <api/RenderContextApi.h>
-#include <api/RenderContextApi.inl>
 
 namespace HeaderTech::Render {
-    inline RenderContext::RenderContext(HeaderTech::Render::Api::RenderContextApi *api) : m_api(api)
+    inline RenderContext::RenderContext(HeaderTech::Core::Api::Render::RenderContextApi *api) : m_api(api)
     {}
 
     inline RenderContext::~RenderContext()
@@ -25,7 +23,7 @@ namespace HeaderTech::Render {
     void RenderContext::DidRenderDebugGUI() noexcept
     { m_api->DidRenderDebugGUI(); }
 
-    inline Api::RenderFramebuffer *RenderContext::CreateFramebuffer(int width, int height)
+    inline HeaderTech::Core::Api::Render::RenderFramebuffer *RenderContext::CreateFramebuffer(int width, int height)
     { return m_api->CreateFramebuffer(width, height); }
 }
 

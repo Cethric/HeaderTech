@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__entity_component_view_8h" xml:lang="en-US">
+<title>ecs/inc/EntityComponentView.h File Reference</title>
+<indexterm><primary>ecs/inc/EntityComponentView.h</primary></indexterm>
+<programlisting>#include &lt;EntitySet.h&gt;
+#include &lt;Component.h&gt;
+#include &lt;EntityCollection.h&gt;
+#include &lt;EntityComponentView.h&gt;
+#include &lt;tuple&gt;
+#include &lt;memory&gt;
+#include &lt;algorithm&gt;
+#include &lt;iterator&gt;
+</programlisting>Include dependency graph for EntityComponentView.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_entity_component_view_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_entity_component_view_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes">HeaderTech::EntityComponentSystem::EntityComponentViewExcludes&lt; Excludes &gt;</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi45e9197f8d3216fe4239d2ab8cacb07d">HeaderTech::EntityComponentSystem::EntityComponentView&lt; EntityComponentViewExcludes&lt; Excludes... &gt;, Includes... &gt;</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi10e51d0502412343a07b2aea2ad37468">HeaderTech::EntityComponentSystem::EntityComponentView&lt; EntityComponentViewExcludes&lt; Excludes... &gt;, Includes... &gt;::view_iterator</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vib3cca9240aa9321f2f8bec2489c88a20">HeaderTech::EntityComponentSystem::EntityComponentView&lt; EntityComponentViewExcludes&lt;&gt;, Include &gt;</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vibecf92609f3f82b850d6f31bd11eadd3">HeaderTech::EntityComponentSystem::EntityComponentView&lt; EntityComponentViewExcludes&lt;&gt;, Include &gt;::view_iterator</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_entity_component_system">HeaderTech::EntityComponentSystem</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_entity_component_system_1_1details">HeaderTech::EntityComponentSystem::details</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>template&lt;Component ComponentType&gt; </para><para>using <link linkend="_namespace_header_tech_1_1_entity_component_system_1ab448bf4617677ddd27ed204bedb5f653">HeaderTech::EntityComponentSystem::DataSet</link> = EntityComponentDataSet&lt; ComponentType &gt;</para>
+</listitem>
+            <listitem><para>template&lt;Component... Components&gt; </para><para>using <link linkend="_namespace_header_tech_1_1_entity_component_system_1ad6143ff9925a0f60487be992a395e38c">HeaderTech::EntityComponentSystem::DataSetTuple</link> = std::tuple&lt; DataSet&lt; Components &gt; *... &gt;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_8242206c5171166b919e7f253d283c21" xml:lang="en-US">
+<title>filesystem Directory Reference</title>
+<indexterm><primary>filesystem Directory Reference</primary></indexterm>
+Directory dependency graph for filesystem:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_8242206c5171166b919e7f253d283c21_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_1d78c85612832bd8354df98a09bd617b">inc</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_17ea52a40f398177272f7c2b82cb68d3">src</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

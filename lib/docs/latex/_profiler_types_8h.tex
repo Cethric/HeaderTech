@@ -1,0 +1,66 @@
+\hypertarget{_profiler_types_8h}{}\doxysection{profiler/inc/\+Profiler\+Types.h File Reference}
+\label{_profiler_types_8h}\index{profiler/inc/ProfilerTypes.h@{profiler/inc/ProfilerTypes.h}}
+{\ttfamily \#include $<$phmap.\+h$>$}\newline
+{\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for Profiler\+Types.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_profiler_types_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_profiler_types_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_hashing}{Header\+Tech\+::\+Profiler\+::\+Types\+::detail\+::\+Cpu\+Profile\+Hashing}}
+\item 
+struct \mbox{\hyperlink{struct_header_tech_1_1_profiler_1_1_types_1_1detail_1_1_cpu_profile_equal_to}{Header\+Tech\+::\+Profiler\+::\+Types\+::detail\+::\+Cpu\+Profile\+Equal\+To}}
+\item 
+struct \mbox{\hyperlink{struct_header_tech_1_1_profiler_1_1_types_1_1_cpu_profile}{Header\+Tech\+::\+Profiler\+::\+Types\+::\+Cpu\+Profile}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_header_tech}{Header\+Tech}}
+\item 
+ \mbox{\hyperlink{namespace_header_tech_1_1_profiler}{Header\+Tech\+::\+Profiler}}
+\item 
+ \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types}{Header\+Tech\+::\+Profiler\+::\+Types}}
+\item 
+ \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_1_1detail}{Header\+Tech\+::\+Profiler\+::\+Types\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_1_1detail_a7c53e827151fa5aa70b7922b6f3f54b5}{Header\+Tech\+::\+Profiler\+::\+Types\+::detail\+::\+Cpu\+Profile\+Hash}} = std\+::uint64\+\_\+t
+\item 
+using \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_a8e137ae9e781981c898a50b04ea1916c}{Header\+Tech\+::\+Profiler\+::\+Types\+::\+Cpu\+Profile\+Children\+List}} = phmap\+::flat\+\_\+hash\+\_\+set$<$ Cpu\+Profile\+Hash, detail\+::\+Cpu\+Profile\+Hashing, detail\+::\+Cpu\+Profile\+Equal\+To $>$
+\item 
+using \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_a5b0ccaf4d275b58e6e4ddd2cc125a348}{Header\+Tech\+::\+Profiler\+::\+Types\+::\+Cpu\+Profile\+Map}} = phmap\+::parallel\+\_\+flat\+\_\+hash\+\_\+map$<$ Cpu\+Profile\+Hash, Cpu\+Profile, detail\+::\+Cpu\+Profile\+Hashing, detail\+::\+Cpu\+Profile\+Equal\+To $>$
+\item 
+using \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_a8aaad54c03d2d863a7cb13a8e77364fb}{Header\+Tech\+::\+Profiler\+::\+Types\+::\+Cpu\+Profile\+Hash\+Queue}} = std\+::deque$<$ Cpu\+Profile\+Hash $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabc}{Header\+Tech\+::\+Profiler\+::\+Types\+::\+Scoped\+Profiler\+Flags}} \+: std\+::uint8\+\_\+t \{ \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabcac58b5ac2d4405df2e0db2b1e95ca006f}{Header\+Tech\+::\+Profiler\+::\+Types\+::\+Scoped\+Profiler\+Flags\+\_\+\+None}}
+, \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabca2b5f02afae5eaff11bf29f3e8d546e47}{Header\+Tech\+::\+Profiler\+::\+Types\+::\+Scoped\+Profiler\+Flags\+\_\+\+Aggregate}}
+, \mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_ae8d68aba4c6dba792ca8d1655a3ddabcae6b60903ffc3ae85fcafed8af8585b9e}{Header\+Tech\+::\+Profiler\+::\+Types\+::\+Scoped\+Profiler\+Flags\+\_\+\+Recursive}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_header_tech_1_1_profiler_1_1_types_ace2731b649a1f677a61deef9adf46259}{Header\+Tech\+::\+Profiler\+::\+Types\+::\+NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM}} (Scoped\+Profiler\+Flags, \{ \{ Scoped\+Profiler\+Flags\+\_\+\+None, \char`\"{}none\char`\"{} \}, \{ Scoped\+Profiler\+Flags\+\_\+\+Aggregate, \char`\"{}aggregate\char`\"{} \}, \{ Scoped\+Profiler\+Flags\+\_\+\+Recursive, \char`\"{}recursive\char`\"{} \}, \}) using Cpu\+Profile\+Hash
+\end{DoxyCompactItemize}

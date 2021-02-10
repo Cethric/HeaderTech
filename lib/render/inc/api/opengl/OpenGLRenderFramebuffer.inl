@@ -9,9 +9,11 @@
 
 namespace HeaderTech::Render::Api::OpenGL {
     inline OpenGLRenderFramebuffer::OpenGLRenderFramebuffer(
-            GladGLContext *ctx, int width, int height
+            GladGLContext *ctx,
+            int width,
+            int height
     ) noexcept
-            : RenderFramebuffer(width, height),
+            : HeaderTech::Core::Api::Render::RenderFramebuffer(width, height),
               m_gl(ctx),
               m_log(HeaderTech::Logging::get_or_make_logger_async<OpenGLRenderFramebuffer>()),
               m_framebuffer(0)

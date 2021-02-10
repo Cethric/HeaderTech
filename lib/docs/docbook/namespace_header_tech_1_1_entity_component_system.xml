@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_header_tech_1_1_entity_component_system" xml:lang="en-US">
+<title>HeaderTech::EntityComponentSystem Namespace Reference</title>
+<indexterm><primary>HeaderTech::EntityComponentSystem</primary></indexterm>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_entity_component_system_1_1details">details</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_entity_component_system_1_1_component_id_seq">ComponentIdSeq</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1_component_collection">ComponentCollection</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity">Entity</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_builder">EntityBuilder</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_collection">EntityCollection</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes">EntityComponentViewExcludes</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view">EntityComponentView</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vi45e9197f8d3216fe4239d2ab8cacb07d">EntityComponentView&lt; EntityComponentViewExcludes&lt; Excludes... &gt;, Includes... &gt;</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_view_3_01_entity_component_vib3cca9240aa9321f2f8bec2489c88a20">EntityComponentView&lt; EntityComponentViewExcludes&lt;&gt;, Include &gt;</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set">EntityComponentDataSet</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>using <link linkend="_namespace_header_tech_1_1_entity_component_system_1adc7f09842048a2530861950e6ed2feef">EntityId</link> = std::uint64_t</para>
+</listitem>
+            <listitem><para>template&lt;Component ComponentType&gt; </para><para>using <link linkend="_namespace_header_tech_1_1_entity_component_system_1ab448bf4617677ddd27ed204bedb5f653">DataSet</link> = <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set">EntityComponentDataSet</link>&lt; ComponentType &gt;</para>
+</listitem>
+            <listitem><para>template&lt;Component... Components&gt; </para><para>using <link linkend="_namespace_header_tech_1_1_entity_component_system_1ad6143ff9925a0f60487be992a395e38c">DataSetTuple</link> = std::tuple&lt; <link linkend="_namespace_header_tech_1_1_entity_component_system_1ab448bf4617677ddd27ed204bedb5f653">DataSet</link>&lt; Components &gt; *... &gt;</para>
+</listitem>
+            <listitem><para>template&lt;Component ComponentType&gt; </para><para>using <link linkend="_namespace_header_tech_1_1_entity_component_system_1ae1c44b353dd1442369e7f15d7a4a0b54">EntityComponentDataSetPtr</link> = <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set">EntityComponentDataSet</link>&lt; ComponentType &gt; *</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>template&lt;typename ComponentType &gt; </para><para>concept <link linkend="_namespace_header_tech_1_1_entity_component_system_1a88c5db7370f847ac2a2a8bfa6276aa6e">Component</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_namespace_header_tech_1_1_entity_component_system_1ab448bf4617677ddd27ed204bedb5f653"/>    <section>
+    <title>DataSet</title>
+<indexterm><primary>DataSet</primary><secondary>HeaderTech::EntityComponentSystem</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem</primary><secondary>DataSet</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput>using <link linkend="_namespace_header_tech_1_1_entity_component_system_1ab448bf4617677ddd27ed204bedb5f653">HeaderTech::EntityComponentSystem::DataSet</link> = typedef <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set">EntityComponentDataSet</link>&lt;ComponentType&gt;</computeroutput></para><para>
+Definition at line 29 of file EntityComponentView.h.</para>
+    </section><anchor xml:id="_namespace_header_tech_1_1_entity_component_system_1ad6143ff9925a0f60487be992a395e38c"/>    <section>
+    <title>DataSetTuple</title>
+<indexterm><primary>DataSetTuple</primary><secondary>HeaderTech::EntityComponentSystem</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem</primary><secondary>DataSetTuple</secondary></indexterm>
+<computeroutput>template&lt;Component... Components&gt; </computeroutput><para><computeroutput>using <link linkend="_namespace_header_tech_1_1_entity_component_system_1ad6143ff9925a0f60487be992a395e38c">HeaderTech::EntityComponentSystem::DataSetTuple</link> = typedef std::tuple&lt;<link linkend="_namespace_header_tech_1_1_entity_component_system_1ab448bf4617677ddd27ed204bedb5f653">DataSet</link>&lt;Components&gt; *...&gt;</computeroutput></para><para>
+Definition at line 31 of file EntityComponentView.h.</para>
+    </section><anchor xml:id="_namespace_header_tech_1_1_entity_component_system_1ae1c44b353dd1442369e7f15d7a4a0b54"/>    <section>
+    <title>EntityComponentDataSetPtr</title>
+<indexterm><primary>EntityComponentDataSetPtr</primary><secondary>HeaderTech::EntityComponentSystem</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem</primary><secondary>EntityComponentDataSetPtr</secondary></indexterm>
+<computeroutput>template&lt;Component ComponentType&gt; </computeroutput><para><computeroutput>using <link linkend="_namespace_header_tech_1_1_entity_component_system_1ae1c44b353dd1442369e7f15d7a4a0b54">HeaderTech::EntityComponentSystem::EntityComponentDataSetPtr</link> = typedef <link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set">EntityComponentDataSet</link>&lt;ComponentType&gt; *</computeroutput></para><para>
+Definition at line 151 of file EntitySet.h.</para>
+    </section><anchor xml:id="_namespace_header_tech_1_1_entity_component_system_1adc7f09842048a2530861950e6ed2feef"/>    <section>
+    <title>EntityId</title>
+<indexterm><primary>EntityId</primary><secondary>HeaderTech::EntityComponentSystem</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem</primary><secondary>EntityId</secondary></indexterm>
+<para><computeroutput>using <link linkend="_namespace_header_tech_1_1_entity_component_system_1adc7f09842048a2530861950e6ed2feef">HeaderTech::EntityComponentSystem::EntityId</link> = typedef std::uint64_t</computeroutput></para><para>
+Definition at line 13 of file Entity.h.</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_namespace_header_tech_1_1_entity_component_system_1a88c5db7370f847ac2a2a8bfa6276aa6e"/>    <section>
+    <title>Component</title>
+<indexterm><primary>Component</primary><secondary>HeaderTech::EntityComponentSystem</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem</primary><secondary>Component</secondary></indexterm>
+<computeroutput>template&lt;typename ComponentType &gt; </computeroutput><para><computeroutput>concept HeaderTech::EntityComponentSystem::Component</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting>=&#32;requires(ComponentType&#32;t)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;ctti::unnamed_type_id(t)&#32;}&#32;-&gt;&#32;std::convertible_to&lt;ctti::unnamed_type_id_t&gt;;
+&#32;&#32;&#32;&#32;}
+</programlisting><para>
+Definition at line 23 of file Component.h.</para>
+</section>
+</section>
+</section>

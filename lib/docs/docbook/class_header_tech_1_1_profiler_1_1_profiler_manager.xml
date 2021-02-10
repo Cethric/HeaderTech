@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_profiler_1_1_profiler_manager" xml:lang="en-US">
+<title>HeaderTech::Profiler::ProfilerManager Class Reference</title>
+<indexterm><primary>HeaderTech::Profiler::ProfilerManager</primary></indexterm>
+<para>
+<computeroutput>#include &lt;ProfilerManager.h&gt;</computeroutput>
+</para>
+Collaboration diagram for HeaderTech::Profiler::ProfilerManager:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_profiler_1_1_profiler_manager__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_profiler_1_1_profiler_manager_1a652dc6cfd06a474d6240cffffa4fe820">~ProfilerManager</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_header_tech_1_1_profiler_1_1_profiler_manager_1a7fb0eb6c4be5eebfff6b4860379c140e">LogMessage</link> (const <link linkend="_struct_header_tech_1_1_profiler_1_1_message">Message</link> &amp;message)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_header_tech_1_1_profiler_1_1_profiler_manager_1a367282f31a90808d2a9c11b2c21b5efd">Flush</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_header_tech_1_1_profiler_1_1_profiler_manager_1ad0315b68c5eb5e05cf7ea2ebcb05d09c">BeginCpuProfile</link> (const char *name, std::uint64_t hash, const char *function, const char *file, int line, <link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1ae8d68aba4c6dba792ca8d1655a3ddabc">Types::ScopedProfilerFlags</link> flags) noexcept</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_header_tech_1_1_profiler_1_1_profiler_manager_1ab6da6484184a0cabb63a84ffed18d6ce">EndCpuProfile</link> () noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_profiler_1_1_log_dispatcher">LogDispatcher</link> <link linkend="_class_header_tech_1_1_profiler_1_1_profiler_manager_1a14086b228e30169f0cc50099938757bd">m_logDispatcher</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_profiler_1_1_profile_dispatcher">ProfileDispatcher</link> <link linkend="_class_header_tech_1_1_profiler_1_1_profiler_manager_1afef3317e6be50532757af3adf3a7c1c8">m_profileDispatcher</link></para>
+</listitem>
+            <listitem><para><link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1a5b0ccaf4d275b58e6e4ddd2cc125a348">Types::CpuProfileMap</link> <link linkend="_class_header_tech_1_1_profiler_1_1_profiler_manager_1a3e69f6c7bd50b3088241d81357eeb631">m_cpuProfiles</link></para>
+</listitem>
+            <listitem><para><link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1a8aaad54c03d2d863a7cb13a8e77364fb">Types::CpuProfileHashQueue</link> <link linkend="_class_header_tech_1_1_profiler_1_1_profiler_manager_1a88269479ec235a306ea351707efaded1">m_currentCpuProfile</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Friends    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_profiler_1_1_profiler_manager_1a525345298ab27b2f5c18ab10b99e7704">HeaderTech::Profiler::Scoped::ScopedProfiler</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 24 of file ProfilerManager.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_profiler_1_1_profiler_manager_1a652dc6cfd06a474d6240cffffa4fe820"/>    <section>
+    <title>~ProfilerManager()</title>
+<indexterm><primary>~ProfilerManager</primary><secondary>HeaderTech::Profiler::ProfilerManager</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::ProfilerManager</primary><secondary>~ProfilerManager</secondary></indexterm>
+<para><computeroutput>HeaderTech::Profiler::ProfilerManager::~ProfilerManager ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 25 of file ProfilerManager.inl.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_profiler_1_1_profiler_manager_1ad0315b68c5eb5e05cf7ea2ebcb05d09c"/>    <section>
+    <title>BeginCpuProfile()</title>
+<indexterm><primary>BeginCpuProfile</primary><secondary>HeaderTech::Profiler::ProfilerManager</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::ProfilerManager</primary><secondary>BeginCpuProfile</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Profiler::ProfilerManager::BeginCpuProfile (const char * name, std::uint64_t hash, const char * function, const char * file, int line, <link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1ae8d68aba4c6dba792ca8d1655a3ddabc">Types::ScopedProfilerFlags</link> flags)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 76 of file ProfilerManager.inl.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_profiler_1_1_profiler_manager_ad0315b68c5eb5e05cf7ea2ebcb05d09c_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_profiler_1_1_profiler_manager_1ab6da6484184a0cabb63a84ffed18d6ce"/>    <section>
+    <title>EndCpuProfile()</title>
+<indexterm><primary>EndCpuProfile</primary><secondary>HeaderTech::Profiler::ProfilerManager</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::ProfilerManager</primary><secondary>EndCpuProfile</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Profiler::ProfilerManager::EndCpuProfile ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 131 of file ProfilerManager.inl.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_profiler_1_1_profiler_manager_ab6da6484184a0cabb63a84ffed18d6ce_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_profiler_1_1_profiler_manager_1a367282f31a90808d2a9c11b2c21b5efd"/>    <section>
+    <title>Flush()</title>
+<indexterm><primary>Flush</primary><secondary>HeaderTech::Profiler::ProfilerManager</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::ProfilerManager</primary><secondary>Flush</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Profiler::ProfilerManager::Flush ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 35 of file ProfilerManager.inl.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_profiler_1_1_profiler_manager_a367282f31a90808d2a9c11b2c21b5efd_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_profiler_1_1_profiler_manager_1a7fb0eb6c4be5eebfff6b4860379c140e"/>    <section>
+    <title>LogMessage()</title>
+<indexterm><primary>LogMessage</primary><secondary>HeaderTech::Profiler::ProfilerManager</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::ProfilerManager</primary><secondary>LogMessage</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Profiler::ProfilerManager::LogMessage (const <link linkend="_struct_header_tech_1_1_profiler_1_1_message">Message</link> &amp; message)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 32 of file ProfilerManager.inl.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_profiler_1_1_profiler_manager_a7fb0eb6c4be5eebfff6b4860379c140e_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_profiler_1_1_profiler_manager_a7fb0eb6c4be5eebfff6b4860379c140e_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Friends And Related Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_profiler_1_1_profiler_manager_1a525345298ab27b2f5c18ab10b99e7704"/>    <section>
+    <title>HeaderTech::Profiler::Scoped::ScopedProfiler</title>
+<indexterm><primary>HeaderTech::Profiler::Scoped::ScopedProfiler</primary><secondary>HeaderTech::Profiler::ProfilerManager</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::ProfilerManager</primary><secondary>HeaderTech::Profiler::Scoped::ScopedProfiler</secondary></indexterm>
+<para><computeroutput>friend class <link linkend="_class_header_tech_1_1_profiler_1_1_scoped_1_1_scoped_profiler">HeaderTech::Profiler::Scoped::ScopedProfiler</link><computeroutput>[friend]</computeroutput></computeroutput></para><para>
+Definition at line 48 of file ProfilerManager.h.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_profiler_1_1_profiler_manager_1a3e69f6c7bd50b3088241d81357eeb631"/>    <section>
+    <title>m_cpuProfiles</title>
+<indexterm><primary>m_cpuProfiles</primary><secondary>HeaderTech::Profiler::ProfilerManager</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::ProfilerManager</primary><secondary>m_cpuProfiles</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1a5b0ccaf4d275b58e6e4ddd2cc125a348">Types::CpuProfileMap</link> HeaderTech::Profiler::ProfilerManager::m_cpuProfiles</computeroutput></para><para>
+Definition at line 62 of file ProfilerManager.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_profiler_1_1_profiler_manager_1a88269479ec235a306ea351707efaded1"/>    <section>
+    <title>m_currentCpuProfile</title>
+<indexterm><primary>m_currentCpuProfile</primary><secondary>HeaderTech::Profiler::ProfilerManager</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::ProfilerManager</primary><secondary>m_currentCpuProfile</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_header_tech_1_1_profiler_1_1_types_1a8aaad54c03d2d863a7cb13a8e77364fb">Types::CpuProfileHashQueue</link> HeaderTech::Profiler::ProfilerManager::m_currentCpuProfile</computeroutput></para><para>
+Definition at line 63 of file ProfilerManager.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_profiler_1_1_profiler_manager_1a14086b228e30169f0cc50099938757bd"/>    <section>
+    <title>m_logDispatcher</title>
+<indexterm><primary>m_logDispatcher</primary><secondary>HeaderTech::Profiler::ProfilerManager</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::ProfilerManager</primary><secondary>m_logDispatcher</secondary></indexterm>
+<para><computeroutput><link linkend="_class_header_tech_1_1_profiler_1_1_log_dispatcher">LogDispatcher</link> HeaderTech::Profiler::ProfilerManager::m_logDispatcher</computeroutput></para><para>
+Definition at line 36 of file ProfilerManager.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_profiler_1_1_profiler_manager_1afef3317e6be50532757af3adf3a7c1c8"/>    <section>
+    <title>m_profileDispatcher</title>
+<indexterm><primary>m_profileDispatcher</primary><secondary>HeaderTech::Profiler::ProfilerManager</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::ProfilerManager</primary><secondary>m_profileDispatcher</secondary></indexterm>
+<para><computeroutput><link linkend="_class_header_tech_1_1_profiler_1_1_profile_dispatcher">ProfileDispatcher</link> HeaderTech::Profiler::ProfilerManager::m_profileDispatcher</computeroutput></para><para>
+Definition at line 37 of file ProfilerManager.h.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+profiler/inc/<link linkend="__profiler_manager_8h">ProfilerManager.h</link>profiler/inc/<link linkend="__profiler_manager_8inl">ProfilerManager.inl</link></section>
+</section>

@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_window_1_1_api_1_1_window_api" xml:lang="en-US">
+<title>HeaderTech::Window::Api::WindowApi Class Reference</title>
+<indexterm><primary>HeaderTech::Window::Api::WindowApi</primary></indexterm>
+<para>
+<computeroutput>#include &lt;WindowApi.h&gt;</computeroutput>
+</para>
+Inheritance diagram for HeaderTech::Window::Api::WindowApi:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_window_1_1_api_1_1_window_api__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for HeaderTech::Window::Api::WindowApi:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_window_1_1_api_1_1_window_api__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1ab9b46ac0c3556419db67b068a286d0bf">WindowApi</link> (<link linkend="_class_header_tech_1_1_events_1_1_event_dispatcher">HeaderTech::Events::EventDispatcher</link> *dispatcher) noexcept</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1abe5f9fb3cdee883384bce6c95767415a">~WindowApi</link> () noexcept=default</para>
+</listitem>
+            <listitem><para>virtual bool <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1af6666c775dcc18ef0759e67d78bb831d">IsOpen</link> () noexcept=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1af354c567ea5b9b64fe8fe354a4248bbd">SwapBuffers</link> () noexcept=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1a64006a444644e4864b345fb978437f95">ToggleFullscreen</link> () noexcept=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1af42e9aa8e65103b7c75859257dbbeac5">MakeCurrent</link> () noexcept=0</para>
+</listitem>
+            <listitem><para>virtual int <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1a047720152b7648ddc4f07857994e7873">GetWidth</link> () const noexcept=0</para>
+</listitem>
+            <listitem><para>virtual int <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1a3f3700b4cb877440f8846684a66767c9">GetHeight</link> () const noexcept=0</para>
+</listitem>
+            <listitem><para>virtual bool <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1a7d26cd4a3d4bae5376e195506b8ec75c">IsKeyPressed</link> (<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eac">KeyType</link> key) const noexcept=0</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_events_1_1_event_dispatcher">HeaderTech::Events::EventDispatcher</link> * <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1a5154b0631dafb6e7f36056841882adc1">m_dispatcher</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 13 of file WindowApi.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1ab9b46ac0c3556419db67b068a286d0bf"/>    <section>
+    <title>WindowApi()</title>
+<indexterm><primary>WindowApi</primary><secondary>HeaderTech::Window::Api::WindowApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Api::WindowApi</primary><secondary>WindowApi</secondary></indexterm>
+<para><computeroutput>HeaderTech::Window::Api::WindowApi::WindowApi (<link linkend="_class_header_tech_1_1_events_1_1_event_dispatcher">HeaderTech::Events::EventDispatcher</link> * dispatcher)<computeroutput>[inline]</computeroutput>, <computeroutput>[explicit]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 15 of file WindowApi.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1abe5f9fb3cdee883384bce6c95767415a"/>    <section>
+    <title>~WindowApi()</title>
+<indexterm><primary>~WindowApi</primary><secondary>HeaderTech::Window::Api::WindowApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Api::WindowApi</primary><secondary>~WindowApi</secondary></indexterm>
+<para><computeroutput>virtual HeaderTech::Window::Api::WindowApi::~WindowApi ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[default]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1a3f3700b4cb877440f8846684a66767c9"/>    <section>
+    <title>GetHeight()</title>
+<indexterm><primary>GetHeight</primary><secondary>HeaderTech::Window::Api::WindowApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Api::WindowApi</primary><secondary>GetHeight</secondary></indexterm>
+<para><computeroutput>virtual int HeaderTech::Window::Api::WindowApi::GetHeight ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Implemented in <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_1a75ac17c301389fce946b538dee15331d">HeaderTech::Window::Api::OpenGL::OpenGLWindowApi</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_window_1_1_api_1_1_window_api_a3f3700b4cb877440f8846684a66767c9_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1a047720152b7648ddc4f07857994e7873"/>    <section>
+    <title>GetWidth()</title>
+<indexterm><primary>GetWidth</primary><secondary>HeaderTech::Window::Api::WindowApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Api::WindowApi</primary><secondary>GetWidth</secondary></indexterm>
+<para><computeroutput>virtual int HeaderTech::Window::Api::WindowApi::GetWidth ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Implemented in <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_1a422475c878d1a332adacb8030ef66e37">HeaderTech::Window::Api::OpenGL::OpenGLWindowApi</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_window_1_1_api_1_1_window_api_a047720152b7648ddc4f07857994e7873_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1a7d26cd4a3d4bae5376e195506b8ec75c"/>    <section>
+    <title>IsKeyPressed()</title>
+<indexterm><primary>IsKeyPressed</primary><secondary>HeaderTech::Window::Api::WindowApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Api::WindowApi</primary><secondary>IsKeyPressed</secondary></indexterm>
+<para><computeroutput>virtual bool HeaderTech::Window::Api::WindowApi::IsKeyPressed (<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eac">KeyType</link> key) const<computeroutput>[inline]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Implemented in <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_1a550d2df5a35147c8bac045a91d47fd17">HeaderTech::Window::Api::OpenGL::OpenGLWindowApi</link>.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1af6666c775dcc18ef0759e67d78bb831d"/>    <section>
+    <title>IsOpen()</title>
+<indexterm><primary>IsOpen</primary><secondary>HeaderTech::Window::Api::WindowApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Api::WindowApi</primary><secondary>IsOpen</secondary></indexterm>
+<para><computeroutput>virtual bool HeaderTech::Window::Api::WindowApi::IsOpen ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Implemented in <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_1a423b3b4494c694f73b2733ea98f9493d">HeaderTech::Window::Api::OpenGL::OpenGLWindowApi</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_window_1_1_api_1_1_window_api_af6666c775dcc18ef0759e67d78bb831d_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1af42e9aa8e65103b7c75859257dbbeac5"/>    <section>
+    <title>MakeCurrent()</title>
+<indexterm><primary>MakeCurrent</primary><secondary>HeaderTech::Window::Api::WindowApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Api::WindowApi</primary><secondary>MakeCurrent</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Window::Api::WindowApi::MakeCurrent ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Implemented in <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_1aacdf12e27034d400555a8df31d4666f6">HeaderTech::Window::Api::OpenGL::OpenGLWindowApi</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_window_1_1_api_1_1_window_api_af42e9aa8e65103b7c75859257dbbeac5_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1af354c567ea5b9b64fe8fe354a4248bbd"/>    <section>
+    <title>SwapBuffers()</title>
+<indexterm><primary>SwapBuffers</primary><secondary>HeaderTech::Window::Api::WindowApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Api::WindowApi</primary><secondary>SwapBuffers</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Window::Api::WindowApi::SwapBuffers ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Implemented in <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_1ae0f85487773e93bb08e84d3e8bb99256">HeaderTech::Window::Api::OpenGL::OpenGLWindowApi</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_window_1_1_api_1_1_window_api_af354c567ea5b9b64fe8fe354a4248bbd_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1a64006a444644e4864b345fb978437f95"/>    <section>
+    <title>ToggleFullscreen()</title>
+<indexterm><primary>ToggleFullscreen</primary><secondary>HeaderTech::Window::Api::WindowApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Api::WindowApi</primary><secondary>ToggleFullscreen</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Window::Api::WindowApi::ToggleFullscreen ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Implemented in <link linkend="_class_header_tech_1_1_window_1_1_api_1_1_open_g_l_1_1_open_g_l_window_api_1affd8ea0629144010767d1072c427da50">HeaderTech::Window::Api::OpenGL::OpenGLWindowApi</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_window_1_1_api_1_1_window_api_a64006a444644e4864b345fb978437f95_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_window_1_1_api_1_1_window_api_1a5154b0631dafb6e7f36056841882adc1"/>    <section>
+    <title>m_dispatcher</title>
+<indexterm><primary>m_dispatcher</primary><secondary>HeaderTech::Window::Api::WindowApi</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Api::WindowApi</primary><secondary>m_dispatcher</secondary></indexterm>
+<para><computeroutput><link linkend="_class_header_tech_1_1_events_1_1_event_dispatcher">HeaderTech::Events::EventDispatcher</link>* HeaderTech::Window::Api::WindowApi::m_dispatcher<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line 35 of file WindowApi.h.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+window/inc/api/<link linkend="__window_api_8h">WindowApi.h</link></section>
+</section>

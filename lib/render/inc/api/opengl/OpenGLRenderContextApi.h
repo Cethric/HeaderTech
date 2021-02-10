@@ -7,15 +7,16 @@
 
 #include <glad/gl.h>
 
-#include <api/BaseRenderContextApi.h>
-#include <api/RenderFramebuffer.h>
+#include <api/render/RenderApiIncludes.h>
 
 #include <api/opengl/OpenGLWindowApi.h>
-#include "OpenGLRenderFramebuffer.h"
+#include <api/opengl/OpenGLRenderFramebuffer.h>
 
+
+struct ImGuiContext;
 
 namespace HeaderTech::Render::Api::OpenGL {
-    class OpenGLRenderContextApi final : public HeaderTech::Render::Api::RenderContextApi {
+    class OpenGLRenderContextApi final : public HeaderTech::Core::Api::Render::RenderContextApi {
     public:
         inline explicit OpenGLRenderContextApi(HeaderTech::Window::Api::OpenGL::OpenGLWindowApi *api) noexcept;
 
@@ -23,7 +24,7 @@ namespace HeaderTech::Render::Api::OpenGL {
 
         [[nodiscard]] inline const GladGLContext &Gl() const noexcept;
 
-        [[nodiscard]] inline HeaderTech::Render::Api::RenderFramebuffer *
+        [[nodiscard]] inline HeaderTech::Core::Api::Render::RenderFramebuffer *
         CreateFramebuffer(int width, int height) noexcept final;
 
         inline void PrepareRenderDebugGUI() noexcept final;

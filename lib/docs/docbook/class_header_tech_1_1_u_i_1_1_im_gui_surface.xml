@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_u_i_1_1_im_gui_surface" xml:lang="en-US">
+<title>HeaderTech::UI::ImGuiSurface Class Reference</title>
+<indexterm><primary>HeaderTech::UI::ImGuiSurface</primary></indexterm>
+<para>
+<computeroutput>#include &lt;ImGuiSurface.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_u_i_1_1_im_gui_surface_1a35f7d7479968bca6781f96a041ffc0c6">ImGuiSurface</link> (ImFontAtlas *font_atlas) noexcept</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_u_i_1_1_im_gui_surface_1a275428f2d9224c4a1db077f3640c816a">~ImGuiSurface</link> () noexcept</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_u_i_1_1_im_gui_surface_1ac86329a94853453950c2d0ac938b4cdc">RenderDebugUI</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 15 of file ImGuiSurface.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_u_i_1_1_im_gui_surface_1a35f7d7479968bca6781f96a041ffc0c6"/>    <section>
+    <title>ImGuiSurface()</title>
+<indexterm><primary>ImGuiSurface</primary><secondary>HeaderTech::UI::ImGuiSurface</secondary></indexterm>
+<indexterm><primary>HeaderTech::UI::ImGuiSurface</primary><secondary>ImGuiSurface</secondary></indexterm>
+<para><computeroutput>HeaderTech::UI::ImGuiSurface::ImGuiSurface (ImFontAtlas * font_atlas)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 17 of file ImGuiSurface.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_u_i_1_1_im_gui_surface_1a275428f2d9224c4a1db077f3640c816a"/>    <section>
+    <title>~ImGuiSurface()</title>
+<indexterm><primary>~ImGuiSurface</primary><secondary>HeaderTech::UI::ImGuiSurface</secondary></indexterm>
+<indexterm><primary>HeaderTech::UI::ImGuiSurface</primary><secondary>~ImGuiSurface</secondary></indexterm>
+<para><computeroutput>HeaderTech::UI::ImGuiSurface::~ImGuiSurface ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 28 of file ImGuiSurface.h.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_u_i_1_1_im_gui_surface_1ac86329a94853453950c2d0ac938b4cdc"/>    <section>
+    <title>RenderDebugUI()</title>
+<indexterm><primary>RenderDebugUI</primary><secondary>HeaderTech::UI::ImGuiSurface</secondary></indexterm>
+<indexterm><primary>HeaderTech::UI::ImGuiSurface</primary><secondary>RenderDebugUI</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::UI::ImGuiSurface::RenderDebugUI ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line 31 of file ImGuiSurface.h.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+ui/inc/<link linkend="__im_gui_surface_8h">ImGuiSurface.h</link></section>
+</section>

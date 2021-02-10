@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__render_context_api_8inl" xml:lang="en-US">
+<title>render/inc/api/RenderContextApi.inl File Reference</title>
+<indexterm><primary>render/inc/api/RenderContextApi.inl</primary></indexterm>
+<programlisting>#include &lt;api/RenderFramebuffer.inl&gt;
+#include &lt;api/opengl/OpenGLRenderContextApi.inl&gt;
+#include &lt;api/opengl/OpenGLRenderFramebuffer.inl&gt;
+#include &lt;api/opengl/OpenGLDebugGui.inl&gt;
+</programlisting>Include dependency graph for RenderContextApi.inl:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_render_context_api_8inl__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_render_context_api_8inl__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__render_context_api_8inl_1a90bd0fedc44a1af07bda949d669eba3d">HEADERTECH_RENDERCONTEXTAPI_INL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__render_context_api_8inl_1a90bd0fedc44a1af07bda949d669eba3d"/>    <section>
+    <title>HEADERTECH_RENDERCONTEXTAPI_INL</title>
+<indexterm><primary>HEADERTECH_RENDERCONTEXTAPI_INL</primary><secondary>RenderContextApi.inl</secondary></indexterm>
+<indexterm><primary>RenderContextApi.inl</primary><secondary>HEADERTECH_RENDERCONTEXTAPI_INL</secondary></indexterm>
+<para><computeroutput>#define HEADERTECH_RENDERCONTEXTAPI_INL</computeroutput></para><para>
+Definition at line 6 of file RenderContextApi.inl.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_b89ddd932c784cd56dda19fa8fdb3500" xml:lang="en-US">
+<title>ecs/inc Directory Reference</title>
+<indexterm><primary>ecs/inc Directory Reference</primary></indexterm>
+Directory dependency graph for inc:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_b89ddd932c784cd56dda19fa8fdb3500_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__component_8h">Component.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__e_c_s_includes_8h">ECSIncludes.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__entity_8h">Entity.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__entity_8inl">Entity.inl</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__entity_builder_8h">EntityBuilder.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__entity_builder_8inl">EntityBuilder.inl</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__entity_collection_8h">EntityCollection.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__entity_collection_8inl">EntityCollection.inl</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__entity_component_view_8h">EntityComponentView.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__entity_component_view_8inl">EntityComponentView.inl</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__entity_set_8h">EntitySet.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__entity_set_8inl">EntitySet.inl</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

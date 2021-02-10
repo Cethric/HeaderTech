@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_key_event" xml:lang="en-US">
+<title>HeaderTech::Window::Events::KeyEvent Struct Reference</title>
+<indexterm><primary>HeaderTech::Window::Events::KeyEvent</primary></indexterm>
+<para>
+<computeroutput>#include &lt;KeyEvent.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1a0db4e9e6c112fec8b14364a27c7e6b5d">KeyEvent</link> (int <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1a8f28080a2a13414ab5157644d6310b3e">key</link>, int <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1a79c725f934bded504948019d736338f4">scanCode</link>, <link linkend="_namespace_header_tech_1_1_window_1_1_events_1a59392e9a14abec3a5ba877bdcf62628e">KeyAction</link> <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1aee8698f05deac79adc7fdfc08d6cf562">action</link>, int <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1a1a59070a83aea33144b62e393a8eada7">mods</link>) noexcept</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_header_tech_1_1_events_1a94ce76b1ca57f459e666e4bd3152652d">HeaderTech::Events::EventPriority</link> <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1ad91f25eb047b202499e6c9f66e6b534f">GetPriority</link> () const noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1a8f28080a2a13414ab5157644d6310b3e">key</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1a79c725f934bded504948019d736338f4">scanCode</link></para>
+</listitem>
+            <listitem><para><link linkend="_namespace_header_tech_1_1_window_1_1_events_1a59392e9a14abec3a5ba877bdcf62628e">KeyAction</link> <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1aee8698f05deac79adc7fdfc08d6cf562">action</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1a1a59070a83aea33144b62e393a8eada7">mods</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 18 of file KeyEvent.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1a0db4e9e6c112fec8b14364a27c7e6b5d"/>    <section>
+    <title>KeyEvent()</title>
+<indexterm><primary>KeyEvent</primary><secondary>HeaderTech::Window::Events::KeyEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::KeyEvent</primary><secondary>KeyEvent</secondary></indexterm>
+<para><computeroutput>HeaderTech::Window::Events::KeyEvent::KeyEvent (int key, int scanCode, <link linkend="_namespace_header_tech_1_1_window_1_1_events_1a59392e9a14abec3a5ba877bdcf62628e">KeyAction</link> action, int mods)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 19 of file KeyEvent.h.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1ad91f25eb047b202499e6c9f66e6b534f"/>    <section>
+    <title>GetPriority()</title>
+<indexterm><primary>GetPriority</primary><secondary>HeaderTech::Window::Events::KeyEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::KeyEvent</primary><secondary>GetPriority</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_header_tech_1_1_events_1a94ce76b1ca57f459e666e4bd3152652d">HeaderTech::Events::EventPriority</link> HeaderTech::Window::Events::KeyEvent::GetPriority ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 27 of file KeyEvent.h.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1aee8698f05deac79adc7fdfc08d6cf562"/>    <section>
+    <title>action</title>
+<indexterm><primary>action</primary><secondary>HeaderTech::Window::Events::KeyEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::KeyEvent</primary><secondary>action</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_header_tech_1_1_window_1_1_events_1a59392e9a14abec3a5ba877bdcf62628e">KeyAction</link> HeaderTech::Window::Events::KeyEvent::action</computeroutput></para><para>
+Definition at line 32 of file KeyEvent.h.</para>
+    </section><anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1a8f28080a2a13414ab5157644d6310b3e"/>    <section>
+    <title>key</title>
+<indexterm><primary>key</primary><secondary>HeaderTech::Window::Events::KeyEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::KeyEvent</primary><secondary>key</secondary></indexterm>
+<para><computeroutput>int HeaderTech::Window::Events::KeyEvent::key</computeroutput></para><para>
+Definition at line 30 of file KeyEvent.h.</para>
+    </section><anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1a1a59070a83aea33144b62e393a8eada7"/>    <section>
+    <title>mods</title>
+<indexterm><primary>mods</primary><secondary>HeaderTech::Window::Events::KeyEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::KeyEvent</primary><secondary>mods</secondary></indexterm>
+<para><computeroutput>int HeaderTech::Window::Events::KeyEvent::mods</computeroutput></para><para>
+Definition at line 33 of file KeyEvent.h.</para>
+    </section><anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_key_event_1a79c725f934bded504948019d736338f4"/>    <section>
+    <title>scanCode</title>
+<indexterm><primary>scanCode</primary><secondary>HeaderTech::Window::Events::KeyEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::KeyEvent</primary><secondary>scanCode</secondary></indexterm>
+<para><computeroutput>int HeaderTech::Window::Events::KeyEvent::scanCode</computeroutput></para><para>
+Definition at line 31 of file KeyEvent.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+window/inc/events/<link linkend="__key_event_8h">KeyEvent.h</link></section>
+</section>

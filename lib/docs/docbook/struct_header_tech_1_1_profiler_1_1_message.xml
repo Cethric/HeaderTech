@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_header_tech_1_1_profiler_1_1_message" xml:lang="en-US">
+<title>HeaderTech::Profiler::Message Struct Reference</title>
+<indexterm><primary>HeaderTech::Profiler::Message</primary></indexterm>
+<para>
+<computeroutput>#include &lt;Types.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>std::string <link linkend="_struct_header_tech_1_1_profiler_1_1_message_1a0d66f763428e9657038aa98903eead1b">name</link></para>
+</listitem>
+            <listitem><para>std::string <link linkend="_struct_header_tech_1_1_profiler_1_1_message_1a12ee36c5624da71fd3b071528522ee66">data</link></para>
+</listitem>
+            <listitem><para>std::uint64_t <link linkend="_struct_header_tech_1_1_profiler_1_1_message_1a553663cacaf149774801aaa78f58ee5b">time</link></para>
+</listitem>
+            <listitem><para>std::uint64_t <link linkend="_struct_header_tech_1_1_profiler_1_1_message_1ab977fb5da036e4da7d946571a81285d1">thread</link></para>
+</listitem>
+            <listitem><para>std::uint16_t <link linkend="_struct_header_tech_1_1_profiler_1_1_message_1a0fb03cce6f698f31e9b58bead37eb956">level</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 11 of file Types.h.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_profiler_1_1_message_1a12ee36c5624da71fd3b071528522ee66"/>    <section>
+    <title>data</title>
+<indexterm><primary>data</primary><secondary>HeaderTech::Profiler::Message</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::Message</primary><secondary>data</secondary></indexterm>
+<para><computeroutput>std::string HeaderTech::Profiler::Message::data</computeroutput></para><para>
+Definition at line 13 of file Types.h.</para>
+    </section><anchor xml:id="_struct_header_tech_1_1_profiler_1_1_message_1a0fb03cce6f698f31e9b58bead37eb956"/>    <section>
+    <title>level</title>
+<indexterm><primary>level</primary><secondary>HeaderTech::Profiler::Message</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::Message</primary><secondary>level</secondary></indexterm>
+<para><computeroutput>std::uint16_t HeaderTech::Profiler::Message::level</computeroutput></para><para>
+Definition at line 16 of file Types.h.</para>
+    </section><anchor xml:id="_struct_header_tech_1_1_profiler_1_1_message_1a0d66f763428e9657038aa98903eead1b"/>    <section>
+    <title>name</title>
+<indexterm><primary>name</primary><secondary>HeaderTech::Profiler::Message</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::Message</primary><secondary>name</secondary></indexterm>
+<para><computeroutput>std::string HeaderTech::Profiler::Message::name</computeroutput></para><para>
+Definition at line 12 of file Types.h.</para>
+    </section><anchor xml:id="_struct_header_tech_1_1_profiler_1_1_message_1ab977fb5da036e4da7d946571a81285d1"/>    <section>
+    <title>thread</title>
+<indexterm><primary>thread</primary><secondary>HeaderTech::Profiler::Message</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::Message</primary><secondary>thread</secondary></indexterm>
+<para><computeroutput>std::uint64_t HeaderTech::Profiler::Message::thread</computeroutput></para><para>
+Definition at line 15 of file Types.h.</para>
+    </section><anchor xml:id="_struct_header_tech_1_1_profiler_1_1_message_1a553663cacaf149774801aaa78f58ee5b"/>    <section>
+    <title>time</title>
+<indexterm><primary>time</primary><secondary>HeaderTech::Profiler::Message</secondary></indexterm>
+<indexterm><primary>HeaderTech::Profiler::Message</primary><secondary>time</secondary></indexterm>
+<para><computeroutput>std::uint64_t HeaderTech::Profiler::Message::time</computeroutput></para><para>
+Definition at line 14 of file Types.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+profiler/inc/<link linkend="__types_8h">Types.h</link></section>
+</section>

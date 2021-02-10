@@ -6,12 +6,12 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(
         HeaderTech_FileSystem_SRC
-        src/FileSystem.cpp
+        src/FileSystemIncludes.cpp
 )
 
 set(
         HeaderTech_FileSystem_INC
-        inc/FileSystem.h
+        inc/FileSystemIncludes.h
         inc/scoped/ScopedFileSystem.h
 )
 

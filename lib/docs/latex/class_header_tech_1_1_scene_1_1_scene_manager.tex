@@ -1,0 +1,228 @@
+\hypertarget{class_header_tech_1_1_scene_1_1_scene_manager}{}\doxysection{Header\+Tech\+::Scene\+::Scene\+Manager Class Reference}
+\label{class_header_tech_1_1_scene_1_1_scene_manager}\index{HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}}
+
+
+{\ttfamily \#include $<$Scene\+Manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_header_tech_1_1_scene_1_1_scene_manager_a87024a4ccaeaec377aebb2f04b2e3e32}{Scene\+Manager}} (\mbox{\hyperlink{class_header_tech_1_1_core_1_1_runtime}{Header\+Tech\+::\+Core\+::\+Runtime}} $\ast$runtime) noexcept
+\item 
+\mbox{\hyperlink{class_header_tech_1_1_scene_1_1_scene_manager_a5412640032b6eca4c7c2aed89a1556dc}{$\sim$\+Scene\+Manager}} () noexcept
+\item 
+{\footnotesize template$<$typename Root\+Scene , typename... Args$>$ }\\void \mbox{\hyperlink{class_header_tech_1_1_scene_1_1_scene_manager_aefa37f24c3f9f048252bfc0531c609cc}{Set\+Root\+Scene}} (Args...\+args) noexcept
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_scene_1_1_scene_manager_a8c058d365a9b4157540784b6599a36b5}{Push\+Scene}} ()
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_scene_1_1_scene_manager_a3381adfc3110a277db9db8a39a405392}{Push\+Scene}} (\mbox{\hyperlink{class_header_tech_1_1_scene_1_1_scene_graph}{Scene\+Graph}} $\ast$scene)
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_scene_1_1_scene_manager_af4fe755e3c25cfe912c0d7d54a0fa744}{Pop\+Scene}} ()
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_scene_1_1_scene_manager_a99a0ea5dc5702318995f4b747cd45e65}{Render\+Scene}} (double offset)
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_scene_1_1_scene_manager_ac23cab43532e4c7c33c47b5e53611841}{Tick\+Scene}} (double delta, double lag)
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_scene_1_1_scene_manager_ae6ba56a5b86678a58ac42c0d3b8225e8}{Render\+Debug\+UI}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_scene_1_1_scene_manager_a8ad23b2575a0a53513765ee26ac4e5b5}{Push\+Next\+Scene}} (\mbox{\hyperlink{class_header_tech_1_1_scene_1_1_scene_graph}{Scene\+Graph}} $\ast$scene)
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_scene_1_1_scene_manager_adbb19e4e65fe8395cb95210ad7a36508}{Pop\+Last\+Scene}} (\mbox{\hyperlink{class_header_tech_1_1_scene_1_1_scene_graph}{Scene\+Graph}} $\ast$scene)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 18 of file Scene\+Manager.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_scene_1_1_scene_manager_a87024a4ccaeaec377aebb2f04b2e3e32}\label{class_header_tech_1_1_scene_1_1_scene_manager_a87024a4ccaeaec377aebb2f04b2e3e32}} 
+\index{HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}!SceneManager@{SceneManager}}
+\index{SceneManager@{SceneManager}!HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}}
+\doxysubsubsection{\texorpdfstring{SceneManager()}{SceneManager()}}
+{\footnotesize\ttfamily Header\+Tech\+::\+Scene\+::\+Scene\+Manager\+::\+Scene\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_header_tech_1_1_core_1_1_runtime}{Header\+Tech\+::\+Core\+::\+Runtime}} $\ast$}]{runtime }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 11 of file Scene\+Manager.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_scene_1_1_scene_manager_a5412640032b6eca4c7c2aed89a1556dc}\label{class_header_tech_1_1_scene_1_1_scene_manager_a5412640032b6eca4c7c2aed89a1556dc}} 
+\index{HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}!````~SceneManager@{$\sim$SceneManager}}
+\index{````~SceneManager@{$\sim$SceneManager}!HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$SceneManager()}{~SceneManager()}}
+{\footnotesize\ttfamily Header\+Tech\+::\+Scene\+::\+Scene\+Manager\+::$\sim$\+Scene\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 20 of file Scene\+Manager.\+inl.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_scene_1_1_scene_manager_adbb19e4e65fe8395cb95210ad7a36508}\label{class_header_tech_1_1_scene_1_1_scene_manager_adbb19e4e65fe8395cb95210ad7a36508}} 
+\index{HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}!PopLastScene@{PopLastScene}}
+\index{PopLastScene@{PopLastScene}!HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}}
+\doxysubsubsection{\texorpdfstring{PopLastScene()}{PopLastScene()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Scene\+::\+Scene\+Manager\+::\+Pop\+Last\+Scene (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_header_tech_1_1_scene_1_1_scene_graph}{Scene\+Graph}} $\ast$}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 100 of file Scene\+Manager.\+inl.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_scene_1_1_scene_manager_adbb19e4e65fe8395cb95210ad7a36508_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_scene_1_1_scene_manager_af4fe755e3c25cfe912c0d7d54a0fa744}\label{class_header_tech_1_1_scene_1_1_scene_manager_af4fe755e3c25cfe912c0d7d54a0fa744}} 
+\index{HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}!PopScene@{PopScene}}
+\index{PopScene@{PopScene}!HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}}
+\doxysubsubsection{\texorpdfstring{PopScene()}{PopScene()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Scene\+::\+Scene\+Manager\+::\+Pop\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 70 of file Scene\+Manager.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_scene_1_1_scene_manager_af4fe755e3c25cfe912c0d7d54a0fa744_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_scene_1_1_scene_manager_a8ad23b2575a0a53513765ee26ac4e5b5}\label{class_header_tech_1_1_scene_1_1_scene_manager_a8ad23b2575a0a53513765ee26ac4e5b5}} 
+\index{HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}!PushNextScene@{PushNextScene}}
+\index{PushNextScene@{PushNextScene}!HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}}
+\doxysubsubsection{\texorpdfstring{PushNextScene()}{PushNextScene()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Scene\+::\+Scene\+Manager\+::\+Push\+Next\+Scene (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_header_tech_1_1_scene_1_1_scene_graph}{Scene\+Graph}} $\ast$}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 91 of file Scene\+Manager.\+inl.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_scene_1_1_scene_manager_a8ad23b2575a0a53513765ee26ac4e5b5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_scene_1_1_scene_manager_a8c058d365a9b4157540784b6599a36b5}\label{class_header_tech_1_1_scene_1_1_scene_manager_a8c058d365a9b4157540784b6599a36b5}} 
+\index{HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}!PushScene@{PushScene}}
+\index{PushScene@{PushScene}!HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}}
+\doxysubsubsection{\texorpdfstring{PushScene()}{PushScene()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Scene\+::\+Scene\+Manager\+::\+Push\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 39 of file Scene\+Manager.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_scene_1_1_scene_manager_a8c058d365a9b4157540784b6599a36b5_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_scene_1_1_scene_manager_a3381adfc3110a277db9db8a39a405392}\label{class_header_tech_1_1_scene_1_1_scene_manager_a3381adfc3110a277db9db8a39a405392}} 
+\index{HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}!PushScene@{PushScene}}
+\index{PushScene@{PushScene}!HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}}
+\doxysubsubsection{\texorpdfstring{PushScene()}{PushScene()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Scene\+::\+Scene\+Manager\+::\+Push\+Scene (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_header_tech_1_1_scene_1_1_scene_graph}{Scene\+Graph}} $\ast$}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 67 of file Scene\+Manager.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_scene_1_1_scene_manager_a3381adfc3110a277db9db8a39a405392_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_scene_1_1_scene_manager_ae6ba56a5b86678a58ac42c0d3b8225e8}\label{class_header_tech_1_1_scene_1_1_scene_manager_ae6ba56a5b86678a58ac42c0d3b8225e8}} 
+\index{HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}!RenderDebugUI@{RenderDebugUI}}
+\index{RenderDebugUI@{RenderDebugUI}!HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}}
+\doxysubsubsection{\texorpdfstring{RenderDebugUI()}{RenderDebugUI()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Scene\+::\+Scene\+Manager\+::\+Render\+Debug\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 88 of file Scene\+Manager.\+inl.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_scene_1_1_scene_manager_ae6ba56a5b86678a58ac42c0d3b8225e8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_scene_1_1_scene_manager_a99a0ea5dc5702318995f4b747cd45e65}\label{class_header_tech_1_1_scene_1_1_scene_manager_a99a0ea5dc5702318995f4b747cd45e65}} 
+\index{HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}!RenderScene@{RenderScene}}
+\index{RenderScene@{RenderScene}!HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}}
+\doxysubsubsection{\texorpdfstring{RenderScene()}{RenderScene()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Scene\+::\+Scene\+Manager\+::\+Render\+Scene (\begin{DoxyParamCaption}\item[{double}]{offset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 82 of file Scene\+Manager.\+inl.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_scene_1_1_scene_manager_a99a0ea5dc5702318995f4b747cd45e65_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_scene_1_1_scene_manager_aefa37f24c3f9f048252bfc0531c609cc}\label{class_header_tech_1_1_scene_1_1_scene_manager_aefa37f24c3f9f048252bfc0531c609cc}} 
+\index{HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}!SetRootScene@{SetRootScene}}
+\index{SetRootScene@{SetRootScene}!HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}}
+\doxysubsubsection{\texorpdfstring{SetRootScene()}{SetRootScene()}}
+{\footnotesize\ttfamily template$<$typename Root\+Scene , typename... Args$>$ \\
+void Header\+Tech\+::\+Scene\+::\+Scene\+Manager\+::\+Set\+Root\+Scene (\begin{DoxyParamCaption}\item[{Args...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 31 of file Scene\+Manager.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_scene_1_1_scene_manager_ac23cab43532e4c7c33c47b5e53611841}\label{class_header_tech_1_1_scene_1_1_scene_manager_ac23cab43532e4c7c33c47b5e53611841}} 
+\index{HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}!TickScene@{TickScene}}
+\index{TickScene@{TickScene}!HeaderTech::Scene::SceneManager@{HeaderTech::Scene::SceneManager}}
+\doxysubsubsection{\texorpdfstring{TickScene()}{TickScene()}}
+{\footnotesize\ttfamily void Header\+Tech\+::\+Scene\+::\+Scene\+Manager\+::\+Tick\+Scene (\begin{DoxyParamCaption}\item[{double}]{delta,  }\item[{double}]{lag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 85 of file Scene\+Manager.\+inl.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_scene_1_1_scene_manager_ac23cab43532e4c7c33c47b5e53611841_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+scene/inc/\mbox{\hyperlink{_scene_manager_8h}{Scene\+Manager.\+h}}\item 
+scene/inc/\mbox{\hyperlink{_scene_manager_8inl}{Scene\+Manager.\+inl}}\end{DoxyCompactItemize}

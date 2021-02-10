@@ -22,7 +22,8 @@ namespace HeaderTech::Window::Api::OpenGL {
             HeaderTech::Events::EventDispatcher *dispatcher,
             GLFWwindow *shared
     ) noexcept
-            : HeaderTech::Window::Api::WindowApi(dispatcher), m_window(nullptr)
+            : HeaderTech::Core::Api::Window::WindowApi(dispatcher),
+              m_window(nullptr)
     {
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
@@ -106,7 +107,7 @@ namespace HeaderTech::Window::Api::OpenGL {
         return height;
     }
 
-    bool OpenGLWindowApi::IsKeyPressed(KeyType key) const noexcept
+    bool OpenGLWindowApi::IsKeyPressed(HeaderTech::Core::KeyType key) const noexcept
     { return glfwGetKey(m_window, HeaderTech::Window::Api::GLFW::KeyMapping[key]) == GLFW_PRESS; }
 }
 

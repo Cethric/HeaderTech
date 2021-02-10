@@ -6,25 +6,23 @@
 #define HEADERTECH_PROFILERSINK_INL
 
 #include <chrono>
-#include <ProfilerSink.h>
-#include <scoped/ScopedProfiler.h>
-#include <spdlog/sinks/base_sink-inl.h>
 #include <thread>
+
+#include <ProfilerSink.h>
+#include <scoped/ScopedProfilerIncludes.h>
+
+#include <spdlog/sinks/base_sink-inl.h>
 
 namespace HeaderTech::Logging {
     template<class Mutex>
     ProfilerSink<Mutex>::ProfilerSink()
             : spdlog::sinks::base_sink<Mutex>()
-    {
-
-    }
+    {}
 
     template<class Mutex>
     ProfilerSink<Mutex>::ProfilerSink(std::unique_ptr<spdlog::formatter> formatter)
             : spdlog::sinks::base_sink<Mutex>(formatter)
-    {
-
-    }
+    {}
 
     template<class Mutex>
     void ProfilerSink<Mutex>::sink_it_(const spdlog::details::log_msg &msg)

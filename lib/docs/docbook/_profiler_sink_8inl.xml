@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__profiler_sink_8inl" xml:lang="en-US">
+<title>logging/inc/ProfilerSink.inl File Reference</title>
+<indexterm><primary>logging/inc/ProfilerSink.inl</primary></indexterm>
+<programlisting>#include &lt;chrono&gt;
+#include &lt;thread&gt;
+#include &lt;ProfilerSink.h&gt;
+#include &lt;scoped/ScopedProfilerIncludes.h&gt;
+#include &lt;spdlog/sinks/base_sink-inl.h&gt;
+</programlisting>Include dependency graph for ProfilerSink.inl:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_profiler_sink_8inl__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_logging">HeaderTech::Logging</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__profiler_sink_8inl_1ad03b97c44522cef47d2d7368e9494cb9">HEADERTECH_PROFILERSINK_INL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__profiler_sink_8inl_1ad03b97c44522cef47d2d7368e9494cb9"/>    <section>
+    <title>HEADERTECH_PROFILERSINK_INL</title>
+<indexterm><primary>HEADERTECH_PROFILERSINK_INL</primary><secondary>ProfilerSink.inl</secondary></indexterm>
+<indexterm><primary>ProfilerSink.inl</primary><secondary>HEADERTECH_PROFILERSINK_INL</secondary></indexterm>
+<para><computeroutput>#define HEADERTECH_PROFILERSINK_INL</computeroutput></para><para>
+Definition at line 6 of file ProfilerSink.inl.</para>
+</section>
+</section>
+</section>

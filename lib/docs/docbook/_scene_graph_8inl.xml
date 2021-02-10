@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__scene_graph_8inl" xml:lang="en-US">
+<title>scene/inc/SceneGraph.inl File Reference</title>
+<indexterm><primary>scene/inc/SceneGraph.inl</primary></indexterm>
+<programlisting>#include &lt;SceneGraph.h&gt;
+#include &lt;Runtime.h&gt;
+#include &lt;Runtime.inl&gt;
+</programlisting>Include dependency graph for SceneGraph.inl:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_scene_graph_8inl__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_scene">HeaderTech::Scene</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__scene_graph_8inl_1a753d04dea2c263ef1e7426eb1f1d6336">HEADERTECH_SCENEGRAPH_INL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__scene_graph_8inl_1a753d04dea2c263ef1e7426eb1f1d6336"/>    <section>
+    <title>HEADERTECH_SCENEGRAPH_INL</title>
+<indexterm><primary>HEADERTECH_SCENEGRAPH_INL</primary><secondary>SceneGraph.inl</secondary></indexterm>
+<indexterm><primary>SceneGraph.inl</primary><secondary>HEADERTECH_SCENEGRAPH_INL</secondary></indexterm>
+<para><computeroutput>#define HEADERTECH_SCENEGRAPH_INL</computeroutput></para><para>
+Definition at line 6 of file SceneGraph.inl.</para>
+</section>
+</section>
+</section>

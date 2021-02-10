@@ -6,12 +6,12 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(
         HeaderTech_Scene_SRC
-        src/SceneGraph.cpp
+        src/SceneIncludes.cpp
 )
 
 set(
         HeaderTech_Scene_INC
-        inc/Scene.h
+        inc/SceneIncludes.h
         inc/SceneGraph.h
         inc/SceneGraph.inl
         inc/SceneManager.h

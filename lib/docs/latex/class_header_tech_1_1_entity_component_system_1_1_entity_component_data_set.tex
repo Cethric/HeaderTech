@@ -1,0 +1,162 @@
+\hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set}{}\doxysection{Header\+Tech\+::Entity\+Component\+System\+::Entity\+Component\+Data\+Set$<$ Component\+Type $>$ Class Template Reference}
+\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set}\index{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$@{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$}}
+
+
+{\ttfamily \#include $<$Entity\+Set.\+h$>$}
+
+
+
+Inheritance diagram for Header\+Tech\+::Entity\+Component\+System\+::Entity\+Component\+Data\+Set$<$ Component\+Type $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Header\+Tech\+::Entity\+Component\+System\+::Entity\+Component\+Data\+Set$<$ Component\+Type $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_ab73418eb34f987ffb59f96c797d9df86}{iterator}} = \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator}{details\+::\+Entity\+Set\+Iterator}}$<$ Component\+Type $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_a1591d7aa30183af82df2ac5bdb4ab279}{Entity\+Component\+Data\+Set}} () noexcept
+\item 
+\mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_aab1d5cb8173723fb611a27f48c71fca0}{$\sim$\+Entity\+Component\+Data\+Set}} () noexcept final
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_a8ae07dd72f1553fd6e6287c7075cabec}{Set\+Value}} (\mbox{\hyperlink{namespace_header_tech_1_1_entity_component_system_adc7f09842048a2530861950e6ed2feef}{Entity\+Id}} id, Args...\+args) noexcept
+\item 
+void \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_a6897df8f3fd0acae88502a03b2bfaeb2}{Remove}} (\mbox{\hyperlink{namespace_header_tech_1_1_entity_component_system_adc7f09842048a2530861950e6ed2feef}{Entity\+Id}} id) noexcept final
+\item 
+Component\+Type $\ast$ \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_a92224becdc14555a4e6325b8c3932244}{Get}} (\mbox{\hyperlink{namespace_header_tech_1_1_entity_component_system_adc7f09842048a2530861950e6ed2feef}{Entity\+Id}} id) noexcept
+\item 
+std\+::vector$<$ Component\+Type $\ast$ $>$ \& \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_a765152bc957b295e6310c6d583d31de8}{All}} () noexcept
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$Component Component\+Type$>$\newline
+class Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+Data\+Set$<$ Component\+Type $>$}
+
+
+
+Definition at line 103 of file Entity\+Set.\+h.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_ab73418eb34f987ffb59f96c797d9df86}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_ab73418eb34f987ffb59f96c797d9df86}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$@{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$}!iterator@{iterator}}
+\index{iterator@{iterator}!HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$@{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily template$<$Component Component\+Type$>$ \\
+using \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+Data\+Set}}$<$ Component\+Type $>$\+::\mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_ab73418eb34f987ffb59f96c797d9df86}{iterator}} =  \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator}{details\+::\+Entity\+Set\+Iterator}}$<$Component\+Type$>$}
+
+
+
+Definition at line 105 of file Entity\+Set.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_a1591d7aa30183af82df2ac5bdb4ab279}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_a1591d7aa30183af82df2ac5bdb4ab279}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$@{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$}!EntityComponentDataSet@{EntityComponentDataSet}}
+\index{EntityComponentDataSet@{EntityComponentDataSet}!HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$@{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$}}
+\doxysubsubsection{\texorpdfstring{EntityComponentDataSet()}{EntityComponentDataSet()}}
+{\footnotesize\ttfamily template$<$Component Component\+Type$>$ \\
+\mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+Data\+Set}}$<$ Component\+Type $>$\+::\mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set}{Entity\+Component\+Data\+Set}}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 120 of file Entity\+Set.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_aab1d5cb8173723fb611a27f48c71fca0}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_aab1d5cb8173723fb611a27f48c71fca0}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$@{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$}!````~EntityComponentDataSet@{$\sim$EntityComponentDataSet}}
+\index{````~EntityComponentDataSet@{$\sim$EntityComponentDataSet}!HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$@{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$EntityComponentDataSet()}{~EntityComponentDataSet()}}
+{\footnotesize\ttfamily template$<$Component Component\+Type$>$ \\
+\mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+Data\+Set}}$<$ Component\+Type $>$\+::$\sim$\mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set}{Entity\+Component\+Data\+Set}}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 127 of file Entity\+Set.\+inl.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_a765152bc957b295e6310c6d583d31de8}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_a765152bc957b295e6310c6d583d31de8}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$@{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$}!All@{All}}
+\index{All@{All}!HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$@{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$}}
+\doxysubsubsection{\texorpdfstring{All()}{All()}}
+{\footnotesize\ttfamily template$<$Component Component\+Type$>$ \\
+std\+::vector$<$ Component\+Type $\ast$ $>$ \& \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+Data\+Set}}$<$ Component\+Type $>$\+::All\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 168 of file Entity\+Set.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_a92224becdc14555a4e6325b8c3932244}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_a92224becdc14555a4e6325b8c3932244}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$@{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$}!Get@{Get}}
+\index{Get@{Get}!HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$@{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily template$<$Component Component\+Type$>$ \\
+Component\+Type $\ast$ \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+Data\+Set}}$<$ Component\+Type $>$\+::Get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_header_tech_1_1_entity_component_system_adc7f09842048a2530861950e6ed2feef}{Entity\+Id}}}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 161 of file Entity\+Set.\+inl.
+
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_a6897df8f3fd0acae88502a03b2bfaeb2}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_a6897df8f3fd0acae88502a03b2bfaeb2}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$@{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$}!Remove@{Remove}}
+\index{Remove@{Remove}!HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$@{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily template$<$Component Component\+Type$>$ \\
+void \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+Data\+Set}}$<$ Component\+Type $>$\+::Remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_header_tech_1_1_entity_component_system_adc7f09842048a2530861950e6ed2feef}{Entity\+Id}}}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_a773261bbb4421418fb73d9bc992eee2b}{Header\+Tech\+::\+Entity\+Component\+System\+::details\+::\+Entity\+Set}}.
+
+
+
+Definition at line 146 of file Entity\+Set.\+inl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_a6897df8f3fd0acae88502a03b2bfaeb2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_a8ae07dd72f1553fd6e6287c7075cabec}\label{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set_a8ae07dd72f1553fd6e6287c7075cabec}} 
+\index{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$@{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$}!SetValue@{SetValue}}
+\index{SetValue@{SetValue}!HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$@{HeaderTech::EntityComponentSystem::EntityComponentDataSet$<$ ComponentType $>$}}
+\doxysubsubsection{\texorpdfstring{SetValue()}{SetValue()}}
+{\footnotesize\ttfamily template$<$Component Component\+Type$>$ \\
+template$<$typename... Args$>$ \\
+void \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+Data\+Set}}$<$ Component\+Type $>$\+::Set\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_header_tech_1_1_entity_component_system_adc7f09842048a2530861950e6ed2feef}{Entity\+Id}}}]{id,  }\item[{Args...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 132 of file Entity\+Set.\+inl.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+ecs/inc/\mbox{\hyperlink{_entity_set_8h}{Entity\+Set.\+h}}\item 
+ecs/inc/\mbox{\hyperlink{_entity_set_8inl}{Entity\+Set.\+inl}}\end{DoxyCompactItemize}

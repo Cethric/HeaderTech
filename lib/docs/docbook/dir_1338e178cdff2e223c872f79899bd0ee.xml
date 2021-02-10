@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_1338e178cdff2e223c872f79899bd0ee" xml:lang="en-US">
+<title>runtime/inc Directory Reference</title>
+<indexterm><primary>runtime/inc Directory Reference</primary></indexterm>
+Directory dependency graph for inc:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_1338e178cdff2e223c872f79899bd0ee_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_ecdb64ac9c0486f41528909440d26a34">events</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__runtime_8h">Runtime.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__runtime_8inl">Runtime.inl</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__runtime_includes_8h">RuntimeIncludes.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

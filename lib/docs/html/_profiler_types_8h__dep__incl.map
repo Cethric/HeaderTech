@@ -1,0 +1,21 @@
+<map id="profiler/inc/ProfilerTypes.h" name="profiler/inc/ProfilerTypes.h">
+<area shape="rect" id="node1" title=" " alt="" coords="633,5,804,32"/>
+<area shape="rect" id="node2" href="$_profile_dispatcher_8h.html" title=" " alt="" coords="555,80,749,107"/>
+<area shape="rect" id="node5" href="$_profiler_includes_8h.html" title=" " alt="" coords="797,251,981,278"/>
+<area shape="rect" id="node11" href="$_profiler_manager_8h.html" title=" " alt="" coords="628,162,815,189"/>
+<area shape="rect" id="node13" href="$_scoped_profile_mark_8h.html" title=" " alt="" coords="233,155,380,196"/>
+<area shape="rect" id="node3" href="$_profile_dispatcher_8inl.html" title=" " alt="" coords="404,162,604,189"/>
+<area shape="rect" id="node4" href="$_profiler_manager_8inl.html" title=" " alt="" coords="416,251,608,278"/>
+<area shape="rect" id="node6" href="$_profiler_includes_8cpp.html" title=" " alt="" coords="598,341,797,367"/>
+<area shape="rect" id="node7" href="$_open_g_l_window_api_events_8inl.html" title=" " alt="" coords="821,333,1016,375"/>
+<area shape="rect" id="node8" href="$_open_g_l_window_api_8inl.html" title=" " alt="" coords="782,423,938,464"/>
+<area shape="rect" id="node9" href="$_window_api_includes_8inl.html" title=" " alt="" coords="830,512,1005,553"/>
+<area shape="rect" id="node10" href="$_window_8inl.html" title=" " alt="" coords="841,601,993,628"/>
+<area shape="rect" id="node12" href="$_scoped_profiler_8inl.html" title=" " alt="" coords="646,244,773,285"/>
+<area shape="rect" id="node14" href="$_scoped_profile_mark_8inl.html" title=" " alt="" coords="45,244,197,285"/>
+<area shape="rect" id="node15" href="$_scoped_profiler_includes_8h.html" title=" " alt="" coords="222,244,391,285"/>
+<area shape="rect" id="node16" href="$_event_dispatcher_8inl.html" title=" " alt="" coords="379,341,573,367"/>
+<area shape="rect" id="node17" href="$_profiler_sink_8inl.html" title=" " alt="" coords="5,341,176,367"/>
+<area shape="rect" id="node18" href="$_runtime_8inl.html" title=" " alt="" coords="200,341,355,367"/>
+<area shape="rect" id="node19" href="$_scene_graph_8inl.html" title=" " alt="" coords="192,430,363,457"/>
+</map>

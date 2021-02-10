@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_scene_1_1_scene_graph" xml:lang="en-US">
+<title>HeaderTech::Scene::SceneGraph Class Reference</title>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary></indexterm>
+<para>
+<computeroutput>#include &lt;SceneGraph.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1ac82ccbf2857add132d01173318e7a991">SceneGraph</link> (<link linkend="_class_header_tech_1_1_core_1_1_runtime">HeaderTech::Core::Runtime</link> *runtime, <link linkend="_class_header_tech_1_1_scene_1_1_scene_manager">SceneManager</link> *owner, <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph">SceneGraph</link> *parent, <link linkend="_namespace_header_tech_1_1_logging_1a0621070397f6df5586f73f0e6014279c">HeaderTech::Logging::Logger</link> logger, const <link linkend="_struct_header_tech_1_1_render_1_1_scene_graph_1_1_render_surface_options">HeaderTech::Render::SceneGraph::RenderSurfaceOptions</link> &amp;options) noexcept</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1a758740c8af57d421d4ffccc73a03cf5f">~SceneGraph</link> () noexcept</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1a46cb04d09d2878da99d08d18ebf8b495">ResizeFramebuffer</link> (int width, int height) noexcept</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1a9f187fac6a1205a7db293e22284ebde3">OnEvent</link> (<link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_framebuffer_size_event">HeaderTech::Window::Events::FramebufferSizeEvent</link> *event) noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>template&lt;typename ChildScene , typename... Args&gt; </para><para>ChildScene * <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1a7bad5b4f4ed280c452f870016394caf2">AddChildScene</link> (Args...args) noexcept</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1ad51f44963cd540714d4ae4b56942b6ad">IsKeyPressed</link> (<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eac">HeaderTech::Window::KeyType</link> key) noexcept</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1a326c90fe525d69cd903645e6f4fd8b5e">OnActivated</link> () noexcept=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1acbd90c92209cdaafd72bc64a725cdc7c">OnDeactivated</link> () noexcept=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1a133a608ebc5326b7a79ac5f49eed4c3c">OnSceneWillBePushed</link> () noexcept=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1a89c860de256e911faf402dd477480a0f">OnSceneWillBePopped</link> () noexcept=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1a6d32118cb2a6e6159f5d31a33b13dc02">OnSceneWasPushed</link> () noexcept=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1a8ec97b426082cb1f86d686eeacd38f38">OnSceneWasPopped</link> () noexcept=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1a4ace2275c631937a885828ac2ebaedeb">OnSceneTicked</link> (double delta, double lag) noexcept=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1ad49758ecbe29d749da89b29beebe98c0">OnSceneRendered</link> (double offset, const <link linkend="_class_header_tech_1_1_render_1_1_scene_graph_1_1_scene_graph_render_management">HeaderTech::Render::SceneGraph::SceneGraphRenderManagement</link> &amp;mgmt) noexcept=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1a1d5374ff9a6d5009d522dbdec5286b15">OnDebugGuiRendered</link> () noexcept=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1a050c58fc270a5899ca31269fc37f7280">OnFramebufferResized</link> (int width, int height) noexcept=0</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_core_1_1_runtime">HeaderTech::Core::Runtime</link> * <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1a65e2b2c91063e8153b2c0c3f4e0c6ffe">Runtime</link> () const noexcept</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_scene_1_1_scene_manager">SceneManager</link> * <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1aca780952e2c53e3851712e21527ab3cb">Owner</link> () const noexcept</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_scene_1_1_scene_graph">SceneGraph</link> * <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1a1b4fb1a576941d0848ed309c162e5593">Parent</link> () const noexcept</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_collection">EntityComponentSystem::EntityCollection</link> &amp; <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1a37f19d80ed0463d7a1c89a033d137d5b">Entities</link> () noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespace_header_tech_1_1_logging_1a0621070397f6df5586f73f0e6014279c">HeaderTech::Logging::Logger</link> <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1af8f9a2e581f07ad652eb9170bbec89d1">m_log</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Friends    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph_1a284464b0561a6f2915f04b0245b987f0">SceneManager</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 27 of file SceneGraph.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1ac82ccbf2857add132d01173318e7a991"/>    <section>
+    <title>SceneGraph()</title>
+<indexterm><primary>SceneGraph</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>SceneGraph</secondary></indexterm>
+<para><computeroutput>HeaderTech::Scene::SceneGraph::SceneGraph (<link linkend="_class_header_tech_1_1_core_1_1_runtime">HeaderTech::Core::Runtime</link> * runtime, <link linkend="_class_header_tech_1_1_scene_1_1_scene_manager">SceneManager</link> * owner, <link linkend="_class_header_tech_1_1_scene_1_1_scene_graph">SceneGraph</link> * parent, <link linkend="_namespace_header_tech_1_1_logging_1a0621070397f6df5586f73f0e6014279c">HeaderTech::Logging::Logger</link> logger, const <link linkend="_struct_header_tech_1_1_render_1_1_scene_graph_1_1_render_surface_options">HeaderTech::Render::SceneGraph::RenderSurfaceOptions</link> &amp; options)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 14 of file SceneGraph.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1a758740c8af57d421d4ffccc73a03cf5f"/>    <section>
+    <title>~SceneGraph()</title>
+<indexterm><primary>~SceneGraph</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>~SceneGraph</secondary></indexterm>
+<para><computeroutput>HeaderTech::Scene::SceneGraph::~SceneGraph ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 31 of file SceneGraph.inl.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1a7bad5b4f4ed280c452f870016394caf2"/>    <section>
+    <title>AddChildScene()</title>
+<indexterm><primary>AddChildScene</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>AddChildScene</secondary></indexterm>
+<computeroutput>template&lt;typename ChildScene , typename... Args&gt; </computeroutput><para><computeroutput>ChildScene * HeaderTech::Scene::SceneGraph::AddChildScene (Args... args)<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 50 of file SceneGraph.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1a37f19d80ed0463d7a1c89a033d137d5b"/>    <section>
+    <title>Entities()</title>
+<indexterm><primary>Entities</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>Entities</secondary></indexterm>
+<para><computeroutput><link linkend="_class_header_tech_1_1_entity_component_system_1_1_entity_collection">EntityComponentSystem::EntityCollection</link>&amp; HeaderTech::Scene::SceneGraph::Entities ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 110 of file SceneGraph.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1ad51f44963cd540714d4ae4b56942b6ad"/>    <section>
+    <title>IsKeyPressed()</title>
+<indexterm><primary>IsKeyPressed</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>IsKeyPressed</secondary></indexterm>
+<para><computeroutput>bool HeaderTech::Scene::SceneGraph::IsKeyPressed (<link linkend="_namespace_header_tech_1_1_window_1a7acdd182dd046ccf26fa885357162eac">HeaderTech::Window::KeyType</link> key)<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 75 of file SceneGraph.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1a326c90fe525d69cd903645e6f4fd8b5e"/>    <section>
+    <title>OnActivated()</title>
+<indexterm><primary>OnActivated</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>OnActivated</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Scene::SceneGraph::OnActivated ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para>    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1acbd90c92209cdaafd72bc64a725cdc7c"/>    <section>
+    <title>OnDeactivated()</title>
+<indexterm><primary>OnDeactivated</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>OnDeactivated</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Scene::SceneGraph::OnDeactivated ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para>    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1a1d5374ff9a6d5009d522dbdec5286b15"/>    <section>
+    <title>OnDebugGuiRendered()</title>
+<indexterm><primary>OnDebugGuiRendered</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>OnDebugGuiRendered</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Scene::SceneGraph::OnDebugGuiRendered ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para>    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1a9f187fac6a1205a7db293e22284ebde3"/>    <section>
+    <title>OnEvent()</title>
+<indexterm><primary>OnEvent</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>OnEvent</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Scene::SceneGraph::OnEvent (<link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_framebuffer_size_event">HeaderTech::Window::Events::FramebufferSizeEvent</link> * event)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 46 of file SceneGraph.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1a050c58fc270a5899ca31269fc37f7280"/>    <section>
+    <title>OnFramebufferResized()</title>
+<indexterm><primary>OnFramebufferResized</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>OnFramebufferResized</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Scene::SceneGraph::OnFramebufferResized (int width, int height)<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para>    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1ad49758ecbe29d749da89b29beebe98c0"/>    <section>
+    <title>OnSceneRendered()</title>
+<indexterm><primary>OnSceneRendered</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>OnSceneRendered</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Scene::SceneGraph::OnSceneRendered (double offset, const <link linkend="_class_header_tech_1_1_render_1_1_scene_graph_1_1_scene_graph_render_management">HeaderTech::Render::SceneGraph::SceneGraphRenderManagement</link> &amp; mgmt)<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para>    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1a4ace2275c631937a885828ac2ebaedeb"/>    <section>
+    <title>OnSceneTicked()</title>
+<indexterm><primary>OnSceneTicked</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>OnSceneTicked</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Scene::SceneGraph::OnSceneTicked (double delta, double lag)<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para>    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1a8ec97b426082cb1f86d686eeacd38f38"/>    <section>
+    <title>OnSceneWasPopped()</title>
+<indexterm><primary>OnSceneWasPopped</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>OnSceneWasPopped</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Scene::SceneGraph::OnSceneWasPopped ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para>    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1a6d32118cb2a6e6159f5d31a33b13dc02"/>    <section>
+    <title>OnSceneWasPushed()</title>
+<indexterm><primary>OnSceneWasPushed</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>OnSceneWasPushed</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Scene::SceneGraph::OnSceneWasPushed ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para>    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1a89c860de256e911faf402dd477480a0f"/>    <section>
+    <title>OnSceneWillBePopped()</title>
+<indexterm><primary>OnSceneWillBePopped</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>OnSceneWillBePopped</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Scene::SceneGraph::OnSceneWillBePopped ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para>    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1a133a608ebc5326b7a79ac5f49eed4c3c"/>    <section>
+    <title>OnSceneWillBePushed()</title>
+<indexterm><primary>OnSceneWillBePushed</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>OnSceneWillBePushed</secondary></indexterm>
+<para><computeroutput>virtual void HeaderTech::Scene::SceneGraph::OnSceneWillBePushed ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[pure virtual]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para>    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1aca780952e2c53e3851712e21527ab3cb"/>    <section>
+    <title>Owner()</title>
+<indexterm><primary>Owner</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>Owner</secondary></indexterm>
+<para><computeroutput><link linkend="_class_header_tech_1_1_scene_1_1_scene_manager">SceneManager</link>* HeaderTech::Scene::SceneGraph::Owner ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 104 of file SceneGraph.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1a1b4fb1a576941d0848ed309c162e5593"/>    <section>
+    <title>Parent()</title>
+<indexterm><primary>Parent</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>Parent</secondary></indexterm>
+<para><computeroutput><link linkend="_class_header_tech_1_1_scene_1_1_scene_graph">SceneGraph</link>* HeaderTech::Scene::SceneGraph::Parent ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 107 of file SceneGraph.h.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1a46cb04d09d2878da99d08d18ebf8b495"/>    <section>
+    <title>ResizeFramebuffer()</title>
+<indexterm><primary>ResizeFramebuffer</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>ResizeFramebuffer</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Scene::SceneGraph::ResizeFramebuffer (int width, int height)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 11 of file SceneGraphManagement.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1a65e2b2c91063e8153b2c0c3f4e0c6ffe"/>    <section>
+    <title>Runtime()</title>
+<indexterm><primary>Runtime</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>Runtime</secondary></indexterm>
+<para><computeroutput><link linkend="_class_header_tech_1_1_core_1_1_runtime">HeaderTech::Core::Runtime</link>* HeaderTech::Scene::SceneGraph::Runtime ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 101 of file SceneGraph.h.</para>
+</section>
+</section>
+<section>
+<title>Friends And Related Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1a284464b0561a6f2915f04b0245b987f0"/>    <section>
+    <title>SceneManager</title>
+<indexterm><primary>SceneManager</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>SceneManager</secondary></indexterm>
+<para><computeroutput>friend class <link linkend="_class_header_tech_1_1_scene_1_1_scene_manager">SceneManager</link><computeroutput>[friend]</computeroutput></computeroutput></para><para>
+Definition at line 29 of file SceneGraph.h.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_scene_1_1_scene_graph_1af8f9a2e581f07ad652eb9170bbec89d1"/>    <section>
+    <title>m_log</title>
+<indexterm><primary>m_log</primary><secondary>HeaderTech::Scene::SceneGraph</secondary></indexterm>
+<indexterm><primary>HeaderTech::Scene::SceneGraph</primary><secondary>m_log</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_header_tech_1_1_logging_1a0621070397f6df5586f73f0e6014279c">HeaderTech::Logging::Logger</link> HeaderTech::Scene::SceneGraph::m_log<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line 126 of file SceneGraph.h.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+scene/inc/<link linkend="__scene_graph_8h">SceneGraph.h</link>scene/inc/<link linkend="__scene_graph_8inl">SceneGraph.inl</link>scene/inc/<link linkend="__scene_graph_management_8inl">SceneGraphManagement.inl</link></section>
+</section>

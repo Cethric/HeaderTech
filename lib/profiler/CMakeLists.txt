@@ -6,23 +6,23 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(
         HeaderTech_Profiler_SRC
-        src/ProfileDisplayThread.cpp
+        src/ProfilerIncludes.cpp
 )
 
 set(
         HeaderTech_Profiler_INC
-        inc/Profiler.h
+        inc/ProfilerIncludes.h
         inc/ProfilerManager.h
         inc/ProfilerManager.inl
         inc/LogDispatcher.h
         inc/LogDispatcher.inl
         inc/Types.h
-        inc/ScopedProfileMark.h
         inc/ProfileDispatcher.h
         inc/ProfileDispatcher.inl
-        inc/scoped/ScopedProfiler.h
         inc/ProfilerTypes.h
-)
+        inc/scoped/ScopedProfiler.h
+        inc/scoped/ScopedProfileMark.h
+        inc/scoped/ScopedProfileMark.inl inc/scoped/ScopedProfiler.inl inc/scoped/ScopedProfilerIncludes.h)
 
 add_library(HeaderTech_Profiler STATIC ${HeaderTech_Profiler_SRC} ${HeaderTech_Profiler_INC})
 target_include_directories(HeaderTech_Profiler PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc/)

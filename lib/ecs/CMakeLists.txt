@@ -6,12 +6,12 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(
         HeaderTech_EntityComponentSystem_SRC
-        src/EntityComponentSystem.cpp
+        src/ECSIncludes.cpp
 )
 
 set(
         HeaderTech_EntityComponentSystem_INC
-        inc/EntityComponentSystem.h
+        inc/ECSIncludes.h
         inc/EntityBuilder.h
         inc/Component.h
         inc/EntityCollection.h
@@ -30,4 +30,4 @@ target_include_directories(HeaderTech_EntityComponentSystem PUBLIC ${CMAKE_CURRE
 target_include_directories(HeaderTech_EntityComponentSystem PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/inc/)
 target_include_directories(HeaderTech_EntityComponentSystem PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
 target_link_libraries(HeaderTech_EntityComponentSystem PUBLIC hashmap::hashmap ctti::ctti)
-target_link_libraries(HeaderTech_EntityComponentSystem PUBLIC HeaderTech_Core HeaderTech_Logging HeaderTech_Profiler)
+target_link_libraries(HeaderTech_EntityComponentSystem PUBLIC HeaderTech_Logging HeaderTech_Profiler)

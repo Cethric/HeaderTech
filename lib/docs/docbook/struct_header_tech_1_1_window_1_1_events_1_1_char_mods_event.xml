@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_char_mods_event" xml:lang="en-US">
+<title>HeaderTech::Window::Events::CharModsEvent Struct Reference</title>
+<indexterm><primary>HeaderTech::Window::Events::CharModsEvent</primary></indexterm>
+<para>
+<computeroutput>#include &lt;CharModsEvent.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_char_mods_event_1af30941077dbc0c51c0f9cb884209847b">CharModsEvent</link> (unsigned int <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_char_mods_event_1aa5ee246c7f8e95276a43593f991e2d9c">code</link>, int <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_char_mods_event_1aac4600ee00c07f3ba4f2e78e86ae2616">mods</link>) noexcept</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_header_tech_1_1_events_1a94ce76b1ca57f459e666e4bd3152652d">HeaderTech::Events::EventPriority</link> <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_char_mods_event_1ae01eae9a72193c41c23a8bbc03e33469">GetPriority</link> () const noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>unsigned int <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_char_mods_event_1aa5ee246c7f8e95276a43593f991e2d9c">code</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_char_mods_event_1aac4600ee00c07f3ba4f2e78e86ae2616">mods</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 11 of file CharModsEvent.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_char_mods_event_1af30941077dbc0c51c0f9cb884209847b"/>    <section>
+    <title>CharModsEvent()</title>
+<indexterm><primary>CharModsEvent</primary><secondary>HeaderTech::Window::Events::CharModsEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::CharModsEvent</primary><secondary>CharModsEvent</secondary></indexterm>
+<para><computeroutput>HeaderTech::Window::Events::CharModsEvent::CharModsEvent (unsigned int code, int mods)<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 12 of file CharModsEvent.h.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_char_mods_event_1ae01eae9a72193c41c23a8bbc03e33469"/>    <section>
+    <title>GetPriority()</title>
+<indexterm><primary>GetPriority</primary><secondary>HeaderTech::Window::Events::CharModsEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::CharModsEvent</primary><secondary>GetPriority</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_header_tech_1_1_events_1a94ce76b1ca57f459e666e4bd3152652d">HeaderTech::Events::EventPriority</link> HeaderTech::Window::Events::CharModsEvent::GetPriority ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 16 of file CharModsEvent.h.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_char_mods_event_1aa5ee246c7f8e95276a43593f991e2d9c"/>    <section>
+    <title>code</title>
+<indexterm><primary>code</primary><secondary>HeaderTech::Window::Events::CharModsEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::CharModsEvent</primary><secondary>code</secondary></indexterm>
+<para><computeroutput>unsigned int HeaderTech::Window::Events::CharModsEvent::code</computeroutput></para><para>
+Definition at line 19 of file CharModsEvent.h.</para>
+    </section><anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_char_mods_event_1aac4600ee00c07f3ba4f2e78e86ae2616"/>    <section>
+    <title>mods</title>
+<indexterm><primary>mods</primary><secondary>HeaderTech::Window::Events::CharModsEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::CharModsEvent</primary><secondary>mods</secondary></indexterm>
+<para><computeroutput>int HeaderTech::Window::Events::CharModsEvent::mods</computeroutput></para><para>
+Definition at line 20 of file CharModsEvent.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+window/inc/events/<link linkend="__char_mods_event_8h">CharModsEvent.h</link></section>
+</section>

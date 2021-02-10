@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes" xml:lang="en-US">
+<title>HeaderTech::EntityComponentSystem::EntityComponentViewExcludes&lt; Excludes &gt; Struct Template Reference</title>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityComponentViewExcludes&lt; Excludes &gt;</primary></indexterm>
+<para>
+<computeroutput>#include &lt;EntityComponentView.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para>using <link linkend="_struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes_1a174d63fb683f3f5869c6f9c148d3dd1b">T</link> = <link linkend="_struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes">EntityComponentViewExcludes</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static constexpr auto <link linkend="_struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes_1a67b8075f3ebf55dc5868540ba36a963a">size</link> = sizeof...(Excludes)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<simplesect><title>template&lt;Component... Excludes&gt;
+struct HeaderTech::EntityComponentSystem::EntityComponentViewExcludes&lt; Excludes &gt;</title></simplesect>
+
+<para>
+Definition at line 23 of file EntityComponentView.h.</para>
+</section>
+<section>
+<title>Member Typedef Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes_1a174d63fb683f3f5869c6f9c148d3dd1b"/>    <section>
+    <title>T</title>
+<indexterm><primary>T</primary><secondary>HeaderTech::EntityComponentSystem::EntityComponentViewExcludes&lt; Excludes &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityComponentViewExcludes&lt; Excludes &gt;</primary><secondary>T</secondary></indexterm>
+<computeroutput>template&lt;Component... Excludes&gt; </computeroutput><para><computeroutput>using <link linkend="_struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes">HeaderTech::EntityComponentSystem::EntityComponentViewExcludes</link>&lt; Excludes &gt;::<link linkend="_struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes_1a174d63fb683f3f5869c6f9c148d3dd1b">T</link> =  <link linkend="_struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes">EntityComponentViewExcludes</link></computeroutput></para><para>
+Definition at line 24 of file EntityComponentView.h.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes_1a67b8075f3ebf55dc5868540ba36a963a"/>    <section>
+    <title>size</title>
+<indexterm><primary>size</primary><secondary>HeaderTech::EntityComponentSystem::EntityComponentViewExcludes&lt; Excludes &gt;</secondary></indexterm>
+<indexterm><primary>HeaderTech::EntityComponentSystem::EntityComponentViewExcludes&lt; Excludes &gt;</primary><secondary>size</secondary></indexterm>
+<computeroutput>template&lt;Component... Excludes&gt; </computeroutput><para><computeroutput>constexpr auto <link linkend="_struct_header_tech_1_1_entity_component_system_1_1_entity_component_view_excludes">HeaderTech::EntityComponentSystem::EntityComponentViewExcludes</link>&lt; Excludes &gt;::size = sizeof...(Excludes)<computeroutput>[static]</computeroutput>, <computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line 25 of file EntityComponentView.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+ecs/inc/<link linkend="__entity_component_view_8h">EntityComponentView.h</link></section>
+</section>

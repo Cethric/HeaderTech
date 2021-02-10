@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__window_8inl" xml:lang="en-US">
+<title>window/inc/Window.inl File Reference</title>
+<indexterm><primary>window/inc/Window.inl</primary></indexterm>
+<programlisting>#include &lt;Window.h&gt;
+#include &lt;RenderIncludes.h&gt;
+#include &lt;EventsIncludes.h&gt;
+#include &lt;api/WindowApiIncludes.inl&gt;
+</programlisting>Include dependency graph for Window.inl:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_window_8inl__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_window">HeaderTech::Window</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__window_8inl_1a2c1d62dfdfdaeec65937aabe65af067c">HEADERTECH_WINDOW_INL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>using <link linkend="_namespace_header_tech_1_1_window_1a1ad4af3b34fba9f789b3ca87234084b7">HeaderTech::Window::Dispatcher</link> = <link linkend="_class_header_tech_1_1_events_1_1_event_dispatcher">HeaderTech::Events::EventDispatcher</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__window_8inl_1a2c1d62dfdfdaeec65937aabe65af067c"/>    <section>
+    <title>HEADERTECH_WINDOW_INL</title>
+<indexterm><primary>HEADERTECH_WINDOW_INL</primary><secondary>Window.inl</secondary></indexterm>
+<indexterm><primary>Window.inl</primary><secondary>HEADERTECH_WINDOW_INL</secondary></indexterm>
+<para><computeroutput>#define HEADERTECH_WINDOW_INL</computeroutput></para><para>
+Definition at line 6 of file Window.inl.</para>
+</section>
+</section>
+</section>

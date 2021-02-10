@@ -5,9 +5,11 @@
 #ifndef HEADERTECH_SCOPEDGLFW_H
 #define HEADERTECH_SCOPEDGLFW_H
 
+#define GLFW_INCLUDE_NONE 1
+
 #include <exception>
 #include <GLFW/glfw3.h>
-#include <Logging.h>
+#include <LoggingIncludes.h>
 
 namespace HeaderTech::Core::Scoped {
     static inline void glfw_error_callback(int code, const char *description)

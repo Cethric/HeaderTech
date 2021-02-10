@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_header_tech_1_1_logging_1_1details_1_1_file_sink_helper" xml:lang="en-US">
+<title>HeaderTech::Logging::details::FileSinkHelper Class Reference</title>
+<indexterm><primary>HeaderTech::Logging::details::FileSinkHelper</primary></indexterm>
+<para>
+<computeroutput>#include &lt;FileSink.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_header_tech_1_1_logging_1_1details_1_1_file_sink_helper_1a112794f27090613d48293b9702fa1733">FileSinkHelper</link> (const std::string_view &amp;filename)</para>
+</listitem>
+            <listitem><para><link linkend="_class_header_tech_1_1_logging_1_1details_1_1_file_sink_helper_1a0d107854718cd9c687f8b49ab17a78df">~FileSinkHelper</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_header_tech_1_1_logging_1_1details_1_1_file_sink_helper_1a3e69f812a3909dc646a096bfaf89e01f">Open</link> (const std::string_view &amp;filename)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_header_tech_1_1_logging_1_1details_1_1_file_sink_helper_1adf73cf42e1ef9427eb313169862af4d7">Write</link> (const spdlog::memory_buf_t &amp;formatted)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_header_tech_1_1_logging_1_1details_1_1_file_sink_helper_1ae7b1bf9537a1a5aeb16c8e319a0ddc5e">Flush</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_header_tech_1_1_logging_1_1details_1_1_file_sink_helper_1a1922efd889b40c2a3565c9214283b9c8">Close</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 17 of file FileSink.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_logging_1_1details_1_1_file_sink_helper_1a112794f27090613d48293b9702fa1733"/>    <section>
+    <title>FileSinkHelper()</title>
+<indexterm><primary>FileSinkHelper</primary><secondary>HeaderTech::Logging::details::FileSinkHelper</secondary></indexterm>
+<indexterm><primary>HeaderTech::Logging::details::FileSinkHelper</primary><secondary>FileSinkHelper</secondary></indexterm>
+<para><computeroutput>HeaderTech::Logging::details::FileSinkHelper::FileSinkHelper (const std::string_view &amp; filename)<computeroutput>[inline]</computeroutput>, <computeroutput>[explicit]</computeroutput></computeroutput></para><para>
+Definition at line 12 of file FileSink.inl.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_logging_1_1details_1_1_file_sink_helper_a112794f27090613d48293b9702fa1733_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_logging_1_1details_1_1_file_sink_helper_1a0d107854718cd9c687f8b49ab17a78df"/>    <section>
+    <title>~FileSinkHelper()</title>
+<indexterm><primary>~FileSinkHelper</primary><secondary>HeaderTech::Logging::details::FileSinkHelper</secondary></indexterm>
+<indexterm><primary>HeaderTech::Logging::details::FileSinkHelper</primary><secondary>~FileSinkHelper</secondary></indexterm>
+<para><computeroutput>HeaderTech::Logging::details::FileSinkHelper::~FileSinkHelper ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 17 of file FileSink.inl.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_logging_1_1details_1_1_file_sink_helper_a0d107854718cd9c687f8b49ab17a78df_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_header_tech_1_1_logging_1_1details_1_1_file_sink_helper_1a1922efd889b40c2a3565c9214283b9c8"/>    <section>
+    <title>Close()</title>
+<indexterm><primary>Close</primary><secondary>HeaderTech::Logging::details::FileSinkHelper</secondary></indexterm>
+<indexterm><primary>HeaderTech::Logging::details::FileSinkHelper</primary><secondary>Close</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Logging::details::FileSinkHelper::Close ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 40 of file FileSink.inl.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_logging_1_1details_1_1_file_sink_helper_a1922efd889b40c2a3565c9214283b9c8_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_logging_1_1details_1_1_file_sink_helper_1ae7b1bf9537a1a5aeb16c8e319a0ddc5e"/>    <section>
+    <title>Flush()</title>
+<indexterm><primary>Flush</primary><secondary>HeaderTech::Logging::details::FileSinkHelper</secondary></indexterm>
+<indexterm><primary>HeaderTech::Logging::details::FileSinkHelper</primary><secondary>Flush</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Logging::details::FileSinkHelper::Flush ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 35 of file FileSink.inl.</para>
+    </section><anchor xml:id="_class_header_tech_1_1_logging_1_1details_1_1_file_sink_helper_1a3e69f812a3909dc646a096bfaf89e01f"/>    <section>
+    <title>Open()</title>
+<indexterm><primary>Open</primary><secondary>HeaderTech::Logging::details::FileSinkHelper</secondary></indexterm>
+<indexterm><primary>HeaderTech::Logging::details::FileSinkHelper</primary><secondary>Open</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Logging::details::FileSinkHelper::Open (const std::string_view &amp; filename)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 22 of file FileSink.inl.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_header_tech_1_1_logging_1_1details_1_1_file_sink_helper_a3e69f812a3909dc646a096bfaf89e01f_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_class_header_tech_1_1_logging_1_1details_1_1_file_sink_helper_1adf73cf42e1ef9427eb313169862af4d7"/>    <section>
+    <title>Write()</title>
+<indexterm><primary>Write</primary><secondary>HeaderTech::Logging::details::FileSinkHelper</secondary></indexterm>
+<indexterm><primary>HeaderTech::Logging::details::FileSinkHelper</primary><secondary>Write</secondary></indexterm>
+<para><computeroutput>void HeaderTech::Logging::details::FileSinkHelper::Write (const spdlog::memory_buf_t &amp; formatted)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line 30 of file FileSink.inl.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+logging/inc/<link linkend="__file_sink_8h">FileSink.h</link>logging/inc/<link linkend="__file_sink_8inl">FileSink.inl</link></section>
+</section>

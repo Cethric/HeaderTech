@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__open_g_l_render_context_api_8h" xml:lang="en-US">
+<title>render/inc/api/opengl/OpenGLRenderContextApi.h File Reference</title>
+<indexterm><primary>render/inc/api/opengl/OpenGLRenderContextApi.h</primary></indexterm>
+<programlisting>#include &lt;glad/gl.h&gt;
+#include &lt;api/BaseRenderContextApi.h&gt;
+#include &lt;api/RenderFramebuffer.h&gt;
+#include &lt;api/opengl/OpenGLWindowApi.h&gt;
+#include &quot;OpenGLRenderFramebuffer.h&quot;
+</programlisting>Include dependency graph for OpenGLRenderContextApi.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_open_g_l_render_context_api_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_open_g_l_render_context_api_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_header_tech_1_1_render_1_1_api_1_1_open_g_l_1_1_open_g_l_render_context_api">HeaderTech::Render::Api::OpenGL::OpenGLRenderContextApi</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespace_header_tech">HeaderTech</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_render">HeaderTech::Render</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_render_1_1_api">HeaderTech::Render::Api</link></para>
+</listitem>
+            <listitem><para> <link linkend="_namespace_header_tech_1_1_render_1_1_api_1_1_open_g_l">HeaderTech::Render::Api::OpenGL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

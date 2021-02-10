@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(
         HeaderTech_Events_SRC
-        src/Event.cpp
+        src/EventsIncludes.cpp
 )
 
 set(
@@ -17,7 +17,7 @@ set(
         inc/Event.inl
         inc/EventSubscription.h
         inc/EventSubscription.inl
-        inc/Events.h
+        inc/EventsIncludes.h
 )
 
 add_library(HeaderTech_Events STATIC ${HeaderTech_Events_SRC} ${HeaderTech_Events_INC})

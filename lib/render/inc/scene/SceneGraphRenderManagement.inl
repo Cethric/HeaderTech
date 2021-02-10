@@ -7,10 +7,7 @@
 
 #include <scene/SceneGraphRenderManagement.h>
 
-#include <Core.h>
-
-#include <api/RenderFramebuffer.h>
-#include <api/RenderFramebuffer.inl>
+#include <RuntimeIncludes.h>
 
 namespace HeaderTech::Render::SceneGraph {
     inline SceneGraphRenderManagement::SceneGraphRenderManagement(

@@ -1,0 +1,56 @@
+\hypertarget{_entity_set_8h}{}\doxysection{ecs/inc/\+Entity\+Set.h File Reference}
+\label{_entity_set_8h}\index{ecs/inc/EntitySet.h@{ecs/inc/EntitySet.h}}
+{\ttfamily \#include $<$concepts$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
+{\ttfamily \#include $<$ctti/detailed\+\_\+nameof.\+hpp$>$}\newline
+{\ttfamily \#include $<$phmap.\+h$>$}\newline
+{\ttfamily \#include $<$Component.\+h$>$}\newline
+{\ttfamily \#include $<$Logging\+Includes.\+h$>$}\newline
+Include dependency graph for Entity\+Set.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_entity_set_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_entity_set_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_content}{Header\+Tech\+::\+Entity\+Component\+System\+::details\+::\+Base\+Set\+Content}}
+\item 
+struct \mbox{\hyperlink{struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_hash}{Header\+Tech\+::\+Entity\+Component\+System\+::details\+::\+Base\+Set\+Hash}}
+\item 
+struct \mbox{\hyperlink{struct_header_tech_1_1_entity_component_system_1_1details_1_1_base_set_eq}{Header\+Tech\+::\+Entity\+Component\+System\+::details\+::\+Base\+Set\+Eq}}
+\item 
+class \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set}{Header\+Tech\+::\+Entity\+Component\+System\+::details\+::\+Entity\+Set}}
+\item 
+class \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1details_1_1_entity_set_iterator}{Header\+Tech\+::\+Entity\+Component\+System\+::details\+::\+Entity\+Set\+Iterator$<$ Component\+Type $>$}}
+\item 
+class \mbox{\hyperlink{class_header_tech_1_1_entity_component_system_1_1_entity_component_data_set}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+Data\+Set$<$ Component\+Type $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_header_tech}{Header\+Tech}}
+\item 
+ \mbox{\hyperlink{namespace_header_tech_1_1_entity_component_system}{Header\+Tech\+::\+Entity\+Component\+System}}
+\item 
+ \mbox{\hyperlink{namespace_header_tech_1_1_entity_component_system_1_1details}{Header\+Tech\+::\+Entity\+Component\+System\+::details}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespace_header_tech_1_1_entity_component_system_1_1details_aa2b3883a782e656e1ef1c4c640c280ab}{Header\+Tech\+::\+Entity\+Component\+System\+::details\+::\+Base\+Set}} = phmap\+::flat\+\_\+hash\+\_\+set$<$ Base\+Set\+Content, Base\+Set\+Hash, Base\+Set\+Eq $>$
+\item 
+{\footnotesize template$<$Component Component\+Type$>$ }\\using \mbox{\hyperlink{namespace_header_tech_1_1_entity_component_system_ae1c44b353dd1442369e7f15d7a4a0b54}{Header\+Tech\+::\+Entity\+Component\+System\+::\+Entity\+Component\+Data\+Set\+Ptr}} = Entity\+Component\+Data\+Set$<$ Component\+Type $>$ $\ast$
+\end{DoxyCompactItemize}

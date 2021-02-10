@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_window_iconify_event" xml:lang="en-US">
+<title>HeaderTech::Window::Events::WindowIconifyEvent Struct Reference</title>
+<indexterm><primary>HeaderTech::Window::Events::WindowIconifyEvent</primary></indexterm>
+<para>
+<computeroutput>#include &lt;WindowIconifyEvent.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_window_iconify_event_1aeaeb9d99fd630525666e82a829c55dd5">WindowIconifyEvent</link> (bool <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_window_iconify_event_1a67168dea72cac8742157e1d9d5c12882">iconified</link>) noexcept</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_header_tech_1_1_events_1a94ce76b1ca57f459e666e4bd3152652d">HeaderTech::Events::EventPriority</link> <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_window_iconify_event_1abb398b9d9cde11c3f124a452905ca13f">GetPriority</link> () const noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_struct_header_tech_1_1_window_1_1_events_1_1_window_iconify_event_1a67168dea72cac8742157e1d9d5c12882">iconified</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 11 of file WindowIconifyEvent.h.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_window_iconify_event_1aeaeb9d99fd630525666e82a829c55dd5"/>    <section>
+    <title>WindowIconifyEvent()</title>
+<indexterm><primary>WindowIconifyEvent</primary><secondary>HeaderTech::Window::Events::WindowIconifyEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::WindowIconifyEvent</primary><secondary>WindowIconifyEvent</secondary></indexterm>
+<para><computeroutput>HeaderTech::Window::Events::WindowIconifyEvent::WindowIconifyEvent (bool iconified)<computeroutput>[inline]</computeroutput>, <computeroutput>[explicit]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 12 of file WindowIconifyEvent.h.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_window_iconify_event_1abb398b9d9cde11c3f124a452905ca13f"/>    <section>
+    <title>GetPriority()</title>
+<indexterm><primary>GetPriority</primary><secondary>HeaderTech::Window::Events::WindowIconifyEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::WindowIconifyEvent</primary><secondary>GetPriority</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_header_tech_1_1_events_1a94ce76b1ca57f459e666e4bd3152652d">HeaderTech::Events::EventPriority</link> HeaderTech::Window::Events::WindowIconifyEvent::GetPriority ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+Definition at line 16 of file WindowIconifyEvent.h.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_header_tech_1_1_window_1_1_events_1_1_window_iconify_event_1a67168dea72cac8742157e1d9d5c12882"/>    <section>
+    <title>iconified</title>
+<indexterm><primary>iconified</primary><secondary>HeaderTech::Window::Events::WindowIconifyEvent</secondary></indexterm>
+<indexterm><primary>HeaderTech::Window::Events::WindowIconifyEvent</primary><secondary>iconified</secondary></indexterm>
+<para><computeroutput>bool HeaderTech::Window::Events::WindowIconifyEvent::iconified</computeroutput></para><para>
+Definition at line 19 of file WindowIconifyEvent.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+window/inc/events/<link linkend="__window_iconify_event_8h">WindowIconifyEvent.h</link></section>
+</section>
