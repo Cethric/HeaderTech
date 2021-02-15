@@ -36,6 +36,13 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+      
+    - name: submodules-init
+      uses: snickerbockers/submodules-init@v4
+    
+    - run: |
+        apt-get install -y mercurial
+        hg clone https://hg.icculus.org/icculus/physfs/ ext/physfs
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
