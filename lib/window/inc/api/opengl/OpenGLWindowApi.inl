@@ -24,7 +24,8 @@ namespace HeaderTech::Window::Api::OpenGL {
             GLFWwindow *shared
     ) noexcept
             : HeaderTech::Core::Api::Window::WindowApi(dispatcher),
-              m_window(nullptr)
+              m_window(nullptr),
+              m_log(HeaderTech::Logging::make_logger<OpenGLWindowApi>())
     {
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
@@ -66,7 +67,15 @@ namespace HeaderTech::Window::Api::OpenGL {
                 int x, y, width, height;
                 glfwGetMonitorWorkarea(current, &x, &y, &width, &height);
 
-                SPDLOG_INFO("Checking window: {} {}x{} {}x{}", glfwGetMonitorName(current), x, y, width, height);
+                SPDLOG_LOGGER_INFO(
+                        m_log,
+                        "Checking window: {} {}x{} {}x{}",
+                        glfwGetMonitorName(current),
+                        x,
+                        y,
+                        width,
+                        height
+                );
 
                 if (wx > x && wy > y && wx < (x + width) && wy < (y + height)) {
                     activeMonitor = current;
@@ -74,7 +83,8 @@ namespace HeaderTech::Window::Api::OpenGL {
             }
 
             if (activeMonitor) {
-                SPDLOG_INFO(
+                SPDLOG_LOGGER_INFO(
+                        m_log,
                         "Using window: {} {}",
                         glfwGetMonitorName(activeMonitor),
                         glfwGetWin32Monitor(activeMonitor)

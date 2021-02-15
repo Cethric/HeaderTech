@@ -1,7 +1,0 @@
-<map id="HeaderTech::Core::Runtime" name="HeaderTech::Core::Runtime">
-<area shape="rect" id="node1" title=" " alt="" coords="5,317,188,344"/>
-<area shape="rect" id="node2" href="$class_header_tech_1_1_events_1_1_event_dispatcher.html" title=" " alt="" coords="27,5,166,47"/>
-<area shape="rect" id="node5" href="$class_header_tech_1_1_core_1_1_api_1_1_window_1_1_window_api.html" title=" " alt="" coords="113,109,267,151"/>
-<area shape="rect" id="node3" href="$class_header_tech_1_1_window_1_1_window.html" title=" " alt="" coords="117,213,263,255"/>
-<area shape="rect" id="node4" href="$class_header_tech_1_1_render_1_1_render_context.html" title=" " alt="" coords="291,109,431,151"/>
-</map>

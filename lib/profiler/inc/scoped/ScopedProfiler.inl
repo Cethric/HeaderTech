@@ -6,29 +6,19 @@
 #define HEADERTECH_SCOPEDPROFILER_INL
 
 #include <scoped/ScopedProfiler.h>
-#include <ProfilerManager.h>
 
 namespace HeaderTech::Profiler::Scoped {
     ScopedProfiler::ScopedProfiler()
-    { ScopedProfiler::m_manager = new HeaderTech::Profiler::ProfilerManager(); }
+    {
+        auto settings = rmt_Settings();
+        rmt_CreateGlobalInstance(&m_rmt);
+    }
 
     ScopedProfiler::~ScopedProfiler()
-    { delete ScopedProfiler::m_manager; }
+    { rmt_DestroyGlobalInstance(m_rmt); }
 
-    HeaderTech::Profiler::ProfilerManager *ScopedProfiler::GetProfiler() noexcept
-    { return ScopedProfiler::m_manager; }
-
-    bool ScopedProfiler::HasProfiler() noexcept
-    { return ScopedProfiler::m_manager != nullptr; }
-
-    void ScopedProfiler::UseProfiler(
-            const std::function<void(HeaderTech::Profiler::ProfilerManager &)> &callback
-    ) noexcept
-    {
-        if (ScopedProfiler::m_manager != nullptr) {
-            callback(*ScopedProfiler::m_manager);
-        }
-    }
+    Remotery *ScopedProfiler::GetRemotery() noexcept
+    { return ScopedProfiler::m_rmt; }
 }
 
 #endif //HEADERTECH_SCOPEDPROFILER_INL

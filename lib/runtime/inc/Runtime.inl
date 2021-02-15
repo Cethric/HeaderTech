@@ -41,11 +41,9 @@ namespace HeaderTech::Core {
 
         static const double MS_PER_UPDATE = 60. / 1000;
 
-        auto profiler = HeaderTech::Profiler::Scoped::ScopedProfiler::GetProfiler();
-
         while (IsRunning()) {
             {
-                ProfileCpuScoped(main_loop);
+                rmt_ScopedCPUSample(main_loop, RMTSF_None);
                 double current = glfwGetTime();
                 double elapsed = current - previous;
                 previous = current;
@@ -53,25 +51,26 @@ namespace HeaderTech::Core {
 
                 glfwPollEvents();
                 {
-                    ProfileCpuScoped(update_frame);
+                    rmt_ScopedCPUSample(update_frame, RMTSF_None);
                     while (lag >= MS_PER_UPDATE) {
-                        ProfileCpuScopedFlags(process_tick, HeaderTech::Profiler::Types::ScopedProfilerFlags_Recursive);
+                        rmt_ScopedCPUSample(process_tick, RMTSF_Aggregate);
                         sceneManager.TickScene(MS_PER_UPDATE, lag);
                         lag -= MS_PER_UPDATE;
                     }
                 }
-                {
-                    ProfileCpuScoped(process_frame);
-                    sceneManager.RenderScene(lag / MS_PER_UPDATE);
-                }
+                { rmt_ScopedOpenGLSample(render_frame);
+                    {
+                        rmt_ScopedCPUSample(render_frame, RMTSF_None);
+                        sceneManager.RenderScene(lag / MS_PER_UPDATE);
+                    }
 
-                {
-                    ProfileCpuScoped(render_imgui);
-                    sceneManager.RenderDebugUI();
+                    {
+                        rmt_ScopedCPUSample(render_imgui, RMTSF_None);
+                        sceneManager.RenderDebugUI();
+                    }
                 }
                 m_window->Swap();
             }
-            profiler->Flush();
             std::this_thread::yield();
         }
         m_eventThread.join();
@@ -86,8 +85,10 @@ namespace HeaderTech::Core {
 
     inline void Runtime::EventProcessorThread() noexcept
     {
+        rmt_SetCurrentThreadName("EventProcessorThread");
+
         while (IsRunning()) {
-            ProfileCpuScoped(process_event_thread);
+            rmt_ScopedCPUSample(process_event_thread, RMTSF_None);
             ProcessNextEvent();
             std::this_thread::yield();
         }

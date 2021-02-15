@@ -27,24 +27,14 @@ namespace HeaderTech::Logging {
     template<class Mutex>
     void ProfilerSink<Mutex>::sink_it_(const spdlog::details::log_msg &msg)
     {
-        using MilliSecondDuration = std::chrono::duration<std::uint64_t, std::milli>;
-
-        HeaderTech::Profiler::Scoped::ScopedProfiler::GetProfiler()->LogMessage(
-                {
-                        .name = {msg.logger_name.begin(), msg.logger_name.end()},
-                        .data = {msg.payload.begin(), msg.payload.end()},
-                        .time = std::chrono::duration_cast<MilliSecondDuration>(msg.time.time_since_epoch()).count(),
-                        .thread = msg.thread_id,
-                        .level = static_cast<std::uint16_t>(msg.level)
-                }
-        );
+        spdlog::memory_buf_t formatted;
+        spdlog::sinks::base_sink<Mutex>::formatter_->format(msg, formatted);
+        rmt_LogText(formatted.data());
     }
 
     template<class Mutex>
     void ProfilerSink<Mutex>::flush_()
-    {
-
-    }
+    {}
 }
 
 #endif //HEADERTECH_PROFILERSINK_INL

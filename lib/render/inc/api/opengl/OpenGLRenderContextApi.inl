@@ -109,6 +109,8 @@ namespace HeaderTech::Render::Api::OpenGL {
         api->MakeCurrent();
         gladLoadGLContext(&m_gl, glfwGetProcAddress);
 
+        rmt_BindOpenGL();
+
         m_gl.Enable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
         m_gl.DebugMessageCallback(&detail::opengl_debug_callback, nullptr);
         m_gl.DebugMessageControl(
@@ -130,7 +132,10 @@ namespace HeaderTech::Render::Api::OpenGL {
     }
 
     inline OpenGLRenderContextApi::~OpenGLRenderContextApi() noexcept
-    { DestroyRenderDebugGUI(); }
+    {
+        DestroyRenderDebugGUI();
+        rmt_UnbindOpenGL();
+    }
 
     inline const GladGLContext &OpenGLRenderContextApi::Gl() const noexcept
     { return m_gl; }

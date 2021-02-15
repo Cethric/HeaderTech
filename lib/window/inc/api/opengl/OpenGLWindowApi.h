@@ -14,6 +14,8 @@
 
 #include <WindowTypes.h>
 
+#include <LoggingIncludes.h>
+
 namespace HeaderTech::Window::Api::OpenGL {
     class OpenGLWindowApi final : public HeaderTech::Core::Api::Window::WindowApi {
     public:
@@ -44,6 +46,9 @@ namespace HeaderTech::Window::Api::OpenGL {
 
     protected:
         GLFWwindow *m_window;
+
+    private:
+        HeaderTech::Logging::Logger m_log;
     };
 }
 

@@ -19,7 +19,7 @@ namespace HeaderTech::Events {
     template<EventType EventClass, typename... Args>
     inline void EventDispatcher::Dispatch(Args... args) noexcept
     {
-        ProfileCpuScoped(event_dispatcher);
+        rmt_ScopedCPUSample(event_dispatcher, RMTSF_None);
         std::lock_guard<std::recursive_mutex> lock(m_eventMutex);
 
         auto event = Event::MakeEvent<EventClass, Args...>(std::forward<Args>(args)...);
@@ -29,14 +29,14 @@ namespace HeaderTech::Events {
     template<EventType EventClass, typename... Args>
     inline void EventDispatcher::DispatchNow(Args... args) noexcept
     {
-        ProfileCpuScoped(event_dispatcher_now);
+        rmt_ScopedCPUSample(event_dispatcher_now, RMTSF_None);
         auto event = Event::MakeEvent<EventClass, Args...>(std::forward<Args>(args)...);
         ProcessEvent(event);
     }
 
     inline void EventDispatcher::ProcessNextEvent() noexcept
     {
-        ProfileCpuScoped(next_event_processor);
+        rmt_ScopedCPUSample(next_event_processor, RMTSF_None);
         if (!m_eventQueue.empty() && m_eventMutex.try_lock()) {
             const EventPtr event = m_eventQueue.top();
             m_eventQueue.pop();
@@ -47,7 +47,7 @@ namespace HeaderTech::Events {
 
     void EventDispatcher::DrainEvents() noexcept
     {
-        ProfileCpuScoped(drain_events);
+        rmt_ScopedCPUSample(drain_events, RMTSF_None);
         if (m_eventMutex.try_lock()) {
             while (!m_eventQueue.empty()) {
                 const EventPtr event = m_eventQueue.top();
@@ -100,7 +100,7 @@ namespace HeaderTech::Events {
 
     inline void EventDispatcher::ProcessEvent(const EventPtr &event) noexcept
     {
-        ProfileCpuScoped(event_processor);
+        rmt_ScopedCPUSample(event_processor, RMTSF_None);
         std::lock_guard<std::recursive_mutex> lock(m_subscriptionMutex);
 
         const auto subscriptions = m_subscriptions.find(event->GetId());

@@ -5,28 +5,18 @@
 #ifndef HEADERTECH_SCOPEDPROFILER_H
 #define HEADERTECH_SCOPEDPROFILER_H
 
-#include <functional>
-
-namespace HeaderTech::Profiler {
-    class ProfilerManager;
-}
+#include <Remotery.h>
 
 namespace HeaderTech::Profiler::Scoped {
     class ScopedProfiler {
-        using CallbackFn = std::function<void(HeaderTech::Profiler::ProfilerManager &)>;
     public:
         inline ScopedProfiler();
 
         inline ~ScopedProfiler();
 
-        inline static HeaderTech::Profiler::ProfilerManager *GetProfiler() noexcept;
+        inline static Remotery *GetRemotery() noexcept;
 
-        inline static bool HasProfiler() noexcept;
-
-        inline static void UseProfiler(const CallbackFn &callback) noexcept;
-
-    private:
-        inline static HeaderTech::Profiler::ProfilerManager *m_manager = nullptr;
+        inline static Remotery *m_rmt = nullptr;
     };
 }
 
