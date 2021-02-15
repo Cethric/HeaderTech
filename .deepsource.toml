@@ -1,0 +1,11 @@
+version = 1
+
+exclude_patterns = ["ext/**"]
+
+[[analyzers]]
+name = "shell"
+enabled = true
+
+[[analyzers]]
+name = "secrets"
+enabled = true
