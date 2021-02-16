@@ -21,11 +21,19 @@ jobs:
     steps:
       - name: MacOS Tools
         if: matrix.os == 'macos-latest'
-        run: brew install mercurial
+        run: |
+          brew install mercurial
+          pip install Jinja2<3.0
 
       - name: Ubuntu Tools
         if: matrix.os == 'ubuntu-20.04'
-        run: sudo apt-get install xorg-dev clang
+        run: |
+          sudo apt-get install xorg-dev clang
+          pip install Jinja2<3.0
+
+      - name: Windows Tools
+        if: matrix.os == 'windows-latest'
+        run: pip install Jinja2<3.0
 
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -40,13 +48,13 @@ jobs:
         shell: bash
         run: cmake -E make_directory $BUILD_DIR
 
-      - name: Configure CMake
+      - name: Configure CMake Windows
         shell: bash
         if: matrix.os == 'windows-latest'
         working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
         run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..
 
-      - name: Configure CMake
+      - name: Configure CMake Ubuntu
         shell: bash
         if: matrix.os == 'ubuntu-20.04'
         env:
@@ -55,7 +63,7 @@ jobs:
         working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
         run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_FLAGS=-fpermissive ..
 
-      - name: Configure CMake
+      - name: Configure CMake MacOS
         shell: bash
         if: matrix.os == 'macos-latest'
         working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
