@@ -11,7 +11,7 @@ on:
 jobs:
   analyze:
     name: Analyze
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     strategy:
       fail-fast: false
@@ -40,7 +40,11 @@ jobs:
         languages: ${{ matrix.language }}
 
     - name: Autobuild
-      uses: github/codeql-action/autobuild@v1
+      run: |
+        - mkdir cmake-build-release
+        - cd cmake-build-release
+        - cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS=-fpermissive ..
+        - cmake --build . --target HeaderTech_Sandbox -- -j
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
