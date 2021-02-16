@@ -72,7 +72,20 @@ jobs:
                     export CXX=$(brew --prefix llvm)/bin/clang++
                     cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_FLAGS=-fpermissive ..
 
-            -   name: Build
+            -   name: Build Windows
                 shell: bash
+                if: matrix.os == 'windows-latest'
+                working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
+                run: cmake --build . --config $BUILD_TYPE --target HeaderTech_Sandbox
+
+            -   name: Build Ubuntu
+                shell: bash
+                if: matrix.os == 'ubuntu-20.04'
+                working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
+                run: cmake --build . --config $BUILD_TYPE --target HeaderTech_Sandbox -- -j
+
+            -   name: Build MacOS
+                shell: bash
+                if: matrix.os == 'macos-latest'
                 working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
                 run: cmake --build . --config $BUILD_TYPE --target HeaderTech_Sandbox -- -j
