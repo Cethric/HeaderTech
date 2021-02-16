@@ -6,7 +6,7 @@
 #define HEADERTECH_SCOPEDFILESYSTEM_H
 
 #include <physfs.h>
-#include <exception>
+#include <stdexcept>
 
 namespace HeaderTech::FileSystem::Scoped {
     class ScopedFileSystem {
@@ -14,10 +14,10 @@ namespace HeaderTech::FileSystem::Scoped {
         explicit inline ScopedFileSystem(const char *argv0, const char* name)
         {
             if (PHYSFS_init(argv0) == 0) {
-                throw std::runtime_error(PHYSFS_getLastError());
+                throw std::runtime_error("Failed to initialise PhysFS");
             };
             if (PHYSFS_setSaneConfig("HeaderTech", name, "zip", 0, 1) == 0) {
-                throw std::runtime_error(PHYSFS_getLastError());
+                throw std::runtime_error("Failed to configure PhysFS");
             }
         }
 

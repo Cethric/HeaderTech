@@ -7,7 +7,7 @@
 
 #define GLFW_INCLUDE_NONE 1
 
-#include <exception>
+#include <stdexcept>
 #include <GLFW/glfw3.h>
 #include <LoggingIncludes.h>
 

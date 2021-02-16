@@ -37,9 +37,9 @@ namespace HeaderTech::EntityComponentSystem {
 
         class EntitySet : public BaseSet {
         public:
-            EntitySet() noexcept = default;
+            EntitySet() noexcept {}
 
-            virtual ~EntitySet() noexcept = default;
+            virtual ~EntitySet() noexcept {}
 
             [[nodiscard]] inline std::uint64_t Add(EntityId id) noexcept;
 
