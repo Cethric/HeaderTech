@@ -21,7 +21,7 @@ namespace HeaderTech::EntityComponentSystem {
 
     template<typename ComponentType>
     concept Component = requires(ComponentType t) {
-        { ctti::unnamed_type_id(t) } -> std::convertible_to<ctti::unnamed_type_id_t>;
+        { ctti::unnamed_type_id(t) } -> std::same_as<ctti::unnamed_type_id_t>;
     };
 
     template<Component ComponentType, typename = void>
