@@ -66,11 +66,11 @@ jobs:
             -   name: Configure CMake MacOS
                 shell: bash
                 if: matrix.os == 'macos-latest'
-                env:
-                    CC: '$(brew --prefix llvm)/bin/clang'
-                    CXX: '$(brew --prefix llvm)/bin/clang++'
                 working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
-                run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_FLAGS=-fpermissive ..
+                run: |
+                    export CC=$(brew --prefix llvm)/bin/clang
+                    export CXX=$(brew --prefix llvm)/bin/clang++
+                    cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_FLAGS=-fpermissive ..
 
             -   name: Build
                 shell: bash
