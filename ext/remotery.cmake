@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(remotery)
+project(remotery CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 
@@ -14,7 +14,7 @@ if (APPLE)
             ${Remotery_SRC}
             remotery/lib/RemoteryMetal.mm
     )
-endif(APPLE)
+endif (APPLE)
 
 set(
         Remotery_Inc
@@ -24,13 +24,17 @@ set(
 add_library(Remotery STATIC ${Remotery_SRC} ${Remotery_Inc})
 target_include_directories(Remotery PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/remotery/lib/)
 target_include_directories(Remotery PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/remotery/lib/)
-target_compile_definitions(Remotery PUBLIC -DRMT_ENABLED=1 -DRMT_USE_OPENGL=1)
+target_compile_definitions(Remotery PUBLIC -DRMT_ENABLED=1)
+if (_WIN32)
+    target_compile_definitions(Remotery PUBLIC -DRMT_USE_OPENGL=1)
+endif (_WIN32)
+target_include_directories(Remotery PUBLIC libGL)
 if (APPLE)
     target_compile_definitions(Remotery PUBLIC -DRMT_USE_METAL=1)
-endif(APPLE)
-if (WINDOWS)
+endif (APPLE)
+if (_WIN32)
     target_compile_definitions(Remotery PUBLIC -DRMT_USE_D3D11=1)
-endif(WINDOWS)
+endif (_WIN32)
 
 
 add_library(remotery::remotery ALIAS Remotery)

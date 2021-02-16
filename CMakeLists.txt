@@ -12,6 +12,9 @@ endif ()
 
 if (UNIX)
     set(CMAKE_UNITY_BUILD OFF)
+    if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+        add_definitions("-fms-extensions -fdeclspec")
+    endif ()
 endif (UNIX)
 
 set(CMAKE_CXX_STANDARD 20)

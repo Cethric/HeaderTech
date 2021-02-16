@@ -18,11 +18,14 @@
 
 #include <WindowTypes.h>
 
+#include <LoggingIncludes.h>
+
 namespace HeaderTech::Core {
     class Runtime;
 }
 
 namespace HeaderTech::Scene {
+    class SceneManager;
 
     class SceneGraph {
     private:

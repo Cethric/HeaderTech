@@ -5,10 +5,12 @@
 #ifndef HEADERTECH_ENTITYSET_H
 #define HEADERTECH_ENTITYSET_H
 
+#define PHMAP_BIDIRECTIONAL 1
 
 #include <concepts>
 #include <type_traits>
 #include <unordered_set>
+
 #include <ctti/detailed_nameof.hpp>
 #include <phmap.h>
 

@@ -25,8 +25,7 @@ namespace HeaderTech::Window::Api::OpenGL {
     ) noexcept
             : HeaderTech::Core::Api::Window::WindowApi(dispatcher),
               m_window(nullptr),
-              m_log(HeaderTech::Logging::make_logger<OpenGLWindowApi>())
-    {
+              m_log(HeaderTech::Logging::make_logger<OpenGLWindowApi>()) {
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -37,20 +36,16 @@ namespace HeaderTech::Window::Api::OpenGL {
         LinkEvents();
     }
 
-    OpenGLWindowApi::~OpenGLWindowApi() noexcept
-    {
+    OpenGLWindowApi::~OpenGLWindowApi() noexcept {
         glfwSetWindowUserPointer(m_window, nullptr);
         glfwDestroyWindow(m_window);
     }
 
-    bool OpenGLWindowApi::IsOpen() noexcept
-    { return glfwWindowShouldClose(m_window) == GLFW_FALSE; }
+    bool OpenGLWindowApi::IsOpen() noexcept { return glfwWindowShouldClose(m_window) == GLFW_FALSE; }
 
-    void OpenGLWindowApi::SwapBuffers() noexcept
-    { glfwSwapBuffers(m_window); }
+    void OpenGLWindowApi::SwapBuffers() noexcept { glfwSwapBuffers(m_window); }
 
-    void OpenGLWindowApi::ToggleFullscreen() noexcept
-    {
+    void OpenGLWindowApi::ToggleFullscreen() noexcept {
         GLFWmonitor *monitor = glfwGetWindowMonitor(m_window);
         if (monitor) {
             glfwSetWindowMonitor(m_window, nullptr, 200, 200, 800, 600, 0);
@@ -87,7 +82,11 @@ namespace HeaderTech::Window::Api::OpenGL {
                         m_log,
                         "Using window: {} {}",
                         glfwGetMonitorName(activeMonitor),
+#ifdef _WIN32
                         glfwGetWin32Monitor(activeMonitor)
+#else
+                        ""
+#endif
                 );
                 const GLFWvidmode *mode = glfwGetVideoMode(activeMonitor);
 
@@ -96,21 +95,19 @@ namespace HeaderTech::Window::Api::OpenGL {
         }
     }
 
-    void OpenGLWindowApi::MakeCurrent() noexcept
-    { glfwMakeContextCurrent(m_window); }
+    void OpenGLWindowApi::MakeCurrent() noexcept { glfwMakeContextCurrent(m_window); }
 
-    GLFWwindow *OpenGLWindowApi::GetOwnedWindow() const noexcept
-    { return m_window; }
+    GLFWwindow *OpenGLWindowApi::GetOwnedWindow() const noexcept { return m_window; }
 
-    glm::ivec2 OpenGLWindowApi::GetSize() const noexcept
-    {
+    glm::ivec2 OpenGLWindowApi::GetSize() const noexcept {
         glm::ivec2 size;
         glfwGetFramebufferSize(m_window, &size.x, &size.y);
         return size;
     }
 
-    bool OpenGLWindowApi::IsKeyPressed(HeaderTech::Core::KeyType key) const noexcept
-    { return glfwGetKey(m_window, HeaderTech::Window::Api::GLFW::KeyMapping[key]) == GLFW_PRESS; }
+    bool OpenGLWindowApi::IsKeyPressed(HeaderTech::Core::KeyType key) const noexcept {
+        return glfwGetKey(m_window, HeaderTech::Window::Api::GLFW::KeyMapping[key]) == GLFW_PRESS;
+    }
 }
 
 #endif //HEADERTECH_OPENGLWINDOWAPI_INL
