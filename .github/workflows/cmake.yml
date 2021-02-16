@@ -49,7 +49,9 @@ jobs:
       - name: Configure CMake
         if: matrix.os == 'macos-latest'
         working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
-        run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_FLAGS=-fpermissive ..
+        run: |
+          sudo brew install mercurial
+          cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_FLAGS=-fpermissive ..
 
       - name: Build
         working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
