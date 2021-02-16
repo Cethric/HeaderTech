@@ -37,14 +37,17 @@ jobs:
         run: hg clone https://hg.icculus.org/icculus/physfs/ ext/physfs
 
       - name: Create Build Environment
+        shell: bash
         run: cmake -E make_directory $BUILD_DIR
 
       - name: Configure CMake
+        shell: bash
         if: matrix.os == 'windows-latest'
         working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
         run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..
 
       - name: Configure CMake
+        shell: bash
         if: matrix.os == 'ubuntu-20.04'
         env:
           CC: /usr/bin/clang
@@ -53,10 +56,12 @@ jobs:
         run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_FLAGS=-fpermissive ..
 
       - name: Configure CMake
+        shell: bash
         if: matrix.os == 'macos-latest'
         working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
         run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_FLAGS=-fpermissive ..
 
       - name: Build
+        shell: bash
         working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
         run: cmake --build . --config $BUILD_TYPE --target HeaderTech_Sandbox -- -j
