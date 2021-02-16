@@ -43,6 +43,8 @@ jobs:
       run: |
         mkdir cmake-build-release
         cd cmake-build-release
+        export CC=/usr/bin/clang
+        export CXX=/usr/bin/clang++
         cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS=-fpermissive ..
         cmake --build . --target HeaderTech_Sandbox -- -j
 
