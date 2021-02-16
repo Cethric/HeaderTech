@@ -14,10 +14,10 @@ namespace HeaderTech::FileSystem::Scoped {
         explicit inline ScopedFileSystem(const char *argv0, const char* name)
         {
             if (PHYSFS_init(argv0) == 0) {
-                throw std::exception("Failed to initialise PhysFS");
+                throw std::runtime_error(PHYSFS_getLastError());
             };
             if (PHYSFS_setSaneConfig("HeaderTech", name, "zip", 0, 1) == 0) {
-                throw std::exception("Failed to set sane fs config");
+                throw std::runtime_error(PHYSFS_getLastError());
             }
         }
 

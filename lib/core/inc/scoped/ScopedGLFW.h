@@ -12,8 +12,7 @@
 #include <LoggingIncludes.h>
 
 namespace HeaderTech::Core::Scoped {
-    static inline void glfw_error_callback(int code, const char *description)
-    {
+    static inline void glfw_error_callback(int code, const char *description) {
         auto log = HeaderTech::Logging::get_or_make_logger_async("GLFW");
         SPDLOG_LOGGER_ERROR(log, "({}) {}", code, description);
     }
@@ -21,18 +20,16 @@ namespace HeaderTech::Core::Scoped {
 
     class ScopedGlfw final {
     public:
-        inline ScopedGlfw() : m_log(HeaderTech::Logging::make_logger_async<ScopedGlfw>())
-        {
+        inline ScopedGlfw() : m_log(HeaderTech::Logging::make_logger_async<ScopedGlfw>()) {
             glfwSetErrorCallback(&glfw_error_callback);
             if (glfwInit() == GLFW_FALSE) {
                 SPDLOG_LOGGER_ERROR(m_log, "GLFW Failed to Initialised");
-                throw std::exception("Failed to Initialise GLFW");
+                throw std::runtime_error("Failed to Initialise GLFW");
             }
             SPDLOG_LOGGER_INFO(m_log, "GLFW Initialised");
         }
 
-        inline ~ScopedGlfw() noexcept
-        {
+        inline ~ScopedGlfw() noexcept {
             glfwTerminate();
             SPDLOG_LOGGER_INFO(m_log, "GLFW Terminated");
         }
