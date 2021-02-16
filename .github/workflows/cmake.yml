@@ -29,7 +29,6 @@ jobs:
         if: matrix.os == 'ubuntu-20.04'
         run: |
           sudo apt-get install xorg-dev clang
-          pip install Jinja2<3.0
 
       - name: Windows Tools
         if: matrix.os == 'windows-latest'
