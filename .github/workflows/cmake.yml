@@ -1,0 +1,56 @@
+name: CMake
+
+on: [push]
+
+jobs:
+  build:
+    name: Build HeaderTech.${{ build_type }} (${{ matrix.os }})
+    strategy:
+      matrix:
+        os: [ubuntu-20.04, windows-latest, macos-latest]
+        build_type: [Debug, Release]
+    runs-on: ${{ matrix.os }}
+    
+    outputs:
+      binary:  ${{github.workspace}}/cmake_build_${{ build_type }}/bin
+    
+    env:
+      BUILD_TYPE: ${{ build_type }}
+      BUILD_DIR: ${{github.workspace}}/cmake_build_${{ build_type }}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: submodules-init
+      uses: snickerbockers/submodules-init@v4
+
+    - name: Clone PhysFS
+      run: hg clone https://hg.icculus.org/icculus/physfs/ ext/physfs
+
+    - name: Create Build Environment
+      run: cmake -E make_directory $BUILD_DIR
+
+    - name: Configure CMake
+      if: matrix.os == windows-latest
+      working-directory: ${{github.workspace}}/cmake_build_${{ build_type }}
+      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..
+
+    - name: Configure CMake
+      if: matrix.os == ubuntu-20.04
+      env:
+        CC: /usr/bin/clang
+        CXX: /usr/bin/clang++
+      working-directory: ${{github.workspace}}/cmake_build_${{ build_type }}
+      run: |
+        sudo apt-get install xorg-dev clang
+        cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_FLAGS=-fpermissive ..
+
+    - name: Configure CMake
+      if: matrix.os == macos-latest
+      working-directory: ${{github.workspace}}/cmake_build_${{ build_type }}
+      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_FLAGS=-fpermissive ..
+
+    - name: Build
+      working-directory: ${{github.workspace}}/cmake_build_${{ build_type }}
+      run: cmake --build . --config $BUILD_TYPE --target HeaderTech_Sandbox -- -j
