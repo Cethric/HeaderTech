@@ -23,7 +23,7 @@ jobs:
         if: matrix.os == 'macos-latest'
         run: |
           brew install mercurial
-          pip install Jinja2<3.0
+          pip3 install Jinja2<3.0
 
       - name: Ubuntu Tools
         if: matrix.os == 'ubuntu-20.04'
