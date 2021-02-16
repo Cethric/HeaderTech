@@ -44,8 +44,8 @@ namespace HeaderTech::Events {
 
     template<class EventClass>
     concept EventType = requires(EventClass event) {
-        { EventIdChecker<EventClass>{}(event) } -> std::convertible_to<EventId>;
-        { EventPriorityChecker<EventClass>{}(event) } -> std::convertible_to<EventPriority>;
+        { EventIdChecker<EventClass>{}(event) } -> std::same_as<EventId>;
+        { EventPriorityChecker<EventClass>{}(event) } -> std::same_as<EventPriority>;
     };
 
     class __declspec(novtable) Event {
