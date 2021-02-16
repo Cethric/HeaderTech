@@ -31,3 +31,9 @@ target_include_directories(HeaderTech_EntityComponentSystem PUBLIC ${CMAKE_CURRE
 target_include_directories(HeaderTech_EntityComponentSystem PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
 target_link_libraries(HeaderTech_EntityComponentSystem PUBLIC hashmap::hashmap ctti::ctti)
 target_link_libraries(HeaderTech_EntityComponentSystem PUBLIC HeaderTech_Logging HeaderTech_Profiler)
+
+
+generate_export_header(
+        HeaderTech_EntityComponentSystem
+        EXPORT_FILE_NAME inc/HeaderTech_EntityComponentSystem_Export.h
+)

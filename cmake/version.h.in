@@ -1,0 +1,16 @@
+//
+// Created by rogan2 on 16/02/2021.
+//
+
+#ifndef HEADERTECH_@TargetName@_VERSION_H
+#define HEADERTECH_@TargetName@_VERSION_H
+
+#define @TargetName@_Version_Major @VersionMajor@
+#define @TargetName@_Version_Minor @VersionMinor@
+#define @TargetName@_Version_Patch @VersionPatch@
+#define @TargetName@_Version_Meta "@VersionMeta@"
+
+#define @TargetName@_Version_String "@VersionMajor@.@VersionMinor@.@VersionPatch@@VersionMeta@"
+#define @TargetName@_Version @VersionMajor@@VersionMinor@@VersionPatch@
+
+#endif //HEADERTECH_@TargetName@_VERSION_H

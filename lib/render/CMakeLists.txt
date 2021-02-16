@@ -38,3 +38,9 @@ target_include_directories(HeaderTech_Render PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/
 target_include_directories(HeaderTech_Render PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
 target_link_libraries(HeaderTech_Render PUBLIC HeaderTech_Logging HeaderTech_Profiler HeaderTech_Events HeaderTech_Config HeaderTech_Window HeaderTech_FileSystem HeaderTech_Runtime HeaderTech_Core)
 target_link_libraries(HeaderTech_Render PUBLIC glfw::glfw3 glad::glad imgui::imgui)
+
+
+generate_export_header(
+        HeaderTech_Render
+        EXPORT_FILE_NAME inc/HeaderTech_Render_Export.h
+)

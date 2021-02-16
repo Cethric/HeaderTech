@@ -21,3 +21,9 @@ target_include_directories(HeaderTech_UserInterface PUBLIC ${CMAKE_CURRENT_BINAR
 target_include_directories(HeaderTech_UserInterface PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
 target_link_libraries(HeaderTech_UserInterface PUBLIC HeaderTech_Logging HeaderTech_Profiler HeaderTech_Events HeaderTech_Config HeaderTech_FileSystem HeaderTech_Window)
 target_link_libraries(HeaderTech_UserInterface PUBLIC imgui::imgui)
+
+
+generate_export_header(
+        HeaderTech_UserInterface
+        EXPORT_FILE_NAME inc/HeaderTech_UserInterface_Export.h
+)

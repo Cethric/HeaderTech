@@ -26,3 +26,9 @@ target_include_directories(HeaderTech_Events PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/
 target_include_directories(HeaderTech_Events PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
 target_link_libraries(HeaderTech_Events PUBLIC ctti::ctti)
 target_link_libraries(HeaderTech_Events PUBLIC HeaderTech_Logging)
+
+
+generate_export_header(
+        HeaderTech_Events
+        EXPORT_FILE_NAME inc/HeaderTech_Events_Export.h
+)

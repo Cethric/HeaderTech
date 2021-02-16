@@ -8,8 +8,6 @@
 #include <ConfigIncludes.h>
 
 namespace HeaderTech::Config {
-    int ConfigVersion()
-    {
-        return 0;
-    }
+    HEADERTECH_CONFIG_EXPORT int ConfigVersion()
+    { return HeaderTech_Config_Version; }
 }

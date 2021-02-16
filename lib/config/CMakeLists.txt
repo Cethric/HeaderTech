@@ -18,4 +18,12 @@ set(
 add_library(HeaderTech_Config STATIC ${HeaderTech_Config_SRC} ${HeaderTech_Config_INC})
 target_include_directories(HeaderTech_Config PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc/)
 target_include_directories(HeaderTech_Config PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/inc/)
-target_include_directories(HeaderTech_Config PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
+target_include_directories(HeaderTech_Config PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/)
+
+
+generate_export_header(
+        HeaderTech_Config
+        EXPORT_FILE_NAME inc/HeaderTech_Config_Export.h
+)
+
+ConfigureVersion(HeaderTech_Config ${CMAKE_CURRENT_SOURCE_DIR}/version.txt ${CMAKE_CURRENT_BINARY_DIR}/inc/)

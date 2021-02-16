@@ -1,6 +1,13 @@
 cmake_minimum_required(VERSION 3.17)
 project(HeaderTech)
 
+set(
+        CMAKE_MODULE_PATH
+        ${CMAKE_MODULE_PATH}
+        "${CMAKE_CURRENT_SOURCE_DIR}/cmake/"
+)
+
+include(write_version)
 
 set(CMAKE_UNITY_BUILD ON)
 if (MSVC)
@@ -27,6 +34,8 @@ if (MSVC)
     set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} /GR-")
 endif ()
 
+include(GenerateExportHeader)
+
 add_subdirectory(ext/)
 add_subdirectory(lib/)
 add_subdirectory(app/)
@@ -44,8 +53,6 @@ install(TARGETS HeaderTech_Events)
 install(TARGETS HeaderTech_FileSystem)
 install(TARGETS HeaderTech_Logging)
 install(TARGETS HeaderTech_Profiler)
-#install(TARGETS HeaderTech_Profiler_UI)
-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib/profiler/ui/dist DESTINATION bin/profiler/ui)
 install(TARGETS HeaderTech_Render)
 install(TARGETS HeaderTech_Scene)
 install(TARGETS HeaderTech_UserInterface)

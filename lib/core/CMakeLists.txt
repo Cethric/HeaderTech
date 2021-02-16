@@ -29,3 +29,9 @@ target_include_directories(HeaderTech_Core PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/in
 target_include_directories(HeaderTech_Core PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
 target_link_libraries(HeaderTech_Core PUBLIC glm::glm glfw::glfw3)
 target_link_libraries(HeaderTech_Core PUBLIC HeaderTech_Logging HeaderTech_Config HeaderTech_Events)
+
+
+generate_export_header(
+        HeaderTech_Core
+        EXPORT_FILE_NAME inc/HeaderTech_Core_Export.h
+)

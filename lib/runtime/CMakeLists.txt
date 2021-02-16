@@ -25,3 +25,9 @@ target_include_directories(HeaderTech_Runtime PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
 target_include_directories(HeaderTech_Runtime PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/inc/)
 target_include_directories(HeaderTech_Runtime PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
 target_link_libraries(HeaderTech_Runtime PUBLIC HeaderTech_Logging HeaderTech_Profiler HeaderTech_Events HeaderTech_Config HeaderTech_Window HeaderTech_Scene)
+
+
+generate_export_header(
+        HeaderTech_Runtime
+        EXPORT_FILE_NAME inc/HeaderTech_Runtime_Export.h
+)

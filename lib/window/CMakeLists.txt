@@ -48,3 +48,9 @@ target_include_directories(HeaderTech_Window PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/
 target_include_directories(HeaderTech_Window PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
 target_link_libraries(HeaderTech_Window PUBLIC HeaderTech_Logging HeaderTech_Profiler HeaderTech_Events HeaderTech_Config HeaderTech_Render HeaderTech_Core)
 target_link_libraries(HeaderTech_Window PUBLIC glfw::glfw3 glm::glm glad::glad)
+
+
+generate_export_header(
+        HeaderTech_Window
+        EXPORT_FILE_NAME inc/HeaderTech_Window_Export.h
+)

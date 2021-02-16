@@ -27,3 +27,9 @@ target_include_directories(HeaderTech_Logging PUBLIC ${CMAKE_CURRENT_BINARY_DIR}
 target_include_directories(HeaderTech_Logging PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
 target_link_libraries(HeaderTech_Logging PUBLIC spdlog::spdlog ctti::ctti)
 target_link_libraries(HeaderTech_Logging PUBLIC HeaderTech_Profiler HeaderTech_FileSystem)
+
+
+generate_export_header(
+        HeaderTech_Logging
+        EXPORT_FILE_NAME inc/HeaderTech_Logging_Export.h
+)

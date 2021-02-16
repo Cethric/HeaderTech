@@ -21,3 +21,9 @@ target_include_directories(HeaderTech_FileSystem PUBLIC ${CMAKE_CURRENT_BINARY_D
 target_include_directories(HeaderTech_FileSystem PUBLIC ${CMAKE_SOURCE_DIR}/ext/physfs/src)
 target_include_directories(HeaderTech_FileSystem PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
 target_link_libraries(HeaderTech_FileSystem PUBLIC physfs::physfs)
+
+
+generate_export_header(
+        HeaderTech_FileSystem
+        EXPORT_FILE_NAME inc/HeaderTech_FileSystem_Export.h
+)

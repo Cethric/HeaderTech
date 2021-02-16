@@ -17,6 +17,9 @@ ij_visual_guides = none
 ij_wrap_on_typing = false
 trim_trailing_whitespace = true
 
+[version.txt]
+insert_final_newline = false
+
 [{*.c, *.c++, *.cc, *.cp, *.cpp, *.cu, *.cuh, *.cxx, *.h, *.h++, *.hh, *.hp, *.hpp, *.hxx, *.i, *.icc, *.ii, *.inl, *.ino, *.ipp, *.m, *.mm, *.pch, *.tcc, *.tpp}]
 ij_c_add_brief_tag = false
 ij_c_add_getter_prefix = true

@@ -25,3 +25,9 @@ target_include_directories(HeaderTech_Scene PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/i
 target_include_directories(HeaderTech_Scene PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
 target_link_libraries(HeaderTech_Scene PUBLIC hashmap::hashmap imgui::imgui)
 target_link_libraries(HeaderTech_Scene PUBLIC HeaderTech_Core HeaderTech_Logging HeaderTech_Profiler HeaderTech_Render HeaderTech_EntityComponentSystem HeaderTech_UserInterface)
+
+
+generate_export_header(
+        HeaderTech_Scene
+        EXPORT_FILE_NAME inc/HeaderTech_Scene_Export.h
+)

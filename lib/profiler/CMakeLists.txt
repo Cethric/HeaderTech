@@ -24,3 +24,9 @@ target_include_directories(HeaderTech_Profiler PUBLIC ${CMAKE_CURRENT_BINARY_DIR
 target_include_directories(HeaderTech_Profiler PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}src/)
 target_link_libraries(HeaderTech_Profiler PUBLIC remotery::remotery)
 target_link_libraries(HeaderTech_Profiler PUBLIC HeaderTech_Logging)
+
+
+generate_export_header(
+        HeaderTech_Profiler
+        EXPORT_FILE_NAME inc/HeaderTech_Profiler_Export.h
+)
