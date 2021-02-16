@@ -42,7 +42,7 @@ jobs:
     
     - name: Install Dependencies
       run: |
-        sudo apt-get install -y mercurial libxrandr-dev libasound2-dev libxcursor-dev libxinerama-dev
+        sudo apt-get install -y mercurial libxrandr-dev libasound2-dev libxcursor-dev libxinerama-dev xorg-dev
     - name: Clone PhysFS
       run: |
         hg clone https://hg.icculus.org/icculus/physfs/ ext/physfs
