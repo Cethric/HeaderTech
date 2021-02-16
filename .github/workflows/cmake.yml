@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: MacOS Tools
         if: matrix.os == 'macos-latest'
-        run: sudo brew install mercurial
+        run: brew install mercurial
 
       - name: Ubuntu Tools
         if: matrix.os == 'ubuntu-20.04'
