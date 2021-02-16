@@ -12,7 +12,7 @@
 #include <ctti/type_id.hpp>
 #include <ctti/detailed_nameof.hpp>
 
-#include <EntityCollection.h>
+#include <ECSIncludes.h>
 #include <events/FramebufferSizeEvent.h>
 #include <scene/SceneGraphRenderManagement.h>
 
@@ -20,7 +20,7 @@
 
 #include <LoggingIncludes.h>
 
-namespace HeaderTech::Core {
+namespace HeaderTech::Runtime {
     class Runtime;
 }
 
@@ -33,7 +33,7 @@ namespace HeaderTech::Scene {
 
     public:
         inline SceneGraph(
-                HeaderTech::Core::Runtime *runtime,
+                HeaderTech::Runtime::Runtime *runtime,
                 SceneManager *owner,
                 SceneGraph *parent,
                 HeaderTech::Logging::Logger logger,
@@ -101,7 +101,7 @@ namespace HeaderTech::Scene {
         inline void PopSceneCount() noexcept;
 
     protected:
-        [[nodiscard]] inline HeaderTech::Core::Runtime *Runtime() const noexcept
+        [[nodiscard]] inline HeaderTech::Runtime::Runtime *Runtime() const noexcept
         { return m_runtime; }
 
         [[nodiscard]] inline SceneManager *Owner() const noexcept
@@ -114,7 +114,7 @@ namespace HeaderTech::Scene {
         { return m_entities; }
 
     private:
-        HeaderTech::Core::Runtime *m_runtime;
+        HeaderTech::Runtime::Runtime *m_runtime;
         SceneManager *m_owner;
         SceneGraph *m_parent;
         std::vector<SceneGraph *> m_children;

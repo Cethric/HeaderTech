@@ -22,4 +22,8 @@
 
 #endif
 
+namespace HeaderTech::EntityComponentSystem {
+    int CoreVersion();
+}
+
 #endif //HEADERTECH_ECSINCLUDES_H

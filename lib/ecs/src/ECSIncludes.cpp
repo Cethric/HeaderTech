@@ -8,3 +8,8 @@
 #define DEFINE_IMPLEMENTATION 1
 
 #include <ECSIncludes.h>
+
+namespace HeaderTech::EntityComponentSystem {
+    int CoreVersion()
+    { return 0; }
+}

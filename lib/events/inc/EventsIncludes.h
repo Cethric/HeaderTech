@@ -17,4 +17,8 @@
 
 #endif
 
+namespace HeaderTech::Events {
+    int EventsVersion();
+}
+
 #endif //HEADERTECH_EVENTSINCLUDES_H

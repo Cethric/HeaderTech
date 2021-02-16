@@ -14,3 +14,8 @@
 #define DEFINE_IMPLEMENTATION 1
 
 #include <RenderIncludes.h>
+
+namespace HeaderTech::Render {
+    int RenderVersion()
+    { return 0; }
+}

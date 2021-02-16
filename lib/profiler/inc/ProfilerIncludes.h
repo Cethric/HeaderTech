@@ -11,4 +11,9 @@
 #if defined(HEADERTECH_PROFILER_IMPL) && DEFINE_IMPLEMENTATION == 1
 
 #endif
+
+namespace HeaderTech::Profiler {
+    int ProfilerVersion();
+}
+
 #endif //HEADERTECH_PROFILERINCLUDES_H

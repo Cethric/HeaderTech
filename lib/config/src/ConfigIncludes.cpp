@@ -6,3 +6,10 @@
 #define DEFINE_IMPLEMENTATION 1
 
 #include <ConfigIncludes.h>
+
+namespace HeaderTech::Config {
+    int ConfigVersion()
+    {
+        return 0;
+    }
+}

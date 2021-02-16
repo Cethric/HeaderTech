@@ -11,7 +11,7 @@
 #include <WindowTypes.h>
 
 namespace HeaderTech::Window::Api::GLFW {
-    inline static std::uint32_t KeyMapping[] = {
+    inline static std::int32_t KeyMapping[] = {
             GLFW_KEY_A,
             GLFW_KEY_B,
             GLFW_KEY_C,

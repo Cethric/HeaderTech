@@ -6,3 +6,9 @@
 #define DEFINE_IMPLEMENTATION 1
 
 #include <FileSystemIncludes.h>
+
+
+namespace HeaderTech::FileSystem {
+    int FileSystemVersion()
+    { return 0; }
+}

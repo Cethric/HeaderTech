@@ -10,14 +10,14 @@
 #include <vector>
 #include <SceneGraph.h>
 
-namespace HeaderTech::Core {
+namespace HeaderTech::Runtime {
     class Runtime;
 }
 
 namespace HeaderTech::Scene {
     class SceneManager {
     public:
-        inline explicit SceneManager(HeaderTech::Core::Runtime *runtime) noexcept;
+        inline explicit SceneManager(HeaderTech::Runtime::Runtime *runtime) noexcept;
 
         inline ~SceneManager() noexcept;
 
@@ -45,7 +45,7 @@ namespace HeaderTech::Scene {
         SceneGraph *m_root;
         SceneGraph *m_active;
         HeaderTech::Logging::Logger m_log;
-        HeaderTech::Core::Runtime *m_runtime;
+        HeaderTech::Runtime::Runtime *m_runtime;
     };
 }
 

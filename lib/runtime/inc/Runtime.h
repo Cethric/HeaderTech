@@ -20,7 +20,7 @@ namespace HeaderTech::Window {
     class Window;
 }
 
-namespace HeaderTech::Core {
+namespace HeaderTech::Runtime {
     class Runtime final : public HeaderTech::Events::EventDispatcher {
     public:
         inline explicit Runtime(const HeaderTech::Config::RuntimeConfig &config);

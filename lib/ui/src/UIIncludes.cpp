@@ -3,3 +3,8 @@
 //
 
 #include <UIIncludes.h>
+
+namespace HeaderTech::UI {
+    int UIVersion()
+    { return 0; }
+}

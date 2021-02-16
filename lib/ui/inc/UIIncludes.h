@@ -11,4 +11,8 @@
 
 #endif
 
+namespace HeaderTech::UI {
+    int UIVersion();
+}
+
 #endif //HEADERTECH_UIINCLUDES_H

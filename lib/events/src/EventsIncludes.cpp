@@ -7,3 +7,9 @@
 #define DEFINE_IMPLEMENTATION 1
 
 #include <EventsIncludes.h>
+
+
+namespace HeaderTech::Events {
+    int EventsVersion()
+    { return 0; }
+}

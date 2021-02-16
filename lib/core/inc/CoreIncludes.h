@@ -17,4 +17,8 @@
 
 #endif
 
+namespace HeaderTech::Core {
+    int CoreVersion();
+}
+
 #endif //HEADERTECH_COREINCLUDES_H

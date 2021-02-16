@@ -16,4 +16,8 @@
 
 #endif
 
+namespace HeaderTech::Runtime {
+    int RuntimeVersion();
+}
+
 #endif //HEADERTECH_RUNTIMEINCLUDES_H

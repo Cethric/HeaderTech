@@ -10,4 +10,9 @@
 #if defined(HEADERTECH_FILESYSTEM_IMPL) && DEFINE_IMPLEMENTATION == 1
 
 #endif
+
+namespace HeaderTech::FileSystem {
+    int FileSystemVersion();
+}
+
 #endif //HEADERTECH_FILESYSTEMINCLUDES_H

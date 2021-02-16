@@ -12,3 +12,8 @@
 #define DEFINE_IMPLEMENTATION 1
 
 #include <RuntimeIncludes.h>
+
+namespace HeaderTech::Runtime {
+    int RuntimeVersion()
+    { return 0; }
+}

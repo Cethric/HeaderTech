@@ -12,7 +12,7 @@ namespace HeaderTech::Scene {
     class SceneGraph;
 }
 
-namespace HeaderTech::Core {
+namespace HeaderTech::Runtime {
     class Runtime;
 }
 
@@ -26,7 +26,7 @@ namespace HeaderTech::Render::SceneGraph {
         friend class HeaderTech::Scene::SceneGraph;
 
         inline explicit SceneGraphRenderManagement(
-                HeaderTech::Core::Runtime *runtime,
+                HeaderTech::Runtime::Runtime *runtime,
                 const RenderSurfaceOptions &options
         ) noexcept;
 

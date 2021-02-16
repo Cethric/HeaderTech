@@ -15,4 +15,9 @@
 #include <SceneManager.inl>
 
 #endif
+
+namespace HeaderTech::Scene {
+    int SceneVersion();
+}
+
 #endif //HEADERTECH_SCENEINCLUDES_H

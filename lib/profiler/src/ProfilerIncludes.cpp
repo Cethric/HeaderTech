@@ -8,3 +8,8 @@
 
 #include <ProfilerIncludes.h>
 
+namespace HeaderTech::Profiler {
+    int ProfilerVersion()
+    { return 0; }
+}
+

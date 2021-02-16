@@ -21,4 +21,8 @@
 
 #endif
 
+namespace HeaderTech::Render {
+    int RenderVersion();
+}
+
 #endif //HEADERTECH_RENDERINCLUDES_H

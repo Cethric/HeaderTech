@@ -14,7 +14,7 @@
 #include <GLFW/glfw3.h>
 #include <functional>
 
-namespace HeaderTech::Core {
+namespace HeaderTech::Runtime {
 
     inline Runtime::Runtime(const HeaderTech::Config::RuntimeConfig &config)
             : m_running(false),

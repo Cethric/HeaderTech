@@ -29,7 +29,7 @@
 
 using SceneGraph = HeaderTech::Scene::SceneGraph;
 using SceneManager = HeaderTech::Scene::SceneManager;
-using Runtime = HeaderTech::Core::Runtime;
+using Runtime = HeaderTech::Runtime::Runtime;
 using ScopedGlfw = HeaderTech::Core::Scoped::ScopedGlfw;
 using ScopedProfiler = HeaderTech::Profiler::Scoped::ScopedProfiler;
 using ScopedLogging = HeaderTech::Logging::Scoped::ScopedLogging;

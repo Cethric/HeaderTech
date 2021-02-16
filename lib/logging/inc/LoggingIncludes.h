@@ -19,4 +19,8 @@
 
 #endif
 
+namespace HeaderTech::Logging {
+    int LoggingVersion();
+}
+
 #endif //HEADERTECH_LOGGINGINCLUDES_H

@@ -13,3 +13,8 @@
 #define DEFINE_IMPLEMENTATION 1
 
 #include <WindowIncludes.h>
+
+namespace HeaderTech::Window {
+    int WindowVersion()
+    { return 0; }
+}

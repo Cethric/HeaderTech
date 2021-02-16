@@ -9,3 +9,8 @@
 #define DEFINE_IMPLEMENTATION 1
 
 #include "CoreIncludes.h"
+
+namespace HeaderTech::Core {
+    int CoreVersion()
+    { return 0; }
+}

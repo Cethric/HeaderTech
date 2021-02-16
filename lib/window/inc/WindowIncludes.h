@@ -15,4 +15,8 @@
 
 #endif
 
+namespace HeaderTech::Window {
+    int WindowVersion();
+}
+
 #endif //HEADERTECH_WINDOWINCLUDES_H

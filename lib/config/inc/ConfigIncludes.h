@@ -12,4 +12,8 @@
 
 #endif
 
+namespace HeaderTech::Config {
+    int ConfigVersion();
+}
+
 #endif //HEADERTECH_CONFIGINCLUDES_H

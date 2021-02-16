@@ -12,7 +12,7 @@
 
 namespace HeaderTech::Scene {
     inline SceneGraph::SceneGraph(
-            HeaderTech::Core::Runtime *runtime,
+            HeaderTech::Runtime::Runtime *runtime,
             SceneManager *owner,
             SceneGraph *parent,
             HeaderTech::Logging::Logger logger,

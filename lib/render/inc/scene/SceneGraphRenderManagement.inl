@@ -11,7 +11,7 @@
 
 namespace HeaderTech::Render::SceneGraph {
     inline SceneGraphRenderManagement::SceneGraphRenderManagement(
-            HeaderTech::Core::Runtime *runtime,
+            HeaderTech::Runtime::Runtime *runtime,
             const RenderSurfaceOptions &options
     ) noexcept
             : SceneGraphRenderManagement(runtime->GetWindow().GetRenderContext(), options)

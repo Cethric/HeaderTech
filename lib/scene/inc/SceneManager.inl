@@ -8,7 +8,7 @@
 #include <SceneManager.h>
 
 namespace HeaderTech::Scene {
-    inline SceneManager::SceneManager(HeaderTech::Core::Runtime *runtime) noexcept
+    inline SceneManager::SceneManager(HeaderTech::Runtime::Runtime *runtime) noexcept
             : m_root(nullptr),
               m_active(nullptr),
               m_log(HeaderTech::Logging::make_logger_async<SceneManager>()),

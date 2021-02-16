@@ -8,3 +8,8 @@
 #define DEFINE_IMPLEMENTATION 1
 
 #include <LoggingIncludes.h>
+
+namespace HeaderTech::Logging {
+    int LoggingVersion()
+    { return 0; }
+}
