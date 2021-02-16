@@ -19,6 +19,14 @@ jobs:
       BUILD_DIR: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
 
     steps:
+      - name: MacOS Tools
+        if: matrix.os == 'macos-latest'
+        run: sudo brew install mercurial
+
+      - name: Ubuntu Tools
+        if: matrix.os == 'ubuntu-20.04'
+        run: sudo apt-get install xorg-dev clang
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
@@ -42,16 +50,12 @@ jobs:
           CC: /usr/bin/clang
           CXX: /usr/bin/clang++
         working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
-        run: |
-          sudo apt-get install xorg-dev clang
-          cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_FLAGS=-fpermissive ..
+        run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_FLAGS=-fpermissive ..
 
       - name: Configure CMake
         if: matrix.os == 'macos-latest'
         working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
-        run: |
-          sudo brew install mercurial
-          cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_FLAGS=-fpermissive ..
+        run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_FLAGS=-fpermissive ..
 
       - name: Build
         working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
