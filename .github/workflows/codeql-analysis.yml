@@ -41,7 +41,7 @@ jobs:
       uses: snickerbockers/submodules-init@v4
     
     - run: |
-        sudo apt-get install -y mercurial
+        sudo apt-get install -y mercurial libxrandr-dev
         hg clone https://hg.icculus.org/icculus/physfs/ ext/physfs
 
     # Initializes the CodeQL tools for scanning.
