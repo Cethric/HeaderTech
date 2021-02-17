@@ -8,9 +8,13 @@
 #include <scoped/ScopedGLFW.h>
 #include <WindowTypes.h>
 
+#include <ReactiveProperty.h>
 
 #include <api/window/WindowApiIncludes.h>
 #include <api/render/RenderApiIncludes.h>
+
+#include <HeaderTech_Core_Export.h>
+#include <HeaderTech_Core_Version.h>
 
 
 #if defined(HEADERTECH_CORE_IMPL) && DEFINE_IMPLEMENTATION == 1
@@ -18,7 +22,7 @@
 #endif
 
 namespace HeaderTech::Core {
-    int CoreVersion();
+    HEADERTECH_CORE_EXPORT int CoreVersion();
 }
 
 #endif //HEADERTECH_COREINCLUDES_H

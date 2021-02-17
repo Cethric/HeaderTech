@@ -11,6 +11,6 @@
 #include "CoreIncludes.h"
 
 namespace HeaderTech::Core {
-    int CoreVersion()
-    { return 0; }
+    HEADERTECH_CORE_EXPORT int CoreVersion()
+    { return HeaderTech_Core_Version; }
 }

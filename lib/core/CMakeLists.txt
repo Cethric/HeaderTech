@@ -14,14 +14,18 @@ set(
         inc/CoreIncludes.h
         inc/WindowTypes.h
 
+        inc/ReactiveProperty.h
+
         inc/scoped/ScopedGLFW.h
 
         inc/api/render/RenderContextApi.h
         inc/api/render/RenderFramebuffer.h
         inc/api/render/RenderFramebuffer.inl
+        inc/api/render/RenderApiIncludes.h
 
         inc/api/window/WindowApi.h
-        inc/api/render/RenderApiIncludes.h inc/api/window/WindowApiIncludes.h)
+        inc/api/window/WindowApiIncludes.h
+)
 
 add_library(HeaderTech_Core STATIC ${HeaderTech_Core_SRC} ${HeaderTech_Core_INC})
 target_include_directories(HeaderTech_Core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc/)
@@ -35,3 +39,5 @@ generate_export_header(
         HeaderTech_Core
         EXPORT_FILE_NAME inc/HeaderTech_Core_Export.h
 )
+
+ConfigureVersion(HeaderTech_Core ${CMAKE_CURRENT_SOURCE_DIR}/version.txt ${CMAKE_CURRENT_BINARY_DIR}/inc/)

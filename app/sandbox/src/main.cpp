@@ -9,22 +9,47 @@ struct RenderComponent final {
 struct TransformComponent final {
     glm::vec3 position;
     glm::quat orientation;
+    HeaderTech::Core::ReactiveProperty<glm::vec3> vector;
 
     explicit inline TransformComponent(const glm::vec3 &position, const glm::quat &orientation) noexcept
             : position(position),
-              orientation(orientation)
-    {}
+              orientation(orientation),
+              vector({0, 0, 0}) {
+        vector.RegisterChangeListener([](auto from, auto to) {
+            SPDLOG_INFO("Change Vector: {} {} {}", to.x, to.y, to.z);
+        });
+    }
 };
 
 struct DebugGuiComponent final {
     const char *name;
 
-    explicit inline DebugGuiComponent(const char *name) noexcept: name(name)
-    {}
+    explicit inline DebugGuiComponent(const char *name) noexcept: name(name) {}
 };
 
 struct CameraComponent final {
+    HeaderTech::Core::ReactiveProperty<bool> m_enabled;
+    HeaderTech::Core::ReactiveProperty<int> m_count;
+    HeaderTech::Core::ReactiveProperty<float> m_count2;
 
+    explicit inline CameraComponent(bool enabled) noexcept: m_enabled(enabled), m_count(0), m_count2(0) {
+        m_count.RegisterChangeListener([](auto from, auto to) {
+            SPDLOG_INFO("Value changed: {} - {}", from, to);
+        });
+        m_count2.RegisterChangeListener([](auto from, auto to) {
+            SPDLOG_INFO("Value changed 2: {} - {}", from, to);
+        });
+        m_count += 1;
+        ++m_count;
+        m_count++;
+        m_count -= 1;
+        m_count2 += 4;
+        m_count %= 2;
+
+        auto b1 = m_count == m_count;
+        auto b2 = m_count == m_count2;
+        SPDLOG_INFO("Bool result: {} {}", b1, b2);
+    }
 };
 
 class RootScene final : public SceneGraph {
@@ -36,13 +61,12 @@ public:
                     parent,
                     HeaderTech::Logging::make_logger_async<RootScene>(),
                     {
-                        .window_size = runtime->GetWindow().GetSize()
+                            .window_size = runtime->GetWindow().GetSize()
                     }
-            )
-    {
+            ) {
         Entities()
                 .AddEntity()
-                .WithComponent<CameraComponent>()
+                .WithComponent<CameraComponent>(true)
                 .WithComponent<TransformComponent>(glm::vec3{0, 0, 0}, glm::quat{1, 0, 0, 1})
                 .WithComponent<DebugGuiComponent>("Camera");
         Entities()
@@ -85,8 +109,7 @@ public:
         this->Runtime()->Subscribe<HeaderTech::Window::Events::KeyEvent>(this);
     }
 
-    void OnEvent(HeaderTech::Window::Events::KeyEvent *event)
-    {
+    void OnEvent(HeaderTech::Window::Events::KeyEvent *event) {
         if (event->action == HeaderTech::Window::Events::KeyAction_PRESSED && event->key == GLFW_KEY_F) {
             this->Runtime()->GetWindow().ToggleFullscreen();
         }
@@ -97,8 +120,7 @@ protected:
     using RenderExcludes = HeaderTech::EntityComponentSystem::EntityComponentViewExcludes<RenderComponent>;
     using CameraExcludes = HeaderTech::EntityComponentSystem::EntityComponentViewExcludes<CameraComponent>;
 
-    inline void OnActivated() noexcept final
-    {
+    inline void OnActivated() noexcept final {
         SPDLOG_LOGGER_INFO(m_log, "Activated Root Scene");
         m_updateView = Entities().CreateView<TransformComponent>(CameraExcludes{});
         m_renderView = Entities().CreateView<RenderComponent, TransformComponent>(BlankExcludes{});
@@ -106,8 +128,7 @@ protected:
         m_debugView = Entities().CreateView<DebugGuiComponent>(CameraExcludes{});
     }
 
-    inline void OnDeactivated() noexcept final
-    {
+    inline void OnDeactivated() noexcept final {
         SPDLOG_LOGGER_INFO(m_log, "Deactivated Root Scene");
         m_updateView = nullptr;
         m_renderView = nullptr;
@@ -115,26 +136,23 @@ protected:
         m_cameraView = nullptr;
     }
 
-    inline void OnSceneWillBePushed() noexcept final
-    {}
+    inline void OnSceneWillBePushed() noexcept final {}
 
-    inline void OnSceneWillBePopped() noexcept final
-    {}
+    inline void OnSceneWillBePopped() noexcept final {}
 
-    inline void OnSceneWasPushed() noexcept final
-    {}
+    inline void OnSceneWasPushed() noexcept final {}
 
-    inline void OnSceneWasPopped() noexcept final
-    {}
+    inline void OnSceneWasPopped() noexcept final {}
 
-    inline void OnSceneTicked(double delta, double lag) noexcept final
-    {
+    inline void OnSceneTicked(double delta, double lag) noexcept final {
         TransformComponent *transform = nullptr;
         for (const auto &update: *m_updateView) {
             std::tie(std::ignore, transform) = update;
             transform->position.x += 2 * delta;
             transform->position.y += 3 * delta;
             transform->position.z += 2 * delta;
+
+            transform->vector += {2 * delta, 2 * delta, 2 * delta};
         }
 
         CameraComponent *camera = nullptr;
@@ -160,8 +178,7 @@ protected:
     inline void OnSceneRendered(
             double offset,
             const HeaderTech::Render::SceneGraph::SceneGraphRenderManagement &mgmt
-    ) noexcept final
-    {
+    ) noexcept final {
         CameraComponent *camera = nullptr;
         TransformComponent *cameraTransform = nullptr;
         RenderComponent *render = nullptr;
@@ -183,8 +200,7 @@ protected:
         }
     }
 
-    inline void OnDebugGuiRendered() noexcept final
-    {
+    inline void OnDebugGuiRendered() noexcept final {
         ImGui::Begin("Example");
         EntityId entityId;
         DebugGuiComponent *debug = nullptr;
@@ -218,8 +234,9 @@ protected:
         ImGui::End();
     }
 
-    inline void OnFramebufferResized(int width, int height) noexcept final
-    { SPDLOG_LOGGER_INFO(m_log, "Resize Framebuffer: {} {}", width, height); }
+    inline void OnFramebufferResized(int width, int height) noexcept final {
+        SPDLOG_LOGGER_INFO(m_log, "Resize Framebuffer: {} {}", width, height);
+    }
 
 private:
     std::shared_ptr<HeaderTech::EntityComponentSystem::EntityComponentView<CameraExcludes, TransformComponent>> m_updateView;
@@ -228,8 +245,7 @@ private:
     std::shared_ptr<HeaderTech::EntityComponentSystem::EntityComponentView<CameraExcludes, DebugGuiComponent>> m_debugView;
 };
 
-int main(int argc, const char **argv)
-{
+int main(int argc, const char **argv) {
     try {
         IMGUI_CHECKVERSION();
 #ifdef _MSC_VER
@@ -252,6 +268,7 @@ int main(int argc, const char **argv)
                 {
                     ScopedGlfw glfw;
                     {
+                        rmt_SetCurrentThreadName("MainLoop");
                         Runtime runtime(config);
                         {
                             HeaderTech::Scene::SceneManager sceneManager(&runtime);
