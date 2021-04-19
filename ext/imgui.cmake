@@ -26,7 +26,9 @@ set(
         ImGui_Misc_Code
         imgui/misc/cpp/imgui_stdlib.cpp
         imgui/misc/cpp/imgui_stdlib.h
-        imgui/misc/natvis/imgui.natvis
+        imgui/misc/debuggers/imgui.gdb
+        imgui/misc/debuggers/imgui.natstepfilter
+        imgui/misc/debuggers/imgui.natvis
 )
 
 
@@ -40,7 +42,7 @@ set(
         ImGuiBackend_Inc
         imgui/backends/imgui_impl_glfw.h
         imgui_backends/ImGui_OpenGL3.h
-        ../cmake/version.h)
+)
 
 add_library(ImGui STATIC ${ImGui_SRC} ${ImGui_Inc} ${ImGui_Misc_Code} ${ImGuiBackend_SRC} ${ImGuiBackend_Inc})
 target_include_directories(ImGui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/imgui/)

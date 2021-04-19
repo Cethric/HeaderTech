@@ -1,12 +1,6 @@
-add_subdirectory(config/)
-add_subdirectory(filesystem/)
-add_subdirectory(logging/)
-add_subdirectory(profiler/)
-add_subdirectory(events/)
-add_subdirectory(window/)
-add_subdirectory(render/)
-add_subdirectory(ui/)
-add_subdirectory(core/)
-add_subdirectory(ecs/)
-add_subdirectory(scene/)
-add_subdirectory(runtime/)
+cmake_minimum_required(VERSION 3.19)
+project(HeaderTechLibraries)
+
+add_library(Example SHARED Sample.cpp Sample.hpp)
+
+ConfigureLibrary(Example 0 0 1 "+dev")

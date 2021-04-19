@@ -1,77 +1,17 @@
-cmake_minimum_required(VERSION 3.17)
-project(HeaderTech)
+cmake_minimum_required(VERSION 3.19)
+project(HeaderTech VERSION 0.0.1.0 DESCRIPTION "HeaderTech Project" HOMEPAGE_URL "https://cehtric.github.io" LANGUAGES CXX C)
 
-set(
-        CMAKE_MODULE_PATH
-        ${CMAKE_MODULE_PATH}
-        "${CMAKE_CURRENT_SOURCE_DIR}/cmake/"
-)
+set(CMAKE_PREFIX_PATH "${CMAKE_PREFIX_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-include(write_version)
-
-set(CMAKE_UNITY_BUILD ON)
-if (MSVC)
-    if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-
-        set(CMAKE_UNITY_BUILD OFF)
-    endif ()
-endif ()
-
-if (UNIX)
-    set(CMAKE_UNITY_BUILD OFF)
-    if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-        add_definitions("-fms-extensions -fdeclspec")
-    endif ()
-endif (UNIX)
-
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_EXTENSIONS 20)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-set(BUILD_SHARED_LIBS ON CACHE INTERNAL "" FORCE)
-if (MSVC)
-    add_compile_options(/GR-)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /GR-")
-    set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} /GR-")
-endif ()
-
-include(GenerateExportHeader)
+include(Setup)
+include(Version)
+include(Library)
+include(Executable)
+include(Install)
 
 add_subdirectory(ext/)
 add_subdirectory(lib/)
 add_subdirectory(app/)
 
-
-include(GNUInstallDirs)
-
-set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/cmake-install-${CMAKE_BUILD_TYPE}-${CMAKE_CXX_COMPILER_ID})
-
-install(TARGETS HeaderTech_Sandbox)
-install(TARGETS HeaderTech_Config)
-install(TARGETS HeaderTech_Core)
-install(TARGETS HeaderTech_EntityComponentSystem)
-install(TARGETS HeaderTech_Events)
-install(TARGETS HeaderTech_FileSystem)
-install(TARGETS HeaderTech_Logging)
-install(TARGETS HeaderTech_Profiler)
-install(TARGETS HeaderTech_Render)
-install(TARGETS HeaderTech_Scene)
-install(TARGETS HeaderTech_UserInterface)
-install(TARGETS HeaderTech_Window)
-install(TARGETS physfs)
-install(TARGETS ImGui)
-#install(TARGETS httplib)
-install(TARGETS parallel_hashmap)
-install(TARGETS glm)
-install(TARGETS glad)
-install(TARGETS glfw)
-install(TARGETS fmt)
-install(TARGETS ctti)
-install(TARGETS spdlog)
-install(TARGETS nlohmann_json)
-
-
-set(CPACK_GENERATOR NSIS64)
-set(CPACK_PACKAGE_NAME "HeaderTech")
-set(CPACK_PACKAGE_VENDOR "Blake Rogan")
-
-include(CPack)
+FinaliseInstall()
