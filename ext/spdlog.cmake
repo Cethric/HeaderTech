@@ -14,4 +14,6 @@ set(SPDLOG_FMT_EXTERNAL_HO OFF CACHE INTERNAL "" FORCE)
 set(SPDLOG_NO_EXCEPTIONS ON CACHE INTERNAL "" FORCE)
 add_subdirectory(spdlog/ EXCLUDE_FROM_ALL)
 
+RegisterLibrary(spdlog PRIVATE)
+
 # lib spdlog::spdlog

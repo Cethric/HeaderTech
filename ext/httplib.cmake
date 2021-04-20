@@ -10,4 +10,6 @@ set(BROTLI_USE_STATIC_LIBS OFF CACHE INTERNAL "" FORCE)
 set(OPENSSL_USE_STATIC_LIBS OFF CACHE INTERNAL "" FORCE)
 add_subdirectory(httplib/ EXCLUDE_FROM_ALL)
 
+RegisterLibrary(httplib PRIVATE)
+
 # lib httplib::httplib

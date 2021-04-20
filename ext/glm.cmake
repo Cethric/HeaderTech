@@ -6,4 +6,7 @@
 #set(GLM_TEST_ENABLE_SIMD_SSE2 ON CACHE INTERNAL "" FORCE)
 add_subdirectory(glm/ EXCLUDE_FROM_ALL)
 
+RegisterLibrary(glm INTERFACE)
+RegisterLibrary(glm_shared PRIVATE)
+
 # lib glm::glm

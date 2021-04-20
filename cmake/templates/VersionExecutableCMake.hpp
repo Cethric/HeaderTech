@@ -6,7 +6,6 @@
 #define HEADERTECH_@NAME@_VERSION_H
 
 #include <cstdint>
-#include <@NAME@/Exports.h>
 
 namespace HeaderTech::@NAME@Version {
     struct Version {
@@ -19,9 +18,9 @@ namespace HeaderTech::@NAME@Version {
         std::uint64_t timestamp;
     };
 
-    HeaderTech_@NAME@_Export const Version &CompileVersion();
+    const Version &CompileVersion();
 
-    HeaderTech_@NAME@_Export bool ValidateVersion(const Version &headerVersion);
+    bool ValidateVersion(const Version &headerVersion);
 
     static const Version HeaderVersion{
             .major = @MAJOR@,

@@ -18,4 +18,6 @@ endif ()
 
 add_subdirectory(fmt/ EXCLUDE_FROM_ALL)
 
+RegisterLibrary(fmt PRIVATE)
+
 # lib fmt::fmt

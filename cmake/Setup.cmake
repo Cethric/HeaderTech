@@ -1,35 +1,12 @@
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/build/bin)
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/build/lib)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/build/bin)
+include_guard(GLOBAL)
 
-set(CMAKE_UNITY_BUILD ON)
-
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_C_EXTENSIONS 11)
-
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_EXTENSIONS 20)
-
-set(BUILD_SHARED_LIBS ON)
-
-set(CMAKE_CXX_VISIBILITY_PRESET hidden)
-set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
+if (EMSCRIPTEN)
+    include(setup/Emscripten)
+else (EMSCRIPTEN)
+    include(setup/Native)
+endif (EMSCRIPTEN)
 
 include(GenerateExportHeader)
 include(GNUInstallDirs)
-include(CMakePrintHelpers)
 include(CheckCXXSourceCompiles)
 include(CheckCXXCompilerFlag)
-
-set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/cmake-install-${CMAKE_BUILD_TYPE}-${CMAKE_CXX_COMPILER_ID})
-
-cmake_print_variables(CMAKE_RUNTIME_OUTPUT_DIRECTORY)
-cmake_print_variables(CMAKE_ARCHIVE_OUTPUT_DIRECTORY)
-cmake_print_variables(CMAKE_LIBRARY_OUTPUT_DIRECTORY)
-cmake_print_variables(CMAKE_UNITY_BUILD)
-cmake_print_variables(CMAKE_C_STANDARD)
-cmake_print_variables(CMAKE_C_EXTENSIONS)
-cmake_print_variables(CMAKE_CXX_STANDARD)
-cmake_print_variables(CMAKE_CXX_EXTENSIONS)
-cmake_print_variables(BUILD_SHARED_LIBS)
-cmake_print_variables(CMAKE_INSTALL_PREFIX)

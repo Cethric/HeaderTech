@@ -5,11 +5,11 @@
 #define VerInfo_Product_Version @MAJOR@,@MINOR@,@PATCH@,@BUILD_NUMBER@
 #define VerInfo_Product_Version_Str "@MAJOR@.@MINOR@.@PATCH@@TWEAK@-build_@BUILD_NUMBER@\0"
 
-#ifndef DEBUG
+#ifndef _DEBUG
 #define VerInfo_File_Flags_Debug 0
 #else
 #define VerInfo_File_Flags_Debug VS_FF_DEBUG
-#endif //DEBUG
+#endif // _DEBUG
 
 #define VerInfo_File_Flags VS_FF_PRERELEASE | VS_FF_PRIVATEBUILD | VerInfo_File_Flags_Debug
 

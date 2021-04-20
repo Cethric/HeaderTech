@@ -17,10 +17,10 @@ namespace HeaderTech::@NAME@Version {
         .timestamp = @BUILD_TIMESTAMP@,
     };
 
-    HeaderTech_@NAME@_Export const Version &CompileVersion()
+    const Version &CompileVersion()
     { return CompiledVersion; }
 
-    HeaderTech_@NAME@_Export bool ValidateVersion(const Version &headerVersion)
+    bool ValidateVersion(const Version &headerVersion)
     {
         return headerVersion.major == CompiledVersion.major &&
                headerVersion.minor == CompiledVersion.minor &&

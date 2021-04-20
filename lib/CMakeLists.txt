@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.19)
 project(HeaderTechLibraries)
 
-add_library(Example SHARED Sample.cpp Sample.hpp)
+add_subdirectory(Common/)
+add_subdirectory(FileSystem/)
+add_subdirectory(Logging/)
 
-ConfigureLibrary(Example 0 0 1 "+dev")
+add_subdirectory(Sample/)

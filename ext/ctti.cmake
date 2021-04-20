@@ -4,4 +4,6 @@ add_subdirectory(ctti/ EXCLUDE_FROM_ALL)
 
 add_library(ctti::ctti ALIAS ctti)
 
+#RegisterLibrary(ctti INTERFACE)
+
 # lib ctti::ctti

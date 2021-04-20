@@ -2,7 +2,7 @@ add_subdirectory(glad/cmake EXCLUDE_FROM_ALL)
 
 glad_add_library(
         glad
-        STATIC
+        SHARED
         EXCLUDE_FROM_ALL
         MERGE
         MX
@@ -15,5 +15,7 @@ glad_add_library(
 )
 
 add_library(glad::glad ALIAS glad)
+
+RegisterLibrary(glad PRIVATE)
 
 # lib glad
