@@ -6,7 +6,7 @@
 
 #include <cstring>
 
-namespace HeaderTech::@NAME@Version {
+namespace HeaderTech::@NAME@ {
     const static Version CompiledVersion{
         .major = @MAJOR@,
         .minor = @MINOR@,

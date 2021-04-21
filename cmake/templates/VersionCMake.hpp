@@ -8,7 +8,7 @@
 #include <cstdint>
 #include <@NAME@/Exports.h>
 
-namespace HeaderTech::@NAME@Version {
+namespace HeaderTech::@NAME@ {
     struct Version {
         std::uint32_t major;
         std::uint32_t minor;
@@ -32,6 +32,8 @@ namespace HeaderTech::@NAME@Version {
             .config = "@CONFIG@",
             .timestamp = @BUILD_TIMESTAMP@,
     };
+
+    static const char* VersionString = "@MAJOR@.@MINOR@.@PATCH@@TWEAK@-build_@BUILD_NUMBER@";
 }
 
 

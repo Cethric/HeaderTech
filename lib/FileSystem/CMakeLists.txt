@@ -18,7 +18,7 @@ target_include_directories(
             $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/inc/>
             $<INSTALL_INTERFACE:include/>
 )
-target_link_libraries(FileSystem PRIVATE Common)
+target_link_libraries(FileSystem PRIVATE Common Config)
 target_link_libraries(FileSystem PRIVATE physfs::physfs)
 
 ConfigureLibrary(FileSystem 0 0 1 "+dev")

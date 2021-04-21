@@ -17,4 +17,6 @@ target_include_directories(
             $<INSTALL_INTERFACE:include/>
 )
 
+target_link_libraries(TEMPLATE PRIVATE Common)
+
 ConfigureLibrary(TEMPLATE 0 0 1 "+dev")

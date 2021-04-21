@@ -79,19 +79,14 @@ function(ConfigureExecutable Target Major Minor Patch Tweak)
 
 
     set(RC_OUTPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/include/${Target}/Executable.rc)
-    set(CONFIG_OUTPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/include/${Target}/Config.hpp)
 
-    configure_file(${TEMPLATE_DIR}/ApplicationCMake.rc ${RC_OUTPUT_FILE} @ONLY NEWLINE_STYLE WIN32)
-    configure_file(${TEMPLATE_DIR}/LibraryConfigCMake.hpp ${CONFIG_OUTPUT_FILE} @ONLY NEWLINE_STYLE WIN32)
+    configure_file(${TEMPLATE_DIR}/ApplicationCMake.rc ${RC_OUTPUT_FILE} @ONLY NEWLINE_STYLE UNIX)
 
     target_sources(
             ${Target}
             PRIVATE
-            $<BUILD_INTERFACE:${RC_OUTPUT_FILE}>
-            $<INSTALL_INTERFACE:include/${Target}/Executable.rc>
-            PUBLIC
-            $<BUILD_INTERFACE:${CONFIG_OUTPUT_FILE}>
-            $<INSTALL_INTERFACE:include/${Target}/Config.hpp>
+                $<BUILD_INTERFACE:${RC_OUTPUT_FILE}>
+                $<INSTALL_INTERFACE:include/${Target}/Executable.rc>
     )
 
     target_include_directories(

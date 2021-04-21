@@ -83,10 +83,8 @@ function(ConfigureLibrary Target Major Minor Patch Tweak)
 
     set(RC_OUTPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/include/${Target}/Library.rc)
     set(EXPORTS_OUTPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/include/${Target}/Exports.h)
-    set(CONFIG_OUTPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/include/${Target}/Config.hpp)
 
-    configure_file(${TEMPLATE_DIR}/LibraryCMake.rc ${RC_OUTPUT_FILE} @ONLY NEWLINE_STYLE WIN32)
-    configure_file(${TEMPLATE_DIR}/LibraryConfigCMake.hpp ${CONFIG_OUTPUT_FILE} @ONLY NEWLINE_STYLE WIN32)
+    configure_file(${TEMPLATE_DIR}/LibraryCMake.rc ${RC_OUTPUT_FILE} @ONLY NEWLINE_STYLE UNIX)
 
     target_sources(
             ${Target}
@@ -95,9 +93,6 @@ function(ConfigureLibrary Target Major Minor Patch Tweak)
                 $<BUILD_INTERFACE:${EXPORTS_OUTPUT_FILE}>
                 $<INSTALL_INTERFACE:include/${Target}/Library.rc>
                 $<INSTALL_INTERFACE:include/${Target}/Exports.h>
-            PUBLIC
-                $<BUILD_INTERFACE:${CONFIG_OUTPUT_FILE}>
-                $<INSTALL_INTERFACE:include/${Target}/Config.hpp>
     )
 
     target_include_directories(
