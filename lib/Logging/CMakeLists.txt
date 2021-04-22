@@ -3,10 +3,16 @@ project(Logging VERSION 0.0.1.0 DESCRIPTION "HeaderTech Logging library" HOMEPAG
 
 set(
         Logging_SRC
+        src/Logging.cpp
+        src/LogFileHelper.cpp
 )
 
 set(
         Logging_INC
+        inc/Logging/Logging.hpp
+        inc/Logging/RotatingSink.hpp
+        inc/Logging/RotatingSink.inl
+        inc/Logging/LogFileHelper.hpp
 )
 
 add_library(Logging SHARED ${Logging_SRC} ${Logging_INC})
@@ -16,7 +22,7 @@ target_include_directories(
             $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/inc/>
             $<INSTALL_INTERFACE:include/>
 )
-target_link_libraries(Logging PRIVATE Common FileSystem)
-target_link_libraries(Logging PUBLIC fmt::fmt spdlog::spdlog)
+target_link_libraries(Logging PRIVATE Common FileSystem Config)
+target_link_libraries(Logging PUBLIC fmt::fmt spdlog::spdlog ctti::ctti physfs::physfs)
 
 ConfigureLibrary(Logging 0 0 1 "+dev")
