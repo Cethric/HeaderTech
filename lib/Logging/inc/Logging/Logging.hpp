@@ -14,14 +14,16 @@
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/dup_filter_sink.h>
 
+#include <memory>
+
 namespace HeaderTech::Logging {
     using Logger = std::shared_ptr<spdlog::logger>;
 
-    class Logging {
+    class Logging : public std::enable_shared_from_this<Logging> {
     public:
         HeaderTech_Logging_Export explicit Logging(
-                const HeaderTech::Config::Config &config,
-                const HeaderTech::FileSystem::FileSystem &fileSystem
+                const HeaderTech::Config::ConfigPtr &config,
+                const HeaderTech::FileSystem::FileSystemPtr &fileSystem
         ) noexcept;
 
         HeaderTech_Logging_Export ~Logging() noexcept;
@@ -47,6 +49,9 @@ namespace HeaderTech::Logging {
     private:
         std::shared_ptr<spdlog::sinks::dup_filter_sink_mt> m_sink;
     };
+
+    using LoggingPtr = std::shared_ptr<Logging>;
+    using LoggingWeakPtr = std::weak_ptr<Logging>;
 }
 
 

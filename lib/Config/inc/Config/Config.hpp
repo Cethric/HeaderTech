@@ -6,9 +6,11 @@
 #define HEADERTECH_CONFIG_HPP
 
 #include <Config/Exports.h>
+
 #include <string_view>
 #include <string>
 #include <vector>
+#include <memory>
 
 namespace HeaderTech::Config {
     struct LoggingConfig {
@@ -17,7 +19,7 @@ namespace HeaderTech::Config {
         std::size_t maxLogSize;
     };
 
-    class Config {
+    class Config : public std::enable_shared_from_this<Config> {
     public:
         HeaderTech_Config_Export Config(
                 const std::string_view &name,
@@ -31,12 +33,12 @@ namespace HeaderTech::Config {
         [[nodiscard]] HeaderTech_Config_Export const LoggingConfig &LogConfig() const noexcept;
 
     private:
-
-
-    private:
         std::vector<std::string> m_searchPaths;
         LoggingConfig            m_logConfig;
     };
+
+    using ConfigPtr = std::shared_ptr<Config>;
+    using ConfigWeakPtr = std::weak_ptr<Config>;
 }
 
 

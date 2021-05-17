@@ -19,3 +19,7 @@ target_include_directories(
 )
 
 ConfigureExecutable(TEMPLATE 0 0 1 "+dev")
+
+if (BUILD_TESTING)
+    add_subdirectory(test)
+endif (BUILD_TESTING)

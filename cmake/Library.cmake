@@ -119,5 +119,7 @@ function(ConfigureLibrary Target Major Minor Patch Tweak)
 
     set_target_properties(${Target} PROPERTIES PREFIX "HeaderTech_")
 
+#    catch_discover_tests(${Target})
+
     RegisterLibrary(${Target} PRIVATE)
 endfunction(ConfigureLibrary)

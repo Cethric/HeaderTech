@@ -38,7 +38,8 @@ HeaderTech_Config_Export HeaderTech::Config::Config::Config(
         int argc,
         const char **argv
 ) noexcept
-        : m_searchPaths(),
+        : std::enable_shared_from_this<Config>(),
+          m_searchPaths(),
           m_logConfig{
                   .logName="logs/output.log",
                   .maxLogFiles=4,

@@ -18,3 +18,7 @@ target_include_directories(
 )
 
 ConfigureLibrary(Common 0 0 1 "+dev")
+
+if (BUILD_TESTING)
+    add_subdirectory(test)
+endif (BUILD_TESTING)

@@ -17,6 +17,7 @@ target_include_directories(
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/inc/>
         $<INSTALL_INTERFACE:include/>
 )
-target_link_libraries(Editor PUBLIC Config FileSystem Logging Common)
+target_link_libraries(Editor PUBLIC Config FileSystem Logging Common Event Runtime)
+target_link_libraries(Editor PUBLIC ctti::ctti)
 
 ConfigureExecutable(Editor 0 0 1 "+dev")

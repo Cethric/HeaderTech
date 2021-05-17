@@ -2,10 +2,12 @@ include_guard(GLOBAL)
 
 include(Version)
 
+include(emscripten/Functions)
+
 function(RegisterExecutable Target Visibility)
     if (EMSCRIPTEN)
         em_setting_target(${Target} ${Visibility} RELOCATABLE 1 COMPILE_AND_LINK)
-        em_setting_target(${Target} ${Visibility} MAIN_MODULE 0 COMPILE_AND_LINK)
+        em_setting_target(${Target} ${Visibility} MAIN_MODULE 1 COMPILE_AND_LINK)
         em_setting_target(${Target} ${Visibility} LINKABLE 1 COMPILE_AND_LINK)
         em_setting_target(${Target} ${Visibility} MODULARIZE 1 COMPILE_AND_LINK)
         em_setting_target(${Target} ${Visibility} EXPORTED_FUNCTIONS "['_main']" COMPILE_AND_LINK)
@@ -100,6 +102,8 @@ function(ConfigureExecutable Target Major Minor Patch Tweak)
     )
 
     set_target_properties(${Target} PROPERTIES PREFIX "HeaderTech_")
+
+#    catch_discover_tests(${Target})
 
     RegisterExecutable(${Target} PRIVATE)
 endfunction(ConfigureExecutable)

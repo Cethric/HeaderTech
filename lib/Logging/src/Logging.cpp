@@ -19,8 +19,8 @@
 
 
 static inline std::shared_ptr<spdlog::sinks::dup_filter_sink_mt> CreateSinks(
-        const HeaderTech::Config::Config &config,
-        const HeaderTech::FileSystem::FileSystem &fileSystem
+        const HeaderTech::Config::ConfigPtr &config,
+        const HeaderTech::FileSystem::FileSystemPtr &fileSystem
 )
 {
     auto dup_sink = std::make_shared<spdlog::sinks::dup_filter_sink_mt>(std::chrono::seconds(5));
@@ -31,10 +31,10 @@ static inline std::shared_ptr<spdlog::sinks::dup_filter_sink_mt> CreateSinks(
 }
 
 HeaderTech_Logging_Export HeaderTech::Logging::Logging::Logging(
-        const HeaderTech::Config::Config &config,
-        const HeaderTech::FileSystem::FileSystem &fileSystem
-) noexcept
-        : m_sink(CreateSinks(config, fileSystem))
+        const HeaderTech::Config::ConfigPtr &config,
+        const HeaderTech::FileSystem::FileSystemPtr &fileSystem
+) noexcept: std::enable_shared_from_this<Logging>(),
+            m_sink(CreateSinks(config, fileSystem))
 {
     spdlog::cfg::load_env_levels();
 #ifndef __EMSCRIPTEN__

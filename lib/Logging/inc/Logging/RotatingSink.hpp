@@ -14,8 +14,8 @@ namespace HeaderTech::Logging {
     class RotatingSink final : public spdlog::sinks::base_sink<Mutex> {
     public:
         inline RotatingSink(
-                const HeaderTech::Config::Config &config,
-                const HeaderTech::FileSystem::FileSystem &fileSystem
+                const HeaderTech::Config::ConfigPtr &config,
+                const HeaderTech::FileSystem::FileSystemPtr &fileSystem
         ) noexcept;
 
     private:

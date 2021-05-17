@@ -7,14 +7,14 @@
 
 template<typename Mutex>
 inline HeaderTech::Logging::RotatingSink<Mutex>::RotatingSink(
-        const Config::Config &config,
-        const FileSystem::FileSystem &fileSystem
+        const Config::ConfigPtr &config,
+        const FileSystem::FileSystemPtr &fileSystem
 ) noexcept
-        : m_base_filename(config.LogConfig().logName),
+        : m_base_filename(config->LogConfig().logName),
           m_file_helper(),
           m_current_size(0),
-          m_max_size(config.LogConfig().maxLogSize),
-          m_max_files(config.LogConfig().maxLogFiles)
+          m_max_size(config->LogConfig().maxLogSize),
+          m_max_files(config->LogConfig().maxLogFiles)
 {
     m_file_helper.Open(CalculateFilename(m_base_filename, 0));
     m_current_size = m_file_helper.Size(); // expensive. called only once

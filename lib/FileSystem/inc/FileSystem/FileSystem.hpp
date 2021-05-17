@@ -9,13 +9,21 @@
 
 #include <Config/Config.hpp>
 
+#include <memory>
+
 namespace HeaderTech::FileSystem {
-    class FileSystem {
+    class FileSystem : public std::enable_shared_from_this<FileSystem> {
     public:
-        HeaderTech_FileSystem_Export explicit FileSystem(const HeaderTech::Config::Config &config, const char *argv0) noexcept;
+        HeaderTech_FileSystem_Export explicit FileSystem(
+                const HeaderTech::Config::ConfigPtr &config,
+                const char *argv0
+        ) noexcept;
 
         HeaderTech_FileSystem_Export ~FileSystem() noexcept;
     };
+
+    using FileSystemPtr = std::shared_ptr<FileSystem>;
+    using FileSystemWeakPtr = std::weak_ptr<FileSystem>;
 }
 
 
