@@ -1,0 +1,28 @@
+:160000 160000 d7e9828 d7e9828 M	ext/ctti
+
+Submodule ext/ctti contains modified content
+diff --git a/ext/ctti/CMakeLists.txt b/ext/ctti/CMakeLists.txt
+index 9b0f506..d4c0c11 100644
+--- a/ext/ctti/CMakeLists.txt
++++ b/ext/ctti/CMakeLists.txt
+@@ -1,5 +1,5 @@
++cmake_minimum_required(VERSION 3.19)
+ project(ctti)
+-cmake_minimum_required(VERSION 2.8)
+ 
+ option(CTTI_BUILD_TESTS "Build ctti feature tests" OFF)
+ option(CTTI_BUILD_EXAMPLES "Build ctti examples" OFF)
+@@ -14,7 +14,12 @@ if(NOT MSVC)
+ endif()
+ 
+ add_library(ctti INTERFACE)
+-target_include_directories(ctti INTERFACE ${CTTI_SOURCE_DIR}/include)
++target_include_directories(
++        ctti
++        INTERFACE
++        $<BUILD_INTERFACE:${CTTI_SOURCE_DIR}/include>
++        $<INSTALL_INTERFACE:include/>
++)
+ 
+ if(CTTI_BUILD_TESTS)
+     enable_testing()
