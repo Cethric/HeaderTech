@@ -14,6 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: snickerbockers/submodules-init@v4
+
+      - name: Clone PhysFS
+        run: |
+          hg clone https://hg.icculus.org/icculus/physfs/ ext/physfs
+
+      - name: Apply Patches
+        shell: bash
+        run: git apply --apply patches/ctti.patch && git apply --apply patches/glad.patch
+
       - uses: returntocorp/semgrep-action@v1
         with:
           auditOn: push

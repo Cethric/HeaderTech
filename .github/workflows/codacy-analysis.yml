@@ -25,6 +25,10 @@ jobs:
         run: |
           hg clone https://hg.icculus.org/icculus/physfs/ ext/physfs
 
+      - name: Apply Patches
+        shell: bash
+        run: git apply --apply patches/ctti.patch && git apply --apply patches/glad.patch
+
       - name: Run Codacy Analysis CLI
         uses: codacy/codacy-analysis-cli-action@1.1.0
         with:
