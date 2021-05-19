@@ -1,10 +1,14 @@
 name: Codacy Security Scan
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
+      - dev
+  push:
+    branches:
+      - main
+      - dev
 
 jobs:
   codacy-security-scan:

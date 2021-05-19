@@ -1,6 +1,14 @@
 name: CMake
 
-on: [ push ]
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+  push:
+    branches:
+      - main
+      - dev
 
 jobs:
     build:
@@ -76,16 +84,16 @@ jobs:
                 shell: bash
                 if: matrix.os == 'windows-latest'
                 working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
-                run: cmake --build . --config $BUILD_TYPE --target HeaderTech_Sandbox
+                run: cmake --build . --config $BUILD_TYPE --target Editor
 
             -   name: Build Ubuntu
                 shell: bash
                 if: matrix.os == 'ubuntu-20.04'
                 working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
-                run: cmake --build . --config $BUILD_TYPE --target HeaderTech_Sandbox -- -j
+                run: cmake --build . --config $BUILD_TYPE --target Editor -- -j
 
             -   name: Build MacOS
                 shell: bash
                 if: matrix.os == 'macos-latest'
                 working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
-                run: cmake --build . --config $BUILD_TYPE --target HeaderTech_Sandbox -- -j
+                run: cmake --build . --config $BUILD_TYPE --target Editor -- -j

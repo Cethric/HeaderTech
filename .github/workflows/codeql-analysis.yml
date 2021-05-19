@@ -1,10 +1,14 @@
-name: "CodeQL"
+name: CodeQL Scans
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
+      - dev
+  push:
+    branches:
+      - main
+      - dev
   schedule:
     - cron: '25 18 * * 0'
 
