@@ -16,6 +16,7 @@ AllowShortLoopsOnASingleLine: true
 AlwaysBreakAfterReturnType: None
 AlwaysBreakTemplateDeclarations: Yes
 BreakBeforeBraces: Custom
+Cpp11BracedListStyle: true
 BraceWrapping:
   AfterCaseLabel: false
   AfterClass: false
@@ -64,3 +65,5 @@ SpacesInParentheses: false
 SpacesInSquareBrackets: false
 TabWidth: 4
 UseTab: Never
+Standard: c++20
+FixNamespaceComments: true

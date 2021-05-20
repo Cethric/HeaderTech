@@ -8,8 +8,8 @@ if (EMSCRIPTEN)
     target_link_options(Remotery INTERFACE "SHELL:--memoryprofiler")
     target_compile_options(Remotery INTERFACE "SHELL:--profiling")
     em_setting_target(Remotery INTERFACE GL_TRACK_ERRORS 1 LINK)
-    em_setting_target(Remotery INTERFACE GL_DEBUG  1 LINK)
-    em_setting_target(Remotery INTERFACE GL_ASSERTIONS   1 LINK)
+    em_setting_target(Remotery INTERFACE GL_DEBUG 1 LINK)
+    em_setting_target(Remotery INTERFACE GL_ASSERTIONS 1 LINK)
 
     RegisterLibrary(Remotery INTERFACE)
 

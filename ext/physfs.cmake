@@ -22,8 +22,8 @@ set_property(
 target_include_directories(
         physfs
         PUBLIC
-            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/physfs/src>
-            $<INSTALL_INTERFACE:include/>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/physfs/src>
+        $<INSTALL_INTERFACE:include/>
 )
 
 add_library(physfs::physfs ALIAS physfs)

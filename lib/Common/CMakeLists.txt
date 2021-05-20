@@ -13,8 +13,8 @@ add_library(Common SHARED ${Common_SRC} ${Common_INC})
 target_include_directories(
         Common
         PUBLIC
-            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/inc/>
-            $<INSTALL_INTERFACE:include/>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/inc/>
+        $<INSTALL_INTERFACE:include/>
 )
 
 ConfigureLibrary(Common 0 0 1 "+dev")

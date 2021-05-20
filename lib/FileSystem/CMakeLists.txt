@@ -15,8 +15,8 @@ add_library(FileSystem SHARED ${FileSystem_SRC} ${FileSystem_INC})
 target_include_directories(
         FileSystem
         PUBLIC
-            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/inc/>
-            $<INSTALL_INTERFACE:include/>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/inc/>
+        $<INSTALL_INTERFACE:include/>
 )
 target_link_libraries(FileSystem PRIVATE Common Config)
 target_link_libraries(FileSystem PRIVATE physfs::physfs)

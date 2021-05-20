@@ -30,34 +30,31 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "FileSystem/FileSystem.hpp"
+#define CATCH_CONFIG_MAIN
 
-#include <physfs.h>
+#include <catch2/catch_all.hpp>
 
-#include <iostream>
+#include <Common/Version.hpp>
 
-inline static void CheckPhyFSCall(int result)
+unsigned int Factorial(unsigned int number)
 {
-    if (result == 0) {
-        std::cerr << "Failed to execute PhysFS Command" << std::endl;
-        std::cerr << PHYSFS_getErrorByCode(PHYSFS_getLastErrorCode()) << std::endl;
-        std::exit(-1);
-    }
+    return number <= 1 ? number : Factorial(number - 1) * number;
 }
 
-HeaderTech_FileSystem_Export HeaderTech::FileSystem::FileSystem::FileSystem(
-        const HeaderTech::Config::ConfigPtr &config,
-        const char *argv0
-) noexcept: std::enable_shared_from_this<FileSystem>()
+TEST_CASE("Factorials are computed", "[factorial]")
 {
-    CheckPhyFSCall(PHYSFS_init(argv0));
-    CheckPhyFSCall(PHYSFS_setSaneConfig("HeaderTech", "Editor", "zip", 0, 1));
-    for (const auto &path : config->SearchPaths()) {
-        CheckPhyFSCall(PHYSFS_mount(path.data(), nullptr, 1));
-    }
+    REQUIRE(Factorial(1) == 1);
+    REQUIRE(Factorial(2) == 2);
+    REQUIRE(Factorial(3) == 6);
+    REQUIRE(Factorial(10) == 3628800);
 }
 
-HeaderTech::FileSystem::FileSystem::~FileSystem() noexcept
+bool VersionCheck()
 {
-    CheckPhyFSCall(PHYSFS_deinit());
+    return HeaderTech::Common::ValidateVersion(HeaderTech::Common::HeaderVersion);
+}
+
+TEST_CASE("Library Versions Match", "[version]")
+{
+    REQUIRE(VersionCheck());
 }

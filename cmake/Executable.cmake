@@ -18,30 +18,30 @@ function(RegisterExecutable Target Visibility)
             CONFIGURATIONS Debug
             EXPORT HeaderTechLibsDebug
             ARCHIVE
-                DESTINATION Debug/lib
-                COMPONENT Libraries
+            DESTINATION Debug/lib
+            COMPONENT Libraries
             LIBRARY
-                DESTINATION Debug/lib
-                COMPONENT Libraries
-                NAMELINK_COMPONENT Development
+            DESTINATION Debug/lib
+            COMPONENT Libraries
+            NAMELINK_COMPONENT Development
             RUNTIME
-                DESTINATION Debug/bin
-                COMPONENT Runtime
+            DESTINATION Debug/bin
+            COMPONENT Runtime
             FRAMEWORK
-                DESTINATION Debug/bin
-                COMPONENT Runtime
+            DESTINATION Debug/bin
+            COMPONENT Runtime
             BUNDLE
-                DESTINATION Debug/bin
-                COMPONENT Runtime
+            DESTINATION Debug/bin
+            COMPONENT Runtime
             RESOURCE
-                DESTINATION Debug/bin
-                COMPONENT Runtime
+            DESTINATION Debug/bin
+            COMPONENT Runtime
             PUBLIC_HEADER
-                DESTINATION Debug/include
-                COMPONENT Development
+            DESTINATION Debug/include
+            COMPONENT Development
             PRIVATE_HEADER
-                DESTINATION Debug/include
-                COMPONENT Development
+            DESTINATION Debug/include
+            COMPONENT Development
     )
 
     install(
@@ -49,30 +49,30 @@ function(RegisterExecutable Target Visibility)
             CONFIGURATIONS Release
             EXPORT HeaderTechLibsRelease
             ARCHIVE
-                DESTINATION Release/lib
-                COMPONENT Libraries
+            DESTINATION Release/lib
+            COMPONENT Libraries
             LIBRARY
-                DESTINATION Release/lib
-                COMPONENT Libraries
-                NAMELINK_COMPONENT Development
+            DESTINATION Release/lib
+            COMPONENT Libraries
+            NAMELINK_COMPONENT Development
             RUNTIME
-                DESTINATION Release/bin
-                COMPONENT Runtime
+            DESTINATION Release/bin
+            COMPONENT Runtime
             FRAMEWORK
-                DESTINATION Release/bin
-                COMPONENT Runtime
+            DESTINATION Release/bin
+            COMPONENT Runtime
             BUNDLE
-                DESTINATION Release/bin
-                COMPONENT Runtime
+            DESTINATION Release/bin
+            COMPONENT Runtime
             RESOURCE
-                DESTINATION Release/bin
-                COMPONENT Runtime
+            DESTINATION Release/bin
+            COMPONENT Runtime
             PUBLIC_HEADER
-                DESTINATION Release/include
-                COMPONENT Development
+            DESTINATION Release/include
+            COMPONENT Development
             PRIVATE_HEADER
-                DESTINATION Release/include
-                COMPONENT Development
+            DESTINATION Release/include
+            COMPONENT Development
     )
 endfunction(RegisterExecutable)
 
@@ -87,8 +87,8 @@ function(ConfigureExecutable Target Major Minor Patch Tweak)
     target_sources(
             ${Target}
             PRIVATE
-                $<BUILD_INTERFACE:${RC_OUTPUT_FILE}>
-                $<INSTALL_INTERFACE:include/${Target}/Executable.rc>
+            $<BUILD_INTERFACE:${RC_OUTPUT_FILE}>
+            $<INSTALL_INTERFACE:include/${Target}/Executable.rc>
     )
 
     target_include_directories(
@@ -103,7 +103,7 @@ function(ConfigureExecutable Target Major Minor Patch Tweak)
 
     set_target_properties(${Target} PROPERTIES PREFIX "HeaderTech_")
 
-#    catch_discover_tests(${Target})
+    #    catch_discover_tests(${Target})
 
     RegisterExecutable(${Target} PRIVATE)
 endfunction(ConfigureExecutable)

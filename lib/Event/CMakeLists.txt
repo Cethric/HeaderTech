@@ -14,8 +14,8 @@ add_library(Event SHARED ${Event_SRC} ${Event_INC})
 target_include_directories(
         Event
         PUBLIC
-            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/inc/>
-            $<INSTALL_INTERFACE:include/>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/inc/>
+        $<INSTALL_INTERFACE:include/>
 )
 
 target_link_libraries(Event PRIVATE Common)

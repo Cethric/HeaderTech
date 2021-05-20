@@ -19,8 +19,8 @@ add_library(Logging SHARED ${Logging_SRC} ${Logging_INC})
 target_include_directories(
         Logging
         PUBLIC
-            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/inc/>
-            $<INSTALL_INTERFACE:include/>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/inc/>
+        $<INSTALL_INTERFACE:include/>
 )
 target_link_libraries(Logging PRIVATE Common FileSystem Config)
 target_link_libraries(Logging PUBLIC fmt::fmt spdlog::spdlog ctti::ctti physfs::physfs)
