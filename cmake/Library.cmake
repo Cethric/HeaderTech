@@ -81,10 +81,11 @@ function(ConfigureLibrary Target Major Minor Patch Tweak)
     ConfigureVersion(${Target} ${Major} ${Minor} ${Patch} ${Tweak})
 
 
+    set(RC_INPUT_FILE ${TEMPLATE_DIR}/LibraryCMake.rc.in)
     set(RC_OUTPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/include/${Target}/Library.rc)
     set(EXPORTS_OUTPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/include/${Target}/Exports.h)
 
-    configure_file(${TEMPLATE_DIR}/LibraryCMake.rc ${RC_OUTPUT_FILE} @ONLY NEWLINE_STYLE UNIX)
+    configure_file(${RC_INPUT_FILE} ${RC_OUTPUT_FILE} @ONLY NEWLINE_STYLE UNIX)
 
     target_sources(
             ${Target}
