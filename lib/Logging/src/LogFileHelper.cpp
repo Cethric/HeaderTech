@@ -92,7 +92,7 @@ HeaderTech_Logging_Export void HeaderTech::Logging::LogFileHelper::Write(const s
 {
     size_t msg_size = buf.size();
     auto   data     = buf.data();
-    if (PHYSFS_write(m_file, data, 1, msg_size) != msg_size) {
+    if (PHYSFS_writeBytes(m_file, data, msg_size) != msg_size) {
         spdlog::throw_spdlog_ex("Failed writing to file " + m_filename, errno);
     }
 }

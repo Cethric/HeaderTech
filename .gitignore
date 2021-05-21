@@ -1330,3 +1330,5 @@ FodyWeavers.xsd
 doc/**/
 
 !/doc/.gitkeep
+
+ext/physfs/
