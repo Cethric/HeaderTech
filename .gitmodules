@@ -44,5 +44,5 @@
 	branch = v1.x
 [submodule "ext/argparse"]
 	path = ext/argparse
-	url = https://github.com/p-ranav/argparse.git
+	url = https://github.com/hendrik-skubch/argparse.git
 	branch = master
