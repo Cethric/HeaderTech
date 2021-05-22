@@ -1,4 +1,6 @@
 :160000 160000 994aa6e 994aa6e M	ext/glad
+ ext/glad | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
 
 Submodule ext/glad contains modified content
 diff --git a/ext/glad/cmake/CMakeLists.txt b/ext/glad/cmake/CMakeLists.txt
