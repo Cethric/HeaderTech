@@ -2,7 +2,7 @@ enabled: true
 
 exclude:
   - "**/*.patch"
-  - ".github/workflows/**/*"
+  - ".github/**/*"
   - "ext/**/*"
   - "resources/**/*"
 

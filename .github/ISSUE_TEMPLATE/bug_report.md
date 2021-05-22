@@ -1,6 +1,9 @@
 ---
-name: Bug report about: Create a report to help us improve title: ''
-labels: bug assignees: ''
+name: Bug report 
+about: Create a report to help us improve 
+title: ''
+labels: bug 
+assignees: ''
 
 ---
 
@@ -23,7 +26,7 @@ If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
 
-- OS: [e.g. iOS]
+- OS: [e.g. Windows 10, macOS, Linux, Web]
 - Browser [e.g. chrome, safari]
 - Version [e.g. 22]
 
