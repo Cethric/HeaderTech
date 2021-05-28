@@ -1,0 +1,44 @@
+:160000 160000 a70a4ae a70a4ae M	ext/fmt
+ ext/fmt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+Submodule ext/fmt contains modified content
+diff --git a/ext/fmt/include/fmt/format-inl.h b/ext/fmt/include/fmt/format-inl.h
+index a3eaa361..aa156ecf 100644
+--- a/ext/fmt/include/fmt/format-inl.h
++++ b/ext/fmt/include/fmt/format-inl.h
+@@ -2557,10 +2557,10 @@ FMT_FUNC detail::utf8_to_utf16::utf8_to_utf16(string_view s) {
+ }
+ 
+ FMT_FUNC void format_system_error(detail::buffer<char>& out, int error_code,
+-                                  const char* message) FMT_NOEXCEPT {
++                                  const std::string_view& message) FMT_NOEXCEPT {
+   FMT_TRY {
+     auto ec = std::error_code(error_code, std::generic_category());
+-    write(std::back_inserter(out), std::system_error(ec, message).what());
++    write(std::back_inserter(out), std::system_error(ec, message.data()).what());
+     return;
+   }
+   FMT_CATCH(...) {}
+diff --git a/ext/fmt/include/fmt/format.h b/ext/fmt/include/fmt/format.h
+index 60a1b559..429afb3f 100644
+--- a/ext/fmt/include/fmt/format.h
++++ b/ext/fmt/include/fmt/format.h
+@@ -2230,7 +2230,7 @@ std::basic_string<Char> vformat(
+   return {buffer.data(), buffer.size()};
+ }
+ 
+-using format_func = void (*)(detail::buffer<char>&, int, const char*);
++using format_func = void (*)(detail::buffer<char>&, int, const std::string_view&);
+ 
+ FMT_API void format_error_code(buffer<char>& out, int error_code,
+                                string_view message) FMT_NOEXCEPT;
+@@ -2282,7 +2282,7 @@ std::system_error system_error(int error_code, string_view message,
+   \endrst
+  */
+ FMT_API void format_system_error(detail::buffer<char>& out, int error_code,
+-                                 const char* message) FMT_NOEXCEPT;
++                                 const std::string_view& message) FMT_NOEXCEPT;
+ 
+ // Reports a system error without throwing an exception.
+ // Can be used to report errors from destructors.

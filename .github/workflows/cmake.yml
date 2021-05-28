@@ -54,7 +54,10 @@ jobs:
 
       - name: Apply Patches
         shell: bash
-        run: git apply --apply patches/ctti.patch && git apply --apply patches/glad.patch
+        run: |
+          git apply --apply patches/glad.patch
+          git apply --apply patches/ctti.patch
+          git apply --apply patches/fmt.patch
 
       - name: Create Build Environment
         shell: bash

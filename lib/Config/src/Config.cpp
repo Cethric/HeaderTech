@@ -93,7 +93,6 @@ HeaderTech_Config_Export HeaderTech::Config::Config::Config(
           );
 
     parser.add_argument("--search-path")
-          .append()
           .help("Add additional filesystem search paths")
           .default_value<std::vector<std::string>>({});
 
