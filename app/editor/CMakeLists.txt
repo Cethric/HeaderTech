@@ -18,6 +18,6 @@ target_include_directories(
         $<INSTALL_INTERFACE:include/>
 )
 target_link_libraries(Editor PUBLIC Config FileSystem Logging Common Event Runtime)
-target_link_libraries(Editor PUBLIC ctti::ctti)
+target_link_libraries(Editor PUBLIC ctti::ctti spdlog::spdlog)
 
 ConfigureExecutable(Editor 0 0 1 "+dev")

@@ -34,6 +34,8 @@
 
 #include <physfs.h>
 
+#include <string>
+
 struct HeaderTech::Logging::FileType final : public PHYSFS_File {
 };
 

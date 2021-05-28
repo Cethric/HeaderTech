@@ -31,7 +31,10 @@
  =============================================================================*/
 
 #include <Logging/RotatingSink.hpp>
+#include <string>
 #include <physfs.h>
+#include <spdlog/details/os.h>
+#include <spdlog/details/file_helper.h>
 
 template<typename Mutex>
 inline HeaderTech::Logging::RotatingSink<Mutex>::RotatingSink(
