@@ -45,4 +45,3 @@
 [submodule "ext/argparse"]
 	path = ext/argparse
 	url = https://github.com/hendrik-skubch/argparse.git
-	branch = master
