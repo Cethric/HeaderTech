@@ -16,7 +16,7 @@ AllowShortLoopsOnASingleLine: true
 AlwaysBreakAfterReturnType: None
 AlwaysBreakTemplateDeclarations: Yes
 BreakBeforeBraces: Custom
-Cpp11BracedListStyle: true
+Cpp11BracedListStyle: false
 BraceWrapping:
   AfterCaseLabel: false
   AfterClass: false
