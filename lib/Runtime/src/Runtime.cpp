@@ -37,6 +37,8 @@
 #include <Logging/Version.hpp>
 #include <Runtime/Version.hpp>
 
+#include <memory>
+
 HeaderTech_Runtime_Export HeaderTech::Runtime::Runtime::Runtime(
         const std::string_view &name,
         const std::string_view &version,

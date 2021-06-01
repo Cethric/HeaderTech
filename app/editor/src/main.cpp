@@ -31,17 +31,14 @@
  =============================================================================*/
 
 #include <Config/Config.hpp>
-#include <Config/Version.hpp>
 #include <Editor/Version.hpp>
 #include <Event/Reactive/Reactive.hpp>
 #include <Event/Version.hpp>
 #include <FileSystem/FileSystem.hpp>
-#include <FileSystem/Version.hpp>
 #include <Logging/Logging.hpp>
-#include <Logging/Version.hpp>
 #include <Runtime/Runtime.hpp>
-#include <Runtime/Version.hpp>
 
+#include <string>
 #include <cassert>
 #include <iostream>
 
@@ -101,8 +98,6 @@ private:
     HeaderTech::Logging::Logger m_log;
 };
 
-using namespace HeaderTech::Event::Reactive;
-
 class ReactiveClass {
 public:
     ReactiveClass() : m_exampleValue{false},
@@ -110,12 +105,12 @@ public:
                       m_exampleValue3{"Hello"}
     {
         m_exampleValue2.Subscribe(
-                [](ReactiveOperation op, int oldValue, int newValue) {
+                [](HeaderTech::Event::Reactive::ReactiveOperation op, int oldValue, int newValue) {
                     std::cout << "Ex2 Changed: (" << op << ") " << oldValue << " -> " << newValue << std::endl;
                 }
         );
         m_exampleValue3.Subscribe(
-                [](ReactiveOperation op, const std::string &oldValue, const std::string &newValue) {
+                [](HeaderTech::Event::Reactive::ReactiveOperation op, const std::string &oldValue, const std::string &newValue) {
                     std::cout << "Ex3 Changed: (" << op << ") " << oldValue << " -> " << newValue << std::endl;
                 }
         );
@@ -160,9 +155,9 @@ public:
     }
 
 private:
-    Reactive<bool>        m_exampleValue;
-    Reactive<int>         m_exampleValue2;
-    Reactive<std::string> m_exampleValue3;
+    HeaderTech::Event::Reactive::Reactive<bool>        m_exampleValue;
+    HeaderTech::Event::Reactive::Reactive<int>         m_exampleValue2;
+    HeaderTech::Event::Reactive::Reactive<std::string> m_exampleValue3;
 };
 
 int main(int argc, const char **argv)

@@ -37,6 +37,8 @@
 
 #include <spdlog/sinks/base_sink.h>
 
+#include <string>
+
 namespace HeaderTech::Logging {
     template<typename Mutex>
     class RotatingSink final : public spdlog::sinks::base_sink<Mutex> {

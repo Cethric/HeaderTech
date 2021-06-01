@@ -35,6 +35,7 @@
 #include <Config/Version.hpp>
 
 #include <fstream>
+#include <string>
 
 #include <argparse/argparse.hpp>
 #include <nlohmann/json.hpp>

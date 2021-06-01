@@ -104,6 +104,13 @@ function(ConfigureExecutable Target Major Minor Patch Tweak)
 
     set_target_properties(${Target} PROPERTIES PREFIX "HeaderTech_")
 
+    if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+        set_property(
+                TARGET ${Target}
+                PROPERTY UNITY_BUILD OFF
+        )
+    endif ()
+
     #    catch_discover_tests(${Target})
 
     RegisterExecutable(${Target} PRIVATE)

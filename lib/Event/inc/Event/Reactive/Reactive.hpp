@@ -38,6 +38,8 @@
 #include <type_traits>
 #include <vector>
 #include <iostream>
+#include <utility>
+#include <string>
 
 namespace HeaderTech::Event::Reactive {
     namespace details {

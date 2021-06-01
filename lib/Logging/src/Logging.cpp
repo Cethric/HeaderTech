@@ -45,6 +45,10 @@
 
 #include <Logging/RotatingSink.inl>
 
+#include <utility>
+#include <string>
+#include <memory>
+
 
 static inline std::shared_ptr<spdlog::sinks::dup_filter_sink_mt> CreateSinks(
         const HeaderTech::Config::ConfigPtr &config,
