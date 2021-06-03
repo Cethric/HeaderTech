@@ -1,0 +1,61 @@
+name: CMake
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build:
+    name: Build HeaderTech.${{ matrix.build_type }} (Ubuntu)
+    strategy:
+      matrix:
+        build_type: [Debug, Release]
+    runs-on: ubuntu-latest
+
+    outputs:
+      binary: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}/bin
+
+    env:
+      BUILD_TYPE: ${{ matrix.build_type }}
+      BUILD_DIR: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
+
+    steps:
+      - uses: BSFishy/pip-action@v1
+        with:
+          packages: Jinja2<3.0
+
+      - name: Install dependencies
+        shell: bash
+        run: |
+          sudo apt-get install xorg-dev clang
+
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/prepare-external-action
+
+      - name: Create Build Environment
+        shell: bash
+        run: |
+          cmake -E make_directory $BUILD_DIR
+
+      - name: Configure CMake
+        shell: bash
+        env:
+          CC: /usr/bin/clang
+          CXX: /usr/bin/clang++
+        working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
+        run: |
+          $(CC) --version
+          $(CXX) --version
+          cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_FLAGS=-fpermissive ..
+
+      - name: Build
+        shell: bash
+        working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
+        run: |
+          cmake --build . --config $BUILD_TYPE --target Editor -- -j
