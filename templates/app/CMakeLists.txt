@@ -13,7 +13,7 @@ set(
 add_executable(TEMPLATE ${TEMPLATE_SRC} ${TEMPLATE_INC})
 target_include_directories(
         TEMPLATE
-        PUBLIC
+        PRIVATE
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/inc/>
         $<INSTALL_INTERFACE:include/>
 )

@@ -46,7 +46,7 @@
 #include <cassert>
 #include <iostream>
 
-#include <spdlog/spdlog-inl.h>
+#include <spdlog/spdlog.h>
 
 class Application final : public HeaderTech::Runtime::Runtime {
 public:
