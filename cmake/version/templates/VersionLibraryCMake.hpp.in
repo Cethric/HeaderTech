@@ -37,6 +37,9 @@
 #include <cstdint>
 
 namespace HeaderTech::@NAME@ {
+#ifdef __cplusplus
+extern "C" {
+#endif
     struct Version {
         std::uint32_t major;
         std::uint32_t minor;
@@ -47,21 +50,24 @@ namespace HeaderTech::@NAME@ {
         std::uint64_t timestamp;
     };
 
-    HeaderTech_@NAME@_Export const Version &CompileVersion();
-
-    HeaderTech_@NAME@_Export bool ValidateVersion(const Version &headerVersion);
-
     static const Version HeaderVersion{
-            .major = @MAJOR@,
-            .minor = @MINOR@,
-            .patch = @PATCH@,
-            .build = @BUILD_NUMBER@,
-            .tweak = "@TWEAK@",
-            .config = "@CONFIG@",
-            .timestamp = @BUILD_TIMESTAMP@,
+            @MAJOR@,
+            @MINOR@,
+            @PATCH@,
+            @BUILD_NUMBER@,
+            "@TWEAK@",
+            "@CONFIG@",
+            @BUILD_TIMESTAMP@,
     };
 
     static const char* VersionString = "@MAJOR@.@MINOR@.@PATCH@@TWEAK@-build_@BUILD_NUMBER@";
+#ifdef __cplusplus
+}
+#endif
+
+    HeaderTech_@NAME@_Export const Version &CompileVersion();
+
+    HeaderTech_@NAME@_Export bool ValidateVersion(const Version &headerVersion);
 }
 
 #endif //HEADERTECH_@NAME@_VERSION_H

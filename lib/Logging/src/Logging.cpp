@@ -32,9 +32,9 @@
 
 #include "Logging/Logging.hpp"
 
+#include <spdlog/spdlog.h>
 #include <spdlog/cfg/env.h>
-#include <spdlog/details/file_helper.h>
-#include <spdlog/sinks/base_sink.h>
+
 #include <spdlog/sinks/stdout_color_sinks.h>
 
 #ifndef __EMSCRIPTEN__
@@ -43,6 +43,7 @@
 
 #endif// !defined(EMSCRIPTEN)
 
+#include <Logging/RotatingSink.hpp>
 #include <Logging/RotatingSink.inl>
 
 #include <utility>

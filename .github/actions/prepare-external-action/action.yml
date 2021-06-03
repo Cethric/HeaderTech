@@ -1,0 +1,23 @@
+name: 'Prepare External Dependencies'
+description: 'Retieves all dependencies in the ext folder and applies patches'
+inputs: {}
+outputs: {}
+runs:
+  using: composite
+  steps:
+    - name: Init Submodules
+      shell: bash
+      run: |
+        git submodule update --init --recursive
+
+    - name: Clone PhysFS
+      shell: bash
+      run: |
+        hg clone https://hg.icculus.org/icculus/physfs/ ext/physfs
+
+    - name: Apply Patches
+      shell: bash
+      run: |
+        git apply --apply patches/glad.patch
+        git apply --apply patches/ctti.patch
+        git apply --apply patches/spdlog.patch

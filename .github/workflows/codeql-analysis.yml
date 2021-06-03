@@ -20,25 +20,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'cpp' ]
+        language: ['cpp']
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: submodules-init
-        uses: snickerbockers/submodules-init@v4
-
-      - name: Clone PhysFS
-        run: |
-          hg clone https://hg.icculus.org/icculus/physfs/ ext/physfs
-
-      - name: Apply Patches
-        shell: bash
-        run: |
-          git apply --apply patches/glad.patch
-          git apply --apply patches/ctti.patch
-          git apply --apply patches/fmt.patch
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/prepare-external-action
 
       - name: Install Dependencies
         run: |

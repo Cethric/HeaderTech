@@ -30,11 +30,17 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include <Logging/RotatingSink.hpp>
-#include <string>
 #include <physfs.h>
-#include <spdlog/details/os.h>
-#include <spdlog/details/file_helper.h>
+
+#include <spdlog/spdlog.h>
+#include <spdlog/sinks/base_sink.h>
+#include <spdlog/sinks/rotating_file_sink.h>
+
+#include <spdlog/spdlog-inl.h>
+#include <spdlog/sinks/base_sink-inl.h>
+#include <spdlog/sinks/rotating_file_sink-inl.h>
+
+#include <string>
 
 template<typename Mutex>
 inline HeaderTech::Logging::RotatingSink<Mutex>::RotatingSink(
@@ -60,11 +66,12 @@ inline std::string HeaderTech::Logging::RotatingSink<Mutex>::CalculateFilename(
         std::size_t index
 ) noexcept
 {
-    if (index == 0u) {
+    if (index == 0U) {
         return filename;
     }
 
-    std::string basename, ext;
+    std::string basename;
+    std::string ext;
     std::tie(basename, ext) = spdlog::details::file_helper::split_by_extension(filename);
     return fmt::format(SPDLOG_FILENAME_T("{}.{}{}"), basename, index, ext);
 }
@@ -75,7 +82,7 @@ inline void HeaderTech::Logging::RotatingSink<Mutex>::Rotate() noexcept
     m_file_helper.Close();
     for (auto i = m_max_files; i > 0; --i) {
         std::string src = CalculateFilename(m_base_filename, i - 1);
-        if (!PHYSFS_exists(src.data())) {
+        if (PHYSFS_exists(src.data()) == 0) {
             continue;
         }
         std::string target = CalculateFilename(m_base_filename, i);

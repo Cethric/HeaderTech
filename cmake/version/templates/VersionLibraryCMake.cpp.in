@@ -35,15 +35,22 @@
 #include <cstring>
 
 namespace HeaderTech::@NAME@ {
+
+#ifdef __cplusplus
+        extern "C" {
+#endif
     const static Version CompiledVersion{
-        .major = @MAJOR@,
-        .minor = @MINOR@,
-        .patch = @PATCH@,
-        .build = @BUILD_NUMBER@,
-        .tweak = "@TWEAK@",
-        .config = "@CONFIG@",
-        .timestamp = @BUILD_TIMESTAMP@,
+        @MAJOR@,
+        @MINOR@,
+        @PATCH@,
+        @BUILD_NUMBER@,
+        {"@TWEAK@"},
+        {"@CONFIG@"},
+        @BUILD_TIMESTAMP@,
     };
+#ifdef __cplusplus
+        }
+#endif
 
     HeaderTech_@NAME@_Export const Version &CompileVersion()
     { return CompiledVersion; }

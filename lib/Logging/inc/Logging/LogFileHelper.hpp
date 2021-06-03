@@ -40,25 +40,27 @@
 namespace HeaderTech::Logging {
     struct FileType;
 
-    class LogFileHelper final {
+    class HeaderTech_Logging_Export LogFileHelper final {
     public:
-        HeaderTech_Logging_Export LogFileHelper() noexcept;
+        LogFileHelper() noexcept;
 
-        HeaderTech_Logging_Export ~LogFileHelper() noexcept;
+        LogFileHelper(const LogFileHelper &other) = delete;
 
-        HeaderTech_Logging_Export void Open(const std::string &fname, bool truncate = false) noexcept;
+        ~LogFileHelper() noexcept;
 
-        HeaderTech_Logging_Export void ReOpen(bool truncate) noexcept;
+        void Open(const std::string &fname, bool truncate = false) noexcept;
 
-        HeaderTech_Logging_Export void Flush() noexcept;
+        void ReOpen(bool truncate) noexcept;
 
-        HeaderTech_Logging_Export void Close() noexcept;
+        void Flush() noexcept;
 
-        HeaderTech_Logging_Export void Write(const spdlog::memory_buf_t &buf) noexcept;
+        void Close() noexcept;
 
-        [[nodiscard]] HeaderTech_Logging_Export size_t Size() const noexcept;
+        void Write(const spdlog::memory_buf_t &buf) noexcept;
 
-        [[nodiscard]] HeaderTech_Logging_Export const std::string &Filename() const noexcept;
+        [[nodiscard]]  size_t Size() const noexcept;
+
+        [[nodiscard]]  const std::string &Filename() const noexcept;
 
     private:
         std::string m_filename;

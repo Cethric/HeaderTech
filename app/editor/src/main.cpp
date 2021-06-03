@@ -31,26 +31,33 @@
  =============================================================================*/
 
 #include <Config/Config.hpp>
+#include <Config/Version.hpp>
 #include <Editor/Version.hpp>
 #include <Event/Reactive/Reactive.hpp>
 #include <Event/Version.hpp>
 #include <FileSystem/FileSystem.hpp>
+#include <FileSystem/Version.hpp>
 #include <Logging/Logging.hpp>
+#include <Logging/Version.hpp>
 #include <Runtime/Runtime.hpp>
+#include <Runtime/Version.hpp>
 
 #include <string>
 #include <cassert>
 #include <iostream>
 
+#include <spdlog/spdlog-inl.h>
+
 class Application final : public HeaderTech::Runtime::Runtime {
 public:
-    Application(int argc, const char **argv) noexcept: HeaderTech::Runtime::Runtime(
+    Application(int argc, const char **argv) noexcept
+            : HeaderTech::Runtime::Runtime(
             "Editor",
             HeaderTech::Editor::VersionString,
             argc,
             argv
     ),
-                                                       m_log(Logging()->CreateLogger<Application>())
+              m_log(Logging()->CreateLogger<Application>())
     {
     }
 
@@ -110,7 +117,11 @@ public:
                 }
         );
         m_exampleValue3.Subscribe(
-                [](HeaderTech::Event::Reactive::ReactiveOperation op, const std::string &oldValue, const std::string &newValue) {
+                [](
+                        HeaderTech::Event::Reactive::ReactiveOperation op,
+                        const std::string &oldValue,
+                        const std::string &newValue
+                ) {
                     std::cout << "Ex3 Changed: (" << op << ") " << oldValue << " -> " << newValue << std::endl;
                 }
         );
@@ -130,7 +141,7 @@ public:
         std::cout << m_exampleValue2 << std::endl;
 
         std::cout
-                << (m_exampleValue || m_exampleValue2 > 0 && m_exampleValue2 <= 100 && m_exampleValue2 < 200)
+                << ((m_exampleValue || m_exampleValue2) > 0 && m_exampleValue2 <= 100 && m_exampleValue2 < 200)
                 << std::endl;
 
         m_exampleValue2 = 30;

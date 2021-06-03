@@ -39,40 +39,40 @@
 #include <FileSystem/FileSystem.hpp>
 
 #include <ctti/detailed_nameof.hpp>
-#include <spdlog/sinks/dup_filter_sink.h>
 #include <spdlog/spdlog.h>
+#include <spdlog/sinks/dup_filter_sink.h>
 
 #include <memory>
 
 namespace HeaderTech::Logging {
     using Logger = std::shared_ptr<spdlog::logger>;
 
-    class Logging : public std::enable_shared_from_this<Logging> {
+    class HeaderTech_Logging_Export Logging final : public std::enable_shared_from_this<Logging> {
     public:
-        HeaderTech_Logging_Export explicit Logging(
+        explicit Logging(
                 const HeaderTech::Config::ConfigPtr &config,
                 const HeaderTech::FileSystem::FileSystemPtr &fileSystem
         ) noexcept;
 
-        HeaderTech_Logging_Export ~Logging() noexcept;
+        ~Logging() noexcept;
 
         template<typename Target>
-        Logger CreateLogger() noexcept
+        [[nodiscard]] inline Logger CreateLogger() noexcept
         {
             constexpr auto details = ctti::detailed_nameof<Target>();
             return CreateLogger({details.name().begin(), details.name().end()});
         }
 
         template<typename Target>
-        Logger GetOrCreateLogger() noexcept
+        [[nodiscard]] inline Logger GetOrCreateLogger() noexcept
         {
             constexpr auto details = ctti::detailed_nameof<Target>();
             return GetOrCreateLogger({details.name().begin(), details.name().end()});
         }
 
-        HeaderTech_Logging_Export Logger CreateLogger(const std::string_view &name) noexcept;
+        Logger CreateLogger(const std::string_view &name) noexcept;
 
-        HeaderTech_Logging_Export Logger GetOrCreateLogger(const std::string_view &name) noexcept;
+        Logger GetOrCreateLogger(const std::string_view &name) noexcept;
 
     private:
         std::shared_ptr<spdlog::sinks::dup_filter_sink_mt> m_sink;
