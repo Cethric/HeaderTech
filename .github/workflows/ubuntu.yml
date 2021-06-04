@@ -50,8 +50,6 @@ jobs:
           CXX: /usr/bin/clang++
         working-directory: ${{github.workspace}}/cmake_build_${{ matrix.build_type }}
         run: |
-          $(CC) --version
-          $(CXX) --version
           cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_FLAGS=-fpermissive ..
 
       - name: Build
