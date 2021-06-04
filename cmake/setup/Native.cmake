@@ -40,4 +40,3 @@ elseif (has_msvc_latest_flag)
 elseif (has_msvc_20_flag)
     set(CXX_STANDARD_FLAG /std:c++20)
 endif ()
-
