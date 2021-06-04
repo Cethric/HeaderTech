@@ -1,4 +1,4 @@
-name: CMake
+name: MacOS Build
 
 on:
   pull_request:
