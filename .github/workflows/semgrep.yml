@@ -14,10 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/prepare-external-action
+#      - uses: ./.github/actions/prepare-external-action
 
       - uses: returntocorp/semgrep-action@v1
         with:
           auditOn: push
           publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
           publishDeployment: 1238
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: semgrep.sarif
+        if: always()
