@@ -52,10 +52,10 @@ class Application final : public HeaderTech::Runtime::Runtime {
 public:
     Application(int argc, const char **argv) noexcept
         : HeaderTech::Runtime::Runtime(
-                  "Editor",
-                  HeaderTech::Editor::VersionString,
-                  argc,
-                  argv),
+              "Editor",
+              HeaderTech::Editor::VersionString,
+              argc,
+              argv),
           m_log(Logging()->CreateLogger<Application>())
     {
     }
@@ -107,20 +107,20 @@ private:
 class ReactiveClass {
 public:
     ReactiveClass() : m_exampleValue{ false },
-                      m_exampleValue2{ 10 },
-                      m_exampleValue3{ "Hello" }
+        m_exampleValue2{ 10 },
+        m_exampleValue3{ "Hello" }
     {
         m_exampleValue2.Subscribe(
-                [](HeaderTech::Event::Reactive::ReactiveOperation op, int oldValue, int newValue) {
-                    std::cout << "Ex2 Changed: (" << op << ") " << oldValue << " -> " << newValue << std::endl;
-                });
+        [](HeaderTech::Event::Reactive::ReactiveOperation op, int oldValue, int newValue) {
+            std::cout << "Ex2 Changed: (" << op << ") " << oldValue << " -> " << newValue << std::endl;
+        });
         m_exampleValue3.Subscribe(
-                [](
-                        HeaderTech::Event::Reactive::ReactiveOperation op,
-                        const std::string &oldValue,
-                        const std::string &newValue) {
-                    std::cout << "Ex3 Changed: (" << op << ") " << oldValue << " -> " << newValue << std::endl;
-                });
+            [](
+                HeaderTech::Event::Reactive::ReactiveOperation op,
+                const std::string &oldValue,
+        const std::string &newValue) {
+            std::cout << "Ex3 Changed: (" << op << ") " << oldValue << " -> " << newValue << std::endl;
+        });
 
         m_exampleValue = true;
 

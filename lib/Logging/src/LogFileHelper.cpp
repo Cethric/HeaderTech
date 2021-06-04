@@ -44,12 +44,14 @@ HeaderTech_Logging_Export HeaderTech::Logging::LogFileHelper::LogFileHelper() no
 
 HeaderTech_Logging_Export HeaderTech::Logging::LogFileHelper::~LogFileHelper() noexcept
 {
-    if (m_file != nullptr) { Close(); }
+    if (m_file != nullptr) {
+        Close();
+    }
 }
 
 HeaderTech_Logging_Export void HeaderTech::Logging::LogFileHelper::Open(
-        const std::string &fname,
-        bool truncate) noexcept
+    const std::string &fname,
+    bool truncate) noexcept
 {
     Close();
     m_filename = fname;

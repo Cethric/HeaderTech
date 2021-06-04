@@ -41,31 +41,31 @@
 #include <vector>
 
 namespace HeaderTech::Config {
-    struct LoggingConfig {
-        std::string logName;
-        std::size_t maxLogFiles;
-        std::size_t maxLogSize;
-    };
+struct LoggingConfig {
+    std::string logName;
+    std::size_t maxLogFiles;
+    std::size_t maxLogSize;
+};
 
-    class Config : public std::enable_shared_from_this<Config> {
-    public:
-        HeaderTech_Config_Export Config(
-                const std::string_view &name,
-                const std::string_view &version,
-                int argc,
-                const char **argv) noexcept;
+class Config : public std::enable_shared_from_this<Config> {
+public:
+    HeaderTech_Config_Export Config(
+        const std::string_view &name,
+        const std::string_view &version,
+        int argc,
+        const char **argv) noexcept;
 
-        [[nodiscard]] HeaderTech_Config_Export const std::vector<std::string> &SearchPaths() const noexcept;
+    [[nodiscard]] HeaderTech_Config_Export const std::vector<std::string> &SearchPaths() const noexcept;
 
-        [[nodiscard]] HeaderTech_Config_Export const LoggingConfig &LogConfig() const noexcept;
+    [[nodiscard]] HeaderTech_Config_Export const LoggingConfig &LogConfig() const noexcept;
 
-    private:
-        std::vector<std::string> m_searchPaths;
-        LoggingConfig m_logConfig;
-    };
+private:
+    std::vector<std::string> m_searchPaths;
+    LoggingConfig m_logConfig;
+};
 
-    using ConfigPtr     = std::shared_ptr<Config>;
-    using ConfigWeakPtr = std::weak_ptr<Config>;
+using ConfigPtr     = std::shared_ptr<Config>;
+using ConfigWeakPtr = std::weak_ptr<Config>;
 }// namespace HeaderTech::Config
 
 

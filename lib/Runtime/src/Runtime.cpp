@@ -40,10 +40,10 @@
 #include <memory>
 
 HeaderTech_Runtime_Export HeaderTech::Runtime::Runtime::Runtime(
-        const std::string_view &name,
-        const std::string_view &version,
-        int argc,
-        const char **argv) noexcept
+    const std::string_view &name,
+    const std::string_view &version,
+    int argc,
+    const char **argv) noexcept
     : std::enable_shared_from_this<Runtime>(),
       m_config(nullptr),
       m_fileSystem(nullptr),

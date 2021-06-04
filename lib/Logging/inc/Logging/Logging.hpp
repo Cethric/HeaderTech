@@ -45,40 +45,40 @@
 #include <memory>
 
 namespace HeaderTech::Logging {
-    using Logger = std::shared_ptr<spdlog::logger>;
+using Logger = std::shared_ptr<spdlog::logger>;
 
-    class HeaderTech_Logging_Export Logging final : public std::enable_shared_from_this<Logging> {
-    public:
-        explicit Logging(
-                const HeaderTech::Config::ConfigPtr &config,
-                const HeaderTech::FileSystem::FileSystemPtr &fileSystem) noexcept;
+class HeaderTech_Logging_Export Logging final : public std::enable_shared_from_this<Logging> {
+public:
+    explicit Logging(
+        const HeaderTech::Config::ConfigPtr &config,
+        const HeaderTech::FileSystem::FileSystemPtr &fileSystem) noexcept;
 
-        ~Logging() noexcept;
+    ~Logging() noexcept;
 
-        template<typename Target>
-        [[nodiscard]] inline Logger CreateLogger() noexcept
-        {
-            constexpr auto details = ctti::detailed_nameof<Target>();
-            return CreateLogger({ details.name().begin(), details.name().end() });
-        }
+    template<typename Target>
+    [[nodiscard]] inline Logger CreateLogger() noexcept
+    {
+        constexpr auto details = ctti::detailed_nameof<Target>();
+        return CreateLogger({ details.name().begin(), details.name().end() });
+    }
 
-        template<typename Target>
-        [[nodiscard]] inline Logger GetOrCreateLogger() noexcept
-        {
-            constexpr auto details = ctti::detailed_nameof<Target>();
-            return GetOrCreateLogger({ details.name().begin(), details.name().end() });
-        }
+    template<typename Target>
+    [[nodiscard]] inline Logger GetOrCreateLogger() noexcept
+    {
+        constexpr auto details = ctti::detailed_nameof<Target>();
+        return GetOrCreateLogger({ details.name().begin(), details.name().end() });
+    }
 
-        Logger CreateLogger(const std::string_view &name) noexcept;
+    Logger CreateLogger(const std::string_view &name) noexcept;
 
-        Logger GetOrCreateLogger(const std::string_view &name) noexcept;
+    Logger GetOrCreateLogger(const std::string_view &name) noexcept;
 
-    private:
-        std::shared_ptr<spdlog::sinks::dup_filter_sink_mt> m_sink;
-    };
+private:
+    std::shared_ptr<spdlog::sinks::dup_filter_sink_mt> m_sink;
+};
 
-    using LoggingPtr     = std::shared_ptr<Logging>;
-    using LoggingWeakPtr = std::weak_ptr<Logging>;
+using LoggingPtr     = std::shared_ptr<Logging>;
+using LoggingWeakPtr = std::weak_ptr<Logging>;
 }// namespace HeaderTech::Logging
 
 

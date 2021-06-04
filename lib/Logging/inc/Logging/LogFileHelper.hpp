@@ -38,37 +38,37 @@
 #include <string>
 
 namespace HeaderTech::Logging {
-    struct FileType;
+struct FileType;
 
-    class HeaderTech_Logging_Export LogFileHelper final {
-    public:
-        LogFileHelper() noexcept;
+class HeaderTech_Logging_Export LogFileHelper final {
+public:
+    LogFileHelper() noexcept;
 
-        LogFileHelper(const LogFileHelper &other) = delete;
+    LogFileHelper(const LogFileHelper &other) = delete;
 
-        ~LogFileHelper() noexcept;
+    ~LogFileHelper() noexcept;
 
-        void Open(const std::string &fname, bool truncate = false) noexcept;
+    void Open(const std::string &fname, bool truncate = false) noexcept;
 
-        void ReOpen(bool truncate) noexcept;
+    void ReOpen(bool truncate) noexcept;
 
-        void Flush() noexcept;
+    void Flush() noexcept;
 
-        void Close() noexcept;
+    void Close() noexcept;
 
-        void Write(const spdlog::memory_buf_t &buf) noexcept;
+    void Write(const spdlog::memory_buf_t &buf) noexcept;
 
-        [[nodiscard]] size_t Size() const noexcept;
+    [[nodiscard]] size_t Size() const noexcept;
 
-        [[nodiscard]] const std::string &Filename() const noexcept;
+    [[nodiscard]] const std::string &Filename() const noexcept;
 
-    private:
-        std::string m_filename;
-        FileType *m_file;
+private:
+    std::string m_filename;
+    FileType *m_file;
 
-        const int m_open_tries    = 5;
-        const int m_open_interval = 10;
-    };
+    const int m_open_tries    = 5;
+    const int m_open_interval = 10;
+};
 }// namespace HeaderTech::Logging
 
 

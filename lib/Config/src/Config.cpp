@@ -41,73 +41,77 @@
 #include <nlohmann/json.hpp>
 
 namespace nlohmann {
-    template<>
-    struct adl_serializer<HeaderTech::Config::LoggingConfig> final {
-        inline static void to_json(json &j, const HeaderTech::Config::LoggingConfig &cfg) noexcept
-        {
-            j = json{
-                { "name", cfg.logName },
-                { "count", cfg.maxLogFiles },
-                { "size", cfg.maxLogSize }
-            };
-        }
+template<>
+struct adl_serializer<HeaderTech::Config::LoggingConfig> final {
+    inline static void to_json(json &j, const HeaderTech::Config::LoggingConfig &cfg) noexcept
+    {
+        j = json{
+            { "name", cfg.logName },
+            { "count", cfg.maxLogFiles },
+            { "size", cfg.maxLogSize }
+        };
+    }
 
-        inline static void from_json(const json &j, HeaderTech::Config::LoggingConfig &cfg) noexcept
-        {
-            j.at("name").get_to(cfg.logName);
-            j.at("count").get_to(cfg.maxLogFiles);
-            j.at("size").get_to(cfg.maxLogSize);
-        }
-    };
+    inline static void from_json(const json &j, HeaderTech::Config::LoggingConfig &cfg) noexcept
+    {
+        j.at("name").get_to(cfg.logName);
+        j.at("count").get_to(cfg.maxLogFiles);
+        j.at("size").get_to(cfg.maxLogSize);
+    }
+};
 }// namespace nlohmann
 
 HeaderTech_Config_Export HeaderTech::Config::Config::Config(
-        const std::string_view &name,
-        const std::string_view &version,
-        int argc,
-        const char **argv) noexcept
+    const std::string_view &name,
+    const std::string_view &version,
+    int argc,
+    const char **argv) noexcept
     : std::enable_shared_from_this<Config>(),
       m_searchPaths(),
       m_logConfig{
-          .logName     = "logs/output.log",
-          .maxLogFiles = 4,
-          .maxLogSize  = 8192
-      }
+    .logName     = "logs/output.log",
+    .maxLogFiles = 4,
+    .maxLogSize  = 8192
+}
 {
     argparse::ArgumentParser parser(name.data(), version.data());
     parser.add_description("");
     parser.add_epilog("");
 
     parser.add_argument("--config")
-            .nargs(1)
-            .help("An optional configuration file")
-            .action(
-                    [](const std::string &config_file) noexcept {
-                        std::ifstream file(config_file);
-                        nlohmann::json config_json;
-                        if (file) {
-                            file >> config_json;
-                        }
-                        return config_json;
-                    });
+    .nargs(1)
+    .help("An optional configuration file")
+    .action(
+    [](const std::string &config_file) noexcept {
+        std::ifstream file(config_file);
+        nlohmann::json config_json;
+        if (file) {
+            file >> config_json;
+        }
+        return config_json;
+    });
 
     parser.add_argument("--search-path")
-            .help("Add additional filesystem search paths")
-            .default_value<std::vector<std::string>>({});
+    .help("Add additional filesystem search paths")
+    .default_value<std::vector<std::string>>({});
 
     parser.add_argument("--log-name")
-            .help("The log file to output to")
-            .default_value<std::string>("logs/output.log");
+    .help("The log file to output to")
+    .default_value<std::string>("logs/output.log");
 
     parser.add_argument("--log-size")
-            .help("The maximum size of a log file before rotating")
-            .default_value<std::size_t>(8192)
-            .action([](const std::string &value) { return std::stoll(value); });
+    .help("The maximum size of a log file before rotating")
+    .default_value<std::size_t>(8192)
+    .action([](const std::string &value) {
+        return std::stoll(value);
+    });
 
     parser.add_argument("--log-count")
-            .help("The log file to output to")
-            .default_value<std::size_t>(4)
-            .action([](const std::string &value) { return std::stoll(value); });
+    .help("The log file to output to")
+    .default_value<std::size_t>(4)
+    .action([](const std::string &value) {
+        return std::stoll(value);
+    });
 
     try {
         parser.parse_args(argc, argv);

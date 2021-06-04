@@ -41,34 +41,34 @@
 #include <string>
 
 namespace HeaderTech::Logging {
-    template<typename Mutex>
-    class RotatingSink final : public spdlog::sinks::base_sink<Mutex> {
-    public:
-        inline RotatingSink(
-                const HeaderTech::Config::ConfigPtr &config,
-                const HeaderTech::FileSystem::FileSystemPtr &fileSystem) noexcept;
+template<typename Mutex>
+class RotatingSink final : public spdlog::sinks::base_sink<Mutex> {
+public:
+    inline RotatingSink(
+        const HeaderTech::Config::ConfigPtr &config,
+        const HeaderTech::FileSystem::FileSystemPtr &fileSystem) noexcept;
 
-    private:
-        inline std::string CalculateFilename(const std::string &filename, std::size_t index) noexcept;
+private:
+    inline std::string CalculateFilename(const std::string &filename, std::size_t index) noexcept;
 
-        inline void Rotate() noexcept;
+    inline void Rotate() noexcept;
 
-        inline bool RenameFile(const std::string &src, const std::string &target);
+    inline bool RenameFile(const std::string &src, const std::string &target);
 
-    protected:
-        inline void sink_it_(const spdlog::details::log_msg &msg) noexcept final;
+protected:
+    inline void sink_it_(const spdlog::details::log_msg &msg) noexcept final;
 
-        inline void flush_() noexcept final;
+    inline void flush_() noexcept final;
 
-    private:
-        std::string m_base_filename;
-        HeaderTech::Logging::LogFileHelper m_file_helper;
-        std::size_t m_current_size;
-        std::size_t m_max_size;
-        std::size_t m_max_files;
-    };
+private:
+    std::string m_base_filename;
+    HeaderTech::Logging::LogFileHelper m_file_helper;
+    std::size_t m_current_size;
+    std::size_t m_max_size;
+    std::size_t m_max_files;
+};
 
-    using RotatingSinkMT = RotatingSink<std::mutex>;
+using RotatingSinkMT = RotatingSink<std::mutex>;
 }// namespace HeaderTech::Logging
 
 #endif//HEADERTECH_ROTATINGSINK_HPP
