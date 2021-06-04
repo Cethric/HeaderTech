@@ -19,6 +19,15 @@ set_property(
         PROPERTY UNITY_BUILD OFF
 )
 
+target_include_directories(
+        physfs
+        PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/physfs/src>
+        $<INSTALL_INTERFACE:include/>
+)
+
 add_library(physfs::physfs ALIAS physfs)
+
+RegisterLibrary(physfs PRIVATE)
 
 # lib physfs::physfs

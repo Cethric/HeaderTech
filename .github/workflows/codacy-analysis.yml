@@ -1,25 +1,22 @@
 name: Codacy Security Scan
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
+      - dev
+  push:
+    branches:
+      - main
+      - dev
 
 jobs:
   codacy-security-scan:
     name: Codacy Security Scan
     runs-on: ubuntu-20.04
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: submodules-init
-        uses: snickerbockers/submodules-init@v4
-
-      - name: Clone PhysFS
-        run: |
-          hg clone https://hg.icculus.org/icculus/physfs/ ext/physfs
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/prepare-external-action
 
       - name: Run Codacy Analysis CLI
         uses: codacy/codacy-analysis-cli-action@1.1.0

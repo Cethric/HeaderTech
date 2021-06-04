@@ -1,0 +1,29 @@
+enabled: true
+
+exclude:
+  - "**/*.patch"
+  - ".github/**/*"
+  - "ext/**/*"
+  - "resources/**/*"
+
+pull_requests: true
+comments: true
+
+statuses:
+  differences: true
+  no_differences: true
+  error: true
+
+request_review:
+  origin: author
+  forked: none
+
+ignore_labels:
+  - restyled-ignore
+
+restylers_version: dev
+
+restylers:
+  - "*"
+  - clang-format
+  - astyle

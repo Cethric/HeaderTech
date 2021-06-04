@@ -1,0 +1,11 @@
+{
+  "searchPaths": [
+    "D:\\Development\\c++\\HeaderTech\\resources\\group1",
+    "D:\\Development\\c++\\HeaderTech\\resources\\group2"
+  ],
+  "logging": {
+    "name": "logs/runtime.log",
+    "count": 4,
+    "size": 8192
+  }
+}

@@ -1,1 +1,4 @@
-add_subdirectory(sandbox/)
+cmake_minimum_required(VERSION 3.19)
+project(HeaderTechApps)
+
+add_subdirectory(editor/)

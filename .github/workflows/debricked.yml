@@ -1,0 +1,25 @@
+name: Debricked Vulnerability scan
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  vulnerabilities-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/prepare-external-action
+
+      - uses: debricked/actions/scan@v1
+        env:
+          USERNAME: ${{ secrets.DEBRICKED_USERNAME }}
+          PASSWORD: ${{ secrets.DEBRICKED_PASSWORD }}
+          UPLOAD_ALL_FILES: "true"

@@ -1,0 +1,86 @@
+/*==============================================================================
+ = BSD 3-Clause License
+ =
+ = Copyright (c) 2021, Cethric
+ = All rights reserved.
+ =
+ = Redistribution and use in source and binary forms, with or without
+ = modification, are permitted provided that the following conditions are met:
+ =
+ = 1. Redistributions of source code must retain the above copyright notice, this
+ =    list of conditions and the following disclaimer.
+ =
+ = 2. Redistributions in binary form must reproduce the above copyright notice,
+ =    this list of conditions and the following disclaimer in the documentation
+ =    and/or other materials provided with the distribution.
+ =
+ = 3. Neither the name of the copyright holder nor the names of its
+ =    contributors may be used to endorse or promote products derived from
+ =    this software without specific prior written permission.
+ =
+ = THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ = AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ = IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ = DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+ = FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ = DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ = SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ = CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ = OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ =============================================================================*/
+
+#include "@Target@/Version.rc"
+#include <winver.h>
+
+#define StrInfo_Comments ""
+#define StrInfo_CompanyName "Blake Rogan"
+#define StrInfo_FileDescription ""
+#define StrInfo_FileVersion VerInfo_File_Version_Str
+#define StrInfo_InternalName "@Target@"
+#define StrInfo_LegalCopyright "(c) 2021 Blake Rogan"
+#define StrInfo_LegalTrademarks ""
+#define StrInfo_OriginalFilename "@Target@.dll"
+#define StrInfo_PrivateBuild "Local Build for testing"
+#define StrInfo_ProductName "HeaderTech"
+#define StrInfo_ProductVersion VerInfo_Product_Version_Str
+
+#define VarInfo_LangId 0x0409, 0x04B0
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION     VerInfo_File_Version
+PRODUCTVERSION  VerInfo_Product_Version
+FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+FILEFLAGS       VerInfo_File_Flags
+FILEOS          VOS__WINDOWS32
+FILETYPE        VFT_DLL
+FILESUBTYPE     VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "Comments",           StrInfo_Comments
+            VALUE "CompanyName",        StrInfo_CompanyName
+            VALUE "FileDescription",    StrInfo_FileDescription
+            VALUE "FileVersion",        StrInfo_FileVersion
+            VALUE "InternalName",       StrInfo_InternalName
+            VALUE "LegalCopyright",     StrInfo_LegalCopyright
+            VALUE "LegalTrademarks",    StrInfo_LegalTrademarks
+            VALUE "OriginalFilename",   StrInfo_OriginalFilename
+#ifdef StrInfo_PrivateBuild
+            VALUE "PrivateBuild",       StrInfo_PrivateBuild
+#endif // StrInfo_PrivateBuild
+            VALUE "ProductName",        StrInfo_ProductName
+            VALUE "ProductVersion",     StrInfo_ProductVersion
+#ifdef StrInfo_SpecialBuild
+            VALUE "SpecialBuild",       StrInfo_SpecialBuild
+#endif // StrInfo_SpecialBuild
+        END
+    END
+
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", VarInfo_LangId
+    END
+END

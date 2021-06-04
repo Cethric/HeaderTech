@@ -1,18 +1,22 @@
 on:
-  pull_request: {}
+  pull_request:
+    branches:
+      - main
+      - dev
   push:
     branches:
-    - main
-    - dev
+      - main
+      - dev
 name: Semgrep
 jobs:
   semgrep:
     name: Scan
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: returntocorp/semgrep-action@v1
-      with:
-        auditOn: push
-        publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
-        publishDeployment: 1238
+      - uses: actions/checkout@v2
+
+      - uses: returntocorp/semgrep-action@v1
+        with:
+          auditOn: push
+          publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
+          publishDeployment: 1238

@@ -1,0 +1,18 @@
+:160000 160000 616866f 616866f M	ext/spdlog
+ ext/spdlog | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+Submodule ext/spdlog contains modified content
+diff --git a/ext/spdlog/include/spdlog/common-inl.h b/ext/spdlog/include/spdlog/common-inl.h
+index c3e99222..5fa4e5d9 100644
+--- a/ext/spdlog/include/spdlog/common-inl.h
++++ b/ext/spdlog/include/spdlog/common-inl.h
+@@ -56,7 +56,7 @@ SPDLOG_INLINE spdlog_ex::spdlog_ex(std::string msg)
+ SPDLOG_INLINE spdlog_ex::spdlog_ex(const std::string &msg, int last_errno)
+ {
+     memory_buf_t outbuf;
+-    fmt::format_system_error(outbuf, last_errno, msg);
++    fmt::format_system_error(outbuf, last_errno, msg.c_str());
+     msg_ = fmt::to_string(outbuf);
+ }
+ 
