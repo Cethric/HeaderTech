@@ -48,26 +48,33 @@ namespace HeaderTech::Runtime {
                 const std::string_view &name,
                 const std::string_view &version,
                 int argc,
-                const char **argv
-        ) noexcept;
+                const char **argv) noexcept;
 
         HeaderTech_Runtime_Export ~Runtime() noexcept;
 
         HeaderTech_Runtime_Export int MainLoop() noexcept;
 
         HeaderTech_Runtime_Export inline bool IsRunning() const noexcept
-        { return m_running; }
+        {
+            return m_running;
+        }
 
         HeaderTech_Runtime_Export void StopRunning() noexcept;
 
         HeaderTech_Runtime_Export inline const HeaderTech::Config::ConfigPtr &Config() const noexcept
-        { return m_config; }
+        {
+            return m_config;
+        }
 
         HeaderTech_Runtime_Export inline const HeaderTech::FileSystem::FileSystemPtr &FileSystem() const noexcept
-        { return m_fileSystem; }
+        {
+            return m_fileSystem;
+        }
 
         HeaderTech_Runtime_Export inline const HeaderTech::Logging::LoggingPtr &Logging() const noexcept
-        { return m_logging; }
+        {
+            return m_logging;
+        }
 
     protected:
         HeaderTech_Runtime_Export virtual void VersionCheck() noexcept;
@@ -83,13 +90,13 @@ namespace HeaderTech::Runtime {
         HeaderTech_Runtime_Export virtual void OnMainLoopTick() noexcept;
 
     private:
-        HeaderTech::Config::ConfigPtr         m_config;
+        HeaderTech::Config::ConfigPtr m_config;
         HeaderTech::FileSystem::FileSystemPtr m_fileSystem;
-        HeaderTech::Logging::LoggingPtr       m_logging;
+        HeaderTech::Logging::LoggingPtr m_logging;
 
     private:
         HeaderTech::Logging::Logger m_log;
-        bool                        m_running;
+        bool m_running;
     };
 }// namespace HeaderTech::Runtime
 

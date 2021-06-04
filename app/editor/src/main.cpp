@@ -42,22 +42,21 @@
 #include <Runtime/Runtime.hpp>
 #include <Runtime/Version.hpp>
 
-#include <string>
 #include <cassert>
 #include <iostream>
+#include <string>
 
 #include <spdlog/spdlog.h>
 
 class Application final : public HeaderTech::Runtime::Runtime {
 public:
     Application(int argc, const char **argv) noexcept
-            : HeaderTech::Runtime::Runtime(
-            "Editor",
-            HeaderTech::Editor::VersionString,
-            argc,
-            argv
-    ),
-              m_log(Logging()->CreateLogger<Application>())
+        : HeaderTech::Runtime::Runtime(
+                  "Editor",
+                  HeaderTech::Editor::VersionString,
+                  argc,
+                  argv),
+          m_log(Logging()->CreateLogger<Application>())
     {
     }
 
@@ -107,24 +106,21 @@ private:
 
 class ReactiveClass {
 public:
-    ReactiveClass() : m_exampleValue{false},
-                      m_exampleValue2{10},
-                      m_exampleValue3{"Hello"}
+    ReactiveClass() : m_exampleValue{ false },
+                      m_exampleValue2{ 10 },
+                      m_exampleValue3{ "Hello" }
     {
         m_exampleValue2.Subscribe(
                 [](HeaderTech::Event::Reactive::ReactiveOperation op, int oldValue, int newValue) {
                     std::cout << "Ex2 Changed: (" << op << ") " << oldValue << " -> " << newValue << std::endl;
-                }
-        );
+                });
         m_exampleValue3.Subscribe(
                 [](
                         HeaderTech::Event::Reactive::ReactiveOperation op,
                         const std::string &oldValue,
-                        const std::string &newValue
-                ) {
+                        const std::string &newValue) {
                     std::cout << "Ex3 Changed: (" << op << ") " << oldValue << " -> " << newValue << std::endl;
-                }
-        );
+                });
 
         m_exampleValue = true;
 
@@ -166,8 +162,8 @@ public:
     }
 
 private:
-    HeaderTech::Event::Reactive::Reactive<bool>        m_exampleValue;
-    HeaderTech::Event::Reactive::Reactive<int>         m_exampleValue2;
+    HeaderTech::Event::Reactive::Reactive<bool> m_exampleValue;
+    HeaderTech::Event::Reactive::Reactive<int> m_exampleValue2;
     HeaderTech::Event::Reactive::Reactive<std::string> m_exampleValue3;
 };
 

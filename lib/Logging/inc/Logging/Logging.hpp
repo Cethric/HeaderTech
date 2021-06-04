@@ -39,8 +39,8 @@
 #include <FileSystem/FileSystem.hpp>
 
 #include <ctti/detailed_nameof.hpp>
-#include <spdlog/spdlog.h>
 #include <spdlog/sinks/dup_filter_sink.h>
+#include <spdlog/spdlog.h>
 
 #include <memory>
 
@@ -51,8 +51,7 @@ namespace HeaderTech::Logging {
     public:
         explicit Logging(
                 const HeaderTech::Config::ConfigPtr &config,
-                const HeaderTech::FileSystem::FileSystemPtr &fileSystem
-        ) noexcept;
+                const HeaderTech::FileSystem::FileSystemPtr &fileSystem) noexcept;
 
         ~Logging() noexcept;
 
@@ -60,14 +59,14 @@ namespace HeaderTech::Logging {
         [[nodiscard]] inline Logger CreateLogger() noexcept
         {
             constexpr auto details = ctti::detailed_nameof<Target>();
-            return CreateLogger({details.name().begin(), details.name().end()});
+            return CreateLogger({ details.name().begin(), details.name().end() });
         }
 
         template<typename Target>
         [[nodiscard]] inline Logger GetOrCreateLogger() noexcept
         {
             constexpr auto details = ctti::detailed_nameof<Target>();
-            return GetOrCreateLogger({details.name().begin(), details.name().end()});
+            return GetOrCreateLogger({ details.name().begin(), details.name().end() });
         }
 
         Logger CreateLogger(const std::string_view &name) noexcept;
@@ -78,7 +77,7 @@ namespace HeaderTech::Logging {
         std::shared_ptr<spdlog::sinks::dup_filter_sink_mt> m_sink;
     };
 
-    using LoggingPtr = std::shared_ptr<Logging>;
+    using LoggingPtr     = std::shared_ptr<Logging>;
     using LoggingWeakPtr = std::weak_ptr<Logging>;
 }// namespace HeaderTech::Logging
 

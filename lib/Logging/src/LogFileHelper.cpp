@@ -39,7 +39,7 @@
 struct HeaderTech::Logging::FileType final : public PHYSFS_File {
 };
 
-HeaderTech_Logging_Export HeaderTech::Logging::LogFileHelper::LogFileHelper() noexcept: m_filename(), m_file(nullptr)
+HeaderTech_Logging_Export HeaderTech::Logging::LogFileHelper::LogFileHelper() noexcept : m_filename(), m_file(nullptr)
 {}
 
 HeaderTech_Logging_Export HeaderTech::Logging::LogFileHelper::~LogFileHelper() noexcept
@@ -49,8 +49,7 @@ HeaderTech_Logging_Export HeaderTech::Logging::LogFileHelper::~LogFileHelper() n
 
 HeaderTech_Logging_Export void HeaderTech::Logging::LogFileHelper::Open(
         const std::string &fname,
-        bool truncate
-) noexcept
+        bool truncate) noexcept
 {
     Close();
     m_filename = fname;
@@ -93,7 +92,7 @@ HeaderTech_Logging_Export void HeaderTech::Logging::LogFileHelper::Close() noexc
 HeaderTech_Logging_Export void HeaderTech::Logging::LogFileHelper::Write(const spdlog::memory_buf_t &buf) noexcept
 {
     size_t msg_size = buf.size();
-    auto   data     = buf.data();
+    auto data       = buf.data();
     if (PHYSFS_writeBytes(m_file, data, msg_size) != msg_size) {
         spdlog::throw_spdlog_ex("Failed writing to file " + m_filename, errno);
     }

@@ -58,13 +58,13 @@ namespace HeaderTech::Logging {
 
         void Write(const spdlog::memory_buf_t &buf) noexcept;
 
-        [[nodiscard]]  size_t Size() const noexcept;
+        [[nodiscard]] size_t Size() const noexcept;
 
-        [[nodiscard]]  const std::string &Filename() const noexcept;
+        [[nodiscard]] const std::string &Filename() const noexcept;
 
     private:
         std::string m_filename;
-        FileType    *m_file;
+        FileType *m_file;
 
         const int m_open_tries    = 5;
         const int m_open_interval = 10;

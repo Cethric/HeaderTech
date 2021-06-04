@@ -47,8 +47,7 @@ inline static void CheckPhyFSCall(int result)
 
 HeaderTech_FileSystem_Export HeaderTech::FileSystem::FileSystem::FileSystem(
         const HeaderTech::Config::ConfigPtr &config,
-        const char *argv0
-) noexcept: std::enable_shared_from_this<FileSystem>()
+        const char *argv0) noexcept : std::enable_shared_from_this<FileSystem>()
 {
     CheckPhyFSCall(PHYSFS_init(argv0));
     CheckPhyFSCall(PHYSFS_setSaneConfig("HeaderTech", "Editor", "zip", 0, 1));

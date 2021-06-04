@@ -35,11 +35,11 @@
 
 #include <concepts>
 #include <functional>
-#include <type_traits>
-#include <vector>
 #include <iostream>
-#include <utility>
 #include <string>
+#include <type_traits>
+#include <utility>
+#include <vector>
 
 namespace HeaderTech::Event::Reactive {
     namespace details {
@@ -65,16 +65,15 @@ namespace HeaderTech::Event::Reactive {
         template<typename Type, std::uint64_t SubscriptionSize = 8>
         class ReactiveBase {
         public:
-            using ReactiveBaseType = Type;
+            using ReactiveBaseType  = Type;
             using ReactiveBaseClass = ReactiveBase<Type, SubscriptionSize>;
 
         public:
-            inline explicit ReactiveBase(Type &&value) noexcept:
-                    m_value(std::forward<Type>(value)), m_handles{nullptr}, m_handlesIndex(0)
+            inline explicit ReactiveBase(Type &&value) noexcept : m_value(std::forward<Type>(value)), m_handles{ nullptr }, m_handlesIndex(0)
             {}
 
-            inline ReactiveBase(const ReactiveBaseClass &copy) noexcept:// NOLINT(google-explicit-constructor)
-                    m_value(copy.m_value), m_handles{nullptr}, m_handlesIndex(0)
+            inline ReactiveBase(const ReactiveBaseClass &copy) noexcept :// NOLINT(google-explicit-constructor)
+                                                                          m_value(copy.m_value), m_handles{ nullptr }, m_handlesIndex(0)
             {}
 
             template<typename Assignment>
@@ -84,8 +83,7 @@ namespace HeaderTech::Event::Reactive {
                 ValueChanged(
                         ReactiveOperation::AdditionAssignment,
                         std::forward<decltype(oldValue)>(oldValue),
-                        std::forward<decltype(m_value)>(m_value += value)
-                );
+                        std::forward<decltype(m_value)>(m_value += value));
                 return *this;
             }
 
@@ -96,8 +94,7 @@ namespace HeaderTech::Event::Reactive {
                 ValueChanged(
                         ReactiveOperation::SubtractionAssignment,
                         std::forward<decltype(oldValue)>(oldValue),
-                        std::forward<decltype(m_value)>(m_value -= value)
-                );
+                        std::forward<decltype(m_value)>(m_value -= value));
                 return *this;
             }
 
@@ -108,8 +105,7 @@ namespace HeaderTech::Event::Reactive {
                 ValueChanged(
                         ReactiveOperation::MultiplicationAssignment,
                         std::forward<decltype(oldValue)>(oldValue),
-                        std::forward<decltype(m_value)>(m_value *= value)
-                );
+                        std::forward<decltype(m_value)>(m_value *= value));
                 return *this;
             }
 
@@ -120,8 +116,7 @@ namespace HeaderTech::Event::Reactive {
                 ValueChanged(
                         ReactiveOperation::DivisionAssignment,
                         std::forward<decltype(oldValue)>(oldValue),
-                        std::forward<decltype(m_value)>(m_value /= value)
-                );
+                        std::forward<decltype(m_value)>(m_value /= value));
                 return *this;
             }
 
@@ -132,8 +127,7 @@ namespace HeaderTech::Event::Reactive {
                 ValueChanged(
                         ReactiveOperation::ModuloAssignment,
                         std::forward<decltype(oldValue)>(oldValue),
-                        std::forward<decltype(m_value)>(m_value %= value)
-                );
+                        std::forward<decltype(m_value)>(m_value %= value));
                 return *this;
             }
 
@@ -144,8 +138,7 @@ namespace HeaderTech::Event::Reactive {
                 ValueChanged(
                         ReactiveOperation::BitwiseAndAssignment,
                         std::forward<decltype(oldValue)>(oldValue),
-                        std::forward<decltype(m_value)>(m_value &= value)
-                );
+                        std::forward<decltype(m_value)>(m_value &= value));
                 return *this;
             }
 
@@ -156,8 +149,7 @@ namespace HeaderTech::Event::Reactive {
                 ValueChanged(
                         ReactiveOperation::BitwiseOrAssignment,
                         std::forward<decltype(oldValue)>(oldValue),
-                        std::forward<decltype(m_value)>(m_value |= value)
-                );
+                        std::forward<decltype(m_value)>(m_value |= value));
                 return *this;
             }
 
@@ -168,8 +160,7 @@ namespace HeaderTech::Event::Reactive {
                 ValueChanged(
                         ReactiveOperation::BitwiseXORAssignment,
                         std::forward<decltype(oldValue)>(oldValue),
-                        std::forward<decltype(m_value)>(m_value ^= value)
-                );
+                        std::forward<decltype(m_value)>(m_value ^= value));
                 return *this;
             }
 
@@ -180,8 +171,7 @@ namespace HeaderTech::Event::Reactive {
                 ValueChanged(
                         ReactiveOperation::BitwiseLeftShiftAssignment,
                         std::forward<decltype(oldValue)>(oldValue),
-                        std::forward<decltype(m_value)>(m_value <<= value)
-                );
+                        std::forward<decltype(m_value)>(m_value <<= value));
                 return *this;
             }
 
@@ -192,8 +182,7 @@ namespace HeaderTech::Event::Reactive {
                 ValueChanged(
                         ReactiveOperation::BitwiseRightShiftAssignment,
                         std::forward<decltype(oldValue)>(oldValue),
-                        std::forward<decltype(m_value)>(m_value >>= value)
-                );
+                        std::forward<decltype(m_value)>(m_value >>= value));
                 return *this;
             }
 
@@ -203,8 +192,7 @@ namespace HeaderTech::Event::Reactive {
                 ValueChanged(
                         ReactiveOperation::PreIncrement,
                         std::forward<decltype(oldValue)>(oldValue),
-                        std::forward<decltype(m_value)>(++m_value)
-                );
+                        std::forward<decltype(m_value)>(++m_value));
                 return *this;
             }
 
@@ -214,8 +202,7 @@ namespace HeaderTech::Event::Reactive {
                 ValueChanged(
                         ReactiveOperation::PreDecrement,
                         std::forward<decltype(oldValue)>(oldValue),
-                        std::forward<decltype(m_value)>(--m_value)
-                );
+                        std::forward<decltype(m_value)>(--m_value));
                 return *this;
             }
 
@@ -226,8 +213,7 @@ namespace HeaderTech::Event::Reactive {
                 ValueChanged(
                         ReactiveOperation::PostIncrement,
                         std::forward<decltype(oldValue)>(oldValue),
-                        std::forward<decltype(m_value)>(++m_value)
-                );
+                        std::forward<decltype(m_value)>(++m_value));
                 return value;
             }
 
@@ -238,17 +224,20 @@ namespace HeaderTech::Event::Reactive {
                 ValueChanged(
                         ReactiveOperation::PostDecrement,
                         std::forward<decltype(oldValue)>(oldValue),
-                        std::forward<decltype(m_value)>(--m_value)
-                );
+                        std::forward<decltype(m_value)>(--m_value));
                 return value;
             }
 
             inline operator ReactiveBaseType &() noexcept// NOLINT(google-explicit-constructor)
-            { return m_value; }
+            {
+                return m_value;
+            }
 
             template<typename ostream>
             ostream &operator<<(ostream &stream)
-            { return stream << m_value; }
+            {
+                return stream << m_value;
+            }
 
             template<typename istream>
             istream &operator>>(istream &stream)
@@ -259,14 +248,13 @@ namespace HeaderTech::Event::Reactive {
                 ValueChanged(
                         ReactiveOperation::InputStream,
                         std::forward<decltype(oldValue)>(oldValue),
-                        std::forward<decltype(m_value)>(m_value = t)
-                );
+                        std::forward<decltype(m_value)>(m_value = t));
                 return stream;
             }
 
 
         private:
-            using Handle = std::function<void(ReactiveOperation, const Type &&, const Type &&)>;
+            using Handle       = std::function<void(ReactiveOperation, const Type &&, const Type &&)>;
             using HandleVector = Handle[SubscriptionSize];
 
         public:
@@ -289,7 +277,7 @@ namespace HeaderTech::Event::Reactive {
             ReactiveBaseType m_value;
 
         private:
-            HandleVector  m_handles;
+            HandleVector m_handles;
             std::uint64_t m_handlesIndex;
         };
     }// namespace details
@@ -301,10 +289,10 @@ namespace HeaderTech::Event::Reactive {
         using Base = details::ReactiveBase<Type, SubscriptionSize>;
 
     public:
-        inline explicit Reactive(Type &&value) noexcept: Base(std::forward<Type>(value))
+        inline explicit Reactive(Type &&value) noexcept : Base(std::forward<Type>(value))
         {}
 
-        inline Reactive(const Reactive &copy) noexcept: Base(copy)
+        inline Reactive(const Reactive &copy) noexcept : Base(copy)
         {}
 
         template<typename Assignment>
@@ -321,17 +309,15 @@ namespace HeaderTech::Event::Reactive {
 
     template<typename Type, std::uint64_t SubscriptionSize>
     class Reactive<std::vector<Type>, SubscriptionSize> final : public details::ReactiveBase<
-            std::vector<Type>,
-            SubscriptionSize
-    > {
+                                                                        std::vector<Type>,
+                                                                        SubscriptionSize> {
         using Base = details::ReactiveBase<std::vector<Type>, SubscriptionSize>;
 
     public:
-        inline explicit Reactive(std::vector<Type> &&value) noexcept:
-                details::ReactiveBase<std::vector<Type>, SubscriptionSize>(std::forward<std::vector<Type>>(value))
+        inline explicit Reactive(std::vector<Type> &&value) noexcept : details::ReactiveBase<std::vector<Type>, SubscriptionSize>(std::forward<std::vector<Type>>(value))
         {}
 
-        inline Reactive(const Reactive &copy) noexcept: details::ReactiveBase<std::vector<Type>, SubscriptionSize>(copy)
+        inline Reactive(const Reactive &copy) noexcept : details::ReactiveBase<std::vector<Type>, SubscriptionSize>(copy)
         {}
 
         template<typename Assignment>
@@ -341,24 +327,22 @@ namespace HeaderTech::Event::Reactive {
             Base::ValueChanged(
                     ReactiveOperation::SimpleAssignment,
                     std::forward<decltype(oldValue)>(oldValue),
-                    std::forward<decltype(Base::m_value)>(Base::m_value = value)
-            );
+                    std::forward<decltype(Base::m_value)>(Base::m_value = value));
             return *this;
         }
     };
 
     template<std::uint64_t SubscriptionSize>
     class Reactive<std::string, SubscriptionSize> final : public details::ReactiveBase<std::string, SubscriptionSize> {
-        using Base = details::ReactiveBase<std::string, SubscriptionSize>;
+        using Base      = details::ReactiveBase<std::string, SubscriptionSize>;
         using BaseClass = typename Base::ReactiveBaseClass;
-        using BaseType = typename Base::ReactiveBaseType;
+        using BaseType  = typename Base::ReactiveBaseType;
 
     public:
-        inline explicit Reactive(std::string &&value) noexcept:
-                details::ReactiveBase<std::string, SubscriptionSize>(std::forward<std::string>(value))
+        inline explicit Reactive(std::string &&value) noexcept : details::ReactiveBase<std::string, SubscriptionSize>(std::forward<std::string>(value))
         {}
 
-        inline Reactive(const Reactive &copy) noexcept: details::ReactiveBase<std::string, SubscriptionSize>(copy)
+        inline Reactive(const Reactive &copy) noexcept : details::ReactiveBase<std::string, SubscriptionSize>(copy)
         {}
 
         template<typename Assignment>
@@ -368,26 +352,30 @@ namespace HeaderTech::Event::Reactive {
             Base::ValueChanged(
                     ReactiveOperation::SimpleAssignment,
                     std::forward<decltype(oldValue)>(oldValue),
-                    std::forward<decltype(Base::m_value)>(Base::m_value = value)
-            );
+                    std::forward<decltype(Base::m_value)>(Base::m_value = value));
             return *this;
         }
 
         template<std::uint64_t SubStrSubscriptionSize = SubscriptionSize>
         Reactive<std::string, SubStrSubscriptionSize> substr(
                 typename BaseType::size_type offset,
-                typename BaseType::size_type count = BaseType::npos
-        )
-        { return Reactive<std::string, SubStrSubscriptionSize>{BaseClass::m_value.substr(offset, count)}; }
+                typename BaseType::size_type count = BaseType::npos)
+        {
+            return Reactive<std::string, SubStrSubscriptionSize>{ BaseClass::m_value.substr(offset, count) };
+        }
     };
 
     template<typename ostream, typename Type>
     ostream &operator<<(ostream &stream, Reactive<Type> &reactive)
-    { return reactive.operator<<(stream); }
+    {
+        return reactive.operator<<(stream);
+    }
 
     template<typename istream, typename Type>
     istream &operator>>(istream &stream, Reactive<Type> &reactive)
-    { return reactive.template operator>>(stream); }
+    {
+        return reactive.template operator>>(stream);
+    }
 
 }// namespace HeaderTech::Event::Reactive
 

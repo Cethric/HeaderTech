@@ -53,8 +53,7 @@ namespace HeaderTech::Config {
                 const std::string_view &name,
                 const std::string_view &version,
                 int argc,
-                const char **argv
-        ) noexcept;
+                const char **argv) noexcept;
 
         [[nodiscard]] HeaderTech_Config_Export const std::vector<std::string> &SearchPaths() const noexcept;
 
@@ -62,10 +61,10 @@ namespace HeaderTech::Config {
 
     private:
         std::vector<std::string> m_searchPaths;
-        LoggingConfig            m_logConfig;
+        LoggingConfig m_logConfig;
     };
 
-    using ConfigPtr = std::shared_ptr<Config>;
+    using ConfigPtr     = std::shared_ptr<Config>;
     using ConfigWeakPtr = std::weak_ptr<Config>;
 }// namespace HeaderTech::Config
 

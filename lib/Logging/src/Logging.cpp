@@ -32,8 +32,8 @@
 
 #include "Logging/Logging.hpp"
 
-#include <spdlog/spdlog.h>
 #include <spdlog/cfg/env.h>
+#include <spdlog/spdlog.h>
 
 #include <spdlog/sinks/stdout_color_sinks.h>
 
@@ -46,15 +46,14 @@
 #include <Logging/RotatingSink.hpp>
 #include <Logging/RotatingSink.inl>
 
-#include <utility>
-#include <string>
 #include <memory>
+#include <string>
+#include <utility>
 
 
 static inline std::shared_ptr<spdlog::sinks::dup_filter_sink_mt> CreateSinks(
         const HeaderTech::Config::ConfigPtr &config,
-        const HeaderTech::FileSystem::FileSystemPtr &fileSystem
-)
+        const HeaderTech::FileSystem::FileSystemPtr &fileSystem)
 {
     auto dup_sink = std::make_shared<spdlog::sinks::dup_filter_sink_mt>(std::chrono::seconds(5));
     dup_sink->add_sink(std::make_shared<spdlog::sinks::stdout_color_sink_mt>());
@@ -65,9 +64,8 @@ static inline std::shared_ptr<spdlog::sinks::dup_filter_sink_mt> CreateSinks(
 
 HeaderTech_Logging_Export HeaderTech::Logging::Logging::Logging(
         const HeaderTech::Config::ConfigPtr &config,
-        const HeaderTech::FileSystem::FileSystemPtr &fileSystem
-) noexcept: std::enable_shared_from_this<Logging>(),
-            m_sink(CreateSinks(config, fileSystem))
+        const HeaderTech::FileSystem::FileSystemPtr &fileSystem) noexcept : std::enable_shared_from_this<Logging>(),
+                                                                            m_sink(CreateSinks(config, fileSystem))
 {
     spdlog::cfg::load_env_levels();
 #ifndef __EMSCRIPTEN__
@@ -83,8 +81,7 @@ HeaderTech_Logging_Export HeaderTech::Logging::Logging::~Logging() noexcept
 }
 
 HeaderTech_Logging_Export HeaderTech::Logging::Logger HeaderTech::Logging::Logging::CreateLogger(
-        const std::string_view &name
-) noexcept
+        const std::string_view &name) noexcept
 {
 #ifdef __EMSCRIPTEN__
     auto logger = std::make_shared<spdlog::logger>(std::string(name.data()), m_sink);
@@ -94,16 +91,14 @@ HeaderTech_Logging_Export HeaderTech::Logging::Logger HeaderTech::Logging::Loggi
             std::string(name.data()),
             m_sink,
             std::move(pool),
-            spdlog::async_overflow_policy::block
-    );
+            spdlog::async_overflow_policy::block);
 #endif// __EMSCRIPTEN__
     spdlog::initialize_logger(logger);
     return logger;
 }
 
 HeaderTech_Logging_Export HeaderTech::Logging::Logger HeaderTech::Logging::Logging::GetOrCreateLogger(
-        const std::string_view &name
-) noexcept
+        const std::string_view &name) noexcept
 {
     if (auto logger = spdlog::get(name.data())) {
         return logger;

@@ -43,14 +43,13 @@ HeaderTech_Runtime_Export HeaderTech::Runtime::Runtime::Runtime(
         const std::string_view &name,
         const std::string_view &version,
         int argc,
-        const char **argv
-) noexcept
-        : std::enable_shared_from_this<Runtime>(),
-          m_config(nullptr),
-          m_fileSystem(nullptr),
-          m_logging(nullptr),
-          m_log(nullptr),
-          m_running(false)
+        const char **argv) noexcept
+    : std::enable_shared_from_this<Runtime>(),
+      m_config(nullptr),
+      m_fileSystem(nullptr),
+      m_logging(nullptr),
+      m_log(nullptr),
+      m_running(false)
 {
     m_config     = std::make_shared<HeaderTech::Config::Config>(name, version, argc, argv);
     m_fileSystem = std::make_shared<HeaderTech::FileSystem::FileSystem>(m_config, argv[0]);

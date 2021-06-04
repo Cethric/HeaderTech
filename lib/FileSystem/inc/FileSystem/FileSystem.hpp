@@ -44,13 +44,12 @@ namespace HeaderTech::FileSystem {
     public:
         HeaderTech_FileSystem_Export explicit FileSystem(
                 const HeaderTech::Config::ConfigPtr &config,
-                const char *argv0
-        ) noexcept;
+                const char *argv0) noexcept;
 
         HeaderTech_FileSystem_Export ~FileSystem() noexcept;
     };
 
-    using FileSystemPtr = std::shared_ptr<FileSystem>;
+    using FileSystemPtr     = std::shared_ptr<FileSystem>;
     using FileSystemWeakPtr = std::weak_ptr<FileSystem>;
 }// namespace HeaderTech::FileSystem
 

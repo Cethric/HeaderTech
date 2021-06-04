@@ -35,8 +35,8 @@
 
 #include <Logging/LogFileHelper.hpp>
 
-#include <spdlog/spdlog.h>
 #include <spdlog/sinks/base_sink.h>
+#include <spdlog/spdlog.h>
 
 #include <string>
 
@@ -46,8 +46,7 @@ namespace HeaderTech::Logging {
     public:
         inline RotatingSink(
                 const HeaderTech::Config::ConfigPtr &config,
-                const HeaderTech::FileSystem::FileSystemPtr &fileSystem
-        ) noexcept;
+                const HeaderTech::FileSystem::FileSystemPtr &fileSystem) noexcept;
 
     private:
         inline std::string CalculateFilename(const std::string &filename, std::size_t index) noexcept;
@@ -62,11 +61,11 @@ namespace HeaderTech::Logging {
         inline void flush_() noexcept final;
 
     private:
-        std::string                        m_base_filename;
+        std::string m_base_filename;
         HeaderTech::Logging::LogFileHelper m_file_helper;
-        std::size_t                        m_current_size;
-        std::size_t                        m_max_size;
-        std::size_t                        m_max_files;
+        std::size_t m_current_size;
+        std::size_t m_max_size;
+        std::size_t m_max_files;
     };
 
     using RotatingSinkMT = RotatingSink<std::mutex>;
