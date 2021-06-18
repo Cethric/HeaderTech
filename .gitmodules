@@ -41,7 +41,7 @@
 [submodule "ext/spdlog"]
 	path = ext/spdlog
 	url = https://github.com/gabime/spdlog.git
-	branch = v1.8.5
+	branch = v1.x
 [submodule "ext/argparse"]
 	path = ext/argparse
 	url = https://github.com/hendrik-skubch/argparse.git

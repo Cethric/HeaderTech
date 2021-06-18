@@ -39,6 +39,7 @@
 #include <string>
 #include <string_view>
 #include <vector>
+#include <span>
 
 namespace HeaderTech::Config {
     struct LoggingConfig {
@@ -52,8 +53,7 @@ namespace HeaderTech::Config {
         HeaderTech_Config_Export Config(
                 const std::string_view &name,
                 const std::string_view &version,
-                int argc,
-                const char **argv
+                const std::span<const char*> &args
         ) noexcept;
 
         [[nodiscard]] HeaderTech_Config_Export const std::vector<std::string> &SearchPaths() const noexcept;
@@ -67,6 +67,13 @@ namespace HeaderTech::Config {
 
     using ConfigPtr = std::shared_ptr<Config>;
     using ConfigWeakPtr = std::weak_ptr<Config>;
+
+    inline static ConfigPtr MakeConfig(
+            const std::string_view &name,
+            const std::string_view &version,
+            const std::span<const char*> &args
+    ) noexcept
+    { return std::make_shared<Config>(name, version, args); }
 }// namespace HeaderTech::Config
 
 

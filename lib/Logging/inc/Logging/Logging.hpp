@@ -80,6 +80,12 @@ namespace HeaderTech::Logging {
 
     using LoggingPtr = std::shared_ptr<Logging>;
     using LoggingWeakPtr = std::weak_ptr<Logging>;
+
+    inline static LoggingPtr MakeLogging(
+            const HeaderTech::Config::ConfigPtr &config,
+            const HeaderTech::FileSystem::FileSystemPtr &fileSystem
+    ) noexcept
+    { return std::make_shared<Logging>(config, fileSystem); }
 }// namespace HeaderTech::Logging
 
 

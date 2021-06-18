@@ -30,35 +30,64 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#ifndef HEADERTECH_FILESYSTEM_HPP
-#define HEADERTECH_FILESYSTEM_HPP
-
-#include <FileSystem/Exports.h>
-
-#include <Config/Config.hpp>
+#ifndef HEADERTECH_EVENTPROCESSOR_HPP
+#define HEADERTECH_EVENTPROCESSOR_HPP
 
 #include <memory>
+#include <concepts>
+#include <type_traits>
 
-namespace HeaderTech::FileSystem {
-    class FileSystem : public std::enable_shared_from_this<FileSystem> {
+#include <Event/Exports.h>
+#include <Event/Event.hpp>
+#include <Event/EventHandler.hpp>
+#include <Event/EventPriorityQueue.hpp>
+#include <Common/Clock.hpp>
+
+namespace HeaderTech::Event {
+    class HeaderTech_Event_Export EventProcessor : private std::enable_shared_from_this<EventProcessor> {
     public:
-        HeaderTech_FileSystem_Export explicit FileSystem(
-                const HeaderTech::Config::ConfigPtr &config,
-                const char *argv0
+        EventProcessor(const HeaderTech::Common::ClockPtr &clock) noexcept;
+
+        virtual ~EventProcessor() noexcept;
+
+        template<Event EventName>
+        inline auto Bind(
+                Binding::BindableEventHandler<EventName> auto &&handler,
+                EventHandlerPriority priority
+        ) -> EventHandlerPtr
+        {
+            return Bind(
+                    Binding::Binder<std::remove_cvref_t<decltype(handler)>, EventName>::Bind(handler, priority),
+                    EventIdentifier<EventName>::Id()
+            );
+        }
+
+        template<Event EventName, EventPriority EventPriority>
+        inline auto Dispatch(auto &&...args) noexcept
+        { return m_eventPriorityQueue.Push<EventName, EventPriority>(args...); }
+
+    protected:
+        void ProcessTick();
+
+    private:
+        EventHandlerPtr Bind(
+                EventHandlerPtr handler,
+                const EventId &eventId
         ) noexcept;
 
-        HeaderTech_FileSystem_Export ~FileSystem() noexcept;
+        void Dispatch(EventStorage *event) noexcept;
+
+    protected:
+        [[nodiscard]] inline auto SharedEventProcessor() const noexcept
+        { return this->shared_from_this(); }
+
+    private:
+        EventHandlerMap        m_bindings;
+        EventPriorityQueue<32> m_eventPriorityQueue;
     };
 
-    using FileSystemPtr = std::shared_ptr<FileSystem>;
-    using FileSystemWeakPtr = std::weak_ptr<FileSystem>;
-
-    inline static FileSystemPtr MakeFileSystem(
-            const HeaderTech::Config::ConfigPtr &config,
-            const char *argv0
-    ) noexcept
-    { return std::make_shared<FileSystem>(config, argv0); }
-}// namespace HeaderTech::FileSystem
+    using EventProcessorPtr = std::shared_ptr<EventProcessor>;
+}
 
 
-#endif//HEADERTECH_FILESYSTEM_HPP
+#endif //HEADERTECH_EVENTPROCESSOR_HPP

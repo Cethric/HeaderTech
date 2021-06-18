@@ -1,0 +1,2380 @@
+:160000 160000 f4c95f6 0000000 M	ext/fmt
+ ext/fmt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Submodule ext/fmt contains modified content
+Submodule ext/fmt f4c95f6..427b534:
+diff --git a/ext/fmt/.github/workflows/linux.yml b/ext/fmt/.github/workflows/linux.yml
+index 0f0d7bf5..2c32fbcb 100644
+--- a/ext/fmt/.github/workflows/linux.yml
++++ b/ext/fmt/.github/workflows/linux.yml
+@@ -27,7 +27,6 @@ jobs:
+           - cxx: g++-10
+             build_type: Debug
+             std: 20
+-            cxxflags: -DFMT_COMPILE_TIME_CHECKS=1
+             os: ubuntu-20.04
+           - cxx: clang++-9
+             build_type: Debug
+@@ -52,6 +51,7 @@ jobs:
+     - name: Create Build Environment
+       run: |
+         ${{matrix.install}}
++        sudo apt install locales-all
+         cmake -E make_directory ${{runner.workspace}}/build
+ 
+     - name: Configure
+@@ -67,7 +67,9 @@ jobs:
+ 
+     - name: Build
+       working-directory: ${{runner.workspace}}/build
+-      run: cmake --build . --config ${{matrix.build_type}}
++      run: |
++        threads=`nproc`
++        cmake --build . --config ${{matrix.build_type}} --parallel $threads
+ 
+     - name: Test
+       working-directory: ${{runner.workspace}}/build
+diff --git a/ext/fmt/.github/workflows/macos.yml b/ext/fmt/.github/workflows/macos.yml
+index f62dbdc6..e300a22b 100644
+--- a/ext/fmt/.github/workflows/macos.yml
++++ b/ext/fmt/.github/workflows/macos.yml
+@@ -26,7 +26,9 @@ jobs:
+ 
+     - name: Build
+       working-directory: ${{runner.workspace}}/build
+-      run: cmake --build . --config ${{matrix.build_type}}
++      run: |
++        threads=`sysctl -n hw.logicalcpu`
++        cmake --build . --config ${{matrix.build_type}} --parallel $threads
+ 
+     - name: Test
+       working-directory: ${{runner.workspace}}/build
+diff --git a/ext/fmt/.github/workflows/windows.yml b/ext/fmt/.github/workflows/windows.yml
+index f1d11c8f..ece0372b 100644
+--- a/ext/fmt/.github/workflows/windows.yml
++++ b/ext/fmt/.github/workflows/windows.yml
+@@ -49,7 +49,9 @@ jobs:
+ 
+     - name: Build
+       working-directory: ${{runner.workspace}}/build
+-      run: cmake --build . --config ${{matrix.build_type}}
++      run: |
++        $threads = (Get-CimInstance Win32_ComputerSystem).NumberOfLogicalProcessors
++        cmake --build . --config ${{matrix.build_type}} --parallel $threads
+ 
+     - name: Test
+       working-directory: ${{runner.workspace}}/build
+diff --git a/ext/fmt/README.rst b/ext/fmt/README.rst
+index 482a84e7..02c849c7 100644
+--- a/ext/fmt/README.rst
++++ b/ext/fmt/README.rst
+@@ -341,6 +341,10 @@ Projects using this library
+ 
+ * `Folly <https://github.com/facebook/folly>`_: Facebook open-source library
+ 
++* `Grand Mountain Adventure
++  <https://store.steampowered.com/app/1247360/Grand_Mountain_Adventure/>`_:
++  A beautiful open-world ski & snowboarding game
++
+ * `HarpyWar/pvpgn <https://github.com/pvpgn/pvpgn-server>`_:
+   Player vs Player Gaming Network with tweaks
+ 
+diff --git a/ext/fmt/doc/api.rst b/ext/fmt/doc/api.rst
+index 7c7d76fa..079299cd 100644
+--- a/ext/fmt/doc/api.rst
++++ b/ext/fmt/doc/api.rst
+@@ -306,7 +306,7 @@ Utilities
+ .. doxygenfunction:: fmt::ptr(const std::unique_ptr<T> &p) -> const void*
+ .. doxygenfunction:: fmt::ptr(const std::shared_ptr<T> &p) -> const void*
+ 
+-.. doxygenfunction:: fmt::to_string(const T &value)
++.. doxygenfunction:: fmt::to_string(const T &value) -> std::string
+ 
+ .. doxygenfunction:: fmt::to_string_view(const Char *s) -> basic_string_view<Char>
+ 
+diff --git a/ext/fmt/doc/syntax.rst b/ext/fmt/doc/syntax.rst
+index a1d5d85f..4eff1d4f 100644
+--- a/ext/fmt/doc/syntax.rst
++++ b/ext/fmt/doc/syntax.rst
+@@ -262,10 +262,8 @@ The available presentation types for floating-point values are:
+ |         | ``'E'`` if the number gets too large. The                |
+ |         | representations of infinity and NaN are uppercased, too. |
+ +---------+----------------------------------------------------------+
+-| none    | Similar to ``'g'``, except that fixed-point notation,    |
+-|         | when used, has at least one digit past the decimal       |
+-|         | point. The default precision is as high as needed to     |
+-|         | represent the particular value.                          |
++| none    | Similar to ``'g'``, except that the default precision is |
++|         | as high as needed to represent the particular value.     |
+ +---------+----------------------------------------------------------+
+ 
+ .. ifconfig:: False
+diff --git a/ext/fmt/include/fmt/chrono.h b/ext/fmt/include/fmt/chrono.h
+index 5e03149d..c024fd71 100644
+--- a/ext/fmt/include/fmt/chrono.h
++++ b/ext/fmt/include/fmt/chrono.h
+@@ -291,14 +291,23 @@ inline null<> gmtime_s(...) { return null<>(); }
+ inline auto do_write(const std::tm& time, const std::locale& loc, char format,
+                      char modifier) -> std::string {
+   auto&& os = std::ostringstream();
++  os.imbue(loc);
+   using iterator = std::ostreambuf_iterator<char>;
+   const auto& facet = std::use_facet<std::time_put<char, iterator>>(loc);
+   auto end = facet.put(os, os, ' ', &time, format, modifier);
+   if (end.failed()) FMT_THROW(format_error("failed to format time"));
+   auto str = os.str();
+   if (!detail::is_utf8() || loc == std::locale::classic()) return str;
+-  // char16_t and char32_t codecvts are broken in MSVC (linkage errors).
+-  using code_unit = conditional_t<FMT_MSC_VER != 0, wchar_t, char16_t>;
++    // char16_t and char32_t codecvts are broken in MSVC (linkage errors) and
++    // gcc-4.
++#if FMT_MSC_VER != 0 || \
++    (defined(__GLIBCXX__) && !defined(_GLIBCXX_USE_DUAL_ABI))
++  // The _GLIBCXX_USE_DUAL_ABI macro is always defined in libstdc++ from gcc-5
++  // and newer.
++  using code_unit = wchar_t;
++#else
++  using code_unit = char32_t;
++#endif
+   auto& f = std::use_facet<std::codecvt<code_unit, char, std::mbstate_t>>(loc);
+   auto mb = std::mbstate_t();
+   const char* from_next = nullptr;
+@@ -311,12 +320,29 @@ inline auto do_write(const std::tm& time, const std::locale& loc, char format,
+     FMT_THROW(format_error("failed to format time"));
+   str.clear();
+   for (code_unit* p = buf; p != to_next; ++p) {
+-    auto c = *p;
++    uint32_t c = static_cast<uint32_t>(*p);
++    if (sizeof(code_unit) == 2 && c >= 0xd800 && c <= 0xdfff) {
++      // surrogate pair
++      ++p;
++      if (p == to_next || (c & 0xfc00) != 0xd800 || (*p & 0xfc00) != 0xdc00) {
++        FMT_THROW(format_error("failed to format time"));
++      }
++      c = (c << 10) + static_cast<uint32_t>(*p) - 0x35fdc00;
++    }
+     if (c < 0x80) {
+       str.push_back(static_cast<char>(c));
+     } else if (c < 0x800) {
+       str.push_back(static_cast<char>(0xc0 | (c >> 6)));
+       str.push_back(static_cast<char>(0x80 | (c & 0x3f)));
++    } else if ((c >= 0x800 && c <= 0xd7ff) || (c >= 0xe000 && c <= 0xffff)) {
++      str.push_back(static_cast<char>(0xe0 | (c >> 12)));
++      str.push_back(static_cast<char>(0x80 | ((c & 0xfff) >> 6)));
++      str.push_back(static_cast<char>(0x80 | (c & 0x3f)));
++    } else if (c >= 0x10000 && c <= 0x10ffff) {
++      str.push_back(static_cast<char>(0xf0 | (c >> 18)));
++      str.push_back(static_cast<char>(0x80 | ((c & 0x3ffff) >> 12)));
++      str.push_back(static_cast<char>(0x80 | ((c & 0xfff) >> 6)));
++      str.push_back(static_cast<char>(0x80 | (c & 0x3f)));
+     } else {
+       FMT_THROW(format_error("failed to format time"));
+     }
+@@ -451,14 +477,37 @@ FMT_END_DETAIL_NAMESPACE
+ template <typename Char, typename Duration>
+ struct formatter<std::chrono::time_point<std::chrono::system_clock, Duration>,
+                  Char> : formatter<std::tm, Char> {
++  FMT_CONSTEXPR formatter() {
++    this->specs = {default_specs, sizeof(default_specs) / sizeof(Char)};
++  }
++
++  template <typename ParseContext>
++  FMT_CONSTEXPR auto parse(ParseContext& ctx) -> decltype(ctx.begin()) {
++    auto it = ctx.begin();
++    if (it != ctx.end() && *it == ':') ++it;
++    auto end = it;
++    while (end != ctx.end() && *end != '}') ++end;
++    if (end != it) this->specs = {it, detail::to_unsigned(end - it)};
++    return end;
++  }
++
+   template <typename FormatContext>
+   auto format(std::chrono::time_point<std::chrono::system_clock> val,
+               FormatContext& ctx) -> decltype(ctx.out()) {
+     std::tm time = localtime(val);
+     return formatter<std::tm, Char>::format(time, ctx);
+   }
++
++  static constexpr Char default_specs[] = {'%', 'Y', '-', '%', 'm', '-',
++                                           '%', 'd', ' ', '%', 'H', ':',
++                                           '%', 'M', ':', '%', 'S'};
+ };
+ 
++template <typename Char, typename Duration>
++constexpr Char
++    formatter<std::chrono::time_point<std::chrono::system_clock, Duration>,
++              Char>::default_specs[];
++
+ template <typename Char> struct formatter<std::tm, Char> {
+   template <typename ParseContext>
+   FMT_CONSTEXPR auto parse(ParseContext& ctx) -> decltype(ctx.begin()) {
+diff --git a/ext/fmt/include/fmt/compile.h b/ext/fmt/include/fmt/compile.h
+index 9528b57d..00000c92 100644
+--- a/ext/fmt/include/fmt/compile.h
++++ b/ext/fmt/include/fmt/compile.h
+@@ -164,7 +164,8 @@ struct is_compiled_string : std::is_base_of<compiled_string, S> {};
+ #endif
+ 
+ #if FMT_USE_NONTYPE_TEMPLATE_PARAMETERS
+-template <typename Char, size_t N, fixed_string<Char, N> Str>
++template <typename Char, size_t N,
++          fmt::detail_exported::fixed_string<Char, N> Str>
+ struct udl_compiled_string : compiled_string {
+   using char_type = Char;
+   constexpr operator basic_string_view<char_type>() const {
+@@ -622,7 +623,7 @@ void print(const S& format_str, const Args&... args) {
+ 
+ #if FMT_USE_NONTYPE_TEMPLATE_PARAMETERS
+ inline namespace literals {
+-template <detail::fixed_string Str>
++template <detail_exported::fixed_string Str>
+ constexpr detail::udl_compiled_string<
+     remove_cvref_t<decltype(Str.data[0])>,
+     sizeof(Str.data) / sizeof(decltype(Str.data[0])), Str>
+diff --git a/ext/fmt/include/fmt/core.h b/ext/fmt/include/fmt/core.h
+index 90fcef56..0531b37f 100644
+--- a/ext/fmt/include/fmt/core.h
++++ b/ext/fmt/include/fmt/core.h
+@@ -8,10 +8,10 @@
+ #ifndef FMT_CORE_H_
+ #define FMT_CORE_H_
+ 
+-#include <climits>  // INT_MAX
+-#include <cstdio>   // std::FILE
++#include <cstdio>  // std::FILE
+ #include <cstring>
+ #include <iterator>
++#include <limits>
+ #include <string>
+ #include <type_traits>
+ 
+@@ -284,8 +284,16 @@
+ #  define FMT_UNICODE !FMT_MSC_VER
+ #endif
+ 
+-#ifndef FMT_COMPILE_TIME_CHECKS
+-#  define FMT_COMPILE_TIME_CHECKS 0
++#ifndef FMT_CONSTEVAL
++#  if ((FMT_GCC_VERSION >= 1000 || FMT_CLANG_VERSION >= 1101) && \
++       __cplusplus > 201703L) ||                                 \
++      (defined(__cpp_consteval) &&                               \
++       !FMT_MSC_VER)  // consteval is broken in MSVC.
++#    define FMT_CONSTEVAL consteval
++#    define FMT_HAS_CONSTEVAL
++#  else
++#    define FMT_CONSTEVAL
++#  endif
+ #endif
+ 
+ #ifndef FMT_USE_NONTYPE_TEMPLATE_PARAMETERS
+@@ -320,7 +328,9 @@ using remove_cvref_t = typename std::remove_cv<remove_reference_t<T>>::type;
+ template <typename T> struct type_identity { using type = T; };
+ template <typename T> using type_identity_t = typename type_identity<T>::type;
+ 
+-struct monostate {};
++struct monostate {
++  constexpr monostate() {}
++};
+ 
+ // An enable_if helper to be used in template parameters which results in much
+ // shorter symbols: https://godbolt.org/z/sWw4vP. Extra parentheses are needed
+@@ -724,6 +734,23 @@ inline auto get_container(std::back_insert_iterator<Container> it)
+   return *accessor(it).container;
+ }
+ 
++template <typename Char, typename InputIt, typename OutputIt>
++FMT_CONSTEXPR auto copy_str(InputIt begin, InputIt end, OutputIt out)
++    -> OutputIt {
++  while (begin != end) *out++ = static_cast<Char>(*begin++);
++  return out;
++}
++
++template <typename Char, FMT_ENABLE_IF(std::is_same<Char, char>::value)>
++FMT_CONSTEXPR auto copy_str(const Char* begin, const Char* end, Char* out)
++    -> Char* {
++  if (is_constant_evaluated())
++    return copy_str<Char, const Char*, Char*>(begin, end, out);
++  auto size = to_unsigned(end - begin);
++  memcpy(out, begin, size);
++  return out + size;
++}
++
+ /**
+   \rst
+   A contiguous memory buffer with an optional growing ability. It is an internal
+@@ -848,7 +875,12 @@ class iterator_buffer final : public Traits, public buffer<T> {
+   void grow(size_t) final FMT_OVERRIDE {
+     if (this->size() == buffer_size) flush();
+   }
+-  void flush();
++
++  void flush() {
++    auto size = this->size();
++    this->clear();
++    out_ = copy_str<T>(data_, data_ + this->limit(size), out_);
++  }
+ 
+  public:
+   explicit iterator_buffer(OutputIt out, size_t n = buffer_size)
+@@ -1101,6 +1133,7 @@ template <typename Context> class value {
+   using char_type = typename Context::char_type;
+ 
+   union {
++    monostate no_value;
+     int int_value;
+     unsigned uint_value;
+     long long long_long_value;
+@@ -1118,7 +1151,8 @@ template <typename Context> class value {
+     named_arg_value<char_type> named_args;
+   };
+ 
+-  constexpr FMT_INLINE value(int val = 0) : int_value(val) {}
++  constexpr FMT_INLINE value() : no_value() {}
++  constexpr FMT_INLINE value(int val) : int_value(val) {}
+   constexpr FMT_INLINE value(unsigned val) : uint_value(val) {}
+   constexpr FMT_INLINE value(long long val) : long_long_value(val) {}
+   constexpr FMT_INLINE value(unsigned long long val) : ulong_long_value(val) {}
+@@ -1463,6 +1497,12 @@ FMT_CONSTEXPR FMT_INLINE auto visit_format_arg(
+ 
+ FMT_BEGIN_DETAIL_NAMESPACE
+ 
++template <typename Char, typename InputIt>
++auto copy_str(InputIt begin, InputIt end, appender out) -> appender {
++  get_container(out).append(begin, end);
++  return out;
++}
++
+ #if FMT_GCC_VERSION && FMT_GCC_VERSION < 500
+ // A workaround for gcc 4.8 to make void_t work in a SFINAE context.
+ template <typename... Ts> struct void_t_impl { using type = void; };
+@@ -1539,7 +1579,7 @@ FMT_CONSTEXPR FMT_INLINE auto make_arg(const T& val) -> value<Context> {
+       !std::is_same<decltype(arg), const unformattable&>::value,
+       "Cannot format an argument. To make type T formattable provide a "
+       "formatter<T> specialization: https://fmt.dev/latest/api.html#udt");
+-  return arg;
++  return {arg};
+ }
+ 
+ template <bool IS_PACKED, typename Context, type, typename T,
+@@ -2063,25 +2103,27 @@ inline auto find<false, char>(const char* first, const char* last, char value,
+ 
+ // Parses the range [begin, end) as an unsigned integer. This function assumes
+ // that the range is non-empty and the first character is a digit.
+-template <typename Char, typename ErrorHandler>
++template <typename Char>
+ FMT_CONSTEXPR auto parse_nonnegative_int(const Char*& begin, const Char* end,
+-                                         ErrorHandler&& eh) -> int {
++                                         int error_value) noexcept -> int {
+   FMT_ASSERT(begin != end && '0' <= *begin && *begin <= '9', "");
+-  unsigned value = 0;
+-  // Convert to unsigned to prevent a warning.
+-  const unsigned max_int = to_unsigned(INT_MAX);
+-  unsigned big = max_int / 10;
++  unsigned value = 0, prev = 0;
++  auto p = begin;
+   do {
+-    // Check for overflow.
+-    if (value > big) {
+-      value = max_int + 1;
+-      break;
+-    }
+-    value = value * 10 + unsigned(*begin - '0');
+-    ++begin;
+-  } while (begin != end && '0' <= *begin && *begin <= '9');
+-  if (value > max_int) eh.on_error("number is too big");
+-  return static_cast<int>(value);
++    prev = value;
++    value = value * 10 + unsigned(*p - '0');
++    ++p;
++  } while (p != end && '0' <= *p && *p <= '9');
++  auto num_digits = p - begin;
++  begin = p;
++  if (num_digits <= std::numeric_limits<int>::digits10)
++    return static_cast<int>(value);
++  // Check for overflow.
++  const unsigned max = to_unsigned((std::numeric_limits<int>::max)());
++  return num_digits == std::numeric_limits<int>::digits10 + 1 &&
++                 prev * 10ull + unsigned(p[-1] - '0') <= max
++             ? static_cast<int>(value)
++             : error_value;
+ }
+ 
+ // Parses fill and alignment.
+@@ -2137,7 +2179,8 @@ FMT_CONSTEXPR auto do_parse_arg_id(const Char* begin, const Char* end,
+   if (c >= '0' && c <= '9') {
+     int index = 0;
+     if (c != '0')
+-      index = parse_nonnegative_int(begin, end, handler);
++      index =
++          parse_nonnegative_int(begin, end, (std::numeric_limits<int>::max)());
+     else
+       ++begin;
+     if (begin == end || (*begin != '}' && *begin != ':'))
+@@ -2186,7 +2229,11 @@ FMT_CONSTEXPR auto parse_width(const Char* begin, const Char* end,
+ 
+   FMT_ASSERT(begin != end, "");
+   if ('0' <= *begin && *begin <= '9') {
+-    handler.on_width(parse_nonnegative_int(begin, end, handler));
++    int width = parse_nonnegative_int(begin, end, -1);
++    if (width != -1)
++      handler.on_width(width);
++    else
++      handler.on_error("number is too big");
+   } else if (*begin == '{') {
+     ++begin;
+     if (begin != end) begin = parse_arg_id(begin, end, width_adapter{handler});
+@@ -2217,7 +2264,11 @@ FMT_CONSTEXPR auto parse_precision(const Char* begin, const Char* end,
+   ++begin;
+   auto c = begin != end ? *begin : Char();
+   if ('0' <= c && c <= '9') {
+-    handler.on_precision(parse_nonnegative_int(begin, end, handler));
++    auto precision = parse_nonnegative_int(begin, end, -1);
++    if (precision != -1)
++      handler.on_precision(precision);
++    else
++      handler.on_error("number is too big");
+   } else if (c == '{') {
+     ++begin;
+     if (begin != end)
+@@ -2418,8 +2469,8 @@ class compile_parse_context
+ 
+  public:
+   explicit FMT_CONSTEXPR compile_parse_context(
+-      basic_string_view<Char> format_str, int num_args = INT_MAX,
+-      ErrorHandler eh = {})
++      basic_string_view<Char> format_str,
++      int num_args = (std::numeric_limits<int>::max)(), ErrorHandler eh = {})
+       : base(format_str, eh), num_args_(num_args) {}
+ 
+   FMT_CONSTEXPR auto next_arg_id() -> int {
+@@ -2785,17 +2836,13 @@ template <typename Char, typename... Args> class basic_format_string {
+   template <typename S,
+             FMT_ENABLE_IF(
+                 std::is_convertible<const S&, basic_string_view<Char>>::value)>
+-#if FMT_COMPILE_TIME_CHECKS
+-  consteval
+-#endif
+-      basic_format_string(const S& s)
+-      : str_(s) {
++  FMT_CONSTEVAL basic_format_string(const S& s) : str_(s) {
+     static_assert(
+         detail::count<
+             (std::is_base_of<detail::view, remove_reference_t<Args>>::value &&
+              std::is_reference<Args>::value)...>() == 0,
+         "passing views as lvalues is disallowed");
+-#if FMT_COMPILE_TIME_CHECKS
++#ifdef FMT_HAS_CONSTEVAL
+     if constexpr (detail::count_named_args<Args...>() == 0) {
+       using checker = detail::format_string_checker<Char, detail::error_handler,
+                                                     remove_cvref_t<Args>...>;
+diff --git a/ext/fmt/include/fmt/format-inl.h b/ext/fmt/include/fmt/format-inl.h
+index c90d9773..a802aea5 100644
+--- a/ext/fmt/include/fmt/format-inl.h
++++ b/ext/fmt/include/fmt/format-inl.h
+@@ -106,14 +106,17 @@ template <typename Locale> Locale locale_ref::get() const {
+ template <typename Char>
+ FMT_FUNC auto thousands_sep_impl(locale_ref loc) -> thousands_sep_result<Char> {
+   auto& facet = std::use_facet<std::numpunct<Char>>(loc.get<std::locale>());
+-  return {facet.grouping(), facet.thousands_sep()};
++  auto grouping = facet.grouping();
++  auto thousands_sep = grouping.empty() ? Char() : facet.thousands_sep();
++  return {std::move(grouping), thousands_sep};
+ }
+ template <typename Char> FMT_FUNC Char decimal_point_impl(locale_ref loc) {
+   return std::use_facet<std::numpunct<Char>>(loc.get<std::locale>())
+       .decimal_point();
+ }
+ #else
+-template <typename Char> FMT_FUNC Char thousands_sep_impl(locale_ref) {
++template <typename Char>
++FMT_FUNC auto thousands_sep_impl(locale_ref) -> thousands_sep_result<Char> {
+   return {"\03", FMT_STATIC_THOUSANDS_SEPARATOR};
+ }
+ template <typename Char> FMT_FUNC Char decimal_point_impl(locale_ref) {
+@@ -635,8 +638,8 @@ inline uint64_t power_of_10_64(int exp) {
+ // error: the size of the region (lower, upper) outside of which numbers
+ // definitely do not round to value (Delta in Grisu3).
+ template <typename Handler>
+-FMT_ALWAYS_INLINE digits::result grisu_gen_digits(fp value, uint64_t error,
+-                                                  int& exp, Handler& handler) {
++FMT_INLINE digits::result grisu_gen_digits(fp value, uint64_t error, int& exp,
++                                           Handler& handler) {
+   const fp one(1ULL << -value.e, value.e);
+   // The integral part of scaled value (p1 in Grisu) = value / one. It cannot be
+   // zero because it contains a product of two 64-bit numbers with MSB set (due
+@@ -1914,7 +1917,7 @@ bool is_center_integer(typename float_info<T>::carrier_uint two_f, int exponent,
+ }
+ 
+ // Remove trailing zeros from n and return the number of zeros removed (float)
+-FMT_ALWAYS_INLINE int remove_trailing_zeros(uint32_t& n) FMT_NOEXCEPT {
++FMT_INLINE int remove_trailing_zeros(uint32_t& n) FMT_NOEXCEPT {
+ #ifdef FMT_BUILTIN_CTZ
+   int t = FMT_BUILTIN_CTZ(n);
+ #else
+@@ -1942,7 +1945,7 @@ FMT_ALWAYS_INLINE int remove_trailing_zeros(uint32_t& n) FMT_NOEXCEPT {
+ }
+ 
+ // Removes trailing zeros and returns the number of zeros removed (double)
+-FMT_ALWAYS_INLINE int remove_trailing_zeros(uint64_t& n) FMT_NOEXCEPT {
++FMT_INLINE int remove_trailing_zeros(uint64_t& n) FMT_NOEXCEPT {
+ #ifdef FMT_BUILTIN_CTZLL
+   int t = FMT_BUILTIN_CTZLL(n);
+ #else
+@@ -2028,8 +2031,7 @@ FMT_ALWAYS_INLINE int remove_trailing_zeros(uint64_t& n) FMT_NOEXCEPT {
+ 
+ // The main algorithm for shorter interval case
+ template <class T>
+-FMT_ALWAYS_INLINE decimal_fp<T> shorter_interval_case(int exponent)
+-    FMT_NOEXCEPT {
++FMT_INLINE decimal_fp<T> shorter_interval_case(int exponent) FMT_NOEXCEPT {
+   decimal_fp<T> ret_value;
+   // Compute k and beta
+   const int minus_k = floor_log10_pow2_minus_log10_4_over_3(exponent);
+diff --git a/ext/fmt/include/fmt/format.h b/ext/fmt/include/fmt/format.h
+index 2468f2f1..03ae1c96 100644
+--- a/ext/fmt/include/fmt/format.h
++++ b/ext/fmt/include/fmt/format.h
+@@ -425,46 +425,6 @@ using char8_type = char8_t;
+ enum char8_type : unsigned char {};
+ #endif
+ 
+-template <typename InputIt, typename OutChar>
+-using needs_conversion = bool_constant<
+-    std::is_same<typename std::iterator_traits<InputIt>::value_type,
+-                 char>::value &&
+-    std::is_same<OutChar, char8_type>::value>;
+-
+-template <typename OutChar, typename InputIt, typename OutputIt,
+-          FMT_ENABLE_IF(!needs_conversion<InputIt, OutChar>::value)>
+-FMT_CONSTEXPR auto copy_str(InputIt begin, InputIt end, OutputIt out)
+-    -> OutputIt {
+-  while (begin != end) *out++ = *begin++;
+-  return out;
+-}
+-
+-template <typename OutChar, typename InputIt,
+-          FMT_ENABLE_IF(!needs_conversion<InputIt, OutChar>::value)>
+-FMT_CONSTEXPR20 auto copy_str(InputIt begin, InputIt end, OutChar* out)
+-    -> OutChar* {
+-  if (is_constant_evaluated()) {
+-    return copy_str<OutChar, InputIt, OutChar*>(begin, end, out);
+-  }
+-  auto size = to_unsigned(end - begin);
+-  std::uninitialized_copy(begin, end, make_checked(out, size));
+-  return out + size;
+-}
+-
+-template <typename OutChar, typename InputIt, typename OutputIt,
+-          FMT_ENABLE_IF(needs_conversion<InputIt, OutChar>::value)>
+-auto copy_str(InputIt begin, InputIt end, OutputIt out) -> OutputIt {
+-  while (begin != end) *out++ = static_cast<char8_type>(*begin++);
+-  return out;
+-}
+-
+-template <typename OutChar, typename InputIt,
+-          FMT_ENABLE_IF(!needs_conversion<InputIt, OutChar>::value)>
+-auto copy_str(InputIt begin, InputIt end, appender out) -> appender {
+-  get_container(out).append(begin, end);
+-  return out;
+-}
+-
+ template <typename OutChar, typename InputIt, typename OutputIt>
+ FMT_CONSTEXPR FMT_NOINLINE auto copy_str_noinline(InputIt begin, InputIt end,
+                                                   OutputIt out) -> OutputIt {
+@@ -626,13 +586,6 @@ void buffer<T>::append(const U* begin, const U* end) {
+   }
+ }
+ 
+-template <typename OutputIt, typename T, typename Traits>
+-void iterator_buffer<OutputIt, T, Traits>::flush() {
+-  auto size = this->size();
+-  this->clear();
+-  out_ = copy_str<T>(data_, data_ + this->limit(size), out_);
+-}
+-
+ template <typename T, typename Enable = void>
+ struct is_locale : std::false_type {};
+ template <typename T>
+@@ -641,11 +594,6 @@ struct is_locale<T, void_t<decltype(T::classic())>> : std::true_type {};
+ 
+ FMT_MODULE_EXPORT_BEGIN
+ 
+-template <> struct is_char<wchar_t> : std::true_type {};
+-template <> struct is_char<detail::char8_type> : std::true_type {};
+-template <> struct is_char<char16_t> : std::true_type {};
+-template <> struct is_char<char32_t> : std::true_type {};
+-
+ // The number of characters to store in the basic_memory_buffer object itself
+ // to avoid dynamic memory allocation.
+ enum { inline_buffer_size = 500 };
+@@ -830,6 +778,33 @@ FMT_INLINE auto make_args_checked(const S& fmt,
+   return {args...};
+ }
+ 
++// compile-time support
++namespace detail_exported {
++#if FMT_USE_NONTYPE_TEMPLATE_PARAMETERS
++template <typename Char, size_t N> struct fixed_string {
++  constexpr fixed_string(const Char (&str)[N]) {
++    detail::copy_str<Char, const Char*, Char*>(static_cast<const Char*>(str),
++                                               str + N, data);
++  }
++  Char data[N]{};
++};
++#endif
++
++// Converts a compile-time string to basic_string_view.
++template <typename Char, size_t N>
++constexpr auto compile_string_to_view(const Char (&s)[N])
++    -> basic_string_view<Char> {
++  // Remove trailing NUL character if needed. Won't be present if this is used
++  // with a raw character array (i.e. not defined as a string).
++  return {s, N - (std::char_traits<Char>::to_int_type(s[N - 1]) == 0 ? 1 : 0)};
++}
++template <typename Char>
++constexpr auto compile_string_to_view(detail::std_string_view<Char> s)
++    -> basic_string_view<Char> {
++  return {s.data(), s.size()};
++}
++}  // namespace detail_exported
++
+ FMT_BEGIN_DETAIL_NAMESPACE
+ 
+ inline void throw_format_error(const char* message) {
+@@ -919,17 +894,6 @@ extern template struct basic_data<void>;
+ // This is a struct rather than an alias to avoid shadowing warnings in gcc.
+ struct data : basic_data<> {};
+ 
+-// Maps bsr(n) to ceil(log10(pow(2, bsr(n) + 1) - 1)).
+-// This is a function instead of an array to workaround a bug in GCC10 (#1810).
+-FMT_INLINE auto bsr2log10(int bsr) -> uint16_t {
+-  static constexpr uint16_t data[] = {
+-      1,  1,  1,  2,  2,  2,  3,  3,  3,  4,  4,  4,  4,  5,  5,  5,
+-      6,  6,  6,  7,  7,  7,  7,  8,  8,  8,  9,  9,  9,  10, 10, 10,
+-      10, 11, 11, 11, 12, 12, 12, 13, 13, 13, 13, 14, 14, 14, 15, 15,
+-      15, 16, 16, 16, 16, 17, 17, 17, 18, 18, 18, 19, 19, 19, 19, 20};
+-  return data[bsr];
+-}
+-
+ template <typename T> FMT_CONSTEXPR auto count_digits_fallback(T n) -> int {
+   int count = 1;
+   for (;;) {
+@@ -953,19 +917,23 @@ FMT_CONSTEXPR inline auto count_digits(uint128_t n) -> int {
+ // Returns the number of decimal digits in n. Leading zeros are not counted
+ // except for n == 0 in which case count_digits returns 1.
+ FMT_CONSTEXPR20 inline auto count_digits(uint64_t n) -> int {
+-  if (is_constant_evaluated()) {
+-    return count_digits_fallback(n);
+-  }
+ #ifdef FMT_BUILTIN_CLZLL
+-  // https://github.com/fmtlib/format-benchmark/blob/master/digits10
+-  auto t = bsr2log10(FMT_BUILTIN_CLZLL(n | 1) ^ 63);
+-  constexpr const uint64_t zero_or_powers_of_10[] = {
+-      0, 0, FMT_POWERS_OF_10(1U), FMT_POWERS_OF_10(1000000000ULL),
+-      10000000000000000000ULL};
+-  return t - (n < zero_or_powers_of_10[t]);
+-#else
+-  return count_digits_fallback(n);
++  if (!is_constant_evaluated()) {
++    // https://github.com/fmtlib/format-benchmark/blob/master/digits10
++    // Maps bsr(n) to ceil(log10(pow(2, bsr(n) + 1) - 1)).
++    constexpr uint16_t bsr2log10[] = {
++        1,  1,  1,  2,  2,  2,  3,  3,  3,  4,  4,  4,  4,  5,  5,  5,
++        6,  6,  6,  7,  7,  7,  7,  8,  8,  8,  9,  9,  9,  10, 10, 10,
++        10, 11, 11, 11, 12, 12, 12, 13, 13, 13, 13, 14, 14, 14, 15, 15,
++        15, 16, 16, 16, 16, 17, 17, 17, 18, 18, 18, 19, 19, 19, 19, 20};
++    auto t = bsr2log10[FMT_BUILTIN_CLZLL(n | 1) ^ 63];
++    constexpr const uint64_t zero_or_powers_of_10[] = {
++        0, 0, FMT_POWERS_OF_10(1U), FMT_POWERS_OF_10(1000000000ULL),
++        10000000000000000000ULL};
++    return t - (n < zero_or_powers_of_10[t]);
++  }
+ #endif
++  return count_digits_fallback(n);
+ }
+ 
+ // Counts the number of digits in n. BITS = log2(radix).
+@@ -984,26 +952,38 @@ FMT_CONSTEXPR auto count_digits(UInt n) -> int {
+ 
+ template <> auto count_digits<4>(detail::fallback_uintptr n) -> int;
+ 
+-#if FMT_GCC_VERSION || FMT_CLANG_VERSION
+-#  define FMT_ALWAYS_INLINE inline __attribute__((always_inline))
+-#elif FMT_MSC_VER
+-#  define FMT_ALWAYS_INLINE __forceinline
+-#else
+-#  define FMT_ALWAYS_INLINE inline
+-#endif
++// It is a separate function rather than a part of count_digits to workaround
++// the lack of static constexpr in constexpr functions.
++FMT_INLINE uint64_t count_digits_inc(int n) {
++  // An optimization by Kendall Willets from https://bit.ly/3uOIQrB.
++  // This increments the upper 32 bits (log10(T) - 1) when >= T is added.
++#define FMT_INC(T) (((sizeof(#T) - 1ull) << 32) - T)
++  static constexpr uint64_t table[] = {
++      FMT_INC(0),          FMT_INC(0),          FMT_INC(0),           // 8
++      FMT_INC(10),         FMT_INC(10),         FMT_INC(10),          // 64
++      FMT_INC(100),        FMT_INC(100),        FMT_INC(100),         // 512
++      FMT_INC(1000),       FMT_INC(1000),       FMT_INC(1000),        // 4096
++      FMT_INC(10000),      FMT_INC(10000),      FMT_INC(10000),       // 32k
++      FMT_INC(100000),     FMT_INC(100000),     FMT_INC(100000),      // 256k
++      FMT_INC(1000000),    FMT_INC(1000000),    FMT_INC(1000000),     // 2048k
++      FMT_INC(10000000),   FMT_INC(10000000),   FMT_INC(10000000),    // 16M
++      FMT_INC(100000000),  FMT_INC(100000000),  FMT_INC(100000000),   // 128M
++      FMT_INC(1000000000), FMT_INC(1000000000), FMT_INC(1000000000),  // 1024M
++      FMT_INC(1000000000), FMT_INC(1000000000)                        // 4B
++  };
++  return table[n];
++}
+ 
+-#ifdef FMT_BUILTIN_CLZ
+ // Optional version of count_digits for better performance on 32-bit platforms.
+ FMT_CONSTEXPR20 inline auto count_digits(uint32_t n) -> int {
+-  if (is_constant_evaluated()) {
+-    return count_digits_fallback(n);
++#ifdef FMT_BUILTIN_CLZ
++  if (!is_constant_evaluated()) {
++    auto inc = count_digits_inc(FMT_BUILTIN_CLZ(n | 1) ^ 31);
++    return static_cast<int>((n + inc) >> 32);
+   }
+-  auto t = bsr2log10(FMT_BUILTIN_CLZ(n | 1) ^ 31);
+-  constexpr const uint32_t zero_or_powers_of_10[] = {0, 0,
+-                                                     FMT_POWERS_OF_10(1U)};
+-  return t - (n < zero_or_powers_of_10[t]);
+-}
+ #endif
++  return count_digits_fallback(n);
++}
+ 
+ template <typename Int> constexpr auto digits10() FMT_NOEXCEPT -> int {
+   return std::numeric_limits<Int>::digits10;
+@@ -1418,11 +1398,10 @@ auto write_int_localized(OutputIt& out, UInt value, unsigned prefix,
+   static_assert(std::is_same<uint64_or_128_t<UInt>, UInt>::value, "");
+   const auto sep_size = 1;
+   auto ts = thousands_sep<Char>(loc);
+-  const std::string& groups = ts.grouping;
+-  Char sep = ts.thousands_sep;
+-  if (!sep || groups.empty()) return false;
++  if (!ts.thousands_sep) return false;
+   int num_digits = count_digits(value);
+   int size = num_digits, n = num_digits;
++  const std::string& groups = ts.grouping;
+   std::string::const_iterator group = groups.cbegin();
+   while (group != groups.cend() && n > *group && *group > 0 &&
+          *group != max_value<char>()) {
+@@ -1437,7 +1416,7 @@ auto write_int_localized(OutputIt& out, UInt value, unsigned prefix,
+   if (prefix != 0) ++size;
+   const auto usize = to_unsigned(size);
+   buffer.resize(usize);
+-  basic_string_view<Char> s(&sep, sep_size);
++  basic_string_view<Char> s(&ts.thousands_sep, sep_size);
+   // Index of a decimal digit with the least significant digit having index 0.
+   int digit_index = 0;
+   group = groups.cbegin();
+@@ -2146,20 +2125,6 @@ FMT_CONSTEXPR void handle_dynamic_spec(int& value,
+   }
+ }
+ 
+-// Converts a compile-time string to basic_string_view.
+-template <typename Char, size_t N>
+-constexpr auto compile_string_to_view(const Char (&s)[N])
+-    -> basic_string_view<Char> {
+-  // Remove trailing NUL character if needed. Won't be present if this is used
+-  // with a raw character array (i.e. not defined as a string).
+-  return {s, N - (std::char_traits<Char>::to_int_type(s[N - 1]) == 0 ? 1 : 0)};
+-}
+-template <typename Char>
+-constexpr auto compile_string_to_view(std_string_view<Char> s)
+-    -> basic_string_view<Char> {
+-  return {s.data(), s.size()};
+-}
+-
+ #define FMT_STRING_IMPL(s, base, explicit)                                 \
+   [] {                                                                     \
+     /* Use the hidden visibility as a workaround for a GCC bug (#1973). */ \
+@@ -2168,7 +2133,7 @@ constexpr auto compile_string_to_view(std_string_view<Char> s)
+       using char_type = fmt::remove_cvref_t<decltype(s[0])>;               \
+       FMT_MAYBE_UNUSED FMT_CONSTEXPR explicit                              \
+       operator fmt::basic_string_view<char_type>() const {                 \
+-        return fmt::detail::compile_string_to_view<char_type>(s);          \
++        return fmt::detail_exported::compile_string_to_view<char_type>(s); \
+       }                                                                    \
+     };                                                                     \
+     return FMT_COMPILE_STRING();                                           \
+@@ -2186,16 +2151,6 @@ constexpr auto compile_string_to_view(std_string_view<Char> s)
+  */
+ #define FMT_STRING(s) FMT_STRING_IMPL(s, fmt::compile_string, )
+ 
+-#if FMT_USE_NONTYPE_TEMPLATE_PARAMETERS
+-template <typename Char, size_t N> struct fixed_string {
+-  constexpr fixed_string(const Char (&str)[N]) {
+-    copy_str<Char, const Char*, Char*>(static_cast<const Char*>(str), str + N,
+-                                       data);
+-  }
+-  Char data[N]{};
+-};
+-#endif
+-
+ #if FMT_USE_USER_DEFINED_LITERALS
+ template <typename Char> struct udl_formatter {
+   basic_string_view<Char> str;
+@@ -2207,7 +2162,8 @@ template <typename Char> struct udl_formatter {
+ };
+ 
+ #  if FMT_USE_NONTYPE_TEMPLATE_PARAMETERS
+-template <typename T, typename Char, size_t N, fixed_string<Char, N> Str>
++template <typename T, typename Char, size_t N,
++          fmt::detail_exported::fixed_string<Char, N> Str>
+ struct statically_named_arg : view {
+   static constexpr auto name = Str.data;
+ 
+@@ -2215,14 +2171,18 @@ struct statically_named_arg : view {
+   statically_named_arg(const T& v) : value(v) {}
+ };
+ 
+-template <typename T, typename Char, size_t N, fixed_string<Char, N> Str>
++template <typename T, typename Char, size_t N,
++          fmt::detail_exported::fixed_string<Char, N> Str>
+ struct is_named_arg<statically_named_arg<T, Char, N, Str>> : std::true_type {};
+ 
+-template <typename T, typename Char, size_t N, fixed_string<Char, N> Str>
++template <typename T, typename Char, size_t N,
++          fmt::detail_exported::fixed_string<Char, N> Str>
+ struct is_statically_named_arg<statically_named_arg<T, Char, N, Str>>
+     : std::true_type {};
+ 
+-template <typename Char, size_t N, fixed_string<Char, N> Str> struct udl_arg {
++template <typename Char, size_t N,
++          fmt::detail_exported::fixed_string<Char, N> Str>
++struct udl_arg {
+   template <typename T> auto operator=(T&& value) const {
+     return statically_named_arg<T, Char, N, Str>(std::forward<T>(value));
+   }
+@@ -2560,7 +2520,7 @@ struct formatter<join_view<It, Sentinel, Char>, Char> {
+   }
+ 
+   using formatter_type =
+-      conditional_t<is_formattable<value_type>::value,
++      conditional_t<is_formattable<value_type, Char>::value,
+                     formatter<remove_cvref_t<decltype(map(
+                                   std::declval<const value_type&>()))>,
+                               Char>,
+@@ -2664,6 +2624,20 @@ template <typename Char>
+ void vformat_to(buffer<Char>& buf, basic_string_view<Char> fmt,
+                 basic_format_args<buffer_context<type_identity_t<Char>>> args,
+                 locale_ref loc) {
++  // workaround for msvc bug regarding name-lookup in module
++  // link names into function scope
++  using detail::arg_formatter;
++  using detail::buffer_appender;
++  using detail::custom_formatter;
++  using detail::default_arg_formatter;
++  using detail::get_arg;
++  using detail::locale_ref;
++  using detail::parse_format_specs;
++  using detail::specs_checker;
++  using detail::specs_handler;
++  using detail::to_unsigned;
++  using detail::type;
++  using detail::write;
+   auto out = buffer_appender<Char>(buf);
+   if (fmt.size() == 2 && equal2(fmt.data(), "{}")) {
+     auto arg = args.get(0);
+@@ -2720,13 +2694,12 @@ void vformat_to(buffer<Char>& buf, basic_string_view<Char> fmt,
+       begin = parse_format_specs(begin, end, handler);
+       if (begin == end || *begin != '}')
+         on_error("missing '}' in format string");
+-      auto f =
+-          detail::arg_formatter<Char>{context.out(), specs, context.locale()};
++      auto f = arg_formatter<Char>{context.out(), specs, context.locale()};
+       context.advance_to(visit_format_arg(f, arg));
+       return begin;
+     }
+   };
+-  parse_format_string<false>(fmt, format_handler(out, fmt, args, loc));
++  detail::parse_format_string<false>(fmt, format_handler(out, fmt, args, loc));
+ }
+ 
+ #ifndef FMT_HEADER_ONLY
+@@ -2769,7 +2742,7 @@ inline namespace literals {
+   \endrst
+  */
+ #if FMT_USE_NONTYPE_TEMPLATE_PARAMETERS
+-template <detail::fixed_string Str>
++template <detail_exported::fixed_string Str>
+ constexpr auto operator""_a()
+     -> detail::udl_arg<remove_cvref_t<decltype(Str.data[0])>,
+                        sizeof(Str.data) / sizeof(decltype(Str.data[0])), Str> {
+@@ -2797,24 +2770,6 @@ constexpr auto operator"" _format(const char* s, size_t n)
+ }
+ }  // namespace literals
+ 
+-template <typename Char, FMT_ENABLE_IF(!std::is_same<Char, char>::value)>
+-auto vformat(basic_string_view<Char> format_str,
+-             basic_format_args<buffer_context<type_identity_t<Char>>> args)
+-    -> std::basic_string<Char> {
+-  basic_memory_buffer<Char> buffer;
+-  detail::vformat_to(buffer, format_str, args);
+-  return to_string(buffer);
+-}
+-
+-// Pass char_t as a default template parameter instead of using
+-// std::basic_string<char_t<S>> to reduce the symbol size.
+-template <typename S, typename... Args, typename Char = char_t<S>,
+-          FMT_ENABLE_IF(!std::is_same<Char, char>::value)>
+-auto format(const S& format_str, Args&&... args) -> std::basic_string<Char> {
+-  const auto& vargs = fmt::make_args_checked<Args...>(format_str, args...);
+-  return vformat(to_string_view(format_str), vargs);
+-}
+-
+ template <typename Locale, FMT_ENABLE_IF(detail::is_locale<Locale>::value)>
+ inline auto vformat(const Locale& loc, string_view fmt, format_args args)
+     -> std::string {
+@@ -2829,8 +2784,9 @@ inline auto format(const Locale& loc, format_string<T...> fmt, T&&... args)
+ }
+ 
+ template <typename... T, size_t SIZE, typename Allocator>
+-inline auto format_to(basic_memory_buffer<char, SIZE, Allocator>& buf,
+-                      format_string<T...> fmt, T&&... args) -> appender {
++FMT_DEPRECATED auto format_to(basic_memory_buffer<char, SIZE, Allocator>& buf,
++                              format_string<T...> fmt, T&&... args)
++    -> appender {
+   detail::vformat_to(buf, string_view(fmt), fmt::make_format_args(args...));
+   return appender(buf);
+ }
+diff --git a/ext/fmt/include/fmt/os.h b/ext/fmt/include/fmt/os.h
+index c447831e..6a4bd327 100644
+--- a/ext/fmt/include/fmt/os.h
++++ b/ext/fmt/include/fmt/os.h
+@@ -281,7 +281,7 @@ class buffered_file {
+ // closing the file multiple times will cause a crash on Windows rather
+ // than an exception. You can get standard behavior by overriding the
+ // invalid parameter handler with _set_invalid_parameter_handler.
+-class file {
++class FMT_API file {
+  private:
+   int fd_;  // File descriptor.
+ 
+@@ -303,7 +303,7 @@ class file {
+   file() FMT_NOEXCEPT : fd_(-1) {}
+ 
+   // Opens a file and constructs a file object representing this file.
+-  FMT_API file(cstring_view path, int oflag);
++  file(cstring_view path, int oflag);
+ 
+  public:
+   file(const file&) = delete;
+@@ -320,43 +320,43 @@ class file {
+   }
+ 
+   // Destroys the object closing the file it represents if any.
+-  FMT_API ~file() FMT_NOEXCEPT;
++  ~file() FMT_NOEXCEPT;
+ 
+   // Returns the file descriptor.
+   int descriptor() const FMT_NOEXCEPT { return fd_; }
+ 
+   // Closes the file.
+-  FMT_API void close();
++  void close();
+ 
+   // Returns the file size. The size has signed type for consistency with
+   // stat::st_size.
+-  FMT_API long long size() const;
++  long long size() const;
+ 
+   // Attempts to read count bytes from the file into the specified buffer.
+-  FMT_API size_t read(void* buffer, size_t count);
++  size_t read(void* buffer, size_t count);
+ 
+   // Attempts to write count bytes from the specified buffer to the file.
+-  FMT_API size_t write(const void* buffer, size_t count);
++  size_t write(const void* buffer, size_t count);
+ 
+   // Duplicates a file descriptor with the dup function and returns
+   // the duplicate as a file object.
+-  FMT_API static file dup(int fd);
++  static file dup(int fd);
+ 
+   // Makes fd be the copy of this file descriptor, closing fd first if
+   // necessary.
+-  FMT_API void dup2(int fd);
++  void dup2(int fd);
+ 
+   // Makes fd be the copy of this file descriptor, closing fd first if
+   // necessary.
+-  FMT_API void dup2(int fd, std::error_code& ec) FMT_NOEXCEPT;
++  void dup2(int fd, std::error_code& ec) FMT_NOEXCEPT;
+ 
+   // Creates a pipe setting up read_end and write_end file objects for reading
+   // and writing respectively.
+-  FMT_API static void pipe(file& read_end, file& write_end);
++  static void pipe(file& read_end, file& write_end);
+ 
+   // Creates a buffered_file object associated with this file and detaches
+   // this file object from the file.
+-  FMT_API buffered_file fdopen(const char* mode);
++  buffered_file fdopen(const char* mode);
+ };
+ 
+ // Returns the memory page size.
+diff --git a/ext/fmt/include/fmt/printf.h b/ext/fmt/include/fmt/printf.h
+index 7194b81d..3a3cd152 100644
+--- a/ext/fmt/include/fmt/printf.h
++++ b/ext/fmt/include/fmt/printf.h
+@@ -334,16 +334,16 @@ int parse_header(const Char*& it, const Char* end,
+   if (c >= '0' && c <= '9') {
+     // Parse an argument index (if followed by '$') or a width possibly
+     // preceded with '0' flag(s).
+-    detail::error_handler eh;
+-    int value = parse_nonnegative_int(it, end, eh);
++    int value = parse_nonnegative_int(it, end, -1);
+     if (it != end && *it == '$') {  // value is an argument index
+       ++it;
+-      arg_index = value;
++      arg_index = value != -1 ? value : max_value<int>();
+     } else {
+       if (c == '0') specs.fill[0] = '0';
+       if (value != 0) {
+         // Nonzero value means that we parsed width and don't need to
+         // parse it or flags again, so return now.
++        if (value == -1) FMT_THROW(format_error("number is too big"));
+         specs.width = value;
+         return arg_index;
+       }
+@@ -353,8 +353,8 @@ int parse_header(const Char*& it, const Char* end,
+   // Parse width.
+   if (it != end) {
+     if (*it >= '0' && *it <= '9') {
+-      detail::error_handler eh;
+-      specs.width = parse_nonnegative_int(it, end, eh);
++      specs.width = parse_nonnegative_int(it, end, -1);
++      if (specs.width == -1) FMT_THROW(format_error("number is too big"));
+     } else if (*it == '*') {
+       ++it;
+       specs.width = static_cast<int>(visit_format_arg(
+@@ -412,8 +412,7 @@ void vprintf(buffer<Char>& buf, basic_string_view<Char> format,
+       ++it;
+       c = it != end ? *it : 0;
+       if ('0' <= c && c <= '9') {
+-        detail::error_handler eh;
+-        specs.precision = parse_nonnegative_int(it, end, eh);
++        specs.precision = parse_nonnegative_int(it, end, 0);
+       } else if (c == '*') {
+         ++it;
+         specs.precision = static_cast<int>(
+diff --git a/ext/fmt/include/fmt/xchar.h b/ext/fmt/include/fmt/xchar.h
+index f316ad17..74c69045 100644
+--- a/ext/fmt/include/fmt/xchar.h
++++ b/ext/fmt/include/fmt/xchar.h
+@@ -35,6 +35,11 @@ template <typename... Args>
+ using wformat_string = basic_format_string<wchar_t, type_identity_t<Args>...>;
+ #endif
+ 
++template <> struct is_char<wchar_t> : std::true_type {};
++template <> struct is_char<detail::char8_type> : std::true_type {};
++template <> struct is_char<char16_t> : std::true_type {};
++template <> struct is_char<char32_t> : std::true_type {};
++
+ template <typename... Args>
+ constexpr format_arg_store<wformat_context, Args...> make_wformat_args(
+     const Args&... args) {
+@@ -73,6 +78,24 @@ auto join(std::initializer_list<T> list, wstring_view sep)
+   return join(std::begin(list), std::end(list), sep);
+ }
+ 
++template <typename Char, FMT_ENABLE_IF(!std::is_same<Char, char>::value)>
++auto vformat(basic_string_view<Char> format_str,
++             basic_format_args<buffer_context<type_identity_t<Char>>> args)
++    -> std::basic_string<Char> {
++  basic_memory_buffer<Char> buffer;
++  detail::vformat_to(buffer, format_str, args);
++  return to_string(buffer);
++}
++
++// Pass char_t as a default template parameter instead of using
++// std::basic_string<char_t<S>> to reduce the symbol size.
++template <typename S, typename... Args, typename Char = char_t<S>,
++          FMT_ENABLE_IF(!std::is_same<Char, char>::value)>
++auto format(const S& format_str, Args&&... args) -> std::basic_string<Char> {
++  const auto& vargs = fmt::make_args_checked<Args...>(format_str, args...);
++  return vformat(to_string_view(format_str), vargs);
++}
++
+ template <typename Locale, typename S, typename Char = char_t<S>,
+           FMT_ENABLE_IF(detail::is_locale<Locale>::value&&
+                             detail::is_exotic_char<Char>::value)>
+diff --git a/ext/fmt/src/fmt.cc b/ext/fmt/src/fmt.cc
+index b4910336..d0d6e7fb 100644
+--- a/ext/fmt/src/fmt.cc
++++ b/ext/fmt/src/fmt.cc
+@@ -1,4 +1,8 @@
+ module;
++#ifndef __cpp_modules
++#  error Module not supported.
++#endif
++
+ // put all implementation-provided headers into the global module fragment
+ // to prevent attachment to this module
+ #if !defined(_CRT_SECURE_NO_WARNINGS) && defined(_MSC_VER)
+@@ -76,10 +80,6 @@ export module fmt;
+   }                              \
+   export {
+ 
+-#if defined(_MSC_FULL_VER) && _MSC_FULL_VER > 192930036
+-#define FMT_USE_NONTYPE_TEMPLATE_PARAMETERS 0
+-#endif
+-
+ // all library-provided declarations and definitions
+ // must be in the module purview to be exported
+ #include "fmt/args.h"
+diff --git a/ext/fmt/test/CMakeLists.txt b/ext/fmt/test/CMakeLists.txt
+index 1de7469d..dcf3f4ac 100644
+--- a/ext/fmt/test/CMakeLists.txt
++++ b/ext/fmt/test/CMakeLists.txt
+@@ -81,7 +81,10 @@ add_fmt_test(unicode-test HEADER_ONLY)
+ if (MSVC)
+   target_compile_options(unicode-test PRIVATE /utf-8)
+ endif ()
+-add_fmt_test(wchar-test)
++add_fmt_test(xchar-test)
++add_fmt_test(enforce-checks-test)
++target_compile_definitions(enforce-checks-test PRIVATE
++                           -DFMT_ENFORCE_COMPILE_STRING)
+ 
+ if (FMT_CAN_MODULE)
+   # The tests need {fmt} to be compiled as traditional library
+@@ -101,13 +104,6 @@ if (FMT_CAN_MODULE)
+   endif ()
+ endif ()
+ 
+-if (NOT MSVC)
+-  # FMT_ENFORCE_COMPILE_STRING is not supported under MSVC due to compiler bugs.
+-  add_fmt_test(enforce-checks-test)
+-  target_compile_definitions(enforce-checks-test PRIVATE
+-                             -DFMT_ENFORCE_COMPILE_STRING)
+-endif ()
+-
+ if (NOT DEFINED MSVC_STATIC_RUNTIME AND MSVC)
+   foreach (flag_var
+ 			 CMAKE_CXX_FLAGS CMAKE_CXX_FLAGS_DEBUG CMAKE_CXX_FLAGS_RELEASE
+diff --git a/ext/fmt/test/chrono-test.cc b/ext/fmt/test/chrono-test.cc
+index 98e603ab..113c0fda 100644
+--- a/ext/fmt/test/chrono-test.cc
++++ b/ext/fmt/test/chrono-test.cc
+@@ -48,8 +48,6 @@ TEST(chrono_test, format_tm) {
+   tm.tm_sec = 33;
+   EXPECT_EQ(fmt::format("The date is {:%Y-%m-%d %H:%M:%S}.", tm),
+             "The date is 2016-04-25 11:22:33.");
+-  EXPECT_EQ(fmt::format(L"The date is {:%Y-%m-%d %H:%M:%S}.", tm),
+-            L"The date is 2016-04-25 11:22:33.");
+ }
+ 
+ TEST(chrono_test, grow_buffer) {
+@@ -101,6 +99,7 @@ template <typename TimePoint> auto strftime(TimePoint tp) -> std::string {
+ TEST(chrono_test, time_point) {
+   auto t1 = std::chrono::system_clock::now();
+   EXPECT_EQ(strftime(t1), fmt::format("{:%Y-%m-%d %H:%M:%S}", t1));
++  EXPECT_EQ(strftime(t1), fmt::format("{}", t1));
+   using time_point =
+       std::chrono::time_point<std::chrono::system_clock, std::chrono::seconds>;
+   auto t2 = time_point(std::chrono::seconds(42));
+@@ -151,10 +150,6 @@ TEST(chrono_test, format_default) {
+       fmt::format("{}", std::chrono::duration<int, std::ratio<15, 4>>(42)));
+ }
+ 
+-TEST(chrono_test, format_wide) {
+-  EXPECT_EQ(L"42s", fmt::format(L"{}", std::chrono::seconds(42)));
+-}
+-
+ TEST(chrono_test, align) {
+   auto s = std::chrono::seconds(42);
+   EXPECT_EQ("42s  ", fmt::format("{:5}", s));
+@@ -382,7 +377,7 @@ TEST(chrono_test, weekday) {
+   auto mon = fmt::weekday(1);
+   EXPECT_EQ(fmt::format("{}", mon), "Mon");
+   if (loc != std::locale::classic()) {
+-    EXPECT_THAT((std::vector<std::string>{"пн", "Пн"}),
++    EXPECT_THAT((std::vector<std::string>{"пн", "Пн", "пнд", "Пнд"}),
+                 Contains(fmt::format(loc, "{:L}", mon)));
+   }
+ }
+diff --git a/ext/fmt/test/color-test.cc b/ext/fmt/test/color-test.cc
+index 9a38765a..e2408ca1 100644
+--- a/ext/fmt/test/color-test.cc
++++ b/ext/fmt/test/color-test.cc
+@@ -14,8 +14,6 @@
+ TEST(color_test, format) {
+   EXPECT_EQ(fmt::format(fg(fmt::rgb(255, 20, 30)), "rgb(255,20,30)"),
+             "\x1b[38;2;255;020;030mrgb(255,20,30)\x1b[0m");
+-  EXPECT_EQ(fmt::format(fg(fmt::rgb(255, 20, 30)), L"rgb(255,20,30) wide"),
+-            L"\x1b[38;2;255;020;030mrgb(255,20,30) wide\x1b[0m");
+   EXPECT_EQ(fmt::format(fg(fmt::color::blue), "blue"),
+             "\x1b[38;2;000;000;255mblue\x1b[0m");
+   EXPECT_EQ(
+diff --git a/ext/fmt/test/compile-test.cc b/ext/fmt/test/compile-test.cc
+index fb84ab28..fe2ca110 100644
+--- a/ext/fmt/test/compile-test.cc
++++ b/ext/fmt/test/compile-test.cc
+@@ -92,6 +92,8 @@ TEST(compile_test, format_default) {
+   EXPECT_EQ("foo", fmt::format(FMT_COMPILE("{}"), "foo"));
+   EXPECT_EQ("foo", fmt::format(FMT_COMPILE("{}"), std::string("foo")));
+   EXPECT_EQ("foo", fmt::format(FMT_COMPILE("{}"), test_formattable()));
++  auto t = std::chrono::system_clock::now();
++  EXPECT_EQ(fmt::format("{}", t), fmt::format(FMT_COMPILE("{}"), t));
+ #  ifdef __cpp_lib_byte
+   EXPECT_EQ("42", fmt::format(FMT_COMPILE("{}"), std::byte{42}));
+ #  endif
+diff --git a/ext/fmt/test/core-test.cc b/ext/fmt/test/core-test.cc
+index 43fa1d11..ad1bc38a 100644
+--- a/ext/fmt/test/core-test.cc
++++ b/ext/fmt/test/core-test.cc
+@@ -29,6 +29,10 @@ using testing::_;
+ using testing::Invoke;
+ using testing::Return;
+ 
++#ifdef FMT_FORMAT_H_
++#  error core-test includes format.h
++#endif
++
+ TEST(string_view_test, value_type) {
+   static_assert(std::is_same<string_view::value_type, char>::value, "");
+ }
+@@ -90,34 +94,8 @@ template <typename Char>
+ fmt::basic_string_view<Char> to_string_view(const test_string<Char>& s) {
+   return {s.data(), s.length()};
+ }
+-
+-struct non_string {};
+ }  // namespace test_ns
+ 
+-template <typename T> class is_string_test : public testing::Test {};
+-
+-using string_char_types = testing::Types<char, wchar_t, char16_t, char32_t>;
+-TYPED_TEST_SUITE(is_string_test, string_char_types);
+-
+-template <typename Char>
+-struct derived_from_string_view : fmt::basic_string_view<Char> {};
+-
+-TYPED_TEST(is_string_test, is_string) {
+-  EXPECT_TRUE(fmt::detail::is_string<TypeParam*>::value);
+-  EXPECT_TRUE(fmt::detail::is_string<const TypeParam*>::value);
+-  EXPECT_TRUE(fmt::detail::is_string<TypeParam[2]>::value);
+-  EXPECT_TRUE(fmt::detail::is_string<const TypeParam[2]>::value);
+-  EXPECT_TRUE(fmt::detail::is_string<std::basic_string<TypeParam>>::value);
+-  EXPECT_TRUE(fmt::detail::is_string<fmt::basic_string_view<TypeParam>>::value);
+-  EXPECT_TRUE(
+-      fmt::detail::is_string<derived_from_string_view<TypeParam>>::value);
+-  using fmt_string_view = fmt::detail::std_string_view<TypeParam>;
+-  EXPECT_TRUE(std::is_empty<fmt_string_view>::value !=
+-              fmt::detail::is_string<fmt_string_view>::value);
+-  EXPECT_TRUE(fmt::detail::is_string<test_ns::test_string<TypeParam>>::value);
+-  EXPECT_FALSE(fmt::detail::is_string<test_ns::non_string>::value);
+-}
+-
+ TEST(core_test, is_output_iterator) {
+   EXPECT_TRUE((fmt::detail::is_output_iterator<char*, char>::value));
+   EXPECT_FALSE((fmt::detail::is_output_iterator<const char*, char>::value));
+@@ -428,6 +406,10 @@ TYPED_TEST(numeric_arg_test, make_and_visit) {
+   CHECK_ARG_SIMPLE(std::numeric_limits<TypeParam>::max());
+ }
+ 
++namespace fmt {
++template <> struct is_char<wchar_t> : std::true_type {};
++}  // namespace fmt
++
+ TEST(arg_test, char_arg) {
+   CHECK_ARG(char, 'a', 'a');
+   CHECK_ARG(wchar_t, L'a', 'a');
+diff --git a/ext/fmt/test/format-test.cc b/ext/fmt/test/format-test.cc
+index 83efd054..892556f1 100644
+--- a/ext/fmt/test/format-test.cc
++++ b/ext/fmt/test/format-test.cc
+@@ -78,15 +78,11 @@ TEST(util_test, increment) {
+ TEST(util_test, parse_nonnegative_int) {
+   auto s = fmt::string_view("10000000000");
+   auto begin = s.begin(), end = s.end();
+-  EXPECT_THROW_MSG(
+-      parse_nonnegative_int(begin, end, fmt::detail::error_handler()),
+-      fmt::format_error, "number is too big");
++  EXPECT_EQ(fmt::detail::parse_nonnegative_int(begin, end, -1), -1);
+   s = "2147483649";
+   begin = s.begin();
+   end = s.end();
+-  EXPECT_THROW_MSG(
+-      parse_nonnegative_int(begin, end, fmt::detail::error_handler()),
+-      fmt::format_error, "number is too big");
++  EXPECT_EQ(fmt::detail::parse_nonnegative_int(begin, end, -1), -1);
+ }
+ 
+ TEST(util_test, utf8_to_utf16) {
+@@ -416,10 +412,10 @@ TEST(format_test, arg_errors) {
+ 
+   safe_sprintf(format_str, "{%u", INT_MAX + 1u);
+   EXPECT_THROW_MSG(fmt::format(runtime(format_str)), format_error,
+-                   "number is too big");
++                   "invalid format string");
+   safe_sprintf(format_str, "{%u}", INT_MAX + 1u);
+   EXPECT_THROW_MSG(fmt::format(runtime(format_str)), format_error,
+-                   "number is too big");
++                   "argument not found");
+ }
+ 
+ template <int N> struct test_format {
+@@ -634,13 +630,6 @@ TEST(format_test, space_sign) {
+                    format_error, "format specifier requires numeric argument");
+ }
+ 
+-TEST(format_test, sign_not_truncated) {
+-  wchar_t format_str[] = {
+-      L'{', L':',
+-      '+' | static_cast<wchar_t>(1 << fmt::detail::num_bits<char>()), L'}', 0};
+-  EXPECT_THROW(fmt::format(format_str, 42), format_error);
+-}
+-
+ TEST(format_test, hash_flag) {
+   EXPECT_EQ("42", fmt::format("{0:#}", 42));
+   EXPECT_EQ("-42", fmt::format("{0:#}", -42));
+@@ -754,16 +743,16 @@ TEST(format_test, runtime_width) {
+   safe_sprintf(format_str, "{0:{%u", UINT_MAX);
+   increment(format_str + 4);
+   EXPECT_THROW_MSG(fmt::format(runtime(format_str), 0), format_error,
+-                   "number is too big");
++                   "invalid format string");
+   size_t size = std::strlen(format_str);
+   format_str[size] = '}';
+   format_str[size + 1] = 0;
+   EXPECT_THROW_MSG(fmt::format(runtime(format_str), 0), format_error,
+-                   "number is too big");
++                   "argument not found");
+   format_str[size + 1] = '}';
+   format_str[size + 2] = 0;
+   EXPECT_THROW_MSG(fmt::format(runtime(format_str), 0), format_error,
+-                   "number is too big");
++                   "argument not found");
+ 
+   EXPECT_THROW_MSG(fmt::format(runtime("{0:{"), 0), format_error,
+                    "invalid format string");
+@@ -931,16 +920,16 @@ TEST(format_test, runtime_precision) {
+   safe_sprintf(format_str, "{0:.{%u", UINT_MAX);
+   increment(format_str + 5);
+   EXPECT_THROW_MSG(fmt::format(runtime(format_str), 0), format_error,
+-                   "number is too big");
++                   "invalid format string");
+   size_t size = std::strlen(format_str);
+   format_str[size] = '}';
+   format_str[size + 1] = 0;
+   EXPECT_THROW_MSG(fmt::format(runtime(format_str), 0), format_error,
+-                   "number is too big");
++                   "argument not found");
+   format_str[size + 1] = '}';
+   format_str[size + 2] = 0;
+   EXPECT_THROW_MSG(fmt::format(runtime(format_str), 0), format_error,
+-                   "number is too big");
++                   "argument not found");
+ 
+   EXPECT_THROW_MSG(fmt::format(runtime("{0:.{"), 0), format_error,
+                    "invalid format string");
+@@ -1019,7 +1008,6 @@ TEST(format_test, format_bool) {
+   EXPECT_EQ("false", fmt::format("{}", false));
+   EXPECT_EQ("1", fmt::format("{:d}", true));
+   EXPECT_EQ("true ", fmt::format("{:5}", true));
+-  EXPECT_EQ(L"true", fmt::format(L"{}", true));
+   EXPECT_EQ("true", fmt::format("{:s}", true));
+   EXPECT_EQ("false", fmt::format("{:s}", false));
+   EXPECT_EQ("false ", fmt::format("{:6s}", false));
+@@ -1330,7 +1318,6 @@ TEST(format_test, format_char) {
+   check_unknown_types('a', types, "char");
+   EXPECT_EQ("a", fmt::format("{0}", 'a'));
+   EXPECT_EQ("z", fmt::format("{0:c}", 'z'));
+-  EXPECT_EQ(L"a", fmt::format(L"{0}", 'a'));
+   int n = 'x';
+   for (const char* type = types + 1; *type; ++type) {
+     std::string format_str = fmt::format("{{:{}}}", *type);
+@@ -1351,12 +1338,6 @@ TEST(format_test, format_unsigned_char) {
+   EXPECT_EQ("42", fmt::format("{}", static_cast<uint8_t>(42)));
+ }
+ 
+-TEST(format_test, format_wchar) {
+-  EXPECT_EQ(L"a", fmt::format(L"{0}", L'a'));
+-  // This shouldn't compile:
+-  // format("{}", L'a');
+-}
+-
+ TEST(format_test, format_cstring) {
+   check_unknown_types("test", "sp", "string");
+   EXPECT_EQ("test", fmt::format("{0}", "test"));
+@@ -1451,26 +1432,25 @@ TEST(format_test, format_explicitly_convertible_to_std_string_view) {
+ }
+ #endif
+ 
+-namespace fake_qt {
+-class QString {
+- public:
+-  QString(const wchar_t* s) : s_(s) {}
+-  const wchar_t* utf16() const FMT_NOEXCEPT { return s_.data(); }
+-  int size() const FMT_NOEXCEPT { return static_cast<int>(s_.size()); }
+-
+- private:
+-  std::wstring s_;
++struct converible_to_anything {
++  template <typename T> operator T() const { return T(); }
+ };
+ 
+-fmt::basic_string_view<wchar_t> to_string_view(const QString& s) FMT_NOEXCEPT {
+-  return {s.utf16(), static_cast<size_t>(s.size())};
+-}
+-}  // namespace fake_qt
++FMT_BEGIN_NAMESPACE
++template <> struct formatter<converible_to_anything> {
++  FMT_CONSTEXPR auto parse(format_parse_context& ctx) -> decltype(ctx.begin()) {
++    return ctx.begin();
++  }
+ 
+-TEST(format_test, format_foreign_strings) {
+-  using fake_qt::QString;
+-  EXPECT_EQ(fmt::format(QString(L"{}"), 42), L"42");
+-  EXPECT_EQ(fmt::format(QString(L"{}"), QString(L"42")), L"42");
++  auto format(converible_to_anything, format_context& ctx)
++      -> decltype(ctx.out()) {
++    return format_to(ctx.out(), "foo");
++  }
++};
++FMT_END_NAMESPACE
++
++TEST(format_test, format_convertible_to_anything) {
++  EXPECT_EQ("foo", fmt::format("{}", converible_to_anything()));
+ }
+ 
+ class Answer {};
+@@ -1513,14 +1493,6 @@ TEST(format_test, format_to_custom) {
+   EXPECT_STREQ(buf, "42");
+ }
+ 
+-TEST(format_test, wide_format_string) {
+-  EXPECT_EQ(L"42", fmt::format(L"{}", 42));
+-  EXPECT_EQ(L"4.2", fmt::format(L"{}", 4.2));
+-  EXPECT_EQ(L"abc", fmt::format(L"{}", L"abc"));
+-  EXPECT_EQ(L"z", fmt::format(L"{}", L'z'));
+-  EXPECT_THROW(fmt::format(L"{:*\x343E}", 42), fmt::format_error);
+-}
+-
+ TEST(format_test, format_string_from_speed_test) {
+   EXPECT_EQ("1.2340000000:0042:+3.13:str:0x3e8:X:%",
+             fmt::format("{0:0.10f}:{1:04}:{2:+g}:{3}:{4}:{5}:%", 1.234, 42,
+@@ -1534,7 +1506,7 @@ TEST(format_test, format_examples) {
+   EXPECT_EQ("42", fmt::format("{}", 42));
+ 
+   memory_buffer out;
+-  format_to(out, "The answer is {}.", 42);
++  format_to(std::back_inserter(out), "The answer is {}.", 42);
+   EXPECT_EQ("The answer is 42.", to_string(out));
+ 
+   const char* filename = "nonexistent";
+@@ -1587,9 +1559,6 @@ TEST(format_test, format_examples) {
+   EXPECT_THROW_MSG(fmt::format(runtime("The answer is {:d}"), "forty-two"),
+                    format_error, "invalid type specifier");
+ 
+-  EXPECT_EQ(L"Cyrillic letter \x42e",
+-            fmt::format(L"Cyrillic letter {}", L'\x42e'));
+-
+   EXPECT_WRITE(
+       stdout, fmt::print("{}", std::numeric_limits<double>::infinity()), "inf");
+ }
+@@ -1602,7 +1571,6 @@ TEST(format_test, print) {
+ 
+ TEST(format_test, variadic) {
+   EXPECT_EQ("abc1", fmt::format("{}c{}", "ab", 1));
+-  EXPECT_EQ(L"abc1", fmt::format(L"{}c{}", L"ab", 1));
+ }
+ 
+ TEST(format_test, dynamic) {
+@@ -1662,8 +1630,8 @@ TEST(format_test, join_bytes) {
+ #endif
+ 
+ std::string vformat_message(int id, const char* format, fmt::format_args args) {
+-  fmt::memory_buffer buffer;
+-  format_to(buffer, "[{}] ", id);
++  auto buffer = fmt::memory_buffer();
++  format_to(fmt::appender(buffer), "[{}] ", id);
+   vformat_to(fmt::appender(buffer), format, args);
+   return to_string(buffer);
+ }
+@@ -1698,15 +1666,11 @@ fmt::string_view to_string_view(string_like) { return "foo"; }
+ constexpr char with_null[3] = {'{', '}', '\0'};
+ constexpr char no_null[2] = {'{', '}'};
+ static FMT_CONSTEXPR_DECL const char static_with_null[3] = {'{', '}', '\0'};
+-static FMT_CONSTEXPR_DECL const wchar_t static_with_null_wide[3] = {'{', '}',
+-                                                                    '\0'};
+ static FMT_CONSTEXPR_DECL const char static_no_null[2] = {'{', '}'};
+-static FMT_CONSTEXPR_DECL const wchar_t static_no_null_wide[2] = {'{', '}'};
+ 
+ TEST(format_test, compile_time_string) {
+   EXPECT_EQ("foo", fmt::format(FMT_STRING("foo")));
+   EXPECT_EQ("42", fmt::format(FMT_STRING("{}"), 42));
+-  EXPECT_EQ(L"42", fmt::format(FMT_STRING(L"{}"), 42));
+   EXPECT_EQ("foo", fmt::format(FMT_STRING("{}"), string_like()));
+ 
+ #if FMT_USE_NONTYPE_TEMPLATE_PARAMETERS
+@@ -1718,14 +1682,10 @@ TEST(format_test, compile_time_string) {
+ #endif
+ 
+   (void)static_with_null;
+-  (void)static_with_null_wide;
+   (void)static_no_null;
+-  (void)static_no_null_wide;
+ #ifndef _MSC_VER
+   EXPECT_EQ("42", fmt::format(FMT_STRING(static_with_null), 42));
+-  EXPECT_EQ(L"42", fmt::format(FMT_STRING(static_with_null_wide), 42));
+   EXPECT_EQ("42", fmt::format(FMT_STRING(static_no_null), 42));
+-  EXPECT_EQ(L"42", fmt::format(FMT_STRING(static_no_null_wide), 42));
+ #endif
+ 
+   (void)with_null;
+@@ -1736,7 +1696,6 @@ TEST(format_test, compile_time_string) {
+ #endif
+ #if defined(FMT_USE_STRING_VIEW) && __cplusplus >= 201703L
+   EXPECT_EQ("42", fmt::format(FMT_STRING(std::string_view("{}")), 42));
+-  EXPECT_EQ(L"42", fmt::format(FMT_STRING(std::wstring_view(L"{}")), 42));
+ #endif
+ }
+ 
+@@ -1892,7 +1851,7 @@ TEST(format_test, format_to) {
+ 
+ TEST(format_test, format_to_memory_buffer) {
+   auto buf = fmt::basic_memory_buffer<char, 100>();
+-  fmt::format_to(buf, "{}", "foo");
++  fmt::format_to(fmt::appender(buf), "{}", "foo");
+   EXPECT_EQ("foo", to_string(buf));
+ }
+ 
+@@ -2066,7 +2025,7 @@ TEST(format_test, format_string_errors) {
+                "compile-time checks for named arguments require C++20 support",
+                int);
+ #  endif
+-  EXPECT_ERROR_NOARGS("{10000000000}", "number is too big");
++  EXPECT_ERROR_NOARGS("{10000000000}", "argument not found");
+   EXPECT_ERROR_NOARGS("{0x}", "invalid format string");
+   EXPECT_ERROR_NOARGS("{-}", "invalid format string");
+   EXPECT_ERROR("{:{0x}}", "invalid format string", int);
+@@ -2096,15 +2055,6 @@ TEST(format_test, vformat_to) {
+   EXPECT_EQ("42", s);
+ }
+ 
+-template <typename T> static std::string fmt_to_string(const T& t) {
+-  return fmt::format(FMT_STRING("{}"), t);
+-}
+-
+-TEST(format_test, fmt_string_in_template) {
+-  EXPECT_EQ(fmt_to_string(1), "1");
+-  EXPECT_EQ(fmt_to_string(0), "0");
+-}
+-
+ #endif  // FMT_USE_CONSTEXPR
+ 
+ TEST(format_test, char_traits_is_not_ambiguous) {
+@@ -2119,49 +2069,6 @@ TEST(format_test, char_traits_is_not_ambiguous) {
+ #endif
+ }
+ 
+-#if __cplusplus > 201103L
+-struct custom_char {
+-  int value;
+-  custom_char() = default;
+-
+-  template <typename T>
+-  constexpr custom_char(T val) : value(static_cast<int>(val)) {}
+-
+-  operator int() const { return value; }
+-};
+-
+-int to_ascii(custom_char c) { return c; }
+-
+-FMT_BEGIN_NAMESPACE
+-template <> struct is_char<custom_char> : std::true_type {};
+-FMT_END_NAMESPACE
+-
+-TEST(format_test, format_custom_char) {
+-  const custom_char format[] = {'{', '}', 0};
+-  auto result = fmt::format(format, custom_char('x'));
+-  EXPECT_EQ(result.size(), 1);
+-  EXPECT_EQ(result[0], custom_char('x'));
+-}
+-#endif
+-
+-// Convert a char8_t string to std::string. Otherwise GTest will insist on
+-// inserting `char8_t` NTBS into a `char` stream which is disabled by P1423.
+-template <typename S> std::string from_u8str(const S& str) {
+-  return std::string(str.begin(), str.end());
+-}
+-
+-TEST(format_test, format_utf8_precision) {
+-  using str_type = std::basic_string<fmt::detail::char8_type>;
+-  auto format =
+-      str_type(reinterpret_cast<const fmt::detail::char8_type*>(u8"{:.4}"));
+-  auto str = str_type(reinterpret_cast<const fmt::detail::char8_type*>(
+-      u8"caf\u00e9s"));  // cafés
+-  auto result = fmt::format(format, str);
+-  EXPECT_EQ(fmt::detail::compute_width(result), 4);
+-  EXPECT_EQ(result.size(), 5);
+-  EXPECT_EQ(from_u8str(result), from_u8str(str.substr(0, 5)));
+-}
+-
+ struct check_back_appender {};
+ 
+ FMT_BEGIN_NAMESPACE
+diff --git a/ext/fmt/test/module-test.cc b/ext/fmt/test/module-test.cc
+index 5a5171a1..69b6099a 100644
+--- a/ext/fmt/test/module-test.cc
++++ b/ext/fmt/test/module-test.cc
+@@ -102,11 +102,17 @@ TEST(module_test, macros) {
+ TEST(module_test, to_string) {
+   EXPECT_EQ("42", fmt::to_string(42));
+   EXPECT_EQ("42", fmt::to_string(42.0));
++
++  EXPECT_EQ(L"42", fmt::to_wstring(42));
++  EXPECT_EQ(L"42", fmt::to_wstring(42.0));
+ }
+ 
+ TEST(module_test, format) {
+   EXPECT_EQ("42", fmt::format("{:}", 42));
+   EXPECT_EQ("-42", fmt::format("{0}", -42.0));
++
++  EXPECT_EQ(L"42", fmt::format(L"{:}", 42));
++  EXPECT_EQ(L"-42", fmt::format(L"{0}", -42.0));
+ }
+ 
+ TEST(module_test, format_to) {
+@@ -121,10 +127,23 @@ TEST(module_test, format_to) {
+   fmt::memory_buffer mb;
+   fmt::format_to(mb, "{}", 42);
+   EXPECT_EQ("42", std::string_view(buffer));
++
++  std::wstring w;
++  fmt::format_to(std::back_inserter(w), L"{}", 42);
++  EXPECT_EQ(L"42", w);
++
++  wchar_t wbuffer[4] = {0};
++  fmt::format_to(wbuffer, L"{}", 42);
++  EXPECT_EQ(L"42", std::wstring_view(wbuffer));
++
++  fmt::wmemory_buffer wb;
++  fmt::format_to(wb, L"{}", 42);
++  EXPECT_EQ(L"42", std::wstring_view(wbuffer));
+ }
+ 
+ TEST(module_test, formatted_size) {
+   EXPECT_EQ(2u, fmt::formatted_size("{}", 42));
++  EXPECT_EQ(2u, fmt::formatted_size(L"{}", 42));
+ }
+ 
+ TEST(module_test, format_to_n) {
+@@ -133,6 +152,12 @@ TEST(module_test, format_to_n) {
+   EXPECT_EQ(2u, result.size);
+   char buffer[4] = {0};
+   fmt::format_to_n(buffer, 3, "{}", 12345);
++
++  std::wstring w;
++  auto wresult = fmt::format_to_n(std::back_inserter(w), 1, L"{}", 42);
++  EXPECT_EQ(2u, wresult.size);
++  wchar_t wbuffer[4] = {0};
++  fmt::format_to_n(wbuffer, 3, L"{}", 12345);
+ }
+ 
+ TEST(module_test, format_args) {
+@@ -158,6 +183,8 @@ TEST(module_test, wformat_args) {
+ TEST(module_test, checked_format_args) {
+   fmt::basic_format_args args = fmt::make_args_checked<int>("{}", 42);
+   EXPECT_TRUE(args.get(0));
++  fmt::basic_format_args wargs = fmt::make_args_checked<int>(L"{}", 42);
++  EXPECT_TRUE(wargs.get(0));
+ }
+ 
+ TEST(module_test, dynamic_format_args) {
+@@ -166,10 +193,18 @@ TEST(module_test, dynamic_format_args) {
+   fmt::basic_format_args args = dyn_store;
+   EXPECT_FALSE(args.get(3));
+   EXPECT_TRUE(args.get(fmt::string_view("a42")));
++
++  fmt::dynamic_format_arg_store<fmt::wformat_context> wdyn_store;
++  wdyn_store.push_back(fmt::arg(L"a42", 42));
++  fmt::basic_format_args wargs = wdyn_store;
++  EXPECT_FALSE(wargs.get(3));
++  EXPECT_TRUE(wargs.get(fmt::wstring_view(L"a42")));
+ }
+ 
+ TEST(module_test, vformat) {
+   EXPECT_EQ("42", fmt::vformat("{}", fmt::make_format_args(42)));
++  EXPECT_EQ(L"42", fmt::vformat(fmt::to_string_view(L"{}"),
++                                fmt::make_wformat_args(42)));
+ }
+ 
+ TEST(module_test, vformat_to) {
+@@ -181,6 +216,15 @@ TEST(module_test, vformat_to) {
+   char buffer[4] = {0};
+   fmt::vformat_to(buffer, "{:}", store);
+   EXPECT_EQ("42", std::string_view(buffer));
++
++  auto wstore = fmt::make_wformat_args(42);
++  std::wstring w;
++  fmt::vformat_to(std::back_inserter(w), L"{}", wstore);
++  EXPECT_EQ(L"42", w);
++
++  wchar_t wbuffer[4] = {0};
++  fmt::vformat_to(wbuffer, L"{:}", wstore);
++  EXPECT_EQ(L"42", std::wstring_view(wbuffer));
+ }
+ 
+ TEST(module_test, vformat_to_n) {
+@@ -189,11 +233,13 @@ TEST(module_test, vformat_to_n) {
+   auto result = fmt::vformat_to_n(std::back_inserter(s), 1, "{}", store);
+   char buffer[4] = {0};
+   fmt::vformat_to_n(buffer, 3, "{:}", store);
+-}
+ 
+-TEST(module_test, print) {
+-  EXPECT_WRITE(stdout, fmt::print("{}µ", 42), "42µ");
+-  EXPECT_WRITE(stderr, fmt::print(stderr, "{}µ", 4.2), "4.2µ");
++  auto wstore = fmt::make_wformat_args(12345);
++  std::wstring w;
++  auto wresult = fmt::vformat_to_n(std::back_inserter(w), 1,
++                                   fmt::to_string_view(L"{}"), wstore);
++  wchar_t wbuffer[4] = {0};
++  fmt::vformat_to_n(wbuffer, 3, fmt::to_string_view(L"{:}"), wstore);
+ }
+ 
+ std::string as_string(std::wstring_view text) {
+@@ -201,25 +247,38 @@ std::string as_string(std::wstring_view text) {
+           text.size() * sizeof(text[0])};
+ }
+ 
++TEST(module_test, print) {
++  EXPECT_WRITE(stdout, fmt::print("{}µ", 42), "42µ");
++  EXPECT_WRITE(stderr, fmt::print(stderr, "{}µ", 4.2), "4.2µ");
++  if (false) {
++    EXPECT_WRITE(stdout, fmt::print(L"{}µ", 42), as_string(L"42µ"));
++    EXPECT_WRITE(stderr, fmt::print(stderr, L"{}µ", 4.2), as_string(L"4.2µ"));
++  }
++}
++
+ TEST(module_test, vprint) {
+   EXPECT_WRITE(stdout, fmt::vprint("{:}µ", fmt::make_format_args(42)), "42µ");
+   EXPECT_WRITE(stderr, fmt::vprint(stderr, "{}", fmt::make_format_args(4.2)),
+                "4.2");
+-
+-  EXPECT_WRITE(stdout, fmt::vprint(L"{:}µ", fmt::make_wformat_args(42)),
+-               as_string(L"42µ"));
+-  EXPECT_WRITE(stderr, fmt::vprint(stderr, L"{}", fmt::make_wformat_args(42)),
+-               as_string(L"42"));
++  if (false) {
++    EXPECT_WRITE(stdout, fmt::vprint(L"{:}µ", fmt::make_wformat_args(42)),
++                 as_string(L"42µ"));
++    EXPECT_WRITE(stderr, fmt::vprint(stderr, L"{}", fmt::make_wformat_args(42)),
++                 as_string(L"42"));
++  }
+ }
+ 
+ TEST(module_test, named_args) {
+   EXPECT_EQ("42", fmt::format("{answer}", fmt::arg("answer", 42)));
++  EXPECT_EQ(L"42", fmt::format(L"{answer}", fmt::arg(L"answer", 42)));
+ }
+ 
+ TEST(module_test, literals) {
+   using namespace fmt::literals;
+   EXPECT_EQ("42", fmt::format("{answer}", "answer"_a = 42));
+   EXPECT_EQ("42", "{}"_format(42));
++  EXPECT_EQ(L"42", fmt::format(L"{answer}", L"answer"_a = 42));
++  EXPECT_EQ(L"42", L"{}"_format(42));
+ }
+ 
+ TEST(module_test, locale) {
+@@ -231,6 +290,14 @@ TEST(module_test, locale) {
+   fmt::vformat_to(std::back_inserter(s), classic, "{:L}", store);
+   EXPECT_EQ("4.2", s);
+   EXPECT_EQ("4.2", fmt::format("{:L}", 4.2));
++
++  auto wstore = fmt::make_wformat_args(4.2);
++  EXPECT_EQ(L"4.2", fmt::format(classic, L"{:L}", 4.2));
++  EXPECT_EQ(L"4.2", fmt::vformat(classic, L"{:L}", wstore));
++  std::wstring w;
++  fmt::vformat_to(std::back_inserter(w), classic, L"{:L}", wstore);
++  EXPECT_EQ(L"4.2", w);
++  EXPECT_EQ(L"4.2", fmt::format(L"{:L}", 4.2));
+ }
+ 
+ TEST(module_test, string_view) {
+@@ -305,6 +372,8 @@ TEST(module_test, error_code) {
+             fmt::format("{0}", std::error_code(42, std::generic_category())));
+   EXPECT_EQ("system:42",
+             fmt::format("{0}", std::error_code(42, fmt::system_category())));
++  EXPECT_EQ(L"generic:42",
++            fmt::format(L"{0}", std::error_code(42, std::generic_category())));
+ }
+ 
+ TEST(module_test, format_int) {
+@@ -330,10 +399,18 @@ TEST(module_test, formatter) {
+ TEST(module_test, join) {
+   int arr[3] = {1, 2, 3};
+   std::vector<double> vec{1.0, 2.0, 3.0};
+-  EXPECT_EQ("1, 2, 3", to_string(fmt::join(arr + 0, arr + 3, ", ")));
+-  EXPECT_EQ("1, 2, 3", to_string(fmt::join(arr, ", ")));
+-  EXPECT_EQ("1, 2, 3", to_string(fmt::join(vec.begin(), vec.end(), ", ")));
+-  EXPECT_EQ("1, 2, 3", to_string(fmt::join(vec, ", ")));
++  std::initializer_list<int> il{1, 2, 3};
++  auto sep = fmt::to_string_view(", ");
++  EXPECT_EQ("1, 2, 3", to_string(fmt::join(arr + 0, arr + 3, sep)));
++  EXPECT_EQ("1, 2, 3", to_string(fmt::join(arr, sep)));
++  EXPECT_EQ("1, 2, 3", to_string(fmt::join(vec.begin(), vec.end(), sep)));
++  EXPECT_EQ("1, 2, 3", to_string(fmt::join(vec, sep)));
++  EXPECT_EQ("1, 2, 3", to_string(fmt::join(il, sep)));
++
++  auto wsep = fmt::to_string_view(L", ");
++  EXPECT_EQ(L"1, 2, 3", fmt::format(L"{}", fmt::join(arr + 0, arr + 3, wsep)));
++  EXPECT_EQ(L"1, 2, 3", fmt::format(L"{}", fmt::join(arr, wsep)));
++  EXPECT_EQ(L"1, 2, 3", fmt::format(L"{}", fmt::join(il, wsep)));
+ }
+ 
+ TEST(module_test, time) {
+@@ -349,13 +426,19 @@ TEST(module_test, time_point) {
+   auto now = std::chrono::system_clock::now();
+   std::string_view past("2021-05-20 10:30:15");
+   EXPECT_TRUE(past < fmt::format("{:%Y-%m-%d %H:%M:%S}", now));
++  std::wstring_view wpast(L"2021-05-20 10:30:15");
++  EXPECT_TRUE(wpast < fmt::format(L"{:%Y-%m-%d %H:%M:%S}", now));
+ }
+ 
+ TEST(module_test, time_duration) {
+-  EXPECT_EQ("42s", fmt::format("{}", std::chrono::seconds{42}));
+   using us = std::chrono::duration<double, std::micro>;
++  EXPECT_EQ("42s", fmt::format("{}", std::chrono::seconds{42}));
+   EXPECT_EQ("4.2µs", fmt::format("{:3.1}", us{4.234}));
+   EXPECT_EQ("4.2µs", fmt::format(std::locale::classic(), "{:L}", us{4.2}));
++
++  EXPECT_EQ(L"42s", fmt::format(L"{}", std::chrono::seconds{42}));
++  EXPECT_EQ(L"4.2µs", fmt::format(L"{:3.1}", us{4.234}));
++  EXPECT_EQ(L"4.2µs", fmt::format(std::locale::classic(), L"{:L}", us{4.2}));
+ }
+ 
+ TEST(module_test, weekday) {
+@@ -374,6 +457,11 @@ TEST(module_test, to_string_view) {
+ TEST(module_test, printf) {
+   EXPECT_WRITE(stdout, fmt::printf("%f", 42.123456), "42.123456");
+   EXPECT_WRITE(stdout, fmt::printf("%d", 42), "42");
++  if (false) {
++    EXPECT_WRITE(stdout, fmt::printf(L"%f", 42.123456),
++                 as_string(L"42.123456"));
++    EXPECT_WRITE(stdout, fmt::printf(L"%d", 42), as_string(L"42"));
++  }
+ }
+ 
+ TEST(module_test, fprintf) {
+@@ -381,12 +469,24 @@ TEST(module_test, fprintf) {
+   std::ostringstream os;
+   fmt::fprintf(os, "%s", "bla");
+   EXPECT_EQ("bla", os.str());
++
++  EXPECT_WRITE(stderr, fmt::fprintf(stderr, L"%d", 42), as_string(L"42"));
++  std::wostringstream ws;
++  fmt::fprintf(ws, L"%s", L"bla");
++  EXPECT_EQ(L"bla", ws.str());
+ }
+ 
+-TEST(module_test, sprintf) { EXPECT_EQ("42", fmt::sprintf("%d", 42)); }
++TEST(module_test, sprintf) {
++  EXPECT_EQ("42", fmt::sprintf("%d", 42));
++  EXPECT_EQ(L"42", fmt::sprintf(L"%d", 42));
++}
+ 
+ TEST(module_test, vprintf) {
+   EXPECT_WRITE(stdout, fmt::vprintf("%d", fmt::make_printf_args(42)), "42");
++  if (false) {
++    EXPECT_WRITE(stdout, fmt::vprintf(L"%d", fmt::make_wprintf_args(42)),
++                 as_string(L"42"));
++  }
+ }
+ 
+ TEST(module_test, vfprintf) {
+@@ -395,10 +495,18 @@ TEST(module_test, vfprintf) {
+   std::ostringstream os;
+   fmt::vfprintf(os, "%d", args);
+   EXPECT_EQ("42", os.str());
++  auto wargs = fmt::make_wprintf_args(42);
++  if (false) {
++    EXPECT_WRITE(stderr, fmt::vfprintf(stderr, L"%d", wargs), as_string(L"42"));
++  }
++  std::wostringstream ws;
++  fmt::vfprintf(ws, L"%d", wargs);
++  EXPECT_EQ(L"42", ws.str());
+ }
+ 
+ TEST(module_test, vsprintf) {
+   EXPECT_EQ("42", fmt::vsprintf("%d", fmt::make_printf_args(42)));
++  EXPECT_EQ(L"42", fmt::vsprintf(L"%d", fmt::make_wprintf_args(42)));
+ }
+ 
+ TEST(module_test, color) {
+@@ -407,6 +515,8 @@ TEST(module_test, color) {
+   auto emphasis_check = fmt::emphasis::underline | fmt::emphasis::bold;
+   EXPECT_EQ("\x1B[30m42\x1B[0m",
+             fmt::format(fg(fmt::terminal_color::black), "{}", 42));
++  EXPECT_EQ(L"\x1B[30m42\x1B[0m",
++            fmt::format(fg(fmt::terminal_color::black), L"{}", 42));
+ }
+ 
+ TEST(module_test, cstring_view) {
+@@ -445,3 +555,11 @@ TEST(module_test, has_formatter) {
+ TEST(module_test, is_formattable) {
+   EXPECT_FALSE(fmt::is_formattable<disabled_formatter>::value);
+ }
++
++TEST(module_test, compile_format_string) {
++  using namespace fmt::literals;
++  EXPECT_EQ("42", fmt::format("{0:x}"_cf, 0x42));
++  EXPECT_EQ(L"42", fmt::format(L"{:}"_cf, 42));
++  EXPECT_EQ("4.2", fmt::format("{arg:3.1f}"_cf, "arg"_a = 4.2));
++  EXPECT_EQ(L" 42", fmt::format(L"{arg:>3}"_cf, L"arg"_a = L"42"));
++}
+diff --git a/ext/fmt/test/os-test.cc b/ext/fmt/test/os-test.cc
+index cc23e6b8..a34f96e6 100644
+--- a/ext/fmt/test/os-test.cc
++++ b/ext/fmt/test/os-test.cc
+@@ -80,18 +80,6 @@ TEST(os_test, format_std_error_code) {
+                         std::error_code(-42, fmt::system_category())));
+ }
+ 
+-TEST(os_test, format_std_error_code_wide) {
+-  EXPECT_EQ(L"generic:42",
+-            fmt::format(FMT_STRING(L"{0}"),
+-                        std::error_code(42, std::generic_category())));
+-  EXPECT_EQ(L"system:42",
+-            fmt::format(FMT_STRING(L"{0}"),
+-                        std::error_code(42, fmt::system_category())));
+-  EXPECT_EQ(L"system:-42",
+-            fmt::format(FMT_STRING(L"{0}"),
+-                        std::error_code(-42, fmt::system_category())));
+-}
+-
+ TEST(os_test, format_windows_error) {
+   LPWSTR message = 0;
+   auto result = FormatMessageW(
+diff --git a/ext/fmt/test/ostream-test.cc b/ext/fmt/test/ostream-test.cc
+index 99bc6e5b..19105f45 100644
+--- a/ext/fmt/test/ostream-test.cc
++++ b/ext/fmt/test/ostream-test.cc
+@@ -45,29 +45,22 @@ template <typename T> void operator,(type_with_comma_op, const T&);
+ template <typename T> type_with_comma_op operator<<(T&, const date&);
+ 
+ enum streamable_enum {};
++
+ std::ostream& operator<<(std::ostream& os, streamable_enum) {
+   return os << "streamable_enum";
+ }
+ 
+-std::wostream& operator<<(std::wostream& os, streamable_enum) {
+-  return os << L"streamable_enum";
+-}
+-
+ enum unstreamable_enum {};
+ 
+ TEST(ostream_test, enum) {
+   EXPECT_EQ("streamable_enum", fmt::format("{}", streamable_enum()));
+   EXPECT_EQ("0", fmt::format("{}", unstreamable_enum()));
+-  EXPECT_EQ(L"streamable_enum", fmt::format(L"{}", streamable_enum()));
+-  EXPECT_EQ(L"0", fmt::format(L"{}", unstreamable_enum()));
+ }
+ 
+ TEST(ostream_test, format) {
+   EXPECT_EQ("a string", fmt::format("{0}", test_string("a string")));
+   EXPECT_EQ("The date is 2012-12-9",
+             fmt::format("The date is {0}", date(2012, 12, 9)));
+-  EXPECT_EQ(L"The date is 2012-12-9",
+-            fmt::format(L"The date is {0}", date(2012, 12, 9)));
+ }
+ 
+ TEST(ostream_test, format_specs) {
+@@ -103,9 +96,6 @@ TEST(ostream_test, print) {
+   std::ostringstream os;
+   fmt::print(os, "Don't {}!", "panic");
+   EXPECT_EQ("Don't panic!", os.str());
+-  std::wostringstream wos;
+-  fmt::print(wos, L"Don't {}!", L"panic");
+-  EXPECT_EQ(L"Don't panic!", wos.str());
+ }
+ 
+ TEST(ostream_test, write_to_ostream) {
+@@ -220,7 +210,6 @@ template <typename T> struct convertible {
+ 
+ TEST(ostream_test, disable_builtin_ostream_operators) {
+   EXPECT_EQ("42", fmt::format("{:d}", convertible<unsigned short>(42)));
+-  EXPECT_EQ(L"42", fmt::format(L"{:d}", convertible<unsigned short>(42)));
+   EXPECT_EQ("foo", fmt::format("{}", convertible<const char*>("foo")));
+ }
+ 
+diff --git a/ext/fmt/test/printf-test.cc b/ext/fmt/test/printf-test.cc
+index 5aaa306e..e22e0b9d 100644
+--- a/ext/fmt/test/printf-test.cc
++++ b/ext/fmt/test/printf-test.cc
+@@ -11,8 +11,8 @@
+ #include <climits>
+ #include <cstring>
+ 
+-#include "fmt/core.h"
+ #include "fmt/ostream.h"
++#include "fmt/xchar.h"
+ #include "gtest-extra.h"
+ #include "util.h"
+ 
+@@ -52,34 +52,6 @@ std::wstring test_sprintf(fmt::basic_string_view<wchar_t> format,
+       << "format: " << format;                          \
+   EXPECT_EQ(expected_output, fmt::sprintf(make_positional(format), arg))
+ 
+-template <typename T> struct value_extractor {
+-  T operator()(T value) { return value; }
+-
+-  template <typename U> FMT_NORETURN T operator()(U) {
+-    throw std::runtime_error(fmt::format("invalid type {}", typeid(U).name()));
+-  }
+-
+-#if FMT_USE_INT128
+-  // Apple Clang does not define typeid for __int128_t and __uint128_t.
+-  FMT_NORETURN T operator()(fmt::detail::int128_t) {
+-    throw std::runtime_error("invalid type __int128_t");
+-  }
+-
+-  FMT_NORETURN T operator()(fmt::detail::uint128_t) {
+-    throw std::runtime_error("invalid type __uint128_t");
+-  }
+-#endif
+-};
+-
+-TEST(printf_test, arg_converter) {
+-  long long value = max_value<long long>();
+-  auto arg = fmt::detail::make_arg<fmt::format_context>(value);
+-  fmt::visit_format_arg(
+-      fmt::detail::arg_converter<long long, fmt::format_context>(arg, 'd'),
+-      arg);
+-  EXPECT_EQ(value, fmt::visit_format_arg(value_extractor<long long>(), arg));
+-}
+-
+ TEST(printf_test, no_args) {
+   EXPECT_EQ("test", test_sprintf("test"));
+   EXPECT_EQ(L"test", fmt::sprintf(L"test"));
+@@ -114,9 +86,9 @@ TEST(printf_test, automatic_arg_indexing) {
+ 
+ TEST(printf_test, number_is_too_big_in_arg_index) {
+   EXPECT_THROW_MSG(test_sprintf(format("%{}$", big_num)), format_error,
+-                   "number is too big");
++                   "argument not found");
+   EXPECT_THROW_MSG(test_sprintf(format("%{}$d", big_num)), format_error,
+-                   "number is too big");
++                   "argument not found");
+ }
+ 
+ TEST(printf_test, switch_arg_indexing) {
+@@ -130,7 +102,7 @@ TEST(printf_test, switch_arg_indexing) {
+   EXPECT_THROW_MSG(test_sprintf("%d%1$", 1, 2), format_error,
+                    "cannot switch from automatic to manual argument indexing");
+   EXPECT_THROW_MSG(test_sprintf(format("%d%{}$d", big_num), 1, 2), format_error,
+-                   "number is too big");
++                   "cannot switch from automatic to manual argument indexing");
+   EXPECT_THROW_MSG(test_sprintf("%d%1$d", 1, 2), format_error,
+                    "cannot switch from automatic to manual argument indexing");
+ 
+@@ -151,7 +123,7 @@ TEST(printf_test, invalid_arg_index) {
+ 
+   EXPECT_THROW_MSG(test_sprintf("%2$", 42), format_error, "argument not found");
+   EXPECT_THROW_MSG(test_sprintf(format("%{}$d", big_num), 42), format_error,
+-                   "number is too big");
++                   "argument not found");
+ }
+ 
+ TEST(printf_test, default_align_right) {
+diff --git a/ext/fmt/test/ranges-test.cc b/ext/fmt/test/ranges-test.cc
+index 64f65e46..4932fe21 100644
+--- a/ext/fmt/test/ranges-test.cc
++++ b/ext/fmt/test/ranges-test.cc
+@@ -219,11 +219,6 @@ TEST(ranges_test, join_tuple) {
+   EXPECT_EQ(fmt::format("{}", fmt::join(t4, "/")), "4");
+ }
+ 
+-TEST(ranges_test, wide_string_join_tuple) {
+-  auto t = std::tuple<wchar_t, int, float>('a', 1, 2.0f);
+-  EXPECT_EQ(fmt::format(L"({})", fmt::join(t, L", ")), L"(a, 1, 2)");
+-}
+-
+ TEST(ranges_test, join_initializer_list) {
+   EXPECT_EQ(fmt::format("{}", fmt::join({1, 2, 3}, ", ")), "1, 2, 3");
+   EXPECT_EQ(fmt::format("{}", fmt::join({"fmt", "rocks", "!"}, " ")),
+diff --git a/ext/fmt/test/test-assert.h b/ext/fmt/test/test-assert.h
+index cc7920df..ab7b2bf7 100644
+--- a/ext/fmt/test/test-assert.h
++++ b/ext/fmt/test/test-assert.h
+@@ -14,7 +14,6 @@ void throw_assertion_failure(const char* message);
+ #define FMT_ASSERT(condition, message) \
+   if (!(condition)) throw_assertion_failure(message);
+ 
+-#include "gtest-extra.h"
+ #include "gtest/gtest.h"
+ 
+ class assertion_failure : public std::logic_error {
+diff --git a/ext/fmt/test/wchar-test.cc b/ext/fmt/test/xchar-test.cc
+similarity index 59%
+rename from test/wchar-test.cc
+rename to test/xchar-test.cc
+index 4569a11a..78ecb2c7 100644
+--- a/ext/fmt/test/wchar-test.cc
++++ b/ext/fmt/test/xchar-test.cc
+@@ -5,32 +5,144 @@
+ //
+ // For the license information refer to format.h.
+ 
++#include "fmt/xchar.h"
++
+ #include <complex>
+ 
+-#include "fmt/xchar.h"
++#include "fmt/chrono.h"
++#include "fmt/color.h"
++#include "fmt/ostream.h"
++#include "fmt/ranges.h"
+ #include "gtest/gtest.h"
+ 
+ using fmt::detail::max_value;
+ 
++namespace test_ns {
++template <typename Char> class test_string {
++ private:
++  std::basic_string<Char> s_;
++
++ public:
++  test_string(const Char* s) : s_(s) {}
++  const Char* data() const { return s_.data(); }
++  size_t length() const { return s_.size(); }
++  operator const Char*() const { return s_.c_str(); }
++};
++
++template <typename Char>
++fmt::basic_string_view<Char> to_string_view(const test_string<Char>& s) {
++  return {s.data(), s.length()};
++}
++
++struct non_string {};
++}  // namespace test_ns
++
++template <typename T> class is_string_test : public testing::Test {};
++
++using string_char_types = testing::Types<char, wchar_t, char16_t, char32_t>;
++TYPED_TEST_SUITE(is_string_test, string_char_types);
++
++template <typename Char>
++struct derived_from_string_view : fmt::basic_string_view<Char> {};
++
++TYPED_TEST(is_string_test, is_string) {
++  EXPECT_TRUE(fmt::detail::is_string<TypeParam*>::value);
++  EXPECT_TRUE(fmt::detail::is_string<const TypeParam*>::value);
++  EXPECT_TRUE(fmt::detail::is_string<TypeParam[2]>::value);
++  EXPECT_TRUE(fmt::detail::is_string<const TypeParam[2]>::value);
++  EXPECT_TRUE(fmt::detail::is_string<std::basic_string<TypeParam>>::value);
++  EXPECT_TRUE(fmt::detail::is_string<fmt::basic_string_view<TypeParam>>::value);
++  EXPECT_TRUE(
++      fmt::detail::is_string<derived_from_string_view<TypeParam>>::value);
++  using fmt_string_view = fmt::detail::std_string_view<TypeParam>;
++  EXPECT_TRUE(std::is_empty<fmt_string_view>::value !=
++              fmt::detail::is_string<fmt_string_view>::value);
++  EXPECT_TRUE(fmt::detail::is_string<test_ns::test_string<TypeParam>>::value);
++  EXPECT_FALSE(fmt::detail::is_string<test_ns::non_string>::value);
++}
++
+ // std::is_constructible is broken in MSVC until version 2015.
+ #if !FMT_MSC_VER || FMT_MSC_VER >= 1900
+ struct explicitly_convertible_to_wstring_view {
+   explicit operator fmt::wstring_view() const { return L"foo"; }
+ };
+ 
+-TEST(wchar_test, format_explicitly_convertible_to_wstring_view) {
++TEST(xchar_test, format_explicitly_convertible_to_wstring_view) {
+   EXPECT_EQ(L"foo",
+             fmt::format(L"{}", explicitly_convertible_to_wstring_view()));
+ }
+ #endif
+ 
+-TEST(wchar_test, format_to) {
++TEST(xchar_test, format) {
++  EXPECT_EQ(L"42", fmt::format(L"{}", 42));
++  EXPECT_EQ(L"4.2", fmt::format(L"{}", 4.2));
++  EXPECT_EQ(L"abc", fmt::format(L"{}", L"abc"));
++  EXPECT_EQ(L"z", fmt::format(L"{}", L'z'));
++  EXPECT_THROW(fmt::format(L"{:*\x343E}", 42), fmt::format_error);
++  EXPECT_EQ(L"true", fmt::format(L"{}", true));
++  EXPECT_EQ(L"a", fmt::format(L"{0}", 'a'));
++  EXPECT_EQ(L"a", fmt::format(L"{0}", L'a'));
++  EXPECT_EQ(L"Cyrillic letter \x42e",
++            fmt::format(L"Cyrillic letter {}", L'\x42e'));
++  EXPECT_EQ(L"abc1", fmt::format(L"{}c{}", L"ab", 1));
++}
++
++TEST(xchar_test, compile_time_string) {
++#if defined(FMT_USE_STRING_VIEW) && __cplusplus >= 201703L
++  EXPECT_EQ(L"42", fmt::format(FMT_STRING(std::wstring_view(L"{}")), 42));
++#endif
++}
++
++#if __cplusplus > 201103L
++struct custom_char {
++  int value;
++  custom_char() = default;
++
++  template <typename T>
++  constexpr custom_char(T val) : value(static_cast<int>(val)) {}
++
++  operator int() const { return value; }
++};
++
++int to_ascii(custom_char c) { return c; }
++
++FMT_BEGIN_NAMESPACE
++template <> struct is_char<custom_char> : std::true_type {};
++FMT_END_NAMESPACE
++
++TEST(xchar_test, format_custom_char) {
++  const custom_char format[] = {'{', '}', 0};
++  auto result = fmt::format(format, custom_char('x'));
++  EXPECT_EQ(result.size(), 1);
++  EXPECT_EQ(result[0], custom_char('x'));
++}
++#endif
++
++// Convert a char8_t string to std::string. Otherwise GTest will insist on
++// inserting `char8_t` NTBS into a `char` stream which is disabled by P1423.
++template <typename S> std::string from_u8str(const S& str) {
++  return std::string(str.begin(), str.end());
++}
++
++TEST(xchar_test, format_utf8_precision) {
++  using str_type = std::basic_string<fmt::detail::char8_type>;
++  auto format =
++      str_type(reinterpret_cast<const fmt::detail::char8_type*>(u8"{:.4}"));
++  auto str = str_type(reinterpret_cast<const fmt::detail::char8_type*>(
++      u8"caf\u00e9s"));  // cafés
++  auto result = fmt::format(format, str);
++  EXPECT_EQ(fmt::detail::compute_width(result), 4);
++  EXPECT_EQ(result.size(), 5);
++  EXPECT_EQ(from_u8str(result), from_u8str(str.substr(0, 5)));
++}
++
++TEST(xchar_test, format_to) {
+   auto buf = std::vector<wchar_t>();
+   fmt::format_to(std::back_inserter(buf), L"{}{}", 42, L'\0');
+   EXPECT_STREQ(buf.data(), L"42");
+ }
+ 
+-TEST(wchar_test, vformat_to) {
++TEST(xchar_test, vformat_to) {
+   using wcontext = fmt::wformat_context;
+   fmt::basic_format_arg<wcontext> warg = fmt::detail::make_arg<wcontext>(42);
+   auto wargs = fmt::basic_format_args<wcontext>(&warg, 1);
+@@ -63,12 +175,12 @@ TEST(format_test, wide_format_to_n) {
+ }
+ 
+ #if FMT_USE_USER_DEFINED_LITERALS
+-TEST(wchar_test, format_udl) {
++TEST(xchar_test, format_udl) {
+   using namespace fmt::literals;
+   EXPECT_EQ(L"{}c{}"_format(L"ab", 1), fmt::format(L"{}c{}", L"ab", 1));
+ }
+ 
+-TEST(wchar_test, named_arg_udl) {
++TEST(xchar_test, named_arg_udl) {
+   using namespace fmt::literals;
+   auto udl_a =
+       fmt::format(L"{first}{second}{first}{third}", L"first"_a = L"abra",
+@@ -80,17 +192,85 @@ TEST(wchar_test, named_arg_udl) {
+ }
+ #endif  // FMT_USE_USER_DEFINED_LITERALS
+ 
+-TEST(wchar_test, print) {
++TEST(xchar_test, print) {
+   // Check that the wide print overload compiles.
+   if (fmt::detail::const_check(false)) fmt::print(L"test");
+ }
+ 
+-TEST(wchar_test, join) {
++TEST(xchar_test, join) {
+   int v[3] = {1, 2, 3};
+   EXPECT_EQ(fmt::format(L"({})", fmt::join(v, v + 3, L", ")), L"(1, 2, 3)");
++  auto t = std::tuple<wchar_t, int, float>('a', 1, 2.0f);
++  EXPECT_EQ(fmt::format(L"({})", fmt::join(t, L", ")), L"(a, 1, 2)");
++}
++
++enum streamable_enum {};
++
++std::wostream& operator<<(std::wostream& os, streamable_enum) {
++  return os << L"streamable_enum";
++}
++
++enum unstreamable_enum {};
++
++TEST(xchar_test, enum) {
++  EXPECT_EQ(L"streamable_enum", fmt::format(L"{}", streamable_enum()));
++  EXPECT_EQ(L"0", fmt::format(L"{}", unstreamable_enum()));
++}
++
++TEST(xchar_test, sign_not_truncated) {
++  wchar_t format_str[] = {
++      L'{', L':',
++      '+' | static_cast<wchar_t>(1 << fmt::detail::num_bits<char>()), L'}', 0};
++  EXPECT_THROW(fmt::format(format_str, 42), fmt::format_error);
++}
++
++namespace fake_qt {
++class QString {
++ public:
++  QString(const wchar_t* s) : s_(s) {}
++  const wchar_t* utf16() const FMT_NOEXCEPT { return s_.data(); }
++  int size() const FMT_NOEXCEPT { return static_cast<int>(s_.size()); }
++
++ private:
++  std::wstring s_;
++};
++
++fmt::basic_string_view<wchar_t> to_string_view(const QString& s) FMT_NOEXCEPT {
++  return {s.utf16(), static_cast<size_t>(s.size())};
++}
++}  // namespace fake_qt
++
++TEST(format_test, format_foreign_strings) {
++  using fake_qt::QString;
++  EXPECT_EQ(fmt::format(QString(L"{}"), 42), L"42");
++  EXPECT_EQ(fmt::format(QString(L"{}"), QString(L"42")), L"42");
++}
++
++TEST(xchar_test, chrono) {
++  auto tm = std::tm();
++  tm.tm_year = 116;
++  tm.tm_mon = 3;
++  tm.tm_mday = 25;
++  tm.tm_hour = 11;
++  tm.tm_min = 22;
++  tm.tm_sec = 33;
++  EXPECT_EQ(fmt::format("The date is {:%Y-%m-%d %H:%M:%S}.", tm),
++            "The date is 2016-04-25 11:22:33.");
++  EXPECT_EQ(L"42s", fmt::format(L"{}", std::chrono::seconds(42)));
++}
++
++TEST(xchar_test, color) {
++  EXPECT_EQ(fmt::format(fg(fmt::rgb(255, 20, 30)), L"rgb(255,20,30) wide"),
++            L"\x1b[38;2;255;020;030mrgb(255,20,30) wide\x1b[0m");
++}
++
++TEST(xchar_test, ostream) {
++  std::wostringstream wos;
++  fmt::print(wos, L"Don't {}!", L"panic");
++  EXPECT_EQ(L"Don't panic!", wos.str());
+ }
+ 
+-TEST(wchar_test, to_wstring) { EXPECT_EQ(L"42", fmt::to_wstring(42)); }
++TEST(xchar_test, to_wstring) { EXPECT_EQ(L"42", fmt::to_wstring(42)); }
+ 
+ #ifndef FMT_STATIC_THOUSANDS_SEPARATOR
+ template <typename Char> struct numpunct : std::numpunct<Char> {

@@ -36,9 +36,9 @@
 #include <spdlog/sinks/base_sink.h>
 #include <spdlog/sinks/rotating_file_sink.h>
 
-#include <spdlog/spdlog-inl.h>
-#include <spdlog/sinks/base_sink-inl.h>
-#include <spdlog/sinks/rotating_file_sink-inl.h>
+//#include <spdlog/spdlog-inl.h>
+//#include <spdlog/sinks/base_sink-inl.h>
+//#include <spdlog/sinks/rotating_file_sink-inl.h>
 
 #include <string>
 

@@ -30,35 +30,25 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#ifndef HEADERTECH_FILESYSTEM_HPP
-#define HEADERTECH_FILESYSTEM_HPP
+#include <Common/Clock.hpp>
 
-#include <FileSystem/Exports.h>
+using namespace HeaderTech::Common;
 
-#include <Config/Config.hpp>
+HeaderTech::Common::SystemClock::SystemClock() :
+        Clock(),
+        m_startTime(std::chrono::high_resolution_clock::now())
+{
 
-#include <memory>
+}
 
-namespace HeaderTech::FileSystem {
-    class FileSystem : public std::enable_shared_from_this<FileSystem> {
-    public:
-        HeaderTech_FileSystem_Export explicit FileSystem(
-                const HeaderTech::Config::ConfigPtr &config,
-                const char *argv0
-        ) noexcept;
+SystemClock::~SystemClock()
+{
 
-        HeaderTech_FileSystem_Export ~FileSystem() noexcept;
-    };
+}
 
-    using FileSystemPtr = std::shared_ptr<FileSystem>;
-    using FileSystemWeakPtr = std::weak_ptr<FileSystem>;
-
-    inline static FileSystemPtr MakeFileSystem(
-            const HeaderTech::Config::ConfigPtr &config,
-            const char *argv0
-    ) noexcept
-    { return std::make_shared<FileSystem>(config, argv0); }
-}// namespace HeaderTech::FileSystem
-
-
-#endif//HEADERTECH_FILESYSTEM_HPP
+double SystemClock::Tick() const noexcept
+{
+    return std::chrono::duration_cast<std::chrono::duration<double, std::milli>>(
+            m_startTime - std::chrono::high_resolution_clock::now()
+    ).count();
+}

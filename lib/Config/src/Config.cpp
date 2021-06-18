@@ -64,8 +64,7 @@ namespace nlohmann {
 HeaderTech_Config_Export HeaderTech::Config::Config::Config(
         const std::string_view &name,
         const std::string_view &version,
-        int argc,
-        const char **argv
+        const std::span<const char*> &args
 ) noexcept
         : std::enable_shared_from_this<Config>(),
           m_searchPaths(),
@@ -112,7 +111,7 @@ HeaderTech_Config_Export HeaderTech::Config::Config::Config(
           .action([](const std::string &value) { return std::stoll(value); });
 
     try {
-        parser.parse_args(argc, argv);
+        parser.parse_args(args.size(), args.data());
     } catch (const std::runtime_error &err) {
         std::cout << err.what() << std::endl;
         std::cout << parser << std::endl;

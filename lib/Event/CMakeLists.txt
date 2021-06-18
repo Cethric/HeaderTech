@@ -3,10 +3,17 @@ project(Event VERSION 0.0.1.0 DESCRIPTION "HeaderTech Event library" HOMEPAGE_UR
 
 set(
         Event_SRC
+        src/Event.cpp
+        src/EventHandler.cpp
+        src/EventProcessor.cpp
 )
 
 set(
         Event_INC
+        inc/Event/Event.hpp
+        inc/Event/EventHandler.hpp
+        inc/Event/EventProcessor.hpp
+        inc/Event/EventPriorityQueue.hpp
         inc/Event/Reactive/Reactive.hpp
 )
 
@@ -19,5 +26,6 @@ target_include_directories(
 )
 
 target_link_libraries(Event PRIVATE Common)
+target_link_libraries(Event PUBLIC ctti::ctti hashmap::hashmap)
 
 ConfigureLibrary(Event 0 0 1 "+dev")

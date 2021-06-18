@@ -30,35 +30,23 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#ifndef HEADERTECH_FILESYSTEM_HPP
-#define HEADERTECH_FILESYSTEM_HPP
+#include <Event/EventHandler.hpp>
 
-#include <FileSystem/Exports.h>
+using namespace HeaderTech::Event;
 
-#include <Config/Config.hpp>
+EventHandler::EventHandler(
+        const EventHandlerCallerFunction &caller,
+        EventHandlerPriority priority
+) noexcept:
+        m_caller(caller),
+        m_priority(priority),
+        m_disabled(false)
+{}
 
-#include <memory>
+bool EventHandler::HandleEvent(const EventStorage *storage) noexcept
+{ return m_disabled || m_caller(storage); }
 
-namespace HeaderTech::FileSystem {
-    class FileSystem : public std::enable_shared_from_this<FileSystem> {
-    public:
-        HeaderTech_FileSystem_Export explicit FileSystem(
-                const HeaderTech::Config::ConfigPtr &config,
-                const char *argv0
-        ) noexcept;
-
-        HeaderTech_FileSystem_Export ~FileSystem() noexcept;
-    };
-
-    using FileSystemPtr = std::shared_ptr<FileSystem>;
-    using FileSystemWeakPtr = std::weak_ptr<FileSystem>;
-
-    inline static FileSystemPtr MakeFileSystem(
-            const HeaderTech::Config::ConfigPtr &config,
-            const char *argv0
-    ) noexcept
-    { return std::make_shared<FileSystem>(config, argv0); }
-}// namespace HeaderTech::FileSystem
-
-
-#endif//HEADERTECH_FILESYSTEM_HPP
+EventHandler::~EventHandler() noexcept
+{
+    m_caller = nullptr;
+}

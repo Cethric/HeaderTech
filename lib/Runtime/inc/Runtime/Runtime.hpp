@@ -47,8 +47,7 @@ namespace HeaderTech::Runtime {
         HeaderTech_Runtime_Export Runtime(
                 const std::string_view &name,
                 const std::string_view &version,
-                int argc,
-                const char **argv
+                const std::span<const char *>& args
         ) noexcept;
 
         HeaderTech_Runtime_Export ~Runtime() noexcept;

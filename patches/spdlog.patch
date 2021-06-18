@@ -1,8 +1,22 @@
-:160000 160000 616866f 616866f M	ext/spdlog
- ext/spdlog | 0
- 1 file changed, 0 insertions(+), 0 deletions(-)
+:160000 160000 a530b87 0000000 M	ext/spdlog
+ ext/spdlog | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 Submodule ext/spdlog contains modified content
+Submodule ext/spdlog a530b87..12df172:
+diff --git a/ext/spdlog/include/spdlog/async.h b/ext/spdlog/include/spdlog/async.h
+index f7956305..6406822c 100644
+--- a/ext/spdlog/include/spdlog/async.h
++++ b/ext/spdlog/include/spdlog/async.h
+@@ -46,7 +46,7 @@ struct async_factory_impl
+         auto tp = registry_inst.get_tp();
+         if (tp == nullptr)
+         {
+-            tp = std::make_shared<details::thread_pool>(details::default_async_q_size, 1);
++            tp = std::make_shared<details::thread_pool>(details::default_async_q_size, 1U);
+             registry_inst.set_tp(tp);
+         }
+ 
 diff --git a/ext/spdlog/include/spdlog/common-inl.h b/ext/spdlog/include/spdlog/common-inl.h
 index c3e99222..5fa4e5d9 100644
 --- a/ext/spdlog/include/spdlog/common-inl.h
@@ -15,4 +29,153 @@ index c3e99222..5fa4e5d9 100644
 +    fmt::format_system_error(outbuf, last_errno, msg.c_str());
      msg_ = fmt::to_string(outbuf);
  }
+ 
+diff --git a/ext/spdlog/include/spdlog/details/file_helper.h b/ext/spdlog/include/spdlog/details/file_helper.h
+index 5395d9cb..473baf1e 100644
+--- a/ext/spdlog/include/spdlog/details/file_helper.h
++++ b/ext/spdlog/include/spdlog/details/file_helper.h
+@@ -47,7 +47,7 @@ public:
+ 
+ private:
+     const int open_tries_ = 5;
+-    const int open_interval_ = 10;
++    const unsigned int open_interval_ = 10;
+     std::FILE *fd_{nullptr};
+     filename_t filename_;
+ };
+diff --git a/ext/spdlog/include/spdlog/details/fmt_helper.h b/ext/spdlog/include/spdlog/details/fmt_helper.h
+index 5dc311a0..10f97d03 100644
+--- a/ext/spdlog/include/spdlog/details/fmt_helper.h
++++ b/ext/spdlog/include/spdlog/details/fmt_helper.h
+@@ -54,7 +54,9 @@ inline void pad2(int n, memory_buf_t &dest)
+     }
+     else // unlikely, but just in case, let fmt deal with it
+     {
+-        fmt::format_to(dest, "{:02}", n);
++        auto data = std::vector<char>();
++        fmt::format_to(std::back_inserter(data), "{:02}", n);
++        dest.append(data.data(), data.data() + data.size());
+     }
+ }
+ 
+diff --git a/ext/spdlog/include/spdlog/details/os-inl.h b/ext/spdlog/include/spdlog/details/os-inl.h
+index 6df89565..41052899 100644
+--- a/ext/spdlog/include/spdlog/details/os-inl.h
++++ b/ext/spdlog/include/spdlog/details/os-inl.h
+@@ -366,7 +366,7 @@ SPDLOG_INLINE size_t thread_id() SPDLOG_NOEXCEPT
+ 
+ // This is avoid msvc issue in sleep_for that happens if the clock changes.
+ // See https://github.com/gabime/spdlog/issues/609
+-SPDLOG_INLINE void sleep_for_millis(int milliseconds) SPDLOG_NOEXCEPT
++SPDLOG_INLINE void sleep_for_millis(unsigned int milliseconds) SPDLOG_NOEXCEPT
+ {
+ #if defined(_WIN32)
+     ::Sleep(milliseconds);
+diff --git a/ext/spdlog/include/spdlog/details/os.h b/ext/spdlog/include/spdlog/details/os.h
+index 9fda1447..770bb0cf 100644
+--- a/ext/spdlog/include/spdlog/details/os.h
++++ b/ext/spdlog/include/spdlog/details/os.h
+@@ -74,7 +74,7 @@ SPDLOG_API size_t thread_id() SPDLOG_NOEXCEPT;
+ 
+ // This is avoid msvc issue in sleep_for that happens if the clock changes.
+ // See https://github.com/gabime/spdlog/issues/609
+-SPDLOG_API void sleep_for_millis(int milliseconds) SPDLOG_NOEXCEPT;
++SPDLOG_API void sleep_for_millis(unsigned int milliseconds) SPDLOG_NOEXCEPT;
+ 
+ SPDLOG_API std::string filename_to_str(const filename_t &filename);
+ 
+diff --git a/ext/spdlog/include/spdlog/details/registry-inl.h b/ext/spdlog/include/spdlog/details/registry-inl.h
+index a60faabc..6451957a 100644
+--- a/ext/spdlog/include/spdlog/details/registry-inl.h
++++ b/ext/spdlog/include/spdlog/details/registry-inl.h
+@@ -195,14 +195,14 @@ SPDLOG_INLINE void registry::flush_every(std::chrono::seconds interval)
+     periodic_flusher_ = details::make_unique<periodic_worker>(clbk, interval);
+ }
+ 
+-SPDLOG_INLINE void registry::set_error_handler(void (*handler)(const std::string &msg))
++SPDLOG_INLINE void registry::set_error_handler(err_handler handler)
+ {
+     std::lock_guard<std::mutex> lock(logger_map_mutex_);
+     for (auto &l : loggers_)
+     {
+         l.second->set_error_handler(handler);
+     }
+-    err_handler_ = handler;
++    err_handler_ = std::move(handler);
+ }
+ 
+ SPDLOG_INLINE void registry::apply_all(const std::function<void(const std::shared_ptr<logger>)> &fun)
+diff --git a/ext/spdlog/include/spdlog/details/registry.h b/ext/spdlog/include/spdlog/details/registry.h
+index b069c3f5..c626104f 100644
+--- a/ext/spdlog/include/spdlog/details/registry.h
++++ b/ext/spdlog/include/spdlog/details/registry.h
+@@ -63,7 +63,7 @@ public:
+ 
+     void flush_every(std::chrono::seconds interval);
+ 
+-    void set_error_handler(void (*handler)(const std::string &msg));
++    void set_error_handler(err_handler handler);
+ 
+     void apply_all(const std::function<void(const std::shared_ptr<logger>)> &fun);
+ 
+@@ -99,7 +99,7 @@ private:
+     std::unique_ptr<formatter> formatter_;
+     spdlog::level::level_enum global_log_level_ = level::info;
+     level::level_enum flush_level_ = level::off;
+-    void (*err_handler_)(const std::string &msg) = nullptr;
++    err_handler err_handler_;
+     std::shared_ptr<thread_pool> tp_;
+     std::unique_ptr<periodic_worker> periodic_flusher_;
+     std::shared_ptr<logger> default_logger_;
+diff --git a/ext/spdlog/include/spdlog/logger.h b/ext/spdlog/include/spdlog/logger.h
+index 28e7dffd..8f258661 100644
+--- a/ext/spdlog/include/spdlog/logger.h
++++ b/ext/spdlog/include/spdlog/logger.h
+@@ -337,8 +337,9 @@ protected:
+         }
+         SPDLOG_TRY
+         {
+-            memory_buf_t buf;
+-            fmt::format_to(buf, fmt, std::forward<Args>(args)...);
++//            memory_buf_t buf;
++            auto buf = std::vector<char>();
++            fmt::format_to(std::back_inserter(buf), fmt, std::forward<Args>(args)...);
+             details::log_msg log_msg(loc, name_, lvl, string_view_t(buf.data(), buf.size()));
+             log_it_(log_msg, log_enabled, traceback_enabled);
+         }
+diff --git a/ext/spdlog/include/spdlog/sinks/dup_filter_sink.h b/ext/spdlog/include/spdlog/sinks/dup_filter_sink.h
+index c9a08d68..5ced9c27 100644
+--- a/ext/spdlog/include/spdlog/sinks/dup_filter_sink.h
++++ b/ext/spdlog/include/spdlog/sinks/dup_filter_sink.h
+@@ -10,6 +10,7 @@
+ #include <mutex>
+ #include <string>
+ #include <chrono>
++#include <vector>
+ 
+ // Duplicate message removal sink.
+ // Skip the message if previous one is identical and less than "max_skip_duration" have passed
+@@ -62,8 +63,8 @@ protected:
+         // log the "skipped.." message
+         if (skip_counter_ > 0)
+         {
+-            memory_buf_t buf;
+-            fmt::format_to(buf, "Skipped {} duplicate messages..", skip_counter_);
++            auto buf = std::vector<char>();
++            fmt::format_to(std::back_inserter(buf), "Skipped {} duplicate messages..", skip_counter_);
+             details::log_msg skipped_msg{msg.logger_name, level::info, string_view_t{buf.data(), buf.size()}};
+             dist_sink<Mutex>::sink_it_(skipped_msg);
+         }
+diff --git a/ext/spdlog/tests/test_backtrace.cpp b/ext/spdlog/tests/test_backtrace.cpp
+index 89f4426d..9504b82b 100644
+--- a/ext/spdlog/tests/test_backtrace.cpp
++++ b/ext/spdlog/tests/test_backtrace.cpp
+@@ -48,7 +48,7 @@ TEST_CASE("bactrace-async", "[bactrace]")
+     for (int i = 0; i < 100; i++)
+         logger->debug("debug message {}", i);
+ 
+-    sleep_for_millis(10);
++    sleep_for_millis(100);
+     REQUIRE(test_sink->lines().size() == 1);
+     REQUIRE(test_sink->lines()[0] == "info message");
  

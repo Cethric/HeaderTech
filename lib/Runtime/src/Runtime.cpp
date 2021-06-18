@@ -42,8 +42,7 @@
 HeaderTech_Runtime_Export HeaderTech::Runtime::Runtime::Runtime(
         const std::string_view &name,
         const std::string_view &version,
-        int argc,
-        const char **argv
+        const std::span<const char *>& args
 ) noexcept
         : std::enable_shared_from_this<Runtime>(),
           m_config(nullptr),
@@ -52,8 +51,8 @@ HeaderTech_Runtime_Export HeaderTech::Runtime::Runtime::Runtime(
           m_log(nullptr),
           m_running(false)
 {
-    m_config     = std::make_shared<HeaderTech::Config::Config>(name, version, argc, argv);
-    m_fileSystem = std::make_shared<HeaderTech::FileSystem::FileSystem>(m_config, argv[0]);
+    m_config     = std::make_shared<HeaderTech::Config::Config>(name, version, args);
+    m_fileSystem = std::make_shared<HeaderTech::FileSystem::FileSystem>(m_config, args[0]);
     m_logging    = std::make_shared<HeaderTech::Logging::Logging>(m_config, m_fileSystem);
     m_log        = m_logging->CreateLogger<HeaderTech::Runtime::Runtime>();
 }

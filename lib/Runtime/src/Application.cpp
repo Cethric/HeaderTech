@@ -30,35 +30,41 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#ifndef HEADERTECH_FILESYSTEM_HPP
-#define HEADERTECH_FILESYSTEM_HPP
+#include "Runtime/Application.hpp"
 
-#include <FileSystem/Exports.h>
+using namespace HeaderTech::Runtime;
 
-#include <Config/Config.hpp>
+Application::Application(
+        const std::string_view &name,
+        const std::string_view &version,
+        const std::span<const char *> &args,
+        const HeaderTech::Common::ClockPtr &clock
+) noexcept:
+        HeaderTech::Event::EventProcessor(clock),
+        m_config(HeaderTech::Config::MakeConfig(name, version, args)),
+        m_fileSystem(HeaderTech::FileSystem::MakeFileSystem(m_config, args[0])),
+        m_logging(HeaderTech::Logging::MakeLogging(m_config, m_fileSystem)),
+        m_log(m_logging->CreateLogger<Application>()),
+        m_isRunning(false)
+{
+    m_log->info("Launching {} {}", name.data(), version.data());
+}
 
-#include <memory>
+Application::~Application() noexcept
+{
+    m_log->info("The application has been shutdown");
+}
 
-namespace HeaderTech::FileSystem {
-    class FileSystem : public std::enable_shared_from_this<FileSystem> {
-    public:
-        HeaderTech_FileSystem_Export explicit FileSystem(
-                const HeaderTech::Config::ConfigPtr &config,
-                const char *argv0
-        ) noexcept;
+int Application::Launch() noexcept
+{
+    m_isRunning = true;
+    while (m_isRunning) {
+        ProcessTick();
+    }
+    return 0;
+}
 
-        HeaderTech_FileSystem_Export ~FileSystem() noexcept;
-    };
-
-    using FileSystemPtr = std::shared_ptr<FileSystem>;
-    using FileSystemWeakPtr = std::weak_ptr<FileSystem>;
-
-    inline static FileSystemPtr MakeFileSystem(
-            const HeaderTech::Config::ConfigPtr &config,
-            const char *argv0
-    ) noexcept
-    { return std::make_shared<FileSystem>(config, argv0); }
-}// namespace HeaderTech::FileSystem
-
-
-#endif//HEADERTECH_FILESYSTEM_HPP
+void Application::Terminate() noexcept
+{
+    m_isRunning = false;
+}

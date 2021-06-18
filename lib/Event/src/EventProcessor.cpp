@@ -30,35 +30,49 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#ifndef HEADERTECH_FILESYSTEM_HPP
-#define HEADERTECH_FILESYSTEM_HPP
+#include <Event/EventProcessor.hpp>
 
-#include <FileSystem/Exports.h>
+using namespace HeaderTech::Event;
 
-#include <Config/Config.hpp>
+EventProcessor::EventProcessor(const HeaderTech::Common::ClockPtr &clock) noexcept:
+        m_bindings(),
+        m_eventPriorityQueue(clock)
+{
 
-#include <memory>
+}
 
-namespace HeaderTech::FileSystem {
-    class FileSystem : public std::enable_shared_from_this<FileSystem> {
-    public:
-        HeaderTech_FileSystem_Export explicit FileSystem(
-                const HeaderTech::Config::ConfigPtr &config,
-                const char *argv0
-        ) noexcept;
+EventProcessor::~EventProcessor() noexcept
+{
+    m_bindings.clear();
+}
 
-        HeaderTech_FileSystem_Export ~FileSystem() noexcept;
-    };
+void EventProcessor::ProcessTick()
+{
+    auto event = m_eventPriorityQueue.Pop();
+    if (event != nullptr) {
+        auto id = event->Id();
 
-    using FileSystemPtr = std::shared_ptr<FileSystem>;
-    using FileSystemWeakPtr = std::weak_ptr<FileSystem>;
+        auto bindings = m_bindings.find(id);
+        if (bindings != m_bindings.end()) {
+            for (const auto &binding :bindings->second.data()) {
+                binding->HandleEvent(event);
+            }
+        }
+    }
+}
 
-    inline static FileSystemPtr MakeFileSystem(
-            const HeaderTech::Config::ConfigPtr &config,
-            const char *argv0
-    ) noexcept
-    { return std::make_shared<FileSystem>(config, argv0); }
-}// namespace HeaderTech::FileSystem
+EventHandlerPtr EventProcessor::Bind(EventHandlerPtr handler, const EventId &eventId) noexcept
+{
+    m_bindings[eventId].emplace(handler);
+    auto bindings = m_bindings.find(eventId);
+    if (bindings == m_bindings.end()) {
+        bindings = m_bindings.insert({eventId, {}}).first;
+    }
+    bindings->second.emplace(handler);
+    return handler;
+}
 
+void EventProcessor::Dispatch(EventStorage *event) noexcept
+{
 
-#endif//HEADERTECH_FILESYSTEM_HPP
+}

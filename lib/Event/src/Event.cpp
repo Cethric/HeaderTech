@@ -30,35 +30,25 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#ifndef HEADERTECH_FILESYSTEM_HPP
-#define HEADERTECH_FILESYSTEM_HPP
+#include <Event/Event.hpp>
+#include <utility>
 
-#include <FileSystem/Exports.h>
+using namespace HeaderTech::Event;
 
-#include <Config/Config.hpp>
+HeaderTech_Event_Export EventStorage::EventStorage(
+        void *event,
+        EventId eventId,
+        EventDestructor destructor
+) noexcept:
+        m_event(event),
+        m_eventId(eventId),
+        m_destructor(std::move(destructor))
+{
 
-#include <memory>
+}
 
-namespace HeaderTech::FileSystem {
-    class FileSystem : public std::enable_shared_from_this<FileSystem> {
-    public:
-        HeaderTech_FileSystem_Export explicit FileSystem(
-                const HeaderTech::Config::ConfigPtr &config,
-                const char *argv0
-        ) noexcept;
-
-        HeaderTech_FileSystem_Export ~FileSystem() noexcept;
-    };
-
-    using FileSystemPtr = std::shared_ptr<FileSystem>;
-    using FileSystemWeakPtr = std::weak_ptr<FileSystem>;
-
-    inline static FileSystemPtr MakeFileSystem(
-            const HeaderTech::Config::ConfigPtr &config,
-            const char *argv0
-    ) noexcept
-    { return std::make_shared<FileSystem>(config, argv0); }
-}// namespace HeaderTech::FileSystem
-
-
-#endif//HEADERTECH_FILESYSTEM_HPP
+HeaderTech_Event_Export EventStorage::~EventStorage() noexcept
+{
+    m_destructor(m_event);
+    m_event = nullptr;
+}

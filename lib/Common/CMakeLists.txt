@@ -3,10 +3,12 @@ project(Common VERSION 0.0.1.0 DESCRIPTION "HeaderTech Common library" HOMEPAGE_
 
 set(
         Common_SRC
+        src/Clock.cpp
 )
 
 set(
         Common_INC
+        inc/Common/Clock.hpp
 )
 
 add_library(Common SHARED ${Common_SRC} ${Common_INC})
