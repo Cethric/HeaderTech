@@ -21,3 +21,4 @@ runs:
         git apply --apply patches/glad.patch
         git apply --apply patches/ctti.patch
         git apply --apply patches/spdlog.patch
+        git apply --apply patches/fmt.patch
