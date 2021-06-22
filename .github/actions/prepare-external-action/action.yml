@@ -1,5 +1,5 @@
 name: 'Prepare External Dependencies'
-description: 'Retieves all dependencies in the ext folder and applies patches'
+description: 'Retrieves all dependencies in the ext folder and applies patches'
 inputs: {}
 outputs: {}
 runs:
@@ -21,4 +21,3 @@ runs:
         git apply --apply patches/glad.patch
         git apply --apply patches/ctti.patch
         git apply --apply patches/spdlog.patch
-        git apply --apply patches/fmt.patch
