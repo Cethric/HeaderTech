@@ -4,14 +4,13 @@
 
 Submodule ext/glad contains modified content
 diff --git a/ext/glad/cmake/CMakeLists.txt b/ext/glad/cmake/CMakeLists.txt
-index b395f53..8648c4b 100644
+index b395f53..06164ff 100644
 --- a/ext/glad/cmake/CMakeLists.txt
 +++ b/ext/glad/cmake/CMakeLists.txt
-@@ -264,11 +264,12 @@ function(glad_add_library TARGET)
-     add_library("${TARGET}" ${GLAD_ADD_LIBRARY_ARGS}
+@@ -265,10 +265,12 @@ function(glad_add_library TARGET)
          ${GLAD_FILES}
          )
--
+ 
 -    target_include_directories("${TARGET}"
 -        PUBLIC
 -            "${GLAD_DIR}/include"
@@ -19,7 +18,7 @@ index b395f53..8648c4b 100644
 +    target_include_directories(
 +            "${TARGET}"
 +            PUBLIC
-+            $<BUILD_INTERFACE:${GLAD_DIR}/include>
++            $<BUILD_INTERFACE:${GLAD_DIR}/include/>
 +            $<INSTALL_INTERFACE:include/>
 +    )
  
