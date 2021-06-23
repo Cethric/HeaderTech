@@ -2,10 +2,6 @@
 	path = ext/glfw
 	url = https://github.com/glfw/glfw.git
 	branch = master
-[submodule "ext/fmt"]
-	path = ext/fmt
-	url = https://github.com/fmtlib/fmt.git
-	branch = master
 [submodule "ext/ctti"]
 	path = ext/ctti
 	url = https://github.com/Manu343726/ctti.git
@@ -38,10 +34,6 @@
 	path = ext/remotery
 	url = https://github.com/Celtoys/Remotery.git
 	branch = main
-[submodule "ext/spdlog"]
-	path = ext/spdlog
-	url = https://github.com/gabime/spdlog.git
-	branch = v1.x
 [submodule "ext/argparse"]
 	path = ext/argparse
 	url = https://github.com/hendrik-skubch/argparse.git
