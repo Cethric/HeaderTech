@@ -23,4 +23,6 @@ target_include_directories(
 
 target_link_libraries(Runtime PRIVATE Common Config FileSystem Logging Event)
 
+target_precompile_headers(Runtime PUBLIC <Runtime/Version.hpp> <Runtime/Exports.h>)
+
 ConfigureLibrary(Runtime 0 0 1 "+dev")

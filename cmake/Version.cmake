@@ -96,4 +96,6 @@ function(ConfigureVersion Target Major Minor Patch Tweak)
             $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
             $<INSTALL_INTERFACE:include/>
     )
+    set_target_properties(${Target} PROPERTIES VERSION "${Major}.${Minor}.${Patch}")
+    set_target_properties(${Target} PROPERTIES SOVERSION "${Major}.${Minor}.${Patch}")
 endfunction()

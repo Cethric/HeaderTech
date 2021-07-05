@@ -28,4 +28,6 @@ target_include_directories(
 target_link_libraries(Event PRIVATE Common)
 target_link_libraries(Event PUBLIC ctti::ctti hashmap::hashmap)
 
+target_precompile_headers(Event PUBLIC <Event/Version.hpp> <Event/Exports.h>)
+
 ConfigureLibrary(Event 0 0 1 "+dev")

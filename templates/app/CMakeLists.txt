@@ -20,6 +20,8 @@ target_include_directories(
 
 ConfigureExecutable(TEMPLATE 0 0 1 "+dev")
 
+target_precompile_headers(TEMPLATE PRIVATE <TEMPLATE/Version.hpp>)
+
 if (BUILD_TESTING)
     add_subdirectory(test)
 endif (BUILD_TESTING)

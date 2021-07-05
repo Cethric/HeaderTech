@@ -49,7 +49,6 @@
 #include <iostream>
 #include <span>
 
-#include <spdlog/spdlog.h>
 
 //class Application final : public HeaderTech::Runtime::Runtime {
 //public:
@@ -194,17 +193,17 @@ public:
                     clock
             )
     {
-        (void)Bind<TerminationEvent>(this, 0U);
+        (void) Bind<TerminationEvent>(this, 0U);
         //    Bind<TerminationEvent>(*this, 0);
-        (void)Bind<TerminationEvent>(capture_event, 0U);
-        (void)Bind<TerminationEvent>([](const TerminationEvent &evt) { return false; }, 0U);
+        (void) Bind<TerminationEvent>(capture_event, 0U);
+        (void) Bind<TerminationEvent>([](const TerminationEvent &evt) { return false; }, 0U);
 
-        (void)Dispatch<TerminationEvent, 0>();
+        (void) Dispatch<TerminationEvent, 0>();
     }
 
     bool OnEvent(const TerminationEvent &evt) noexcept
     {
-        m_log->info("Shutdown called");
+        m_log->Information(SOURCE_LOCATION, "Shutdown called");
         Terminate();
         return false;
     }

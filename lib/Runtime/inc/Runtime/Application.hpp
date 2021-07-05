@@ -71,7 +71,7 @@ namespace HeaderTech::Runtime {
         HeaderTech::Config::ConfigPtr         m_config;
         HeaderTech::FileSystem::FileSystemPtr m_fileSystem;
         HeaderTech::Logging::LoggingPtr       m_logging;
-        HeaderTech::Logging::Logger           m_log;
+        HeaderTech::Logging::LogPtr           m_log;
 
     private:
         bool m_isRunning;

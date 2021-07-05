@@ -21,6 +21,9 @@ target_link_libraries(TEMPLATE PRIVATE Common)
 
 ConfigureLibrary(TEMPLATE 0 0 1 "+dev")
 
+target_precompile_headers(TEMPLATE REUSE_FROM Common)
+target_precompile_headers(TEMPLATE PUBLIC <TEMPLATE/Version.hpp> <TEMPLATE/Exports.h>)
+
 if (BUILD_TESTING)
     add_subdirectory(test)
 endif (BUILD_TESTING)

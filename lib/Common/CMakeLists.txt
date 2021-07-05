@@ -21,6 +21,8 @@ target_include_directories(
 
 ConfigureLibrary(Common 0 0 1 "+dev")
 
+target_precompile_headers(Common PUBLIC <Common/Version.hpp> <Common/Exports.h>)
+
 if (BUILD_TESTING)
     add_subdirectory(test)
 endif (BUILD_TESTING)

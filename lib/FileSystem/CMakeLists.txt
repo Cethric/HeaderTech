@@ -21,4 +21,6 @@ target_include_directories(
 target_link_libraries(FileSystem PRIVATE Common Config)
 target_link_libraries(FileSystem PRIVATE physfs::physfs)
 
+target_precompile_headers(FileSystem PUBLIC <FileSystem/Version.hpp> <FileSystem/Exports.h>)
+
 ConfigureLibrary(FileSystem 0 0 1 "+dev")

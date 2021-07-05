@@ -47,7 +47,7 @@ namespace HeaderTech::Runtime {
         HeaderTech_Runtime_Export Runtime(
                 const std::string_view &name,
                 const std::string_view &version,
-                const std::span<const char *>& args
+                const std::span<const char *> &args
         ) noexcept;
 
         HeaderTech_Runtime_Export ~Runtime() noexcept;
@@ -87,7 +87,7 @@ namespace HeaderTech::Runtime {
         HeaderTech::Logging::LoggingPtr       m_logging;
 
     private:
-        HeaderTech::Logging::Logger m_log;
+        HeaderTech::Logging::LogPtr m_log;
         bool                        m_running;
     };
 }// namespace HeaderTech::Runtime

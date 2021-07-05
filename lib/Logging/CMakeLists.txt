@@ -10,6 +10,8 @@ set(
 set(
         Logging_INC
         inc/Logging/Logging.hpp
+        inc/Logging/LoggingConcepts.hpp
+
         inc/Logging/RotatingSink.hpp
         inc/Logging/RotatingSink.inl
         inc/Logging/LogFileHelper.hpp
@@ -23,6 +25,8 @@ target_include_directories(
         $<INSTALL_INTERFACE:include/>
 )
 target_link_libraries(Logging PRIVATE Common FileSystem Config)
-target_link_libraries(Logging PUBLIC fmt::fmt spdlog::spdlog ctti::ctti physfs::physfs)
+target_link_libraries(Logging PUBLIC ctti::ctti physfs::physfs fmt::fmt)
+
+target_precompile_headers(Logging PUBLIC <Logging/Version.hpp> <Logging/Exports.h>)
 
 ConfigureLibrary(Logging 0 0 1 "+dev")

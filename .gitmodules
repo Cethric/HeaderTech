@@ -37,3 +37,6 @@
 [submodule "ext/argparse"]
 	path = ext/argparse
 	url = https://github.com/hendrik-skubch/argparse.git
+[submodule "ext/fmt"]
+	path = ext/fmt
+	url = https://github.com/fmtlib/fmt.git

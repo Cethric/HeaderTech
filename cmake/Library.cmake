@@ -122,5 +122,7 @@ function(ConfigureLibrary Target Major Minor Patch Tweak)
 
     #    catch_discover_tests(${Target})
 
+    set_target_properties(${Target} PROPERTIES MACOSX_RPATH 1)
+
     RegisterLibrary(${Target} PRIVATE)
 endfunction(ConfigureLibrary)

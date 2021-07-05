@@ -22,4 +22,6 @@ target_include_directories(
 target_link_libraries(Config PRIVATE Common)
 target_link_libraries(Config PRIVATE argparse::argparse json::json)
 
+target_precompile_headers(Config PUBLIC <Config/Version.hpp> <Config/Exports.h>)
+
 ConfigureLibrary(Config 0 0 1 "+dev")

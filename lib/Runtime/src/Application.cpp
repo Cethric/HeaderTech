@@ -44,15 +44,15 @@ Application::Application(
         m_config(HeaderTech::Config::MakeConfig(name, version, args)),
         m_fileSystem(HeaderTech::FileSystem::MakeFileSystem(m_config, args[0])),
         m_logging(HeaderTech::Logging::MakeLogging(m_config, m_fileSystem)),
-        m_log(m_logging->CreateLogger<Application>()),
+        m_log(m_logging->GetLogger<Application>()),
         m_isRunning(false)
 {
-    m_log->info("Launching {} {}", name.data(), version.data());
+    m_log->Information(SOURCE_LOCATION, "Launching {} {}", name.data(), version.data());
 }
 
 Application::~Application() noexcept
 {
-    m_log->info("The application has been shutdown");
+    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
 }
 
 int Application::Launch() noexcept

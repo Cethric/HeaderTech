@@ -52,14 +52,14 @@ HeaderTech_Runtime_Export HeaderTech::Runtime::Runtime::Runtime(
           m_running(false)
 {
     m_config     = std::make_shared<HeaderTech::Config::Config>(name, version, args);
-    m_fileSystem = std::make_shared<HeaderTech::FileSystem::FileSystem>(m_config, args[0]);
+    m_fileSystem = std::make_shared<HeaderTech::FileSystem::FileSystem>(m_config, args[0U]);
     m_logging    = std::make_shared<HeaderTech::Logging::Logging>(m_config, m_fileSystem);
-    m_log        = m_logging->CreateLogger<HeaderTech::Runtime::Runtime>();
+    m_log        = m_logging->GetLogger<HeaderTech::Runtime::Runtime>();
 }
 
 HeaderTech_Runtime_Export HeaderTech::Runtime::Runtime::~Runtime() noexcept
 {
-    m_log->info("Runtime has been destroyed");
+    m_log->Information(SOURCE_LOCATION, "Runtime has been {}", "destroyed");
     m_log        = nullptr;
     m_logging    = nullptr;
     m_fileSystem = nullptr;
@@ -72,7 +72,7 @@ HeaderTech_Runtime_Export int HeaderTech::Runtime::Runtime::MainLoop() noexcept
     VersionCheck();
     m_running = true;
     OnMainLoopDidStart();
-    m_log->info("Entering main loop");
+    m_log->Information(SOURCE_LOCATION, "Entering main loop");
     while (m_running) {
         OnMainLoopTick();
     }
@@ -88,11 +88,11 @@ void HeaderTech::Runtime::Runtime::StopRunning() noexcept
 
 void HeaderTech::Runtime::Runtime::VersionCheck() noexcept
 {
-    m_log->info("Versions:");
-    m_log->info("\tConfig {}", HeaderTech::Config::VersionString);
-    m_log->info("\tFileSystem {}", HeaderTech::FileSystem::VersionString);
-    m_log->info("\tLogging {}", HeaderTech::Logging::VersionString);
-    m_log->info("\tRuntime {}", HeaderTech::Runtime::VersionString);
+    m_log->Information(SOURCE_LOCATION, "Versions:");
+    m_log->Information(SOURCE_LOCATION, "\tConfig {}", HeaderTech::Config::VersionString);
+    m_log->Information(SOURCE_LOCATION, "\tFileSystem {}", HeaderTech::FileSystem::VersionString);
+    m_log->Information(SOURCE_LOCATION, "\tLogging {}", HeaderTech::Logging::VersionString);
+    m_log->Information(SOURCE_LOCATION, "\tRuntime {}", HeaderTech::Runtime::VersionString);
 }
 
 void HeaderTech::Runtime::Runtime::OnMainLoopWillStart() noexcept
