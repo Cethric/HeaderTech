@@ -30,6 +30,26 @@ jobs:
         with:
           packages: Jinja2<3.0
 
+      - name: Install dependencies
+        shell: pwsh
+        run: |
+          # Until github updates their github actions vm this needs to be done
+          $winSdkUrl = "https://go.microsoft.com/fwlink/p/?linkid=2120843"
+          $wdkUrl = "https://go.microsoft.com/fwlink/?linkid=2164145"
+          $FilePath = "C:\Program Files (x86)\Windows Kits\10\Vsix\VS2019\WDK.vsix"
+          $VSver = "2019"
+
+          $argumentList = ("/features", "+", "/quiet")
+
+          # `winsdksetup.exe /features + /quiet` installs all features without showing the GUI
+          Install-Binary -Url $winSdkUrl -Name "winsdksetup.exe" -ArgumentList $argumentList
+
+          # `wdksetup.exe /features + /quiet` installs all features without showing the GUI
+          Install-Binary -Url $wdkUrl -Name "wdksetup.exe" -ArgumentList $argumentList
+
+          # Need to install the VSIX to get the build targets when running VSBuild
+          Install-VsixExtension -FilePath $FilePath -Name "WDK.vsix" -VSversion $VSver -InstallOnly
+
       - uses: actions/checkout@main
       - uses: ./.github/actions/prepare-external-action
 
