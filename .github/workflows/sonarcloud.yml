@@ -38,6 +38,7 @@ jobs:
         working-directory: ${{github.workspace}}/cmake_build_debug
         run: |
           cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_DISABLE_PRECOMPILE_HEADERS=ON -DBUILD_TESTING=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+          cmake --build . --target Editor --config $BUILD_TYPE
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
