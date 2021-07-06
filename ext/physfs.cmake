@@ -19,6 +19,13 @@ set_property(
         PROPERTY UNITY_BUILD OFF
 )
 
+if (MSVC)
+    set_property(
+            TARGET physfs
+            PROPERTY C_FLAGS /wd5105
+    )
+endif (MSVC)
+
 target_include_directories(
         physfs
         PUBLIC
