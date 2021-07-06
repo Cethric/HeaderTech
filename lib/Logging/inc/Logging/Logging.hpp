@@ -53,6 +53,8 @@ namespace HeaderTech::Logging {
         explicit inline Sink(LogLevel maxLevel) : m_maxLevel(maxLevel)
         {}
 
+        inline virtual ~Sink() noexcept = default;
+
         inline auto LogIt(const LogDetails &details, const std::string &msg) noexcept -> void
         {
             if (details.level <= m_maxLevel) {
@@ -72,16 +74,26 @@ namespace HeaderTech::Logging {
         StdoutSink() : Sink(LogLevelVerbose)
         {}
 
+        inline virtual ~StdoutSink() noexcept override
+        {};
+
     protected:
         void SinkIt(const LogDetails &details, const std::string &msg) noexcept override
         {
-            fmt::print(std::cout, "{:m} - {:d} [{:c}]: {}\n", details.eventTime, details.sourceLocation, details.level, msg);
+            fmt::print(
+                    std::cout,
+                    "{:m} - {:d} [{:c}]: {}\n",
+                    details.eventTime,
+                    details.sourceLocation,
+                    details.level,
+                    msg
+            );
         }
     };
 
-    class StderrSink : public Sink {};
-
-    class FileSink : public Sink {};
+//    class StderrSink : public Sink {};
+//
+//    class FileSink : public Sink {};
 
     using SinkPtr = std::shared_ptr<Sink>;
 

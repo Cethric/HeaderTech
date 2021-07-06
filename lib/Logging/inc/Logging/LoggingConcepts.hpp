@@ -70,10 +70,10 @@ namespace HeaderTech::Logging {
                 m_line(line)
         {}
 
-        inline const char *file() const
+        inline const char *file_name() const
         { return m_file; }
 
-        inline const char *function() const
+        inline const char *function_name() const
         { return m_function; }
 
         inline std::uint_least32_t line() const
@@ -166,7 +166,7 @@ struct fmt::formatter<HeaderTech::Logging::LogLevel> {
         auto it  = ctx.begin();
         auto end = ctx.end();
         if (it != end && (*it == 'p' || *it == 'c')) {
-            m_presentation = *it++;
+            presentation = *it++;
         }
         if (it != end && *it != '}') {
             throw fmt::format_error("invalid format");
@@ -181,7 +181,7 @@ struct fmt::formatter<HeaderTech::Logging::LogLevel> {
             case HeaderTech::Logging::LogLevelCritical:
                 return fmt::format_to(
                         ctx.out(),
-                        m_presentation == 'p' ?
+                        presentation == 'p' ?
                         fmt::text_style() :
                         fmt::emphasis::bold | fmt::fg(fmt::color::orange_red),
                         "Critical"
@@ -189,7 +189,7 @@ struct fmt::formatter<HeaderTech::Logging::LogLevel> {
             case HeaderTech::Logging::LogLevelException:
                 return fmt::format_to(
                         ctx.out(),
-                        m_presentation == 'p' ?
+                        presentation == 'p' ?
                         fmt::text_style() :
                         fmt::emphasis::bold | fmt::fg(fmt::color::indian_red),
                         "Exception"
@@ -197,7 +197,7 @@ struct fmt::formatter<HeaderTech::Logging::LogLevel> {
             case HeaderTech::Logging::LogLevelError:
                 return fmt::format_to(
                         ctx.out(),
-                        m_presentation == 'p' ?
+                        presentation == 'p' ?
                         fmt::text_style() :
                         fmt::emphasis::bold | fmt::fg(fmt::color::red),
                         "Error"
@@ -205,7 +205,7 @@ struct fmt::formatter<HeaderTech::Logging::LogLevel> {
             case HeaderTech::Logging::LogLevelWarning:
                 return fmt::format_to(
                         ctx.out(),
-                        m_presentation == 'p' ?
+                        presentation == 'p' ?
                         fmt::text_style() :
                         fmt::emphasis::bold | fmt::fg(fmt::color::yellow),
                         "Warning"
@@ -213,7 +213,7 @@ struct fmt::formatter<HeaderTech::Logging::LogLevel> {
             case HeaderTech::Logging::LogLevelInformation:
                 return fmt::format_to(
                         ctx.out(),
-                        m_presentation == 'p' ?
+                        presentation == 'p' ?
                         fmt::text_style() :
                         fmt::emphasis::bold | fmt::fg(fmt::color::light_blue),
                         "Information"
@@ -221,7 +221,7 @@ struct fmt::formatter<HeaderTech::Logging::LogLevel> {
             case HeaderTech::Logging::LogLevelDebug:
                 return fmt::format_to(
                         ctx.out(),
-                        m_presentation == 'p' ?
+                        presentation == 'p' ?
                         fmt::text_style() :
                         fmt::emphasis::bold | fmt::fg(fmt::color::old_lace),
                         "Debug"
@@ -234,7 +234,7 @@ struct fmt::formatter<HeaderTech::Logging::LogLevel> {
             case HeaderTech::Logging::LogLevelVerbose:
                 return fmt::format_to(
                         ctx.out(),
-                        m_presentation == 'p' ?
+                        presentation == 'p' ?
                         fmt::text_style() :
                         fmt::emphasis::bold | fmt::fg(fmt::color::green_yellow),
                         "Verbose"
@@ -245,7 +245,7 @@ struct fmt::formatter<HeaderTech::Logging::LogLevel> {
     }
 
 private:
-    char m_presentation = 'p';
+    char presentation = 'p';
 };
 
 template<>
@@ -255,7 +255,7 @@ struct fmt::formatter<HeaderTech::Logging::SourceLocation> {
         auto it  = ctx.begin();
         auto end = ctx.end();
         if (it != end && (*it == 'c' || *it == 'd')) {
-            m_presentation = *it++;
+            presentation = *it++;
         }
         if (it != end && *it != '}') {
             throw fmt::format_error("invalid format");
@@ -266,21 +266,21 @@ struct fmt::formatter<HeaderTech::Logging::SourceLocation> {
     template<typename FormatContext>
     auto format(const HeaderTech::Logging::SourceLocation &sl, FormatContext &ctx) -> decltype(ctx.out())
     {
-        std::string_view function = sl.function();
+        std::string_view function = sl.function_name();
         auto             fend     = function.find_first_of('(');
         auto             reduced  = function.substr(0U, fend);
         auto             fstart   = reduced.find_last_of("::", 0U, reduced.find_last_of("::")) + 1U;
         return fmt::format_to(
                 ctx.out(),
                 "{}:{}():{}",
-                sl.file(),
+                sl.file_name(),
                 reduced.substr(fstart),
                 sl.line()
         );
     }
 
 private:
-    char m_presentation = 'd';
+    char presentation = 'd';
 };
 
 template<>
@@ -290,7 +290,7 @@ struct fmt::formatter<HeaderTech::Logging::LoggingTimePoint> {
         auto it  = ctx.begin();
         auto end = ctx.end();
         if (it != end && (*it == 's' || *it == 'm')) {
-            m_presentation = *it++;
+            presentation = *it++;
         }
         if (it != end && *it != '}') {
             throw fmt::format_error("invalid format");
@@ -304,7 +304,7 @@ struct fmt::formatter<HeaderTech::Logging::LoggingTimePoint> {
         auto t    = HeaderTech::Logging::LoggingClock::to_time_t(tp);
         auto next = fmt::format_to(ctx.out(), "{:%Y-%m-%d %H:%M:%S}", fmt::localtime(t));
 
-        if (m_presentation == 'm') {
+        if (presentation == 'm') {
             auto seconds      = std::chrono::time_point_cast<std::chrono::seconds>(tp);
             auto fraction     = tp - seconds;
             auto microseconds = std::chrono::duration_cast<std::chrono::microseconds>(fraction);
@@ -314,7 +314,7 @@ struct fmt::formatter<HeaderTech::Logging::LoggingTimePoint> {
     }
 
 private:
-    char m_presentation = 'd';
+    char presentation = 'd';
 };
 
 #endif //HEADERTECH_LOGGINGCONCEPTS_HPP
