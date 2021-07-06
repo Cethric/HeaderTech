@@ -37,7 +37,7 @@ jobs:
           CXX: /usr/bin/clang++
         working-directory: ${{github.workspace}}/cmake_build_debug
         run: |
-          cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_FLAGS=-fpermissive -DBUILD_TESTING=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+          cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_DISABLE_PRECOMPILE_HEADERS=ON -DBUILD_TESTING=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
