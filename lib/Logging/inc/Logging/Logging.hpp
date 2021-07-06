@@ -254,7 +254,7 @@ namespace HeaderTech::Logging {
         {
             constexpr auto details = ctti::detailed_nameof<LogClassName>();
             constexpr auto name    = details.full_homogeneous_name();
-            return m_registry.GetLogger({name.begin(), name.end()});
+            return m_registry.GetLogger(name.cppstring());
         }
 
         auto GetLogger(const std::string_view &name) -> LogPtr

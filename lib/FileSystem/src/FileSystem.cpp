@@ -32,7 +32,10 @@
 
 #include "FileSystem/FileSystem.hpp"
 
+#pragma warning(push)
+#pragma warning(disable : 5105)
 #include <physfs.h>
+#pragma warning(pop)
 
 #include <iostream>
 
