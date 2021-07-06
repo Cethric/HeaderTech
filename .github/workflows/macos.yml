@@ -35,7 +35,7 @@ jobs:
         run: |
           brew install mercurial
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@main
       - uses: ./.github/actions/prepare-external-action
 
       - name: Create Build Environment

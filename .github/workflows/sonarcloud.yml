@@ -22,7 +22,7 @@ jobs:
         run: |
           sudo apt-get install xorg-dev clang
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@main
       - uses: ./.github/actions/prepare-external-action
 
       - name: Create Build Environment
