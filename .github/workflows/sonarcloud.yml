@@ -13,6 +13,8 @@ jobs:
       BUILD_TYPE: Debug
       BUILD_DIR: ${{github.workspace}}/cmake_build_debug
       SONARQUBE_URL: "https://sonarcloud.io"
+      SONARQUBE_PATH: ${{github.workspace}}/.sonar
+      SONARQUBE_EXE: ${{github.workspace}}/.sonar/build-wrapper-linux-x86-64
     steps:
       - uses: BSFishy/pip-action@v1
         with:
@@ -23,7 +25,7 @@ jobs:
         run: |
           sudo apt-get install xorg-dev clang zip unzip
           wget "$SONARQUBE_URL/static/cpp/build-wrapper-linux-x86.zip"
-          unzip build-wrapper-linux-x86.zip -d ${{github.workspace}}/.sonar
+          unzip build-wrapper-linux-x86.zip -d $SONARQUBE_PATH -j
           ls -la ${{github.workspace}}/.sonar
 
 
@@ -43,7 +45,7 @@ jobs:
         working-directory: ${{github.workspace}}/cmake_build_debug
         run: |
           cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_DISABLE_PRECOMPILE_HEADERS=ON -DBUILD_TESTING=ON ..
-          ${{github.workspace}}/.sonar/build-wrapper-linux-x86-64 --out-dir ${{github.workspace}}/cmake_build_debug/bw-outputs cmake --build . --target Editor --config $BUILD_TYPE
+          $SONARQUBE_EXE --out-dir ${{github.workspace}}/cmake_build_debug/bw-outputs cmake --build . --target Editor --config $BUILD_TYPE
           ls -la ${{github.workspace}}/cmake_build_debug/bw-outputs
 
       - name: SonarCloud Scan
