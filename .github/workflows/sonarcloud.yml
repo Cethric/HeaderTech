@@ -12,6 +12,7 @@ jobs:
     env:
       BUILD_TYPE: Debug
       BUILD_DIR: ${{github.workspace}}/cmake_build_debug
+      SONARQUBE_URL: "https://sonarcloud.io"
     steps:
       - uses: BSFishy/pip-action@v1
         with:
@@ -20,7 +21,11 @@ jobs:
       - name: Install dependencies
         shell: bash
         run: |
-          sudo apt-get install xorg-dev clang
+          sudo apt-get install xorg-dev clang zip unzip
+          wget "$SONARQUBE_URL/static/cpp/build-wrapper-linux-x86.zip"
+          unzip build-wrapper-linux-x86.zip -d ${{github.workspace}}/.sonar
+          ls -la ${{github.workspace}}/.sonar
+
 
       - uses: actions/checkout@main
       - uses: ./.github/actions/prepare-external-action
@@ -37,14 +42,16 @@ jobs:
           CXX: /usr/bin/clang++
         working-directory: ${{github.workspace}}/cmake_build_debug
         run: |
-          cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_DISABLE_PRECOMPILE_HEADERS=ON -DBUILD_TESTING=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
-          cmake --build . --target Editor --config $BUILD_TYPE
+          cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_DISABLE_PRECOMPILE_HEADERS=ON -DBUILD_TESTING=ON ..
+          ${{github.workspace}}/.sonar/build-wrapper-linux-x86-64 --out-dir ${{github.workspace}}/cmake_build_debug/bw-outputs cmake --build . --target Editor --config $BUILD_TYPE
           cat compile_commands.json
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         with:
-          projectBaseDir: ${{github.workspace}}/cmake_build_debug
+          projectBaseDir: ${{github.workspace}}
+          args:
+            sonar.cfamily.build-wrapper-output: ${{github.workspace}}/cmake_build_debug/bw-outputs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
