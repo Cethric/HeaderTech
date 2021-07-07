@@ -25,7 +25,7 @@ jobs:
         run: |
           sudo apt-get install xorg-dev clang zip unzip
           wget "$SONARQUBE_URL/static/cpp/build-wrapper-linux-x86.zip"
-          unzip build-wrapper-linux-x86.zip -d $SONARQUBE_PATH -j
+          unzip build-wrapper-linux-x86.zip -j -d $SONARQUBE_PATH
           ls -la ${{github.workspace}}/.sonar
 
 
