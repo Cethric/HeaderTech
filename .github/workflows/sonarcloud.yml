@@ -44,14 +44,15 @@ jobs:
         run: |
           cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_DISABLE_PRECOMPILE_HEADERS=ON -DBUILD_TESTING=ON ..
           ${{github.workspace}}/.sonar/build-wrapper-linux-x86-64 --out-dir ${{github.workspace}}/cmake_build_debug/bw-outputs cmake --build . --target Editor --config $BUILD_TYPE
-          cat compile_commands.json
+          ls -la ${{github.workspace}}/cmake_build_debug/bw-outputs
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         with:
           projectBaseDir: ${{github.workspace}}
-          args:
-            sonar.cfamily.build-wrapper-output: ${{github.workspace}}/cmake_build_debug/bw-outputs
+          args: >
+            -Dsonar.cfamily.build-wrapper-output=${{github.workspace}}/cmake_build_debug/bw-outputs
+            -Dsonar.verbose=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
