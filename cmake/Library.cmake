@@ -14,6 +14,9 @@ function(RegisterLibrary Target Visibility)
         em_setting_target(${Target} ${Visibility} LINKABLE 1 COMPILE_AND_LINK)
     endif (EMSCRIPTEN)
 
+    target_compile_features(${Target} ${Visibility} cxx_std_20)
+    target_compile_features(${Target} ${Visibility} c_std_11)
+
     install(
             TARGETS ${Target}
             CONFIGURATIONS Debug

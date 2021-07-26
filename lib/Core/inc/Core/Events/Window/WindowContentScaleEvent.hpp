@@ -30,34 +30,17 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#ifndef HEADERTECH_WINDOWCONTENTSCALEEVENT_HPP
+#define HEADERTECH_WINDOWCONTENTSCALEEVENT_HPP
 
-using namespace HeaderTech::Runtime;
+namespace HeaderTech::Core::Events::Window {
+    struct WindowContentScaleEvent {
+        float xScale;
+        float yScale;
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
-{
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
+        inline WindowContentScaleEvent(float newXScale, float newYScale) noexcept: xScale(newXScale), yScale(newYScale)
+        {}
+    };
 }
 
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
-
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
-    }
-    return 0;
-}
-
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
-}
+#endif //HEADERTECH_WINDOWCONTENTSCALEEVENT_HPP

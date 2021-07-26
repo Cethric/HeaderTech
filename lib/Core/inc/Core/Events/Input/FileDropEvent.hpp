@@ -30,34 +30,17 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#ifndef HEADERTECH_FILEDROPEVENT_HPP
+#define HEADERTECH_FILEDROPEVENT_HPP
 
-using namespace HeaderTech::Runtime;
+namespace HeaderTech::Core::Events::Input {
+    struct FileDropEvent {
+        std::vector<const char *> fileNames;
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
-{
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
+        inline FileDropEvent(const std::vector<const char *> &files) noexcept:
+                fileNames(files)
+        {}
+    };
 }
 
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
-
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
-    }
-    return 0;
-}
-
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
-}
+#endif //HEADERTECH_FILEDROPEVENT_HPP

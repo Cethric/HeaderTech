@@ -30,34 +30,17 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#ifndef HEADERTECH_WINDOWSIZEEVENT_HPP
+#define HEADERTECH_WINDOWSIZEEVENT_HPP
 
-using namespace HeaderTech::Runtime;
+namespace HeaderTech::Core::Events::Window {
+    struct WindowSizeEvent {
+        int width;
+        int height;
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
-{
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
+        inline WindowSizeEvent(int newWidth, int newHeight) noexcept: width(newWidth), height(newHeight)
+        {}
+    };
 }
 
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
-
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
-    }
-    return 0;
-}
-
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
-}
+#endif //HEADERTECH_WINDOWSIZEEVENT_HPP

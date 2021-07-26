@@ -30,34 +30,64 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#ifndef HEADERTECH_RUNTIME_HPP
+#define HEADERTECH_RUNTIME_HPP
 
-using namespace HeaderTech::Runtime;
+#include <span>
+#include <memory>
+#include <concepts>
+#include <type_traits>
+#include <string_view>
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
-{
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
+#include <Core/Exports.h>
+#include <Core/Event/EventDispatcher.hpp>
+
+#include <argparse/argparse.hpp>
+
+namespace HeaderTech::Core::Runtime {
+    class RuntimeInstance;
+
+    class HeaderTech_Core_Export Runtime : public HeaderTech::Core::Event::EventDispatcher {
+    public:
+        Runtime();
+
+        virtual ~Runtime();
+
+        [[nodiscard]] inline bool IsRunning() const noexcept
+        { return m_running; }
+
+        inline void Shutdown() noexcept
+        { m_running = false; }
+
+    protected:
+        virtual void ConfigureArguments(argparse::ArgumentParser &parser) noexcept = 0;
+
+        virtual void OnConfigure(argparse::ArgumentParser &parser) noexcept = 0;
+
+        virtual void OnLaunch() noexcept = 0;
+
+        virtual void OnShutdown() noexcept = 0;
+
+        virtual void OnTick() noexcept = 0;
+
+    private:
+        int Launch() noexcept;
+
+    private:
+        bool m_running;
+
+    private:
+        friend class RuntimeInstance;
+    };
+
+    using RuntimePtr = std::shared_ptr<Runtime>;
+
+    template<class RuntimeDerived>
+    concept RuntimeBase = requires(RuntimeDerived app) {
+        std::is_base_of_v<Runtime, RuntimeDerived>;
+    };
+
 }
 
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
 
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
-    }
-    return 0;
-}
-
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
-}
+#endif //HEADERTECH_RUNTIME_HPP

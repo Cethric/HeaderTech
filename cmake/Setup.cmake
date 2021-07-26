@@ -13,3 +13,5 @@ if (EMSCRIPTEN)
 else (EMSCRIPTEN)
     include(setup/Native)
 endif (EMSCRIPTEN)
+
+include(setup/Shared)

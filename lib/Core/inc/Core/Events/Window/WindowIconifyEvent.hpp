@@ -30,34 +30,16 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#ifndef HEADERTECH_WINDOWICONIFYEVENT_HPP
+#define HEADERTECH_WINDOWICONIFYEVENT_HPP
 
-using namespace HeaderTech::Runtime;
+namespace HeaderTech::Core::Events::Window {
+    struct WindowIconifyEvent {
+        bool iconify;
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
-{
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
+        inline WindowIconifyEvent(bool newIconify) noexcept: iconify(newIconify)
+        {}
+    };
 }
 
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
-
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
-    }
-    return 0;
-}
-
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
-}
+#endif //HEADERTECH_WINDOWICONIFYEVENT_HPP

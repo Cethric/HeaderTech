@@ -30,34 +30,17 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#ifndef HEADERTECH_FRAMEBUFFERSIZEEVENT_HPP
+#define HEADERTECH_FRAMEBUFFERSIZEEVENT_HPP
 
-using namespace HeaderTech::Runtime;
+namespace HeaderTech::Core::Events::Window {
+    struct FramebufferSizeEvent {
+        int width;
+        int height;
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
-{
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
+        inline FramebufferSizeEvent(int newWidth, int newHeight) noexcept: width(newWidth), height(newHeight)
+        {}
+    };
 }
 
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
-
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
-    }
-    return 0;
-}
-
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
-}
+#endif //HEADERTECH_FRAMEBUFFERSIZEEVENT_HPP

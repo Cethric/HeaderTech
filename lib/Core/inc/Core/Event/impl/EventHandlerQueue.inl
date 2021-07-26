@@ -30,34 +30,46 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#ifndef HEADERTECH_EVENTHANDLERQUEUE_INL
+#define HEADERTECH_EVENTHANDLERQUEUE_INL
 
-using namespace HeaderTech::Runtime;
+#include <Core/Event/EventHandlerQueue.hpp>
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
-{
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
-}
-
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
-
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
+namespace HeaderTech::Core::Event {
+    template<Event AnEvent, EventPriority Priority>
+    inline void EventHandlerQueue::Bind(EventHandler <AnEvent> auto &&handler) noexcept
+    {
+        using AHandler = decltype(handler);
+        constexpr auto id     = make_event_id<AnEvent>();
+        auto           search = m_handlerMap.find(id);
+        if (search == m_handlerMap.end()) {
+            search = m_handlerMap.insert_or_assign(id, EventHandlerVector()).first;
+        }
+        search->second.emplace_back(
+                std::make_shared<AnyEventHandler>(
+                        Priority,
+                        AnyEventHandler::MakeHandlerFunction<AnEvent, AHandler>(
+                                std::forward<AHandler>(handler)
+                        )
+                )
+        );
     }
-    return 0;
+
+    inline bool EventHandlerQueue::Process(const EventPtr &event) noexcept
+    {
+        auto id     = event->Id();
+        auto search = m_handlerMap.find(id);
+
+        if (search != m_handlerMap.end()) {
+            auto            handlers = search->second;
+            for (const auto &handler : handlers) {
+                if (!handler->Handle(event)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
 
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
-}
+#endif //HEADERTECH_EVENTHANDLERQUEUE_INL

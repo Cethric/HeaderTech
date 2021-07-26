@@ -45,18 +45,14 @@
 #include <Event/EventProcessor.hpp>
 #include <Common/Clock.hpp>
 #include <Runtime/Exports.h>
+#include <Runtime/Runtime.hpp>
 
 namespace HeaderTech::Runtime {
     class HeaderTech_Runtime_Export Application
             : private std::enable_shared_from_this<Application>,
               public HeaderTech::Event::EventProcessor {
     public:
-        Application(
-                const std::string_view &name,
-                const std::string_view &version,
-                const std::span<const char *> &args,
-                const HeaderTech::Common::ClockPtr &clock
-        ) noexcept;
+        explicit Application(const RuntimeContextPtr &context) noexcept;
 
         ~Application() noexcept override;
 
@@ -67,14 +63,15 @@ namespace HeaderTech::Runtime {
         [[nodiscard]] inline auto MainLoop() const noexcept
         { return this->SharedEventProcessor(); }
 
+        [[nodiscard]] inline auto Context() const noexcept
+        { return m_context; }
+
     protected:
-        HeaderTech::Config::ConfigPtr         m_config;
-        HeaderTech::FileSystem::FileSystemPtr m_fileSystem;
-        HeaderTech::Logging::LoggingPtr       m_logging;
-        HeaderTech::Logging::LogPtr           m_log;
+        HeaderTech::Logging::LogPtr m_log;
 
     private:
-        bool m_isRunning;
+        bool              m_isRunning;
+        RuntimeContextPtr m_context;
     };
 
     namespace Instance {
@@ -87,11 +84,8 @@ namespace HeaderTech::Runtime {
             using ApplicationPtr = std::shared_ptr<ApplicationBase>;
 
         public:
-            inline explicit ApplicationInstance(
-                    const std::span<const char *> &args,
-                    const HeaderTech::Common::ClockPtr &clock
-            ) :
-                    m_application(std::make_shared<Application>(args, clock))
+            inline explicit ApplicationInstance(const HeaderTech::Runtime::RuntimeContextPtr &context) :
+                    m_application(std::make_shared<Application>(context))
             {}
 
             inline auto Instance() const noexcept -> ApplicationPtr &
@@ -105,11 +99,8 @@ namespace HeaderTech::Runtime {
         };
 
         template<DerivedApplication ApplicationBase>
-        inline static auto MakeInstance(
-                const std::span<const char *> &args,
-                const HeaderTech::Common::ClockPtr &clock
-        ) noexcept -> ApplicationInstance<ApplicationBase>
-        { return ApplicationInstance<ApplicationBase>(args, clock); }
+        inline static auto make_instance(const HeaderTech::Runtime::RuntimeContextPtr &context) noexcept -> ApplicationInstance<ApplicationBase>
+        { return ApplicationInstance<ApplicationBase>(context); }
     }
 }
 

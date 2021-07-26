@@ -30,210 +30,193 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include <Config/Config.hpp>
-#include <Config/Version.hpp>
-#include <Editor/Version.hpp>
-#include <Event/Reactive/Reactive.hpp>
-#include <Event/Version.hpp>
-#include <FileSystem/FileSystem.hpp>
-#include <FileSystem/Version.hpp>
-#include <Logging/Logging.hpp>
-#include <Logging/Version.hpp>
-#include <Runtime/Runtime.hpp>
-#include <Runtime/Application.hpp>
-#include <Runtime/Version.hpp>
-#include <Common/Version.hpp>
-
-#include <string>
-#include <cassert>
-#include <iostream>
-#include <span>
-
-
-//class Application final : public HeaderTech::Runtime::Runtime {
+//#include <Config/Config.hpp>
+//#include <Config/Version.hpp>
+//#include <Editor/Version.hpp>
+//#include <Event/Reactive/Reactive.hpp>
+//#include <Event/Version.hpp>
+//#include <FileSystem/FileSystem.hpp>
+//#include <FileSystem/Version.hpp>
+//#include <Logging/Logging.hpp>
+//#include <Logging/Version.hpp>
+//#include <Runtime/Runtime.hpp>
+//#include <Runtime/Application.hpp>
+//#include <Runtime/Version.hpp>
+//#include <Common/Version.hpp>
+//
+//#include <string>
+//#include <cassert>
+//#include <iostream>
+//#include <span>
+//
+//struct TerminationEvent {
+//};
+//
+//inline static bool capture_event(const TerminationEvent &evt)
+//{
+//    return false;
+//}
+//
+//class MyApp final : public HeaderTech::Runtime::Application {
 //public:
-//    Application(const std::span<const char *>& args) noexcept
-//            : HeaderTech::Runtime::Runtime(
+//    inline explicit MyApp(const HeaderTech::Runtime::RuntimeContextPtr &context) noexcept
+//            : HeaderTech::Runtime::Application(context)
+//    {
+//        (void) Bind<TerminationEvent>(this, 0U);
+//        //    Bind<TerminationEvent>(*this, 0);
+//        (void) Bind<TerminationEvent>(capture_event, 0U);
+//        (void) Bind<TerminationEvent>([](const TerminationEvent &evt) { return false; }, 0U);
+//
+//        (void) Dispatch<TerminationEvent, 0>();
+//        m_log->Critical(SOURCE_LOCATION, "Critical");
+//        m_log->Exception(SOURCE_LOCATION, "Exception");
+//        m_log->Error(SOURCE_LOCATION, "Error");
+//        m_log->Warning(SOURCE_LOCATION, "Warning");
+//        m_log->Information(SOURCE_LOCATION, "Information");
+//        m_log->Debug(SOURCE_LOCATION, "Debug");
+//        m_log->Trace(SOURCE_LOCATION, "Trace");
+//        m_log->Verbose(SOURCE_LOCATION, "Verbose");
+//    }
+//
+//    bool OnEvent(const TerminationEvent &evt) noexcept
+//    {
+//        m_log->Information(SOURCE_LOCATION, "Shutdown called");
+//        Terminate();
+//        return false;
+//    }
+//};
+//
+//using Instance = HeaderTech::Runtime::Instance::ApplicationInstance<MyApp>;
+//
+//int main(int argc, const char **argv)
+//{
+//    assert(HeaderTech::Editor::ValidateVersion(HeaderTech::Editor::HeaderVersion));
+//    assert(HeaderTech::Common::ValidateVersion(HeaderTech::Common::HeaderVersion));
+//    assert(HeaderTech::Config::ValidateVersion(HeaderTech::Config::HeaderVersion));
+//    assert(HeaderTech::FileSystem::ValidateVersion(HeaderTech::FileSystem::HeaderVersion));
+//    assert(HeaderTech::Logging::ValidateVersion(HeaderTech::Logging::HeaderVersion));
+//    assert(HeaderTech::Runtime::ValidateVersion(HeaderTech::Runtime::HeaderVersion));
+//    assert(HeaderTech::Event::ValidateVersion(HeaderTech::Event::HeaderVersion));
+//
+//    std::span<const char *> args(argv, argc);
+//
+//    auto context = HeaderTech::Runtime::RuntimeContext::MakeRuntimeContext(
 //            "Editor",
 //            HeaderTech::Editor::VersionString,
 //            args
-//    ),
-//              m_log(Logging()->CreateLogger<Application>())
-//    {
-//    }
+//    );
 //
-//protected:
-//    void VersionCheck() noexcept final
-//    {
-//        HeaderTech::Runtime::Runtime::VersionCheck();
-//        m_log->info("\tEditor {}", HeaderTech::Editor::VersionString);
-//        m_log->info("\tEvent {}", HeaderTech::Event::VersionString);
-//    }
+//    auto instance = HeaderTech::Runtime::Instance::make_instance<MyApp>(context);
 //
-//    void OnMainLoopWillStart() noexcept final
-//    {
-//        m_log->info("OnMainLoopWillStart!");
-//        HeaderTech::Runtime::Runtime::OnMainLoopWillStart();
-//    }
-//
-//    void OnMainLoopDidStart() noexcept final
-//    {
-//        m_log->info("OnMainLoopDidStart!");
-//        HeaderTech::Runtime::Runtime::OnMainLoopDidStart();
-//    }
-//
-//    void OnMainLoopWillEnd() noexcept final
-//    {
-//        m_log->info("OnMainLoopWillEnd!");
-//        HeaderTech::Runtime::Runtime::OnMainLoopWillEnd();
-//    }
-//
-//    void OnMainLoopDidEnd() noexcept final
-//    {
-//        m_log->info("OnMainLoopDidEnd!");
-//        HeaderTech::Runtime::Runtime::OnMainLoopDidEnd();
-//    }
-//
-//    void OnMainLoopTick() noexcept final
-//    {
-//        m_log->info("OnMainLoopTick!");
-//        HeaderTech::Runtime::Runtime::OnMainLoopTick();
-//
-//        StopRunning();
-//    }
-//
-//private:
-//    HeaderTech::Logging::Logger m_log;
-//};
-//
-//class ReactiveClass {
-//public:
-//    ReactiveClass() : m_exampleValue{false},
-//                      m_exampleValue2{10},
-//                      m_exampleValue3{"Hello"}
-//    {
-//        m_exampleValue2.Subscribe(
-//                [](HeaderTech::Event::Reactive::ReactiveOperation op, int oldValue, int newValue) {
-//                    std::cout << "Ex2 Changed: (" << op << ") " << oldValue << " -> " << newValue << std::endl;
-//                }
-//        );
-//        m_exampleValue3.Subscribe(
-//                [](
-//                        HeaderTech::Event::Reactive::ReactiveOperation op,
-//                        const std::string &oldValue,
-//                        const std::string &newValue
-//                ) {
-//                    std::cout << "Ex3 Changed: (" << op << ") " << oldValue << " -> " << newValue << std::endl;
-//                }
-//        );
-//
-//        m_exampleValue = true;
-//
-//        if (m_exampleValue) {
-//            m_exampleValue = false;
-//        }
-//
-//        if (m_exampleValue2 > 8) {
-//            m_exampleValue2++;
-//            m_exampleValue2--;
-//            ++m_exampleValue2;
-//            --m_exampleValue2;
-//        }
-//        std::cout << m_exampleValue2 << std::endl;
-//
-//        std::cout
-//                << ((m_exampleValue || m_exampleValue2) > 0 && m_exampleValue2 <= 100 && m_exampleValue2 < 200)
-//                << std::endl;
-//
-//        m_exampleValue2 = 30;
-//
-//        m_exampleValue2 += 10;
-//        m_exampleValue2 -= 10;
-//        m_exampleValue2 *= 10;
-//        m_exampleValue2 /= 10;
-//
-//        m_exampleValue3 = "Hello, World!";
-//
-//        std::string m_exampleValue4 = m_exampleValue3.substr(0, 5);
-//
-//        std::cout << m_exampleValue << std::endl;
-//        std::cout << m_exampleValue2 << std::endl;
-//        std::cout << m_exampleValue3 << std::endl;
-//        std::cout << m_exampleValue4 << std::endl;
-//
-//        std::cout << (20 + m_exampleValue2) << std::endl;
-//        std::cout << (m_exampleValue2 + 18) << std::endl;
-//        std::cout << (m_exampleValue2 + m_exampleValue2) << std::endl;
-//    }
-//
-//private:
-//    HeaderTech::Event::Reactive::Reactive<bool>        m_exampleValue;
-//    HeaderTech::Event::Reactive::Reactive<int>         m_exampleValue2;
-//    HeaderTech::Event::Reactive::Reactive<std::string> m_exampleValue3;
-//};
+//    return instance.Launch();
+//}
 
-struct TerminationEvent {
+#define HEADERTECH_EVENT_IMPLEMENTATION 1
+
+#include <Editor/Version.hpp>
+#include <Core/HeaderTech.hpp>
+#include <Core/Events/Window/WindowPositionEvent.hpp>
+#include <Core/Events/Input/KeyInputEvent.hpp>
+
+#include <iostream>
+
+#include <GLFW/glfw3.h>
+
+struct ExampleEvent {
+
 };
 
-inline static bool capture_event(const TerminationEvent &evt)
-{
-    return false;
-}
+using WindowPositionEvent = HeaderTech::Core::Events::Window::WindowPositionEvent;
+using KeyInputEvent = HeaderTech::Core::Events::Input::KeyInputEvent;
 
-class MyApp final : public HeaderTech::Runtime::Application {
+class Application final : public HeaderTech::Core::Runtime::Runtime {
 public:
-    inline explicit MyApp(
-            const std::span<const char *> &args,
-            const HeaderTech::Common::ClockPtr &clock
-    ) noexcept:
-            HeaderTech::Runtime::Application(
-                    "Editor",
-                    HeaderTech::Editor::VersionString,
-                    args,
-                    clock
-            )
+    explicit Application()
+            : HeaderTech::Core::Runtime::Runtime(),
+              m_window(nullptr)
     {
-        (void) Bind<TerminationEvent>(this, 0U);
-        //    Bind<TerminationEvent>(*this, 0);
-        (void) Bind<TerminationEvent>(capture_event, 0U);
-        (void) Bind<TerminationEvent>([](const TerminationEvent &evt) { return false; }, 0U);
+        Bind<ExampleEvent, 0>(
+                [](const ExampleEvent &evt) {
+                    std::cout << "Handle Example Event From Lambda\n";
+                    return true;
+                }
+        );
+        Bind<ExampleEvent, 0>(this);
+        m_window.Bind<KeyInputEvent, 0>(this);
+        Bind<ExampleEvent, 0>(*this);
 
-        (void) Dispatch<TerminationEvent, 0>();
+        Dispatch<ExampleEvent, 0>();
+
+        m_window.Bind<WindowPositionEvent, 0>(
+                [](const WindowPositionEvent &evt) {
+                    std::cout << "Handle WindowPositionEvent Event From Lambda " << evt.x << ", " << evt.y << "\n";
+                    return true;
+                }
+        );
     }
 
-    bool OnEvent(const TerminationEvent &evt) noexcept
+    ~Application() noexcept override
     {
-        m_log->Information(SOURCE_LOCATION, "Shutdown called");
-        Terminate();
-        return false;
+        std::cout << "application destroyed\n";
     }
+
+    bool OnEvent(const ExampleEvent &evt)
+    {
+        std::cout << "Handle Example Event From Class\n";
+        return true;
+    }
+
+    bool OnEvent(const ExampleEvent &evt) const
+    {
+        std::cout << "Handle Example Event From Class Const\n";
+        return true;
+    }
+
+    bool OnEvent(const KeyInputEvent &evt) const
+    {
+        std::cout
+                << "Handle Key Input ("
+                << evt.key
+                << ","
+                << evt.scanCode
+                << ","
+                << evt.mods
+                << ","
+                << evt.action
+                << ")\n";
+        return true;
+    }
+
+protected:
+    void ConfigureArguments(argparse::ArgumentParser &parser) noexcept override
+    {
+        (void) parser.add_argument("-e", "--example")
+                     .help("an example argument")
+                     .action(
+                             [](const std::string &value) {
+                                 return value;
+                             }
+                     );
+    }
+
+    void OnConfigure(argparse::ArgumentParser &parser) noexcept override
+    {}
+
+    void OnLaunch() noexcept override
+    {}
+
+    void OnShutdown() noexcept override
+    {}
+
+    void OnTick() noexcept override
+    { if (!m_window.IsOpen()) { Shutdown(); }}
+
+private:
+    HeaderTech::Core::Common::Window m_window;
 };
-
-using Instance = HeaderTech::Runtime::Instance::ApplicationInstance<MyApp>;
 
 int main(int argc, const char **argv)
 {
-    assert(HeaderTech::Editor::ValidateVersion(HeaderTech::Editor::HeaderVersion));
-    assert(HeaderTech::Common::ValidateVersion(HeaderTech::Common::HeaderVersion));
-    assert(HeaderTech::Config::ValidateVersion(HeaderTech::Config::HeaderVersion));
-    assert(HeaderTech::FileSystem::ValidateVersion(HeaderTech::FileSystem::HeaderVersion));
-    assert(HeaderTech::Logging::ValidateVersion(HeaderTech::Logging::HeaderVersion));
-    assert(HeaderTech::Runtime::ValidateVersion(HeaderTech::Runtime::HeaderVersion));
-    assert(HeaderTech::Event::ValidateVersion(HeaderTech::Event::HeaderVersion));
-
-    std::span<const char *> args(argv, argc);
-
-    auto instance = HeaderTech::Runtime::Instance::MakeInstance<MyApp>(
-            args,
-            std::static_pointer_cast<HeaderTech::Common::Clock>(
-                    std::make_shared<HeaderTech::Common::SystemClock>()
-            )
-    );
-
-//    ReactiveClass example;
-//
-//    Application application(argc, argv);
-//
-//    return application.MainLoop();
-    return instance.Launch();
+    std::span<const char *> args(argv, static_cast<std::span<const char *>::size_type>(argc));
+    return HeaderTech::entry_point<Application>("Editor", HeaderTech::Editor::VersionString, args);
 }

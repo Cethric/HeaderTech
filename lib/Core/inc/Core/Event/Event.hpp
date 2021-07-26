@@ -30,34 +30,68 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#ifndef HEADERTECH_EVENT_HPP
+#define HEADERTECH_EVENT_HPP
 
-using namespace HeaderTech::Runtime;
+#include <memory>
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
-{
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
+#include <ctti/type_id.hpp>
+
+#include <Core/Exports.h>
+
+namespace HeaderTech::Core::Event {
+    using EventId = ctti::type_id_t;
+
+    using EventPriority = std::uint_least8_t;
+
+    const EventPriority Priority_Queue_Size = 16U;
+
+    template<typename EventType>
+    concept Event = requires(EventType e){
+        { ctti::type_id(e) } -> std::same_as<EventId>;
+    };
+
+    template<Event AnEvent>
+    constexpr EventId make_event_id()
+    { return ctti::type_id<AnEvent>(); }
+
+    class HeaderTech_Core_Export AnyEvent {
+        using RealEventPtr = void *;
+        using EventDeleter = std::function<void(RealEventPtr)>;
+    public:
+        template<Event AnEvent, typename...Args>
+        static inline auto MakeEvent(Args...args) noexcept
+        {
+            return std::make_shared<AnyEvent>(
+                    make_event_id<AnEvent>(),
+                    new AnEvent(std::forward<Args>(args)...),
+                    [](void *ev) {
+                        auto evt = static_cast<AnEvent *>(ev);
+                        delete evt;
+                    }
+            );
+        }
+
+    public:
+        AnyEvent(EventId id, RealEventPtr event, EventDeleter deleter) noexcept;
+
+        ~AnyEvent() noexcept;
+
+        template<Event AnEvent>
+        auto Convert() const noexcept -> AnEvent *;
+
+        template<Event AnEvent>
+        [[nodiscard]] bool IsEvent() const noexcept;
+
+        [[nodiscard]] EventId Id() const noexcept;
+
+    private:
+        EventId      m_id;
+        RealEventPtr m_event;
+        EventDeleter m_eventDeleter;
+    };
+
+    using EventPtr = std::shared_ptr<AnyEvent>;
 }
 
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
-
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
-    }
-    return 0;
-}
-
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
-}
+#endif //HEADERTECH_EVENT_HPP

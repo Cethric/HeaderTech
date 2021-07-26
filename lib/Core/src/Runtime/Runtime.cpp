@@ -30,34 +30,47 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
 
-using namespace HeaderTech::Runtime;
+#include <Core/Runtime/Runtime.hpp>
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
+#include <Core/Event/impl/Event.inl>
+#include <Core/Event/impl/EventQueue.inl>
+#include <Core/Event/impl/EventHandler.inl>
+#include <Core/Event/impl/EventDispatcher.inl>
+#include <Core/Event/impl/EventHandlerQueue.inl>
+
+#include <exception>
+#include <iostream>
+
+#include <GLFW/glfw3.h>
+
+using namespace HeaderTech::Core::Runtime;
+
+HeaderTech_Core_Export Runtime::Runtime() : HeaderTech::Core::Event::EventDispatcher(), m_running(false)
 {
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
+
 }
 
-Application::~Application() noexcept
+HeaderTech_Core_Export Runtime::~Runtime()
 {
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
+    m_running = false;
 }
 
-int Application::Launch() noexcept
+HeaderTech_Core_Export int Runtime::Launch() noexcept
 {
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
+    try {
+        m_running = true;
+        OnLaunch();
+        while (m_running) { // NOLINT(altera-unroll-loops)
+            // Idle by busy process is not needed
+            glfwWaitEventsTimeout(10.);
+            ProcessEvent();
+            OnTick();
+        }
+        OnShutdown();
+        return 0;
+    } catch (const std::exception &ex) {
+        std::cerr << ex.what() << "\n";
+        return -1;
     }
-    return 0;
-}
-
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
 }

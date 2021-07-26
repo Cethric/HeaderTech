@@ -30,34 +30,18 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
 
-using namespace HeaderTech::Runtime;
+#include <Core/Event/EventQueue.hpp>
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
+#include <Core/Event/impl/Event.inl>
+#include <Core/Event/impl/EventQueue.inl>
+
+#include <GLFW/glfw3.h>
+
+using namespace HeaderTech::Core::Event;
+
+void EventQueue::Push(const EventPtr &evt)
 {
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
-}
-
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
-
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
-    }
-    return 0;
-}
-
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
+    std::cout << "Event has been pushed\n";
+    glfwPostEmptyEvent();
 }

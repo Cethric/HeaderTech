@@ -30,34 +30,26 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#ifndef HEADERTECH_KEYEVENT_HPP
+#define HEADERTECH_KEYEVENT_HPP
 
-using namespace HeaderTech::Runtime;
+namespace HeaderTech::Core::Events::Input {
+    enum KeyInputAction {
+        KeyPress,
+        KeyRelease,
+        KeyRepeat
+    };
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
-{
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
+    struct KeyInputEvent {
+        int            key;
+        int            scanCode;
+        int            mods;
+        KeyInputAction action;
+
+        inline KeyInputEvent(int inputKey, int inputScanCode, KeyInputAction inputAction, int inputMods) noexcept:
+                key(inputKey), scanCode(inputScanCode), mods(inputMods), action(inputAction)
+        {}
+    };
 }
 
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
-
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
-    }
-    return 0;
-}
-
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
-}
+#endif //HEADERTECH_KEYEVENT_HPP

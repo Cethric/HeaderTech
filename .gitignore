@@ -849,7 +849,7 @@ Thumbs.db
 *testsdir
 *testsfile
 *testsfiles
-*test
+#*test
 *testdir
 *testfile
 *testfiles

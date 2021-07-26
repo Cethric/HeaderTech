@@ -30,34 +30,35 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#ifndef HEADERTECH_EVENT_INL
+#define HEADERTECH_EVENT_INL
 
-using namespace HeaderTech::Runtime;
+#include <Core/Event/Event.hpp>
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
-{
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
+namespace HeaderTech::Core::Event {
+    inline AnyEvent::AnyEvent(
+            EventId id,
+            RealEventPtr event,
+            EventDeleter deleter
+    ) noexcept
+            : m_id(id),
+              m_event(event),
+              m_eventDeleter(std::move(deleter))
+    {}
+
+    inline AnyEvent::~AnyEvent() noexcept
+    { m_eventDeleter(m_event); }
+
+    template<Event AnEvent>
+    inline auto AnyEvent::Convert() const noexcept -> AnEvent *
+    { return IsEvent<AnEvent>() ? static_cast<AnEvent *>(m_event) : nullptr; }
+
+    template<Event AnEvent>
+    [[nodiscard]] inline bool AnyEvent::IsEvent() const noexcept
+    { return make_event_id<AnEvent>() == m_id; }
+
+    [[nodiscard]] inline EventId AnyEvent::Id() const noexcept
+    { return m_id; }
 }
 
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
-
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
-    }
-    return 0;
-}
-
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
-}
+#endif //HEADERTECH_EVENT_INL

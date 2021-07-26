@@ -3,7 +3,6 @@ project(Runtime VERSION 0.0.1.0 DESCRIPTION "HeaderTech Runtime library" HOMEPAG
 
 set(
         Runtime_SRC
-        src/Runtime.cpp
         src/Application.cpp
 )
 

@@ -30,34 +30,21 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#ifndef HEADERTECH_EVENT_INC_HPP
+#define HEADERTECH_EVENT_INC_HPP
 
-using namespace HeaderTech::Runtime;
+#include <Core/Event/Event.hpp>
+#include <Core/Event/EventQueue.hpp>
+#include <Core/Event/EventHandler.hpp>
+#include <Core/Event/EventDispatcher.hpp>
+#include <Core/Event/EventHandlerQueue.hpp>
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
-{
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
-}
+#if defined(HEADERTECH_EVENT_IMPLEMENTATION)
+#include <Core/Event/impl/Event.inl>
+#include <Core/Event/impl/EventQueue.inl>
+#include <Core/Event/impl/EventHandler.inl>
+#include <Core/Event/impl/EventDispatcher.inl>
+#include <Core/Event/impl/EventHandlerQueue.inl>
+#endif
 
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
-
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
-    }
-    return 0;
-}
-
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
-}
+#endif //HEADERTECH_EVENT_INC_HPP

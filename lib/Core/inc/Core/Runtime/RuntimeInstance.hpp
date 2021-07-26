@@ -30,34 +30,63 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#ifndef HEADERTECH_RUNTIMEINSTANCE_HPP
+#define HEADERTECH_RUNTIMEINSTANCE_HPP
 
-using namespace HeaderTech::Runtime;
+#include <span>
+#include <memory>
+#include <string_view>
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
-{
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
+#include <Core/Exports.h>
+#include <Core/Runtime/Runtime.hpp>
+
+namespace HeaderTech::Core::Runtime {
+    class HeaderTech_Core_Export RuntimeInstance {
+    public:
+        using RuntimeInstancePtr = std::unique_ptr<RuntimeInstance>;
+    private:
+        static RuntimeInstancePtr s_instance;
+
+    private:
+        RuntimeInstance(
+                const std::string_view &name,
+                const std::span<const char *> &args
+        ) noexcept;
+
+    public:
+        static RuntimeInstancePtr &MakeInstance(
+                const std::string_view &name,
+                const std::span<const char *> &args
+        ) noexcept;
+
+        static void TerminateInstance() noexcept;
+
+        static inline const RuntimeInstancePtr &Instance() noexcept
+        { return s_instance; }
+
+    public:
+        ~RuntimeInstance() noexcept;
+
+        bool Configure(
+                const std::string_view &name,
+                const std::string_view &version,
+                const std::span<const char *> &args
+        ) noexcept;
+
+        int Launch() noexcept;
+
+        template<RuntimeBase Runtime>
+        inline void RegisterRuntime() noexcept
+        { m_runtime = std::make_shared<Runtime>(); }
+
+        template<RuntimeBase RuntimeType>
+        [[nodiscard]] inline std::shared_ptr<RuntimeType> Runtime() const noexcept
+        { return std::static_pointer_cast<RuntimeType>(m_runtime); }
+
+    private:
+        RuntimePtr m_runtime;
+    };
 }
 
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
 
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
-    }
-    return 0;
-}
-
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
-}
+#endif //HEADERTECH_RUNTIMEINSTANCE_HPP

@@ -66,14 +66,10 @@ namespace HeaderTech::Config {
     };
 
     using ConfigPtr = std::shared_ptr<Config>;
-    using ConfigWeakPtr = std::weak_ptr<Config>;
 
-    inline static ConfigPtr MakeConfig(
-            const std::string_view &name,
-            const std::string_view &version,
-            const std::span<const char*> &args
-    ) noexcept
-    { return std::make_shared<Config>(name, version, args); }
+    template<typename RuntimeContext>
+    inline static ConfigPtr make_config(const RuntimeContext &context) noexcept
+    { return std::make_shared<Config>(context->Name(), context->Version(), context->Args()); }
 }// namespace HeaderTech::Config
 
 

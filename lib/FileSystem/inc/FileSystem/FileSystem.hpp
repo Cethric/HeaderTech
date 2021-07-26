@@ -51,13 +51,10 @@ namespace HeaderTech::FileSystem {
     };
 
     using FileSystemPtr = std::shared_ptr<FileSystem>;
-    using FileSystemWeakPtr = std::weak_ptr<FileSystem>;
 
-    inline static FileSystemPtr MakeFileSystem(
-            const HeaderTech::Config::ConfigPtr &config,
-            const char *argv0
-    ) noexcept
-    { return std::make_shared<FileSystem>(config, argv0); }
+    template<typename RuntimeContext>
+    inline static FileSystemPtr make_file_system(const RuntimeContext &context) noexcept
+    { return std::make_shared<FileSystem>(context->Config(), context->Args()[0]); }
 }// namespace HeaderTech::FileSystem
 
 

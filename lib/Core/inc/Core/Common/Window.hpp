@@ -30,34 +30,30 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#ifndef HEADERTECH_WINDOW_HPP
+#define HEADERTECH_WINDOW_HPP
 
-using namespace HeaderTech::Runtime;
+#include <memory>
+#include <Core/Exports.h>
+#include <Core/Event.hpp>
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
-{
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
+namespace HeaderTech::Core::Common {
+    struct HeaderTech_Core_Export WindowImpl;
+
+    class HeaderTech_Core_Export Window : public HeaderTech::Core::Event::EventDispatcher {
+    public:
+        explicit Window(const HeaderTech::Core::Event::EventDispatcherPtr &dispatcher) noexcept;
+
+        ~Window() noexcept;
+
+        [[nodiscard]] bool IsOpen() const;
+
+        void Close();
+
+    private:
+        WindowImpl *m_impl;
+    };
 }
 
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
 
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
-    }
-    return 0;
-}
-
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
-}
+#endif //HEADERTECH_WINDOW_HPP

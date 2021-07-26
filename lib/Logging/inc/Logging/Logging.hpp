@@ -268,11 +268,9 @@ namespace HeaderTech::Logging {
 
     using LoggingPtr = std::shared_ptr<Logging>;
 
-    inline static LoggingPtr MakeLogging(
-            const HeaderTech::Config::ConfigPtr &config,
-            const HeaderTech::FileSystem::FileSystemPtr &fileSystem
-    ) noexcept
-    { return std::make_shared<Logging>(config, fileSystem); }
+    template<typename RuntimeContext>
+    inline static LoggingPtr make_logging(const RuntimeContext &context) noexcept
+    { return std::make_shared<Logging>(context->Config(), context->FileSystem()); }
 }// namespace HeaderTech::Logging
 
 

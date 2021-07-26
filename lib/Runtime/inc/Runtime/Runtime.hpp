@@ -33,63 +33,72 @@
 #ifndef HEADERTECH_RUNTIME_HPP
 #define HEADERTECH_RUNTIME_HPP
 
+#include <memory>
+#include <span>
+#include <string_view>
+
+#include <Logging/Logging.hpp>
+#include <FileSystem/FileSystem.hpp>
+#include <Config/Config.hpp>
+#include <Event/EventProcessor.hpp>
+#include <Common/Clock.hpp>
 #include <Runtime/Exports.h>
 
-#include <Config/Config.hpp>
-#include <FileSystem/FileSystem.hpp>
-#include <Logging/Logging.hpp>
-
-#include <memory>
 
 namespace HeaderTech::Runtime {
-    class Runtime : public std::enable_shared_from_this<Runtime> {
+    class RuntimeContext {
     public:
-        HeaderTech_Runtime_Export Runtime(
-                const std::string_view &name,
-                const std::string_view &version,
-                const std::span<const char *> &args
-        ) noexcept;
+        [[nodiscard]] inline const std::string_view &Name() const noexcept
+        { return m_name; }
 
-        HeaderTech_Runtime_Export ~Runtime() noexcept;
+        [[nodiscard]] inline const std::string_view &Version() const noexcept
+        { return m_version; }
 
-        HeaderTech_Runtime_Export int MainLoop() noexcept;
+        [[nodiscard]] inline const std::span<const char *> &Args() const noexcept
+        { return m_args; }
 
-        HeaderTech_Runtime_Export inline bool IsRunning() const noexcept
-        { return m_running; }
+        [[nodiscard]] inline const HeaderTech::Common::ClockPtr &Clock() const noexcept
+        { return m_clock; }
 
-        HeaderTech_Runtime_Export void StopRunning() noexcept;
-
-        HeaderTech_Runtime_Export inline const HeaderTech::Config::ConfigPtr &Config() const noexcept
+        [[nodiscard]] inline const HeaderTech::Config::ConfigPtr &Config() const noexcept
         { return m_config; }
 
-        HeaderTech_Runtime_Export inline const HeaderTech::FileSystem::FileSystemPtr &FileSystem() const noexcept
+        [[nodiscard]] inline const HeaderTech::FileSystem::FileSystemPtr &FileSystem() const noexcept
         { return m_fileSystem; }
 
-        HeaderTech_Runtime_Export inline const HeaderTech::Logging::LoggingPtr &Logging() const noexcept
+        [[nodiscard]] inline const HeaderTech::Logging::LoggingPtr &Logging() const noexcept
         { return m_logging; }
 
-    protected:
-        HeaderTech_Runtime_Export virtual void VersionCheck() noexcept;
-
-        HeaderTech_Runtime_Export virtual void OnMainLoopWillStart() noexcept;
-
-        HeaderTech_Runtime_Export virtual void OnMainLoopDidStart() noexcept;
-
-        HeaderTech_Runtime_Export virtual void OnMainLoopWillEnd() noexcept;
-
-        HeaderTech_Runtime_Export virtual void OnMainLoopDidEnd() noexcept;
-
-        HeaderTech_Runtime_Export virtual void OnMainLoopTick() noexcept;
-
     private:
+        std::string_view                      m_name;
+        std::string_view                      m_version;
+        std::span<const char *>               m_args;
+        HeaderTech::Common::ClockPtr          m_clock;
         HeaderTech::Config::ConfigPtr         m_config;
         HeaderTech::FileSystem::FileSystemPtr m_fileSystem;
         HeaderTech::Logging::LoggingPtr       m_logging;
 
-    private:
-        HeaderTech::Logging::LogPtr m_log;
-        bool                        m_running;
+    public:
+        HeaderTech_Runtime_Export inline static std::shared_ptr<RuntimeContext> MakeRuntimeContext(
+                const std::string_view &name,
+                const std::string_view &version,
+                const std::span<const char *> &args
+        ) noexcept
+        {
+            auto context = std::make_shared<RuntimeContext>();
+            context->m_name       = name;
+            context->m_version    = version;
+            context->m_args       = args;
+            context->m_clock      = std::make_shared<HeaderTech::Common::SystemClock>();
+            context->m_config     = HeaderTech::Config::make_config(context);
+            context->m_fileSystem = HeaderTech::FileSystem::make_file_system(context);
+            context->m_logging    = HeaderTech::Logging::make_logging(context);
+            return context;
+        }
     };
+
+    using RuntimeContextPtr = std::shared_ptr<RuntimeContext>;
+
 }// namespace HeaderTech::Runtime
 
 

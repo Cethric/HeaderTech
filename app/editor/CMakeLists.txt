@@ -17,8 +17,9 @@ target_include_directories(
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/inc/>
         $<INSTALL_INTERFACE:include/>
 )
-target_link_libraries(Editor PRIVATE ctti::ctti)
-target_link_libraries(Editor PRIVATE Config FileSystem Logging Common Event Runtime)
+#target_link_libraries(Editor PRIVATE ctti::ctti)
+target_link_libraries(Editor PRIVATE Core)
+#target_link_libraries(Editor PRIVATE Config FileSystem Logging Common Event Runtime)
 
 target_precompile_headers(Editor PRIVATE <Editor/Version.hpp>)
 

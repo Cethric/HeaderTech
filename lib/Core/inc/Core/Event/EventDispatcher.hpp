@@ -30,34 +30,58 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#ifndef HEADERTECH_EVENTDISPATCHER_HPP
+#define HEADERTECH_EVENTDISPATCHER_HPP
 
-using namespace HeaderTech::Runtime;
+#include <queue>
+#include <array>
+#include <memory>
+#include <utility>
+#include <vector>
+#include <concepts>
+#include <functional>
+#include <type_traits>
+#include <iostream>
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
-{
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
+#include <phmap.h>
+#include <ctti/type_id.hpp>
+
+#include <Core/Exports.h>
+#include <Core/Event/Event.hpp>
+#include <Core/Event/EventQueue.hpp>
+#include <Core/Event/EventHandler.hpp>
+#include <Core/Event/EventHandlerQueue.hpp>
+
+namespace HeaderTech::Core::Event {
+    class HeaderTech_Core_Export EventDispatcher : public std::enable_shared_from_this<EventDispatcher> {
+    public:
+        inline EventDispatcher() noexcept;
+
+        inline ~EventDispatcher() noexcept;
+
+        void ProcessEvent() noexcept;
+
+        template<Event AnEvent, EventPriority Priority, typename...Args>
+        inline void Dispatch(Args &&...args) noexcept;
+
+        template<Event AnEvent, typename...Args>
+        inline void DispatchNow(Args &&...args) noexcept;
+
+        template<Event AnEvent, EventPriority Priority>
+        inline void Bind(EventHandler<AnEvent> auto &&handler) noexcept;
+
+        inline auto Shared() noexcept
+        { return shared_from_this(); }
+
+    protected:
+        void ProcessEvent(const EventPtr &event) noexcept;
+
+    private:
+        EventQueue        m_queue;
+        EventHandlerQueue m_handlerQueue;
+    };
+
+    using EventDispatcherPtr = std::shared_ptr<EventDispatcher>;
 }
 
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
-
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
-    }
-    return 0;
-}
-
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
-}
+#endif //HEADERTECH_EVENTDISPATCHER_HPP

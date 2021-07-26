@@ -30,34 +30,50 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#ifndef HEADERTECH_EVENTQUEUE_INL
+#define HEADERTECH_EVENTQUEUE_INL
 
-using namespace HeaderTech::Runtime;
+#include <Core/Event/Event.hpp>
+#include <Core/Event/EventQueue.hpp>
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
-{
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
-}
-
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
-
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
+namespace HeaderTech::Core::Event {
+    template<Event AnEvent, EventPriority Priority, typename... Args>
+    inline void EventQueue::Push(Args &&... args)
+    {
+        static_assert(Priority < Priority_Queue_Size);
+        Push(
+                m_queues[Priority].emplace(
+                        AnyEvent::MakeEvent<AnEvent>(
+                                std::forward<Args>(args)...
+                        )
+                )
+        );
     }
-    return 0;
+
+    [[nodiscard]] inline auto EventQueue::Top() -> EventPtr
+    {
+        EventPriority idx = 0U;
+        for (; idx < Priority_Queue_Size && m_queues[idx].empty(); ++idx) {
+        }
+        if (m_queues[idx].empty()) { return nullptr; }
+        auto event = m_queues[idx].front();
+        m_queues[idx].pop();
+        for (++idx; idx < Priority_Queue_Size; ++idx) {
+            if (!m_queues[idx].empty()) {
+                m_queues[idx - 1U].push(std::move(m_queues[idx].front()));
+                m_queues[idx].pop();
+            }
+        }
+        return event;
+    }
+
+    [[nodiscard]] inline bool EventQueue::IsEmpty() const
+    {
+        for (EventPriority idx = 0U; idx < Priority_Queue_Size; ++idx) {
+            if (!m_queues[idx].empty()) { return false; }
+        }
+        return true;
+    }
 }
 
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
-}
+#endif //HEADERTECH_EVENTQUEUE_INL

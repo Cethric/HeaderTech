@@ -30,34 +30,36 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#ifndef HEADERTECH_EVENTDISPATCHER_INL
+#define HEADERTECH_EVENTDISPATCHER_INL
 
-using namespace HeaderTech::Runtime;
+#include <Core/Event/EventDispatcher.hpp>
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
-{
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
+#include <Core/Exports.h>
+#include <Core/Event/impl/Event.inl>
+#include <Core/Event/impl/EventQueue.inl>
+#include <Core/Event/impl/EventHandler.inl>
+#include <Core/Event/impl/EventHandlerQueue.inl>
+
+#include <iostream>
+
+namespace HeaderTech::Core::Event {
+    inline EventDispatcher::EventDispatcher() noexcept: std::enable_shared_from_this<EventDispatcher>()
+    {}
+
+    inline EventDispatcher::~EventDispatcher() noexcept = default;
+
+    template<Event AnEvent, EventPriority Priority, typename...Args>
+    inline void EventDispatcher::Dispatch(Args &&... args) noexcept
+    { m_queue.Push<AnEvent, Priority>(std::forward<Args>(args)...); }
+
+    template<Event AnEvent, typename... Args>
+    inline void EventDispatcher::DispatchNow(Args &&... args) noexcept
+    { ProcessEvent(AnyEvent::MakeEvent<AnEvent>(std::forward<Args>(args)...)); }
+
+    template<Event AnEvent, EventPriority Priority>
+    inline void EventDispatcher::Bind(EventHandler<AnEvent> auto &&handler) noexcept
+    { m_handlerQueue.Bind<AnEvent, Priority, decltype(handler)>(std::forward<decltype(handler)>(handler)); }
 }
 
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
-
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
-    }
-    return 0;
-}
-
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
-}
+#endif //HEADERTECH_EVENTDISPATCHER_INL

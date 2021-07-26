@@ -30,34 +30,23 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#include <Core/Event/EventDispatcher.hpp>
+#include <Core/Event/impl/EventDispatcher.inl>
 
-using namespace HeaderTech::Runtime;
+using namespace HeaderTech::Core::Event;
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
+void EventDispatcher::ProcessEvent() noexcept
 {
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
-}
-
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
-
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
+    if (!m_queue.IsEmpty()) {
+        auto evt = m_queue.Top();
+        if (evt != nullptr) {
+            ProcessEvent(evt);
+        }
     }
-    return 0;
 }
 
-void Application::Terminate() noexcept
+void EventDispatcher::ProcessEvent(const EventPtr &event) noexcept
 {
-    m_isRunning = false;
+    auto result = m_handlerQueue.Process(event);
+    // TODO should we do something with the result here?
 }

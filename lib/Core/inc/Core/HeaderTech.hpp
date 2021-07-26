@@ -30,34 +30,54 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#ifndef HEADERTECH_HEADERTECH_HPP
+#define HEADERTECH_HEADERTECH_HPP
 
-using namespace HeaderTech::Runtime;
+#include <span>
+#include <string_view>
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
-{
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
-}
+#include <Core/Exports.h>
 
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
+#include <Core/Event.hpp>
 
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
+#include <Core/Runtime/Runtime.hpp>
+#include <Core/Runtime/RuntimeInstance.hpp>
+
+#include <Core/Common/Window.hpp>
+
+namespace HeaderTech {
+    namespace Impl {
+        struct DestructOnDereference {
+            inline explicit DestructOnDereference(auto &&instancePtr) noexcept
+            : ptr(std::forward<decltype(instancePtr)>(instancePtr))
+            {}
+
+            DestructOnDereference(const auto &instancePtr) = delete;
+            DestructOnDereference(const auto &&instancePtr) = delete;
+
+            inline ~DestructOnDereference() noexcept
+            { ptr->TerminateInstance(); }
+
+        private:
+            HeaderTech::Core::Runtime::RuntimeInstance::RuntimeInstancePtr &ptr;
+        };
     }
-    return 0;
+
+    template<HeaderTech::Core::Runtime::RuntimeBase Runtime>
+    static inline int entry_point(
+            const std::string_view &name,
+            const std::string_view &version,
+            const std::span<const char *> &args
+    )
+    {
+        auto                  &instance = HeaderTech::Core::Runtime::RuntimeInstance::MakeInstance(name, args);
+        Impl::DestructOnDereference destructOnDereference(instance);
+        instance->RegisterRuntime<Runtime>();
+        if (instance->Configure(name, version, args)) {
+            return instance->Launch();
+        }
+        return 0;
+    }
 }
 
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
-}
+#endif //HEADERTECH_HEADERTECH_HPP

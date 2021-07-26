@@ -94,7 +94,7 @@ namespace HeaderTech::Logging {
 #endif
 #define HEADERTECH_FILE_NAME __FILE__
 #define HEADERTECH_LINE_NUMBER __LINE__
-#define SOURCE_LOCATION HeaderTech::Logging::SourceLocation(HEADERTECH_FILE_NAME, HEADERTECH_FUNCTION_NAME, HEADERTECH_LINE_NUMBER)
+#define SOURCE_LOCATION HeaderTech::Logging::SourceLocation(HEADERTECH_FILE_NAME, HEADERTECH_FUNCTION_NAME, std::uint_least32_t{HEADERTECH_LINE_NUMBER})
 #endif
 
 
@@ -269,10 +269,12 @@ struct fmt::formatter<HeaderTech::Logging::SourceLocation> {
         std::string_view function = sl.function_name();
         auto             fend     = function.find_first_of('(');
         auto             reduced  = function.substr(0U, fend);
-        auto             fstart   = reduced.find_last_of("::", 0U, reduced.find_last_of("::")) + 1U;
+        auto             fstart   = reduced.find_last_of("::") == std::string_view::npos ?
+                                    0U :
+                                    reduced.find_last_of("::", 0U, reduced.find_last_of("::")) + 1U;
         return fmt::format_to(
                 ctx.out(),
-                "{}:{}():{}",
+                "{}:{}:{}",
                 sl.file_name(),
                 reduced.substr(fstart),
                 sl.line()

@@ -30,34 +30,12 @@
  = OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  =============================================================================*/
 
-#include "Runtime/Application.hpp"
+#include <Core/Event/EventHandler.hpp>
+#include <Core/Event/impl/EventHandler.inl>
 
-using namespace HeaderTech::Runtime;
+using namespace HeaderTech::Core::Event;
 
-Application::Application(const RuntimeContextPtr &context) noexcept:
-        HeaderTech::Event::EventProcessor(context->Clock()),
-        m_context(context),
-        m_log(context->Logging()->GetLogger<Application>()),
-        m_isRunning(false)
-{
-    m_log->Information(SOURCE_LOCATION, "Launching {} {}", context->Name().data(), context->Version().data());
-}
-
-Application::~Application() noexcept
-{
-    m_log->Information(SOURCE_LOCATION, "The application has been shutdown");
-}
-
-int Application::Launch() noexcept
-{
-    m_isRunning = true;
-    while (m_isRunning) {
-        ProcessTick();
-    }
-    return 0;
-}
-
-void Application::Terminate() noexcept
-{
-    m_isRunning = false;
-}
+AnyEventHandler::AnyEventHandler(EventPriority priority, AnyEventHandler::HandlerFunction handler) noexcept
+        : m_priority(priority),
+          m_handler(std::move(handler))
+{}
