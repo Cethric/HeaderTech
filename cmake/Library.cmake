@@ -7,15 +7,17 @@ include(emscripten/Functions)
 set(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/cmake/)
 set(TEMPLATE_DIR ${SOURCE_DIR}/templates/)
 
-function(RegisterLibrary Target Visibility)
+function(RegisterLibrary Target Visibility SetCompileFeatures)
     if (EMSCRIPTEN)
         em_setting_target(${Target} ${Visibility} RELOCATABLE 1 COMPILE_AND_LINK)
         em_setting_target(${Target} ${Visibility} SIDE_MODULE 1 COMPILE_AND_LINK)
         em_setting_target(${Target} ${Visibility} LINKABLE 1 COMPILE_AND_LINK)
     endif (EMSCRIPTEN)
 
-    target_compile_features(${Target} ${Visibility} cxx_std_20)
-    target_compile_features(${Target} ${Visibility} c_std_11)
+    if (${SetCompileFeatures})
+        target_compile_features(${Target} ${Visibility} cxx_std_20)
+        target_compile_features(${Target} ${Visibility} c_std_11)
+    endif (${SetCompileFeatures})
 
     install(
             TARGETS ${Target}
@@ -127,5 +129,5 @@ function(ConfigureLibrary Target Major Minor Patch Tweak)
 
     set_target_properties(${Target} PROPERTIES MACOSX_RPATH 1)
 
-    RegisterLibrary(${Target} PRIVATE)
+    RegisterLibrary(${Target} PRIVATE ON)
 endfunction(ConfigureLibrary)
