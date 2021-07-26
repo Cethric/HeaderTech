@@ -60,7 +60,7 @@ using namespace HeaderTech::Core::Event;
 using namespace HeaderTech::Core::Events::Window;
 using namespace HeaderTech::Core::Events::Input;
 
-struct ::HeaderTech::Core::Common::WindowImpl {
+struct HeaderTech_Core_Export HeaderTech::Core::Common::WindowImpl {
     GLFWwindow *window;
 };
 

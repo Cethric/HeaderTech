@@ -27,6 +27,11 @@ else (EMSCRIPTEN)
 
 endif (EMSCRIPTEN)
 
+set_property(
+        TARGET glfw
+        PROPERTY UNITY_BUILD OFF
+)
+
 
 add_library(glfw::glfw3 ALIAS glfw)
 
