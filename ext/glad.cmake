@@ -16,6 +16,6 @@ glad_add_library(
 
 add_library(glad::glad ALIAS glad)
 
-RegisterLibrary(glad PRIVATE)
+RegisterLibrary(glad PRIVATE OFF)
 
 # lib glad

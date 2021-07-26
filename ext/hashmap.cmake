@@ -12,5 +12,5 @@ target_include_directories(
 
 add_library(hashmap::hashmap ALIAS parallel_hashmap)
 
-RegisterLibrary(parallel_hashmap INTERFACE)
+RegisterLibrary(parallel_hashmap INTERFACE OFF)
 # lib hashmap::hashmap

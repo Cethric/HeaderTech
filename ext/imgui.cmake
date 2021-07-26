@@ -85,6 +85,6 @@ add_executable(ImGuiFontCompressor imgui/misc/fonts/binary_to_compressed_c.cpp)
 
 add_library(imgui::imgui ALIAS ImGui)
 
-RegisterLibrary(ImGui PRIVATE)
+RegisterLibrary(ImGui PRIVATE OFF)
 
 # lib imgui::imgui

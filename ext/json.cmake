@@ -7,6 +7,6 @@ add_subdirectory(json/ EXCLUDE_FROM_ALL)
 
 add_library(json::json ALIAS nlohmann_json)
 
-RegisterLibrary(nlohmann_json INTERFACE)
+RegisterLibrary(nlohmann_json INTERFACE OFF)
 
 # lib json::json

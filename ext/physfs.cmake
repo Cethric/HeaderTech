@@ -35,6 +35,6 @@ target_include_directories(
 
 add_library(physfs::physfs ALIAS physfs)
 
-RegisterLibrary(physfs PRIVATE)
+RegisterLibrary(physfs PRIVATE OFF)
 
 # lib physfs::physfs

@@ -17,7 +17,7 @@ endif ()
 
 add_subdirectory(fmt/ EXCLUDE_FROM_ALL)
 
-RegisterLibrary(fmt PRIVATE)
+RegisterLibrary(fmt PRIVATE OFF)
 
 set_property(
         TARGET fmt

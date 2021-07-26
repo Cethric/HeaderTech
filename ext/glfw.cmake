@@ -23,7 +23,7 @@ else (EMSCRIPTEN)
 
     add_subdirectory(glfw/)
 
-    RegisterLibrary(glfw PRIVATE)
+    RegisterLibrary(glfw PRIVATE OFF)
 
 endif (EMSCRIPTEN)
 

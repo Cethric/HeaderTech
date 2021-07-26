@@ -59,7 +59,7 @@ else (EMSCRIPTEN)
     #    target_include_directories(Remotery PUBLIC libGL)
     #endif (UNIX)
 
-    RegisterLibrary(Remotery PRIVATE)
+    RegisterLibrary(Remotery PRIVATE OFF)
 
 endif (EMSCRIPTEN)
 
