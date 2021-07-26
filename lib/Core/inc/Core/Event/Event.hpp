@@ -34,6 +34,8 @@
 #define HEADERTECH_EVENT_HPP
 
 #include <memory>
+#include <type_traits>
+#include <concepts>
 
 #include <ctti/type_id.hpp>
 
@@ -47,7 +49,7 @@ namespace HeaderTech::Core::Event {
     const EventPriority Priority_Queue_Size = 16U;
 
     template<typename EventType>
-    concept Event = requires(EventType e){
+    concept Event = requires(EventType e) {
         { ctti::type_id(e) } -> std::same_as<EventId>;
     };
 
