@@ -48,19 +48,19 @@ namespace HeaderTech::Core::Event {
     template<typename EventHandlerType, typename AnEvent>
     concept EventHandlerFunction = requires(EventHandlerType handler, const AnEvent &evt) {
         requires Event<AnEvent>;
-        { handler(evt) } -> std::convertible_to<bool>;
+        { handler(evt) } -> std::same_as<bool>;
     };
 
     template<typename EventHandlerType, typename AnEvent>
     concept EventHandlerClassPtr = requires(EventHandlerType handler, const AnEvent &evt) {
         requires Event<AnEvent>;
-        { handler->OnEvent(evt) } -> std::convertible_to<bool>;
+        { handler->OnEvent(evt) } -> std::same_as<bool>;
     };
 
     template<typename EventHandlerType, typename AnEvent>
     concept EventHandlerClassRef = requires(EventHandlerType &handler, const AnEvent &evt) {
         requires Event<AnEvent>;
-        { handler.OnEvent(evt) } -> std::convertible_to<bool>;
+        { handler.OnEvent(evt) } -> std::same_as<bool>;
     };
 
     template<typename EventHandlerType, typename AnEvent>
