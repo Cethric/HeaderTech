@@ -16,6 +16,9 @@ jobs:
       SONARQUBE_PATH: ${{github.workspace}}/.sonar
       SONARQUBE_EXE: ${{github.workspace}}/.sonar/build-wrapper-linux-x86/build-wrapper-linux-x86-64
     steps:
+      - uses: actions/checkout@main
+      - uses: ./.github/actions/prepare-external-action
+
       - uses: BSFishy/pip-action@v1
         with:
           packages: Jinja2<3.0
@@ -28,9 +31,6 @@ jobs:
           unzip build-wrapper-linux-x86.zip -d $SONARQUBE_PATH
           ls -la ${{github.workspace}}/.sonar
 
-
-      - uses: actions/checkout@main
-      - uses: ./.github/actions/prepare-external-action
 
       - name: Create Build Environment
         shell: bash
