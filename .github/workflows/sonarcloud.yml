@@ -45,8 +45,9 @@ jobs:
         shell: bash
         run: |
           sudo apt-get install xorg-dev clang zip unzip
-          wget $SONAR_SCANNER_DOWNLOAD_URL -O $SONAR_SCANNER_DOWNLOAD_ZIP
-          wget $SONAR_BUILD_WRAPPER_DOWNLOAD_URL -O $SONAR_BUILD_WRAPPER_DOWNLOAD_ZIP
+          mkdir -p $HOME/.sonar
+          wget $SONAR_SCANNER_DOWNLOAD_URL -O $HOME/.sonar/$SONAR_SCANNER_DOWNLOAD_ZIP
+          wget $SONAR_BUILD_WRAPPER_DOWNLOAD_URL -O $HOME/.sonar/$SONAR_BUILD_WRAPPER_DOWNLOAD_ZIP
           unzip $SONAR_SCANNER_DOWNLOAD_ZIP -d $SONARQUBE_PATH
           unzip $SONAR_BUILD_WRAPPER_DOWNLOAD_ZIP -d $SONARQUBE_PATH
           echo "$HOME/.sonar/sonar-scanner-${{ env.SONAR_SCANNER_VERSION }}-linux/bin" >> $GITHUB_PATH
