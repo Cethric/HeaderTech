@@ -48,8 +48,8 @@ jobs:
           mkdir -p $HOME/.sonar
           wget $SONAR_SCANNER_DOWNLOAD_URL -O $HOME/.sonar/$SONAR_SCANNER_DOWNLOAD_ZIP
           wget $SONAR_BUILD_WRAPPER_DOWNLOAD_URL -O $HOME/.sonar/$SONAR_BUILD_WRAPPER_DOWNLOAD_ZIP
-          unzip $SONAR_SCANNER_DOWNLOAD_ZIP -d $SONARQUBE_PATH
-          unzip $SONAR_BUILD_WRAPPER_DOWNLOAD_ZIP -d $SONARQUBE_PATH
+          unzip $HOME/.sonar/$SONAR_SCANNER_DOWNLOAD_ZIP -d $HOME/.sonar/
+          unzip $HOME/.sonar/$SONAR_BUILD_WRAPPER_DOWNLOAD_ZIP -d $HOME/.sonar/
           echo "$HOME/.sonar/sonar-scanner-${{ env.SONAR_SCANNER_VERSION }}-linux/bin" >> $GITHUB_PATH
           echo "$HOME/.sonar/build-wrapper-linux-x86" >> $GITHUB_PATH
 
