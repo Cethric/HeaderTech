@@ -37,7 +37,7 @@ namespace HeaderTech::Core::Events::Input {
     struct CursorEnterEvent {
         bool entered;
 
-        inline CursorEnterEvent(bool inputEntered) noexcept:
+        inline explicit CursorEnterEvent(bool inputEntered) noexcept:
                 entered(inputEntered)
         {}
     };

@@ -53,8 +53,8 @@ jobs:
         with:
           projectBaseDir: ${{github.workspace}}
           args: >
-            -Dsonar.cfamily.build-wrapper-output=${{github.workspace}}/cmake_build_debug/bw-outputs
-            -Dsonar.verbose=true
+            -Dsonar.cfamily.build-wrapper-output=./cmake_build_debug/bw-outputs
+            -Dsonar.verbose=false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

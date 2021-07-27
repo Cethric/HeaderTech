@@ -37,7 +37,7 @@ namespace HeaderTech::Core::Events::Input {
     struct FileDropEvent {
         std::vector<const char *> fileNames;
 
-        inline FileDropEvent(const std::vector<const char *> &files) noexcept:
+        inline explicit FileDropEvent(const std::vector<const char *> &files) noexcept:
                 fileNames(files)
         {}
     };

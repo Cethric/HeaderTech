@@ -37,7 +37,7 @@ namespace HeaderTech::Core::Events::Window {
     struct WindowIconifyEvent {
         bool iconify;
 
-        inline WindowIconifyEvent(bool newIconify) noexcept: iconify(newIconify)
+        inline explicit WindowIconifyEvent(bool newIconify) noexcept: iconify(newIconify)
         {}
     };
 }

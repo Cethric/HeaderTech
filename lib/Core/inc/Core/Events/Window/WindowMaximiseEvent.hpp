@@ -37,7 +37,7 @@ namespace HeaderTech::Core::Events::Window {
     struct WindowMaximiseEvent {
         bool maximise;
 
-        inline WindowMaximiseEvent(bool newMaximise) noexcept: maximise(newMaximise)
+        inline explicit WindowMaximiseEvent(bool newMaximise) noexcept: maximise(newMaximise)
         {}
     };
 }

@@ -37,7 +37,7 @@ namespace HeaderTech::Core::Events::Window {
     struct WindowFocusEvent {
         bool focused;
 
-        inline WindowFocusEvent(bool newFocused) noexcept: focused(newFocused)
+        inline explicit WindowFocusEvent(bool newFocused) noexcept: focused(newFocused)
         {}
     };
 }

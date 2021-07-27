@@ -192,3 +192,9 @@ void Window::Close()
 {
     glfwSetWindowShouldClose(m_impl->window, GLFW_TRUE);
 }
+
+void Window::Tick()
+{
+    glfwSwapBuffers(m_impl->window);
+    ProcessEvent();
+}

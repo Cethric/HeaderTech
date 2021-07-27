@@ -50,6 +50,8 @@ namespace HeaderTech::Core::Common {
 
         void Close();
 
+        void Tick();
+
     private:
         WindowImpl *m_impl;
     };

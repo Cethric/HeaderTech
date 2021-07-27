@@ -209,7 +209,10 @@ protected:
     {}
 
     void OnTick() noexcept override
-    { if (!m_window.IsOpen()) { Shutdown(); }}
+    {
+        m_window.Tick();
+        if (!m_window.IsOpen()) { Shutdown(); }
+    }
 
 private:
     HeaderTech::Core::Common::Window m_window;
